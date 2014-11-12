@@ -1,4 +1,4 @@
-Legowrk2015
+Legwork2015
 ===========
 
 This is the source code for our 2015 (because we will not finish it before this year is up) website. Feel free to take a look around. If something in here inspires you or you stumble on something we could be doing better please get in touch.
