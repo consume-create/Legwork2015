@@ -1,0 +1,1 @@
+window.Namespace = window.Namespace || {}

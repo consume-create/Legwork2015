@@ -1,0 +1,9 @@
+/public/css
+/public/js
+/dist
+/node_modules
+/public/vendor
+/.sass-cache
+.DS_Store
+*.sublime-project
+*.sublime-workspace

@@ -1,0 +1,26 @@
+{
+  "name": "Legwork Studio",
+  "version": "0.0.0",
+  "authors": [
+    "Legdevs <devs@legworkstudio.com>"
+  ],
+  "description": "The 2015 Legsite.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": null,
+    "modernizr": null,
+    "underscore": null,
+    "jquery-easing": null,
+    "history.js": null,
+    "sass-meyer-reset": null,
+    "greensock": null
+  }
+}
