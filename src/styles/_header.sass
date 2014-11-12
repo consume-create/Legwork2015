@@ -1,0 +1,99 @@
+header
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 76px
+  overflow: hidden
+  
+#header-inner
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+  text-align: center
+  overflow: hidden
+
+  #logo
+    position: absolute
+    top: 0px
+    left: 7%
+    width: 76px
+    height: 100%
+    background-image: url('/images/logo@2x.gif')
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 100%
+    overflow: hidden
+    cursor: pointer
+
+  #primary-nav
+    position: relative
+    margin: 23px 0 0
+    font-size: 0
+    line-height: 0
+    display: inline-block
+
+    .nav-item
+      position: relative
+      height: 20px
+      margin: 0 10px
+      padding: 0 10px 14px
+      color: $black
+      font-size: 14px
+      line-height: 24px
+      font-weight: $bold
+      display: inline-block
+      cursor: pointer
+
+      span
+        position: absolute
+        bottom: 8px
+        left: 10px
+        right: 10px
+        height: 3px
+        background-color: $light_gray
+
+        transition: background-color $speed $ease
+
+      &.active
+        cursor: default
+        
+        span
+          background-color: $black
+
+      &:hover
+        span
+          background-color: $black
+
+  #secondary-nav
+    position: absolute
+    top: 21px
+    right: 0px
+    height: 34px
+    font-size: 0
+    line-height: 0
+
+    a
+      height: 100%
+      width: 22px
+      height: 20px
+      margin-top: 7px
+      text-decoration: none
+      background-image: url('/images/icons-sprite@2x.png')
+      background-repeat: no-repeat
+      background-size: 22px 60px
+      display: inline-block
+      opacity: 1
+
+      transition: opacity $speed $ease
+
+      &:last-child
+        width: 15px
+        height: 20px
+        margin-left: 20px
+        background-position: 0px -40px
+
+      &:hover
+        opacity: 0.6

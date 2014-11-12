@@ -1,0 +1,24 @@
+// Highlights
+::selection
+  background: $black
+  color: $yellow
+
+::-moz-selection
+  background: $black
+  color: $yellow
+
+// Animations
+@keyframes spinner
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+// Clearfixers
+.cf:before,
+.cf:after
+  content: ''
+  display: table
+
+.cf:after
+  clear: both
