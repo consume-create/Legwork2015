@@ -1,1 +1,1 @@
-window.Namespace = window.Namespace || {}
+window.LW = window.LW || {}
