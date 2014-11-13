@@ -1,9 +1,8 @@
 <div id="header-inner">
-	<div id="logo" class="passage" data-href="/">
-	</div>
+	<a id="logo" class="ajaxy" href="/"></a>
 	<nav id="primary-nav">
-		<div class="nav-item" data-href="/about">About<span></span></div>
-		<div class="nav-item" data-href="/work">Work<span></span></div>
+		<a class="nav-item ajaxy" href="/about">About<span></span></a>
+		<a class="nav-item ajaxy" href="/work">Work<span></span></a>
 	</nav>
 	<nav id="secondary-nav">
 		<a href="mailto:hello@legworkstudio.com"></a>
