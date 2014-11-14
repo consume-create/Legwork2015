@@ -31,7 +31,11 @@ class Application
 
     LW.data = require './data'
     LW.utils = require './utils'
-    LW.router = new Routes()
+    LW.url_regex = /[^a-z0-9*:_\-~]+/gi
+    LW.router = new Routes({
+      'regex': LW.url_regex,
+      '$el': LW.$body
+    })
 
     # Class vars
     @$fallback = $('#fallback')
@@ -50,6 +54,9 @@ class Application
   | Set up the routes.
   *----------------------------------------###
   routes: ->
+    LW.router.add('/', 'Legwork Studio / Creativity. Innovation. DIY Ethic.')
+    LW.router.add('/about/~', 'Legwork Studio / About Us.')
+    LW.router.add('/work/~', 'Legwork Studio / Our Work.')
 
   ###
   *------------------------------------------*
@@ -73,6 +80,10 @@ class Application
   | Observe some sweet events.
   *----------------------------------------###
   observeSomeSweetEvents: ->
+    LW.router.on('/', @goToPage)
+    LW.router.on('/about/*', @goToPage)
+    LW.router.on('/work/*', @goToPage)
+    LW.router.onAppStateChange()
 
   ###
   *------------------------------------------*
@@ -83,6 +94,7 @@ class Application
   | Go to page.
   *----------------------------------------###
   goToPage: (route) =>
+    console.log(route)
 
   ###
   *------------------------------------------*

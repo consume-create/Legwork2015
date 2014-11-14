@@ -10,10 +10,13 @@ class Routes
   *------------------------------------------*
   | constructor:void (-)
   |
+  | init:object - init object
+  |
   | Construct.
   *----------------------------------------###
-  constructor: ->
-    LW.url_regex = /[^a-z0-9*:_\-~]+/gi
+  constructor: (init) ->
+    @url_regex = init.regex
+    @$el = init.$el
 
     @prev_state = History.getState()
     @state = History.getState()
@@ -30,7 +33,7 @@ class Routes
     History.Adapter.bind(window, 'statechange', @onAppStateChange)
 
     # Ajaxy
-    LW.$body
+    @$el
       .on('click', '.ajaxy', @onAjaxyLinkClick)
 
   ###
@@ -68,7 +71,7 @@ class Routes
   | Make a key for storing callbacks.
   *----------------------------------------### 
   sanitizeKey: (url) ->
-    return url.replace(/^\/|\/$/g, '').split('/').join(':').replace(LW.url_regex, '')
+    return url.replace(/^\/|\/$/g, '').split('/').join(':').replace(@url_regex, '')
 
   ###
   *------------------------------------------*
@@ -115,6 +118,8 @@ class Routes
         cb(@format(@state.hash))
 
       document.title = @routes[key].title
+    else
+      console.log('404')
 
   ###
   *------------------------------------------*
