@@ -122,6 +122,7 @@ class Application
   *----------------------------------------###
   goToPage: (route) =>
     console.log(route)
+    @header_c.setState()
 
   ###
   *------------------------------------------*
