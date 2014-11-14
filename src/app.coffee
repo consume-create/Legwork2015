@@ -38,6 +38,7 @@ class Application
     })
 
     # Class vars
+    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s', 'Want to see my watercolors?']
     @$fallback = $('#fallback')
     @active_c = null
 
@@ -85,6 +86,32 @@ class Application
     LW.router.on('/work/*', @goToPage)
     LW.router.onAppStateChange()
 
+    LW.$win
+      .on('blur', @stageFiveClingerMode)
+      .on('focus', @backToNormalMode)
+
+  ###
+  *------------------------------------------*
+  | stageFiveClingerMode:void (=)
+  |
+  | first:boolean - first?
+  |
+  | Don't leave us!
+  *----------------------------------------###
+  stageFiveClingerMode: (first = false) =>
+    document.title = if first is true then @clinger_titles[0] else _.sample(@clinger_titles)
+    @cling_to = setTimeout(@stageFiveClingerMode, 3000)
+
+  ###
+  *------------------------------------------*
+  | backToNormalMode:void (=)
+  |
+  | Oh, thank the good lord.
+  *----------------------------------------###
+  backToNormalMode: =>
+    clearTimeout(@cling_to)
+    document.title = LW.router.routes[LW.router.getState().key].title
+
   ###
   *------------------------------------------*
   | goToPage:void (=)
@@ -105,7 +132,6 @@ class Application
   suspend: ->
     if @active_c isnt null
       @active_c.suspend()
-
 
 module.exports = Application
 
