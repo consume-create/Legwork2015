@@ -21,6 +21,7 @@
     "jquery-easing": null,
     "history.js": null,
     "sass-meyer-reset": null,
-    "greensock": null
+    "greensock": null,
+    "pixi": "~2.1.1"
   }
 }

@@ -12,6 +12,14 @@ Routes = require './routes'
 HeaderModel = require './models/header-model'
 HeaderController = require './controllers/header-controller'
 
+# Page
+PageModel = require './models/page-model'
+PageController = require './controllers/page-controller'
+
+# Transition
+TransitionModel = require './models/transition-model'
+TransitionController = require './controllers/transition-controller'
+
 class Application
 
   ###
@@ -27,7 +35,6 @@ class Application
     LW.$html = $('html')
     LW.$body = $('body')
     LW.$app = $('#wrapper-inner')
-    LW.$sections = $('#sections')
 
     LW.data = require './data'
     LW.utils = require './utils'
@@ -38,7 +45,13 @@ class Application
     })
 
     # Class vars
-    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s', 'Want to see my watercolors?']
+    @$pages_inner = $('#pages-inner')
+    @$pages_trans = $('#pages-transition')
+    @page_m = []
+    @page_c = []
+
+    @cling_to = -1
+    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s', 'Want to see my watercolors?', 'Don\'t lie to me, boy.']
     @$fallback = $('#fallback')
     @active_c = null
 
@@ -72,6 +85,24 @@ class Application
       'model': @header_m
     })
 
+    # Home
+    # TODO: loop through and build pages
+    # TODO: append $el in a separate step?
+    # TODO: write nav buttons here?
+    @page_m['home'] = new PageModel({
+      'id': 'home',
+      '$el': $('<div id="home" class="page" />').appendTo(@$pages_inner)
+    })
+    @page_c['home'] = new PageController({
+      'model': @page_m['home']
+    })
+
+    # Transition
+    @transition_m = new TransitionModel({'$el': @$pages_trans})
+    @transition_c = new TransitionController({
+      'model': @transition_m
+    })
+
     @observeSomeSweetEvents()
 
   ###
@@ -94,12 +125,11 @@ class Application
   *------------------------------------------*
   | stageFiveClingerMode:void (=)
   |
-  | first:boolean - first?
-  |
   | Don't leave us!
   *----------------------------------------###
-  stageFiveClingerMode: (first = false) =>
-    document.title = if first is true then @clinger_titles[0] else _.sample(@clinger_titles)
+  stageFiveClingerMode: =>
+    document.title = if @cling_to is -1 then @clinger_titles[0] else _.sample(@clinger_titles)
+    clearTimeout(@cling_to)
     @cling_to = setTimeout(@stageFiveClingerMode, 3000)
 
   ###
@@ -111,6 +141,7 @@ class Application
   backToNormalMode: =>
     clearTimeout(@cling_to)
     document.title = LW.router.routes[LW.router.getState().key].title
+    @cling_to = -1
 
   ###
   *------------------------------------------*

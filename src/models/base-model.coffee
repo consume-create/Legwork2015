@@ -15,26 +15,54 @@ class BaseModel
   | Construct.
   *----------------------------------------###
   constructor: (data) ->
-    @$el = null
-    @$view = null
+    @_$el = null
+    @_$view = null
 
     @setE(data.$el)
 
+  ###
+  *------------------------------------------*
+  | getE:jQuery (-)
+  |
+  | Get element.
+  *----------------------------------------###
   getE: ->
-    return @$el
+    return @_$el
 
+  ###
+  *------------------------------------------*
+  | setE:void (-)
+  |
+  | $el:jQuery - element
+  |
+  | Set element.
+  *----------------------------------------###
   setE: ($el) ->
     if $el.length > 0
-      @$el = $el
+      @_$el = $el
     else
       throw 'ERROR: $el does not exist'
 
+  ###
+  *------------------------------------------*
+  | getV:jQuery (-)
+  |
+  | Get view.
+  *----------------------------------------###
   getV: ->
-    return @$view
+    return @_$view
 
+  ###
+  *------------------------------------------*
+  | setV:void (-)
+  |
+  | $view:jQuery - element
+  |
+  | Set view.
+  *----------------------------------------###
   setV: ($view) ->
     if $view.length > 0
-      @$view = $view
+      @_$view = $view
     else
       throw 'ERROR: $view does not exist'
 
