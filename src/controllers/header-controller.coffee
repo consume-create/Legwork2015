@@ -28,6 +28,15 @@ class HeaderController
     @model.setV($(JST['header-view'](LW.data)))
     @model.getE().append(@model.getV())
 
+    # Build nav elements based on pages
+    $html = ''
+    for id, page of LW.data.pages
+      if id isnt 'home'
+        $html += '<a class="nav-item ajaxy" data-id="' + id + '" href="/' + id + '">' + id + '<span></span></a>'
+
+    # Append primary nav elements
+    $('#primary-nav').append($html)
+
     # Class vars
     @$nav_item = $('.nav-item', @model.getV())
 
@@ -65,10 +74,12 @@ class HeaderController
   setState: ->
     k = LW.router.getState().key.split(':')[0]
     @$nav_item.removeClass('active')
+    console.log 'remove active nav links'
 
     # @$nav_item.eq(0).addClass('active')
     for id, page of LW.data.pages
       if id is k
+        console.log id, k
         $('.nav-item[data-id="' + id + '"]', @model.getV()).addClass('active')
         break
 

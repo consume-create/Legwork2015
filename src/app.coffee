@@ -88,20 +88,13 @@ class Application
       'model': @header_m
     })
 
-    # Build flexible MC's and primary nav based on pages
-    $nav_html = ''
+    # Build flexible MC's based on pages
     for id, page of LW.data.pages
       $el = $('<div id="' + id + '" class="page" />').appendTo(@$pages_inner)
       @page_m[id] = new PageModel({'id': id, '$el': $el})
       @page_c[id] = new PageController({
         'model': @page_m[id]
       })
-
-      if id isnt 'home'
-        $nav_html += '<a class="nav-item ajaxy" data-id="' + id + '" href="/' + id + '">' + id + '<span></span></a>'
-
-    # Append $nav elements
-    $('#primary-nav').append($nav_html)
 
     # Transition
     @transition_m = new TransitionModel({'$el': @$pages_trans})
