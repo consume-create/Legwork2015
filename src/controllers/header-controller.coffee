@@ -74,11 +74,6 @@ class HeaderController
   setState: ->
     k = LW.router.getState().key.split(':')[0]
     @$nav_item.removeClass('active')
-
-    # @$nav_item.eq(0).addClass('active')
-    for id, page of LW.data.pages
-      if id is k
-        $('.nav-item[data-id="' + id + '"]', @model.getV()).addClass('active')
-        break
+    $('.nav-item[data-id="' + k + '"]', @model.getV()).addClass('active')
 
 module.exports = HeaderController
