@@ -28,15 +28,6 @@ class HeaderController
     @model.setV($(JST['header-view'](LW.data)))
     @model.getE().append(@model.getV())
 
-    # Build nav elements based on pages
-    $html = ''
-    for id, page of LW.data.pages
-      if id isnt 'home'
-        $html += '<a class="nav-item ajaxy" data-id="' + id + '" href="/' + id + '">' + id + '<span></span></a>'
-
-    # Append primary nav elements
-    $('#primary-nav').append($html)
-
     # Class vars
     @$nav_item = $('.nav-item', @model.getV())
 
@@ -65,15 +56,26 @@ class HeaderController
 
   ###
   *------------------------------------------*
+  | buildACoolButton:String (-)
+  |
+  | id:object - id
+  |
+  | Build and append primary nav links.
+  *----------------------------------------###
+  buildACoolButton: (id) ->
+    $nav_item = '<a class="nav-item ajaxy" data-id="' + id + '" href="/' + id + '">' + id + '<span></span></a>'
+    $('#primary-nav').append($nav_item)
+
+  ###
+  *------------------------------------------*
   | setState:void (-)
   |
   | Set nav state.
-  | Lazy version, set only active on
-  | About or Work, do nothing for landing.
   *----------------------------------------###
   setState: ->
     k = LW.router.getState().key.split(':')[0]
-    @$nav_item.removeClass('active')
+
+    $('.nav-item', @model.getV()).removeClass('active')
     $('.nav-item[data-id="' + k + '"]', @model.getV()).addClass('active')
 
 module.exports = HeaderController

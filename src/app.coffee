@@ -96,6 +96,10 @@ class Application
         'model': @page_m[id]
       })
 
+      # Build cool nav buttons
+      if id isnt 'home'
+        @header_c.buildACoolButton(id)
+
     # Transition
     @transition_m = new TransitionModel({'$el': @$pages_trans})
     @transition_c = new TransitionController({
