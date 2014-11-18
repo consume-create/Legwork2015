@@ -86,16 +86,13 @@ class Application
     })
 
     # Home
-    # TODO: loop through and build pages
-    # TODO: append $el in a separate step?
     # TODO: write nav buttons here?
-    @page_m['home'] = new PageModel({
-      'id': 'home',
-      '$el': $('<div id="home" class="page" />').appendTo(@$pages_inner)
-    })
-    @page_c['home'] = new PageController({
-      'model': @page_m['home']
-    })
+    for id, page of LW.data.pages
+      $el = $('<div id="' + id + '" class="page" />').appendTo(@$pages_inner)
+      @page_m[id] = new PageModel({'id': id, '$el': $el})
+      @page_c[id] = new PageController({
+        'model': @page_m[id]
+      })
 
     # Transition
     @transition_m = new TransitionModel({'$el': @$pages_trans})
