@@ -36,7 +36,7 @@ class Application
     LW.$body = $('body')
     LW.$app = $('#wrapper-inner')
 
-    LW.data = require './data'
+    LW.data = require './data/index'
     LW.utils = require './utils'
     LW.url_regex = /[^a-z0-9*:_\-~]+/gi
     LW.router = new Routes({
