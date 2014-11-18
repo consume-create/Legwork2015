@@ -43,4 +43,22 @@ class PageController
       'model': @slide_m[0]
     })
 
+  ###
+  *------------------------------------------*
+  | activate:void (-)
+  |
+  | Activate.
+  *----------------------------------------###
+  activate: ->
+    @model.getE().show()
+
+  ###
+  *------------------------------------------*
+  | suspend:void (-)
+  |
+  | Activate.
+  *----------------------------------------###
+  suspend: ->
+    @model.getE().hide()
+
 module.exports = PageController

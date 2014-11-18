@@ -68,9 +68,12 @@ class Application
   | Set up the routes.
   *----------------------------------------###
   routes: ->
-    LW.router.add('/', 'Legwork Studio / Creativity. Innovation. DIY Ethic.')
-    LW.router.add('/about/~', 'Legwork Studio / About Us.')
-    LW.router.add('/work/~', 'Legwork Studio / Our Work.')
+    # Add flexible routes based on pages
+    for id, page of LW.data.pages
+      if id is 'home'
+        LW.router.add('/' + id + '/', 'Legwork Studio / ' + page.title + '')
+      else
+        LW.router.add('/' + id + '/~', 'Legwork Studio / ' + page.title + '')
 
   ###
   *------------------------------------------*
@@ -85,14 +88,20 @@ class Application
       'model': @header_m
     })
 
-    # Home
-    # TODO: write nav buttons here?
+    # Build flexible MC's and primary nav based on pages
+    $nav_html = ''
     for id, page of LW.data.pages
       $el = $('<div id="' + id + '" class="page" />').appendTo(@$pages_inner)
       @page_m[id] = new PageModel({'id': id, '$el': $el})
       @page_c[id] = new PageController({
         'model': @page_m[id]
       })
+
+      if id isnt 'home'
+        $nav_html += '<a class="nav-item ajaxy" data-id="' + id + '" href="/' + id + '">' + id + '<span></span></a>'
+
+    # Append $nav elements
+    $('#primary-nav').append($nav_html)
 
     # Transition
     @transition_m = new TransitionModel({'$el': @$pages_trans})
@@ -109,9 +118,14 @@ class Application
   | Observe some sweet events.
   *----------------------------------------###
   observeSomeSweetEvents: ->
-    LW.router.on('/', @goToPage)
-    LW.router.on('/about/*', @goToPage)
-    LW.router.on('/work/*', @goToPage)
+    # Add flexible router event listeners based on pages
+    for id, page of LW.data.pages
+      if id is 'home'
+        LW.router.on('/', @goToPage)
+      else
+        LW.router.on('/' + id + '/*', @goToPage)
+
+    # Observe the initial route
     LW.router.onAppStateChange()
 
     LW.$win
@@ -149,8 +163,20 @@ class Application
   | Go to page.
   *----------------------------------------###
   goToPage: (route) =>
-    console.log(route)
+    for id, page of LW.data.pages
+      if id is route.key
+        page = @page_c[id]
+        break
+
     @header_c.setState()
+    
+    if @active_c isnt null
+      @suspend()
+      page.activate()
+      @active_c = page
+    else
+      page.activate()
+      @active_c = page
 
   ###
   *------------------------------------------*

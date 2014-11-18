@@ -66,9 +66,10 @@ class HeaderController
     k = LW.router.getState().key.split(':')[0]
     @$nav_item.removeClass('active')
 
-    if k is 'about'
-      @$nav_item.eq(0).addClass('active')
-    if k is 'work'
-      @$nav_item.eq(1).addClass('active')
+    # @$nav_item.eq(0).addClass('active')
+    for id, page of LW.data.pages
+      if id is k
+        $('.nav-item[data-id="' + id + '"]', @model.getV()).addClass('active')
+        break
 
 module.exports = HeaderController

@@ -13,12 +13,15 @@ work_slides = [test_work]
 data = {
 	"pages": {
 		"home": {
+			"title": "Creativity. Innovation. DIY Ethic.",
 			"slides": home_slides
 		},
 		"about": {
+			"title": "About Us.",
 			"slides": about_slides
 		},
 		"work": {
+			"title": "Our Work.",
 			"slides": work_slides
 		}
 	}
