@@ -74,12 +74,10 @@ class HeaderController
   setState: ->
     k = LW.router.getState().key.split(':')[0]
     @$nav_item.removeClass('active')
-    console.log 'remove active nav links'
 
     # @$nav_item.eq(0).addClass('active')
     for id, page of LW.data.pages
       if id is k
-        console.log id, k
         $('.nav-item[data-id="' + id + '"]', @model.getV()).addClass('active')
         break
 
