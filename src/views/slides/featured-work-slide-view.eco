@@ -1,4 +1,4 @@
-<div class="slide featured-work">
+<div class="slide-inner">
 	<!-- Image zone -->
 	<div class="image-zone">
 	</div>
@@ -13,8 +13,8 @@
 			</div>
 		</div>
 		<div class="callouts cf">
-			<div class="callout about"><span class="copy">About</span><span class="icon"></span></div>
-			<a class="callout launch" href="http://theboxtrolls.com" target="_new"><span class="copy">Launch</span><span class="icon"></span></a>
+			<div class="callout"><span class="copy">About</span><span class="icon"></span></div>
+			<a class="callout" href="http://theboxtrolls.com" target="_new"><span class="copy">Launch</span><span class="icon"></span></a>
 		</div>
 	</div>
 	<!-- Meta zone -->
@@ -28,5 +28,18 @@
 			<li></li>
 			<li></li>
 		</ul>
+	</div>
+	<!-- Detail zone -->
+	<div class="detail-zone">
+		<div class="cell video-cell">
+			<div class="video-poster"><span>See How We Made It</span></div>
+		</div>
+		<div class="cell summary-cell">
+			<div class="cell-inner">
+				<h3>Dare To Be Square</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.</p>
+				<div class="services">Strategy, UX, Art Direction, Design, Development</div>
+			</div>
+		</div>
 	</div>
 </div>
