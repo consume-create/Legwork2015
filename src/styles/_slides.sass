@@ -10,11 +10,35 @@
 // Featured work slide
 // -----------------------------------------------
 .slide.featured-work
+  
+  // ---------------------------------------------
+  // Image zone
+  // ---------------------------------------------
+
+  .image-zone
+    position: absolute
+    top: 0px
+    left: 50%
+    width: 100%
+    height: 100%
+    background-color: rgb(3,171,140)
+    background-image: url('/images/work/boxtrolls.jpg')
+    background-repeat: no-repeat
+    background-position: left bottom
+    background-size: contain
+    background-blend-mode: multiply
+    overflow: hidden
+  
+  // ---------------------------------------------
+  // Title zone
+  // ---------------------------------------------
+
   .title-zone
     position: absolute
     top: 50%
     left: 7%
-    right: 7%
+    right: 50%
+    cursor: pointer
 
     transform: translate(0,-50%)
 
@@ -23,7 +47,7 @@
       width: 100%
       height: 210px
       overflow: hidden
-      cursor: default
+      cursor: pointer
     
       .line-holder
         position: absolute
@@ -44,12 +68,6 @@
           width: 100%
           height: 100%
           overflow: hidden
-          opacity: 1
-
-          transition: opacity $speed $evil_ease
-
-          &.active
-            opacity: 1
 
           span
             position: relative
@@ -73,22 +91,120 @@
     .callouts
       position: relative
       width: 100%
-      height: 56px
-      margin: 20px 0 0
+      height: 76px
       font-size: 0
       line-height: 0
       overflow: hidden
 
       .callout
+        float: left
         position: relative
-        width: 80px
         height: 100%
-        margin: 0 40px 0 0
+        padding: 0 20px
         color: $white
         font-family: $inconsolata
         font-size: 14px
-        line-height: 56px
+        line-height: 76px
         font-weight: $bold
-        display: inline-block
         cursor: pointer
 
+        &:first-child
+          padding: 0 20px 0 0
+
+        &:last-child
+          padding: 0 0 0 20px
+
+        .copy
+          float: left
+          position: relative
+
+        .icon
+          float: left
+          position: relative
+          width: 25px
+          height: 100%
+          margin: 0 0 0 12px
+          overflow: hidden
+          display: inline-block
+
+          &:before
+            content: ''
+            position: absolute
+            top: 50%
+            left: 0px
+            width: 14px
+            height: 2px
+            margin: -1px 0 0
+            background-color: $white
+
+          &:after
+            content: ''
+            position: absolute
+            top: 50%
+            left: 12px
+            width: 0
+            height: 0
+            margin: -4px 0 0
+            border-top: 4px solid transparent
+            border-bottom: 4px solid transparent
+            border-left: 6px solid $white
+
+  // ---------------------------------------------
+  // Meta zone
+  // ---------------------------------------------
+
+  .meta-zone
+    position: absolute
+    bottom: 6%
+    left: 7%
+    right: 50%
+
+    ul
+      float: left
+      position: relative
+      width: 24%
+      min-width: 234px
+      font-size: 0
+      line-height: 0
+
+      &:before
+        content: 'Client(s)'
+        position: absolute
+        bottom: 0px
+        left: 10px
+        height: 10px
+        color: $black
+        font-family: $inconsolata
+        font-size: 9px
+        line-height: 10px
+        font-weight: $bold
+        letter-spacing: 1px
+        text-transform: uppercase
+
+        transform: rotate(-90deg)
+        transform-origin: bottom left
+
+      &.mediums:before
+        content: 'Medium(s)'
+
+      li
+        float: left
+        position: relative
+        width: 42px
+        height: 22px
+        margin: 0 14px 0 0
+        box-shadow: inset 0px 0px 0px 2px $black
+
+        &:first-child
+          margin: 0 14px 0 22px
+
+        a
+          position: absolute
+          top: 0px
+          left: 0px
+          width: 100%
+          height: 100%
+
+      &:last-child
+        li:last-child
+          width: 13px
