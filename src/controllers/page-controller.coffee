@@ -35,12 +35,10 @@ class PageController
     @model.setV($('<div id="' + @model.getId() + '-page-inner" class="page-inner"/>'))
     @model.getE().append(@model.getV())
 
-    console.log(@model.getSlideData())
-
+    # Loop and create page slides
     for id, slide of @model.getSlideData()
-      @slide_m[id] = new FeaturedWorkSlideModel({
-        '$el': @model.getV() # TODO: for now
-      })
+      $el = $('<div id="' + @model.getId() + '-' + id + '" class="slide" />').appendTo(@model.getV())
+      @slide_m[id] = new FeaturedWorkSlideModel({'$el': $el})
       @slide_c[id] = new FeaturedWorkSlideController({
         'model': @slide_m[id]
       })
