@@ -1,0 +1,17 @@
+<div class="slide featured-work">
+	<!-- Title zone -->
+	<div class="title-zone">
+		<div class="title-holder">
+			<div class="line-holder">
+				<h2><span>The</span></h2>
+			</div>
+			<div class="line-holder">
+				<h2><span>Boxtrolls</span></h2>
+			</div>
+		</div>
+		<div class="callouts">
+			<h4 class="callout">About<span class="icon"></span></h4>
+			<a class="callout" href="http://theboxtrolls.com" target="_new">Launch<span class="icon"></span></a>
+		</div>
+	</div>
+</div>

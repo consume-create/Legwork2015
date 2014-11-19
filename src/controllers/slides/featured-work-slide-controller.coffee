@@ -28,6 +28,9 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   build: ->
     super()
+    @model.setV($(JST['featured-work-slide-view']()))
+    @model.getE().append(@model.getV())
+
     console.log('featured work slide')
 
 module.exports = FeaturedWorkSlideController
