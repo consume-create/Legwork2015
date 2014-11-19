@@ -16,6 +16,10 @@ LW.slide_types.LANDING = 1
 LW.slide_types.FEATURED_WORK = 2
 
 # Medium constants
+
+# NOTE:
+# To add a new medium, add it to ./styles/_slides.sass and ./public/images/mediums-sprite@2x.png
+
 LW.mediums = {}
 LW.mediums.DESKTOP = "desktop"
 LW.mediums.MOBILE = "mobile"
