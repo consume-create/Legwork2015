@@ -14,3 +14,9 @@ LW.slide_types = {}
 LW.slide_types.HOME = 0
 LW.slide_types.LANDING = 1
 LW.slide_types.FEATURED_WORK = 2
+
+# Medium constants
+LW.mediums = {}
+LW.mediums.DESKTOP = "desktop"
+LW.mediums.MOBILE = "mobile"
+LW.mediums.MOTION = "motion"

@@ -63,7 +63,9 @@ class PageController
             'model': @slide_m[id]
           })
         when LW.slide_types.FEATURED_WORK
-          @slide_m[id] = new FeaturedWorkSlideModel({'$el': $el})
+          @slide_m[id] = new FeaturedWorkSlideModel({
+            '$el': $el
+          })
           @slide_c[id] = new FeaturedWorkSlideController({
             'model': @slide_m[id]
           })
