@@ -35,13 +35,15 @@ class PageController
     @model.setV($('<div id="' + @model.getId() + '-page-inner" class="page-inner"/>'))
     @model.getE().append(@model.getV())
 
-    # TODO: loop through data and create
-    @slide_m[0] = new FeaturedWorkSlideModel({
-      '$el': @model.getV() # TODO: for now
-    })
-    @slide_c[0] = new FeaturedWorkSlideController({
-      'model': @slide_m[0]
-    })
+    console.log(@model.getSlideData())
+
+    for id, slide of @model.getSlideData()
+      @slide_m[id] = new FeaturedWorkSlideModel({
+        '$el': @model.getV() # TODO: for now
+      })
+      @slide_c[id] = new FeaturedWorkSlideController({
+        'model': @slide_m[id]
+      })
 
   ###
   *------------------------------------------*

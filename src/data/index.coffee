@@ -1,28 +1,43 @@
+# Import page / slide data
+
 # Home
-test_home = require "./work/some-project"
-home_slides = [test_home]
+home = require "./home/landing"
 
 # About
-test_about = require "./work/some-project"
-about_slides = [test_about]
+about = require "./about/landing"
 
 # Work
-test_work = require "./work/some-project"
-work_slides = [test_work]
+work = require "./work/landing"
+some_project = require "./work/some-project"
+some_other_project = require "./work/some-project"
+
+
+# Describe the structure of the site
+
+# NOTE:
+# Adding to the "pages" object adds a page to the site with a button in the main nav.
+# Adding to the "slides" object within a page adds a slide to the page. A landing slide
+# is required. The slide will URL will be "/[page object key]" for the landing slide and
+# will be "/[page object key]/[slide object key]" for any subsequent slides.
 
 data = {
 	"pages": {
 		"home": {
-			"title": "Creativity. Innovation. DIY Ethic.",
-			"slides": home_slides
+			"slides": {
+				"landing": home
+			}
 		},
 		"about": {
-			"title": "About Us.",
-			"slides": about_slides
+			"slides": {
+				"landing": about
+			}
 		},
 		"work": {
-			"title": "Our Work.",
-			"slides": work_slides
+			"slides": {
+				"landing": home,
+				"some-project": some_project,
+				"some-other-project": some_other_project
+			}
 		}
 	}
 }

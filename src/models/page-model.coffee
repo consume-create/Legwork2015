@@ -23,6 +23,9 @@ class PageModel extends BaseModel
     @_id = ''
     @setId(data.id)
 
+    @_slide_data = null
+    @setSlideData(data.slides)
+
   ###
   *------------------------------------------*
   | getId:String (-)
@@ -42,5 +45,25 @@ class PageModel extends BaseModel
   *----------------------------------------###
   setId: (id) ->
     @_id = id
+
+  ###
+  *------------------------------------------*
+  | getSlideData:Object (-)
+  |
+  | Get slide data.
+  *----------------------------------------###
+  getSlideData: ->
+    return @_slide_data
+
+  ###
+  *------------------------------------------*
+  | setSlideData:void (-)
+  |
+  | data:object - data
+  |
+  | Set slide data.
+  *----------------------------------------###
+  setSlideData: (data) ->
+    @_slide_data = data
 
 module.exports = PageModel

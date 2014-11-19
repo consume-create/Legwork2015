@@ -68,12 +68,20 @@ class Application
   | Set up the routes.
   *----------------------------------------###
   routes: ->
-    # Add flexible routes based on pages
-    for id, page of LW.data.pages
-      if id is 'home'
-        LW.router.add('/' + id + '/', 'Legwork Studio / ' + page.title + '')
-      else
-        LW.router.add('/' + id + '/~', 'Legwork Studio / ' + page.title + '')
+    # Add routes from structure defined in ./data/index
+    for page_url, page of LW.data.pages
+      for slide_url, slide of page.slides
+
+        # Build the route
+        if page_url is 'home' and slide_url is 'landing'
+          r = '/'
+        else if slide_url is 'landing'
+          r = '/' + page_url
+        else
+          r = '/' + page_url + '/' + slide_url
+
+        # Add it
+        LW.router.add(r, slide.browser_title)
 
   ###
   *------------------------------------------*
@@ -88,10 +96,10 @@ class Application
       'model': @header_m
     })
 
-    # Build flexible MC's based on pages
+    # Build page models / controllers
     for id, page of LW.data.pages
       $el = $('<div id="' + id + '" class="page" />').appendTo(@$pages_inner)
-      @page_m[id] = new PageModel({'id': id, '$el': $el})
+      @page_m[id] = new PageModel({'id': id, 'slides': page.slides, '$el': $el})
       @page_c[id] = new PageController({
         'model': @page_m[id]
       })
@@ -115,14 +123,15 @@ class Application
   | Observe some sweet events.
   *----------------------------------------###
   observeSomeSweetEvents: ->
-    # Add flexible router event listeners based on pages
-    for id, page of LW.data.pages
-      if id is 'home'
-        LW.router.on('/', @goToPage)
-      else
-        LW.router.on('/' + id + '/*', @goToPage)
+    # Add callbacks for routes
+    for page_url, page of LW.data.pages
+      for slide_url, slide of page.slides
+        if page_url is 'home' and slide_url is 'landing'
+          LW.router.on('/', @goToPage)
+        else
+          LW.router.on('/' + page_url + '/*', @goToPage)
 
-    # Observe the initial route
+    # Trigger the initial route
     LW.router.onAppStateChange()
 
     LW.$win

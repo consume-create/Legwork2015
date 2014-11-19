@@ -1,5 +1,5 @@
 data = {
-	"browser_title": "Legwork Studio / Some Project",
+	"browser_title": "Legwork Studio / Our Work",
 	"slide_type": "x"
 }
 
