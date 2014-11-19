@@ -1,0 +1,94 @@
+.slide
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+// -----------------------------------------------
+// Featured work slide
+// -----------------------------------------------
+.slide.featured-work
+  .title-zone
+    position: absolute
+    top: 50%
+    left: 7%
+    right: 7%
+
+    transform: translate(0,-50%)
+
+    .title-holder
+      position: relative
+      width: 100%
+      height: 210px
+      overflow: hidden
+      cursor: default
+    
+      .line-holder
+        position: absolute
+        top: 0px
+        left: 0px
+        width: 100%
+        height: 90px
+        overflow: hidden
+        
+        transform: translate3d(0,0%,0)
+
+        &:last-child
+          top: auto
+          bottom: 0px
+
+        h2
+          position: relative
+          width: 100%
+          height: 100%
+          overflow: hidden
+          opacity: 1
+
+          transition: opacity $speed $evil_ease
+
+          &.active
+            opacity: 1
+
+          span
+            position: relative
+            height: 60px
+            padding: 0 0 30px
+            color: $white
+            font-size: 66px
+            line-height: 56px
+            font-weight: $bold
+            display: inline-block
+
+            &:after
+              content: ''
+              position: absolute
+              bottom: 0px
+              left: 0px
+              width: 100%
+              height: 10px
+              background-color: $black
+
+    .callouts
+      position: relative
+      width: 100%
+      height: 56px
+      margin: 20px 0 0
+      font-size: 0
+      line-height: 0
+      overflow: hidden
+
+      .callout
+        position: relative
+        width: 80px
+        height: 100%
+        margin: 0 40px 0 0
+        color: $white
+        font-family: $inconsolata
+        font-size: 14px
+        line-height: 56px
+        font-weight: $bold
+        display: inline-block
+        cursor: pointer
+
