@@ -11,9 +11,9 @@ window.LW = window.LW || {}
 # 4. Require the model and controller in the page controller and add a condition to the build method
 
 LW.slide_types = {}
-LW.slide_types.HOME = 0
-LW.slide_types.LANDING = 1
-LW.slide_types.FEATURED_WORK = 2
+LW.slide_types.HOME = 'home'
+LW.slide_types.LANDING = 'landing'
+LW.slide_types.FEATURED_WORK = 'featured-work'
 
 # Medium constants
 
