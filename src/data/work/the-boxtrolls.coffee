@@ -3,12 +3,10 @@ data = {
 	"slide_type": LW.slide_types.FEATURED_WORK,
 	"title": ["The", "Boxtrolls"],
 	"launch_url": "http://www.theboxtrolls.com",
+	# TODO: fallback png / opacity for picture_src?
 	"picture_src": "/images/work/boxtrolls.jpg",
 	"clients": [
-		{
-			"name": "",
-			"logo_src": ""
-		}
+		"/images/client-logos/nike.png"
 	],
 	"mediums": [
 		LW.mediums.DESKTOP,

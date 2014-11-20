@@ -20,7 +20,7 @@ LW.slide_types.FEATURED_WORK = 2
 # NOTE:
 # To add a new medium, add it to ./styles/_slides.sass and ./public/images/mediums-sprite@2x.png
 
-LW.mediums = {}
+LW.mediums = []
 LW.mediums.DESKTOP = "desktop"
 LW.mediums.MOBILE = "mobile"
 LW.mediums.MOTION = "motion"
