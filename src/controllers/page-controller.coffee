@@ -36,8 +36,12 @@ class PageController
   | Build.
   *----------------------------------------###
   build: ->
-    @model.setV($('<div id="' + @model.getId() + '-page-inner" class="page-inner"/>'))
+    @model.setV($(JST['page-view']({'id': @model.getId()})))
     @model.getE().append(@model.getV())
+
+    # Cache selectors
+    @$slide_wrapper = $('.slides-wrapper', @model.getV())
+    @$page_nav = $('.page-nav', @model.getV())
 
     # Loop and create page slides
 
@@ -49,7 +53,7 @@ class PageController
     # 4. Require the model and controller in the page controller and add a condition to the build method
 
     for id, slide of @model.getSlideData()
-      $el = $('<div id="' + @model.getId() + '-' + id + '" class="slide featured-work" />').appendTo(@model.getV())
+      $el = $('<div id="' + @model.getId() + '-' + id + '" class="slide ' + slide.slide_type + '" />').appendTo(@$slide_wrapper)
 
       switch slide.slide_type
         when LW.slide_types.HOME

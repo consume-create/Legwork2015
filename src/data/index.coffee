@@ -33,7 +33,7 @@ data = {
 		},
 		"work": {
 			"slides": {
-				"landing": home,
+				"landing": work,
 				"the-boxtrolls": the_boxtrolls
 			}
 		}

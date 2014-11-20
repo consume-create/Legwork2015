@@ -1,0 +1,4 @@
+<div id="<%= @id %>-page-inner" class="page-inner">
+	<div id="<%= @id %>-page-slides" class="slides-wrapper"></div>
+	<ul id="<%= @id %>-page-nav" class="page-nav"></ul>
+</div>
