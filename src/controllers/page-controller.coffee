@@ -64,7 +64,21 @@ class PageController
           })
         when LW.slide_types.FEATURED_WORK
           @slide_m[id] = new FeaturedWorkSlideModel({
-            '$el': $el
+            '$el': $el,
+            'title': slide.title,
+            'launch_url': slide.launch_url,
+            'picture_src': slide.picture_src,
+            'clients': slide.clients,
+            'mediums': [
+              LW.mediums.DESKTOP,
+              LW.mediums.MOBILE
+            ],
+            'poster_src': slide.details.poster_src,
+            'poster_cta': slide.details.poster_cta,
+            'vimeo_id': slide.details.vimeo_id,
+            'descr_title': slide.details.descr_title,
+            'descr_text': slide.details.descr_text,
+            'services': slide.details.services
           })
           @slide_c[id] = new FeaturedWorkSlideController({
             'model': @slide_m[id]
