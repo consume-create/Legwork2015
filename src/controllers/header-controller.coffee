@@ -28,8 +28,8 @@ class HeaderController
     @model.setV($(JST['header-view'](LW.data)))
     @model.getE().append(@model.getV())
 
-    # Class vars
-    @$nav_item = $('.nav-item', @model.getV())
+    # Cache selectors
+    @$primary_nav = $('#primary-nav')
 
     # Observe
     @observeSomeSweetEvents()
@@ -41,7 +41,7 @@ class HeaderController
   | Observe some sweet events.
   *----------------------------------------###
   observeSomeSweetEvents: ->
-    @$nav_item.on('click', @onClickNavItem)
+    @$primary_nav.on('click', '.nav-item', @onClickNavItem)
 
   ###
   *------------------------------------------*
@@ -63,19 +63,19 @@ class HeaderController
   | Build and append primary nav links.
   *----------------------------------------###
   buildACoolButton: (id) ->
-    $nav_item = '<a class="nav-item ajaxy" data-id="' + id + '" href="/' + id + '">' + id + '<span></span></a>'
-    $('#primary-nav').append($nav_item)
+    @$primary_nav.append('<a class="nav-item ajaxy" data-id="' + id + '" href="/' + id + '">' + id + '<span></span></a>')
+    @$nav_items = $('.nav-item', @model.getV())
 
   ###
   *------------------------------------------*
   | setState:void (-)
   |
+  | state:string
+  |
   | Set nav state.
   *----------------------------------------###
-  setState: ->
-    k = LW.router.getState().key.split(':')[0]
-
-    $('.nav-item', @model.getV()).removeClass('active')
-    $('.nav-item[data-id="' + k + '"]', @model.getV()).addClass('active')
+  setState: (state) ->
+    @$nav_items.removeClass('active')
+    @$nav_items.filter('[data-id="' + state + '"]').addClass('active')
 
 module.exports = HeaderController

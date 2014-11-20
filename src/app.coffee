@@ -169,20 +169,12 @@ class Application
   | Go to page.
   *----------------------------------------###
   goToPage: (route) =>
-    for id, page of LW.data.pages
-      if id is route.key
-        page = @page_c[id]
-        break
+    id = route.key.split(':')[0]
 
-    @header_c.setState()
-    
-    if @active_c isnt null
-      @suspend()
-      page.activate()
-      @active_c = page
-    else
-      page.activate()
-      @active_c = page
+    @suspend()
+    @header_c.setState(id)
+    @page_c[id].activate()
+    @active_c = @page_c[id]
 
   ###
   *------------------------------------------*
