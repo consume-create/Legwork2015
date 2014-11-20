@@ -1,309 +1,322 @@
 .slide.featured-work
-  
-  // ---------------------------------------------
-  // Image zone
-  // ---------------------------------------------
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
 
-  .image-zone
+  .slide-inner
     position: absolute
     top: 0px
-    left: 50%
+    left: 0px
     width: 100%
     height: 100%
-    background-color: rgb(3,171,140)
-    background-image: url('/images/work/boxtrolls.jpg')
-    background-repeat: no-repeat
-    background-position: left bottom
-    background-size: contain
-    background-blend-mode: multiply
     overflow: hidden
   
-  // ---------------------------------------------
-  // Title zone
-  // ---------------------------------------------
+    // ---------------------------------------------
+    // Image zone
+    // ---------------------------------------------
 
-  .title-zone
-    position: absolute
-    top: 50%
-    left: 100px
-    right: 100px
-
-    transform: translate(0,-50%)
-
-    .title-holder
-      position: relative
+    .image-zone
+      position: absolute
+      top: 0px
+      left: 50%
       width: 100%
-      height: 210px
+      height: 100%
+      background-color: rgb(3,171,140)
+      background-image: url('/images/work/boxtrolls.jpg')
+      background-repeat: no-repeat
+      background-position: left bottom
+      background-size: contain
+      background-blend-mode: multiply
       overflow: hidden
     
-      .line-holder
-        position: absolute
-        top: 0px
-        left: 0px
+    // ---------------------------------------------
+    // Title zone
+    // ---------------------------------------------
+
+    .title-zone
+      position: absolute
+      top: 50%
+      left: 100px
+      right: 100px
+
+      transform: translate(0,-50%)
+
+      .title-holder
+        position: relative
         width: 100%
-        height: 90px
+        height: 210px
         overflow: hidden
-        
-        transform: translate3d(0,0%,0)
-
-        &:last-child
-          top: auto
-          bottom: 0px
-
-        h2
-          position: relative
-          height: 100%
-          overflow: hidden
-          display: inline-block
-          cursor: pointer
-
-          span
-            position: relative
-            height: 60px
-            padding: 0 0 30px
-            color: $white
-            font-size: 66px
-            line-height: 56px
-            font-weight: $bold
-            display: inline-block
-
-            &:after
-              content: ''
-              position: absolute
-              bottom: 0px
-              left: 0px
-              width: 100%
-              height: 10px
-              background-color: $black
-
-    .callouts
-      position: relative
-      width: 100%
-      height: 76px
-      font-size: 0
-      line-height: 0
-      overflow: hidden
-
-      .callout
-        float: left
-        position: relative
-        height: 100%
-        padding: 0 20px
-        color: $white
-        font-family: $inconsolata
-        font-size: 14px
-        line-height: 76px
-        letter-spacing: 1px
-        cursor: pointer
-
-        &:first-child
-          padding: 0 20px 0 0
-
-        &:last-child
-          padding: 0 0 0 20px
-
-        .copy
-          float: left
-          position: relative
-
-        .icon
-          float: left
-          position: relative
-          width: 25px
-          height: 100%
-          margin: 0 0 0 12px
-          overflow: hidden
-          display: inline-block
-
-          &:before
-            content: ''
-            position: absolute
-            top: 50%
-            left: 0px
-            width: 14px
-            height: 2px
-            margin: -1px 0 0
-            background-color: $white
-
-          &:after
-            content: ''
-            position: absolute
-            top: 50%
-            left: 12px
-            width: 0
-            height: 0
-            margin: -4px 0 0
-            border-top: 4px solid transparent
-            border-bottom: 4px solid transparent
-            border-left: 6px solid $white
-
-  // ---------------------------------------------
-  // Meta zone
-  // ---------------------------------------------
-
-  .meta-zone
-    position: absolute
-    bottom: 40px
-    left: 100px
-    right: 100px
-
-    ul
-      float: left
-      position: relative
-      width: 234px
-
-      &:before
-        content: 'Client(s)'
-        position: absolute
-        bottom: 0px
-        left: 10px
-        height: 10px
-        color: $black
-        font-family: $inconsolata
-        font-size: 9px
-        line-height: 10px
-        letter-spacing: 1px
-        text-transform: uppercase
-        display: block
-
-        transform: rotate(-90deg) translate3d(0,0,0)
-        transform-origin: bottom left
-
-      &.mediums:before
-        content: 'Medium(s)'
-
-      li
-        float: left
-        position: relative
-        width: 42px
-        height: 22px
-        margin: 0 14px 0 0
-        box-shadow: inset 0px 0px 0px 2px $black
-
-        &:first-child
-          margin: 0 14px 0 22px
-
-        a
+      
+        .line-holder
           position: absolute
           top: 0px
           left: 0px
           width: 100%
-          height: 100%
-
-      &:last-child
-        li:last-child
-          width: 13px
-
-  // ---------------------------------------------
-  // Detail zone
-  // ---------------------------------------------
-
-  .detail-zone
-    position: absolute
-    top: 0px
-    left: 50%
-    width: 50%
-    height: 100%
-    overflow: hidden
-    display: none
-
-    .cell
-      position: absolute
-      top: 0px
-      left: 0px
-      width: 100%
-      overflow: hidden
-
-      &.video-cell
-        height: 0
-        padding: 0 0 56.25%
-        background-color: #028169
-
-        iframe,
-        .video-poster
-          position: absolute
-          top: -1px
-          left: -1px
-          right: -1px
-          bottom: -1px
+          height: 90px
           overflow: hidden
+          
+          transform: translate3d(0,0%,0)
 
-        .video-poster
-          background-image: url('/images/work/poster.jpg')
-          background-repeat: no-repeat
-          background-position: center center
-          background-size: cover
+          &:last-child
+            top: auto
+            bottom: 0px
+
+          h2
+            position: relative
+            height: 100%
+            overflow: hidden
+            display: inline-block
+            cursor: pointer
+
+            span
+              position: relative
+              height: 60px
+              padding: 0 0 30px
+              color: $white
+              font-size: 66px
+              line-height: 56px
+              font-weight: $bold
+              display: inline-block
+
+              &:after
+                content: ''
+                position: absolute
+                bottom: 0px
+                left: 0px
+                width: 100%
+                height: 10px
+                background-color: $black
+
+      .callouts
+        position: relative
+        width: 100%
+        height: 76px
+        font-size: 0
+        line-height: 0
+        overflow: hidden
+
+        .callout
+          float: left
+          position: relative
+          height: 100%
+          padding: 0 20px
+          color: $white
+          font-family: $inconsolata
+          font-size: 14px
+          line-height: 76px
+          letter-spacing: 1px
           cursor: pointer
 
-          span
-            position: absolute
-            top: 50%
-            left: 50%
-            height: 30px
-            padding: 60px 0 0
-            color: $white
-            font-size: 14px
-            line-height: 30px
+          &:first-child
+            padding: 0 20px 0 0
 
-            transform: translate(-50%,-50%)
+          &:last-child
+            padding: 0 0 0 20px
+
+          .copy
+            float: left
+            position: relative
+
+          .icon
+            float: left
+            position: relative
+            width: 25px
+            height: 100%
+            margin: 0 0 0 12px
+            overflow: hidden
+            display: inline-block
 
             &:before
               content: ''
               position: absolute
-              top: 0px
-              left: 50%
-              width: 0
-              height: 0
-              margin: 0 0 0 -20px
-              border-top: 25px solid transparent
-              border-bottom: 25px solid transparent
-              border-left: 40px solid $white
+              top: 50%
+              left: 0px
+              width: 14px
+              height: 2px
+              margin: -1px 0 0
+              background-color: $white
 
             &:after
               content: ''
               position: absolute
-              bottom: 0px
-              left: 0px
-              width: 100%
-              height: 3px
-              background-color: $white
+              top: 50%
+              left: 12px
+              width: 0
+              height: 0
+              margin: -4px 0 0
+              border-top: 4px solid transparent
+              border-bottom: 4px solid transparent
+              border-left: 6px solid $white
 
-      &.summary-cell
-        margin: 56.25% 0 0
-        bottom: 0px
-        background-color: $black
+    // ---------------------------------------------
+    // Meta zone
+    // ---------------------------------------------
 
-      .cell-inner
-        position: absolute
-        top: 50px
-        left: 50px
-        right: 50px
-        bottom: 40px
+    .meta-zone
+      position: absolute
+      bottom: 40px
+      left: 100px
+      right: 100px
 
-        h3, p
-          color: $white
-          font-family: $inconsolata
-          font-size: 14px
-          line-height: 24px
-          font-weight: $bold
+      ul
+        float: left
+        position: relative
+        width: 234px
 
-        p
-          color: $gray
-          font-weight: $regular
-
-        .services
+        &:before
+          content: 'Client(s)'
           position: absolute
           bottom: 0px
-          left: 0px
-          color: $gray
+          left: 10px
+          height: 10px
+          color: $black
           font-family: $inconsolata
-          font-size: 10px
-          line-height: 12px
-          font-weight: $bold
+          font-size: 9px
+          line-height: 10px
           letter-spacing: 1px
           text-transform: uppercase
+          display: block
 
-          &:before
-            content: 'Services Provided'
+          transform: rotate(-90deg) translate3d(0,0,0)
+          transform-origin: bottom left
+
+        &.mediums:before
+          content: 'Medium(s)'
+
+        li
+          float: left
+          position: relative
+          width: 42px
+          height: 22px
+          margin: 0 14px 0 0
+          box-shadow: inset 0px 0px 0px 2px $black
+
+          &:first-child
+            margin: 0 14px 0 22px
+
+          a
+            position: absolute
+            top: 0px
+            left: 0px
+            width: 100%
+            height: 100%
+
+        &:last-child
+          li:last-child
+            width: 13px
+
+    // ---------------------------------------------
+    // Detail zone
+    // ---------------------------------------------
+
+    .detail-zone
+      position: absolute
+      top: 0px
+      left: 50%
+      width: 50%
+      height: 100%
+      overflow: hidden
+      display: none
+
+      .cell
+        position: absolute
+        top: 0px
+        left: 0px
+        width: 100%
+        overflow: hidden
+
+        &.video-cell
+          height: 0
+          padding: 0 0 56.25%
+          background-color: #028169
+
+          iframe,
+          .video-poster
+            position: absolute
+            top: -1px
+            left: -1px
+            right: -1px
+            bottom: -1px
+            overflow: hidden
+
+          .video-poster
+            background-image: url('/images/work/poster.jpg')
+            background-repeat: no-repeat
+            background-position: center center
+            background-size: cover
+            cursor: pointer
+
+            span
+              position: absolute
+              top: 50%
+              left: 50%
+              height: 30px
+              padding: 60px 0 0
+              color: $white
+              font-size: 14px
+              line-height: 30px
+
+              transform: translate(-50%,-50%)
+
+              &:before
+                content: ''
+                position: absolute
+                top: 0px
+                left: 50%
+                width: 0
+                height: 0
+                margin: 0 0 0 -20px
+                border-top: 25px solid transparent
+                border-bottom: 25px solid transparent
+                border-left: 40px solid $white
+
+              &:after
+                content: ''
+                position: absolute
+                bottom: 0px
+                left: 0px
+                width: 100%
+                height: 3px
+                background-color: $white
+
+        &.summary-cell
+          margin: 56.25% 0 0
+          bottom: 0px
+          background-color: $black
+
+        .cell-inner
+          position: absolute
+          top: 50px
+          left: 50px
+          right: 50px
+          bottom: 40px
+
+          h3, p
             color: $white
-            display: block
+            font-family: $inconsolata
+            font-size: 14px
+            line-height: 24px
+            font-weight: $bold
+
+          p
+            color: $gray
+            font-weight: $regular
+
+          .services
+            position: absolute
+            bottom: 0px
+            left: 0px
+            color: $gray
+            font-family: $inconsolata
+            font-size: 10px
+            line-height: 12px
+            font-weight: $bold
+            letter-spacing: 1px
+            text-transform: uppercase
+
+            &:before
+              content: 'Services Provided'
+              color: $white
+              display: block
