@@ -45,7 +45,7 @@ class PageController
 
     # Cache selectors
     @$slide_wrapper = $('.slides-wrapper', @model.getV())
-    @$page_nav = $('.page-nav', @model.getV())
+    @$page_btns = $('.page-nav li a', @model.getV())
 
     # Loop and create page slides
 
@@ -106,17 +106,6 @@ class PageController
 
       @$slides = $('.slide')
 
-    @observeSomeSweetEvents()
-
-  ###
-  *------------------------------------------*
-  | observeSomeSweetEvents:void (-)
-  |
-  | Observe some sweet events.
-  *----------------------------------------###
-  observeSomeSweetEvents: ->
-    LW.router.on('/' + @model.getId() + '/*', @goToSlide)
-
   ###
   *------------------------------------------*
   | goToSlide:void (=)
@@ -131,18 +120,15 @@ class PageController
     s.suspend() for id, s of @slide_c
     @slide_c[slide].activate()
     @active_c = @slide_c[slide]
+    @$page_btns.removeClass('active').filter('[data-id="' + slide+ '"]').addClass('active')
 
   ###
   *------------------------------------------*
   | activate:void (-)
   |
-  | route:object - initial route
-  |
   | Activate.
   *----------------------------------------###
-  activate: (route) ->
-    @suspend()
-    @goToSlide(route)
+  activate: ->
     @model.getE().show()
 
   ###
