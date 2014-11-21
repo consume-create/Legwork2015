@@ -21,3 +21,24 @@ $speed_metal: 666ms
 // Easing
 $ease: ease-out
 $evil_ease: cubic-bezier(0.666, 0.000, 0.333, 1.000)
+
+// Typography mixins
+@mixin type($line_height, $font_weight)
+  font-family: $montserrat
+  font-size: 14px
+  line-height: $line_height
+  font-weight: $font_weight
+
+@mixin type-mono($line_height, $font_weight)
+  font-family: $inconsolata
+  font-size: 14px
+  line-height: $line_height
+  font-weight: $font_weight
+
+@mixin type-mono-small
+  font-family: $inconsolata
+  font-size: 9px
+  line-height: 12px
+  letter-spacing: 1px
+  font-weight: $bold
+  text-transform: uppercase
