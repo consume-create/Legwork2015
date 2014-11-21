@@ -14,7 +14,15 @@ $blue: #00aeef
 $gray: #aaa
 $light_gray: #e5e5e5
 
-// Typography
+// Speeds
+$speed: 333ms
+$speed_metal: 666ms
+
+// Easing
+$ease: ease-out
+$evil_ease: cubic-bezier(0.666, 0.000, 0.333, 1.000)
+
+// Typography mixins
 @mixin type($line_height, $font_weight)
   font-family: $montserrat
   font-size: 14px
@@ -34,11 +42,3 @@ $light_gray: #e5e5e5
   letter-spacing: 1px
   font-weight: $bold
   text-transform: uppercase
-
-// Speeds
-$speed: 333ms
-$speed_metal: 666ms
-
-// Easing
-$ease: ease-out
-$evil_ease: cubic-bezier(0.666, 0.000, 0.333, 1.000)
