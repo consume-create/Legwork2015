@@ -89,7 +89,7 @@ class Routes
     url = url.replace(/^(?!\/)(.+)$/, '/$1')
 
     if url is '/'
-      obj = {'key': 'home', 'url': url}
+      obj = {'key': 'index', 'url': url}
     else
       obj = {'key': @sanitizeKey(url), 'url': url}
 

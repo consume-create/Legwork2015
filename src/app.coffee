@@ -51,7 +51,7 @@ class Application
     @page_c = []
 
     @cling_to = -1
-    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s', 'Want to see my watercolors?', 'Don\'t lie to me, boy.']
+    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s.', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'I got a mangina.']
     @$fallback = $('#fallback')
     @active_c = null
 
@@ -124,12 +124,9 @@ class Application
   *----------------------------------------###
   observeSomeSweetEvents: ->
     # Add callbacks for routes
+    LW.router.on('/', @goToPage)
     for page_url, page of LW.data.pages
-      for slide_url, slide of page.slides
-        if page_url is 'home' and slide_url is LW.LANDING_SLIDE
-          LW.router.on('/', @goToPage)
-        else
-          LW.router.on('/' + page_url + '/*', @goToPage)
+      LW.router.on('/' + page_url + '/*', @goToPage)
 
     # Trigger the initial route
     LW.router.onAppStateChange()
@@ -169,13 +166,16 @@ class Application
   | Go to page.
   *----------------------------------------###
   goToPage: (route) =>
-    # TODO: don't trigger while on a page, slide-to-slide
-    id = route.key.split(':')[0]
+    id = if route.url is '/' then 'home' else route.key.split(':')[0]
 
-    @suspend()
-    @header_c.setState(id)
-    @page_c[id].activate(route)
-    @active_c = @page_c[id]
+    if @page_c[id] is @active_c
+      @active_c.goToSlide(route)
+    else
+      @suspend()
+      @header_c.setState(id)
+      @page_c[id].activate(route)
+      @active_c = @page_c[id]
+      @active_c.goToSlide(route)
 
   ###
   *------------------------------------------*
