@@ -9,7 +9,7 @@ about = require "./about/landing"
 # Work
 work = require "./work/landing"
 the_boxtrolls = require "./work/the-boxtrolls"
-
+appendix_01 = require "./work/appendix-01"
 
 # Describe the structure of the site
 
@@ -34,7 +34,8 @@ data = {
 		"work": {
 			"slides": {
 				"landing": work,
-				"the-boxtrolls": the_boxtrolls
+				"the-boxtrolls": the_boxtrolls,
+				"appendix-01": appendix_01
 			}
 		}
 	}

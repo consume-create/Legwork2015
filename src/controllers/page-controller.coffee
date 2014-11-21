@@ -13,6 +13,8 @@ WorkSlideModel = require '../models/slides/work-slide-model'
 WorkSlideController = require './slides/work-slide-controller'
 FeaturedWorkSlideModel = require '../models/slides/featured-work-slide-model'
 FeaturedWorkSlideController = require './slides/featured-work-slide-controller'
+AppendixedWorkSlideModel = require '../models/slides/appendixed-work-slide-model'
+AppendixedWorkSlideController = require './slides/appendixed-work-slide-controller'
 
 class PageController
 
@@ -92,6 +94,11 @@ class PageController
             'services': slide.details.services
           })
           @slide_c[id] = new FeaturedWorkSlideController({
+            'model': @slide_m[id]
+          })
+        when LW.slide_types.APPENDIXED_WORK
+          @slide_m[id] = new AppendixedWorkSlideModel({'$el': $el})
+          @slide_c[id] = new AppendixedWorkSlideController({
             'model': @slide_m[id]
           })
         else

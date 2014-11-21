@@ -18,6 +18,7 @@ LW.slide_types.HOME = 'home'
 LW.slide_types.ABOUT = 'about'
 LW.slide_types.WORK = 'work'
 LW.slide_types.FEATURED_WORK = 'featured-work'
+LW.slide_types.APPENDIXED_WORK = 'appendixed-work'
 
 # Medium constants
 

@@ -1,0 +1,35 @@
+.slide.appendixed-work
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+
+  .slide-inner
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+    ul.cells
+      position: absolute
+      top: 0px
+      left: 0px
+      right: 40px
+      height: 100%
+      font-size: 0
+      line-height: 0
+      overflow: hidden
+
+      li.cell
+        position: relative
+        width: 33.333%
+        height: 50%
+        display: inline-block
+        overflow: hidden
+
+        @for $i from 1 through 6
+          &:nth-child(#{$i})
+            background-color: rgba(0,0,0,(0.05 * $i))
