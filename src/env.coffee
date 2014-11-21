@@ -29,3 +29,8 @@ LW.mediums = []
 LW.mediums.DESKTOP = "desktop"
 LW.mediums.MOBILE = "mobile"
 LW.mediums.MOTION = "motion"
+
+LW.callouts = []
+LW.callouts.ABOUT = "about"
+LW.callouts.LAUNCH = "launch"
+LW.callouts.WATCH = "watch"

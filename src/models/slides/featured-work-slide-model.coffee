@@ -23,6 +23,9 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @_title = null
     @setTitle(data.title)
 
+    @_callouts = null
+    @setCallouts(data.callouts)
+
     @_launch_url = null
     @setLaunchUrl(data.launch_url)
 
@@ -81,12 +84,45 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
   ###
   *------------------------------------------*
+  | getCallouts:array (-)
+  |
+  | Get callouts.
+  *----------------------------------------###
+  getCallouts: ->
+    return @_callouts
+
+  ###
+  *------------------------------------------*
+  | setCallouts:void (-)
+  |
+  | callouts:array - callouts array
+  |
+  | Set callouts.
+  *----------------------------------------###
+  setCallouts: (callouts) ->
+    passed = true
+
+    if _.isArray(callouts) is false or callouts.length isnt 2
+      passed = false
+      throw 'ERROR: callouts must be an array of 2 of the defined LW.callouts listed in ./src/env.coffee'
+
+    for m in callouts
+      if _.contains(_.values(LW.callouts), m) is false
+        passed = false
+        throw 'ERROR: each callout needs to match one of the defined LW.callouts listed in ./src/env.coffee'
+        break
+
+    if passed is true
+      @_callouts = callouts
+
+  ###
+  *------------------------------------------*
   | getLaunchUrl:string (-)
   |
   | Get launch url.
   *----------------------------------------###
   getLaunchUrl: ->
-    return @_title
+    return @_launch_url
 
   ###
   *------------------------------------------*
@@ -97,6 +133,7 @@ class FeaturedWorkSlideModel extends BaseSlideModel
   | Set launch url.
   *----------------------------------------###
   setLaunchUrl: (launch_url) ->
+    console.log 'launch_url:', launch_url
     if _.isString(launch_url) is false
       throw 'ERROR: launch_url must be a string'
     else
@@ -305,8 +342,8 @@ class FeaturedWorkSlideModel extends BaseSlideModel
   | Set descr text.
   *----------------------------------------###
   setDescrText: (descr_text) ->
-    if _.isString(descr_text) is false
-      throw 'ERROR: descr_text must be a string'
+    if _.isString(descr_text) is false or descr_text.length > 250
+      throw 'ERROR: descr_text must be a string and no more than 250 characters'
     else
       @_descr_text = descr_text
 

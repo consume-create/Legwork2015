@@ -1,45 +1,53 @@
 <div class="slide-inner">
-	<!-- Image zone -->
-	<div class="image-zone">
+	<!-- Picture zone -->
+	<div class="picture-zone" style="background-image: url('<%= @picture_src %>');">
 	</div>
 	<!-- Title zone -->
 	<div class="title-zone">
 		<div class="title-holder">
 			<div class="line-holder">
-				<h2><span>The</span></h2>
+				<h2><span><%= @title[0] %></span></h2>
 			</div>
 			<div class="line-holder">
-				<h2><span>Boxtrolls</span></h2>
+				<h2><span><%= @title[1] %></span></h2>
 			</div>
 		</div>
 		<div class="callouts cf">
-			<div class="callout"><span class="copy">About</span><span class="icon"></span></div>
-			<a class="callout" href="http://theboxtrolls.com" target="_new"><span class="copy">Launch</span><span class="icon"></span></a>
+			<% for c in @callouts: %>
+				<% if c != 'launch': %>
+					<div class="callout <%= c %>"><span class="copy"><%= c %></span><span class="icon"></span></div>
+				<% else: %>
+					<a class="callout <%= c %>" href="<%= @launch_url %>" target="_new"><span class="copy"><%= c %></span><span class="icon"></span></a>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 	<!-- Meta zone -->
 	<div class="meta-zone cf">
 		<ul class="clients">
-			<li><a href="javascript:void(0);" target="_new"></a></li>
-			<li><a href="javascript:void(0);" target="_new"></a></li>
-			<li><a href="javascript:void(0);" target="_new"></a></li>
+			<% for c in @clients: %>
+				<li><a href="javascript:void(0);" target="_new"></a></li>
+			<% end %>
 		</ul>
 		<ul class="mediums">
-			<li></li>
-			<li></li>
+			<% for m in @mediums: %>
+				<li></li>
+			<% end %>
 		</ul>
 	</div>
 	<!-- Detail zone -->
 	<div class="detail-zone">
 		<div class="detail-zone-inner">
-			<div class="cell video-cell">
-				<div class="video-poster"><span>See How We Made It</span></div>
+			<div class="cell video-cell" data-id="<%= @vimeo_id %>">
+				<div class="video-poster" style="background-image: url('<%= @poster_src %>');">
+					<span><%= @poster_cta %></span>
+				</div>
 			</div>
 			<div class="cell summary-cell">
 				<div class="cell-inner">
-					<h3>Dare To Be Square</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.</p>
-					<div class="services">Strategy, UX, Art Direction, Design, Development</div>
+					<h3><%= @descr_title %></h3>
+					<p><%= @descr_text %></p>
+					<div class="services"><% for s, i in @services: %><%= s %><% if i < (@services.length - 1): %>, <% end %><% end %></div>
 				</div>
 			</div>
 		</div>

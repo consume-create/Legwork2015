@@ -79,6 +79,7 @@ class PageController
           @slide_m[id] = new FeaturedWorkSlideModel({
             '$el': $el,
             'title': slide.title,
+            'callouts': slide.callouts,
             'launch_url': slide.launch_url,
             'picture_src': slide.picture_src,
             'clients': slide.clients,

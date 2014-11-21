@@ -28,9 +28,48 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   build: ->
     super()
-    @model.setV($(JST['featured-work-slide-view']()))
+    @model.setV($(JST['featured-work-slide-view']({
+      'title': @model.getTitle(),
+      'callouts': @model.getCallouts(),
+      'launch_url': @model.getLaunchUrl(),
+      'picture_src': @model.getPictureSrc(),
+      'clients': @model.getClients(),
+      'mediums': @model.getMediums(),
+      'poster_src': @model.getPosterSrc(),
+      'poster_cta': @model.getPosterCta(),
+      'vimeo_id': @model.getVimeoId(),
+      'descr_title': @model.getDescrTitle(),
+      'descr_text': @model.getDescrText(),
+      'services': @model.getServices()
+    })))
     @model.getE().append(@model.getV())
 
-    console.log('featured work slide')
+    @$detail_zone = $('.detail-zone', @model.getV())
+    @$about_btn = $('.callout.about', @model.getV())
+
+    @observeSomeSweetEvents()
+
+  ###
+  *------------------------------------------*
+  | observeSomeSweetEvents:void (-)
+  |
+  | Observe some sweet events.
+  *----------------------------------------###
+  observeSomeSweetEvents: ->
+    @$about_btn.on('click', @showHideDetailZone)
+
+  ###
+  *------------------------------------------*
+  | showHideDetailZone:void (=)
+  |
+  | Show and hide detail zone.
+  *----------------------------------------###
+  showHideDetailZone: =>
+    if @$detail_zone.is(':hidden')
+      @$detail_zone.show()
+      @$about_btn.find('.copy').text('Close')
+    else
+      @$detail_zone.hide()
+      @$about_btn.find('.copy').text('About')
 
 module.exports = FeaturedWorkSlideController
