@@ -74,7 +74,6 @@
               position: relative
               height: 60px
               padding: 0 0 30px
-              color: $white
               font-size: 66px
               line-height: 56px
               font-weight: $bold
@@ -102,12 +101,9 @@
           position: relative
           height: 100%
           padding: 0 20px
-          color: $white
-          font-family: $inconsolata
-          font-size: 14px
-          line-height: 76px
-          letter-spacing: 1px
           cursor: pointer
+
+          @include type-mono(76px, $bold)
 
           &:first-child
             padding: 0 20px 0 0
@@ -172,12 +168,10 @@
           left: 10px
           height: 10px
           color: $black
-          font-family: $inconsolata
-          font-size: 9px
-          line-height: 10px
-          letter-spacing: 1px
-          text-transform: uppercase
           display: block
+          
+          @include type-mono-small
+          font-weight: $regular
 
           transform: rotate(-90deg) translate3d(0,0,0)
           transform-origin: bottom left
@@ -218,7 +212,7 @@
       width: 50%
       height: 100%
       overflow: hidden
-      display: none
+      display: block
 
       .cell
         position: absolute
@@ -254,9 +248,8 @@
               left: 50%
               height: 30px
               padding: 60px 0 0
-              color: $white
-              font-size: 14px
-              line-height: 30px
+
+              @include type(30px, $regular)
 
               transform: translate(-50%,-50%)
 
@@ -293,28 +286,20 @@
           right: 50px
           bottom: 40px
 
-          h3, p
-            color: $white
-            font-family: $inconsolata
-            font-size: 14px
-            line-height: 24px
-            font-weight: $bold
+          h3
+            @include type-mono(24px, $bold)
 
           p
             color: $gray
-            font-weight: $regular
+            @include type-mono(24px, $bold)
 
           .services
             position: absolute
             bottom: 0px
             left: 0px
             color: $gray
-            font-family: $inconsolata
-            font-size: 10px
-            line-height: 12px
-            font-weight: $bold
-            letter-spacing: 1px
-            text-transform: uppercase
+
+            @include type-mono-small
 
             &:before
               content: 'Services Provided'

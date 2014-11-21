@@ -14,6 +14,27 @@ $blue: #00aeef
 $gray: #aaa
 $light_gray: #e5e5e5
 
+// Typography
+@mixin type($line_height, $font_weight)
+  font-family: $montserrat
+  font-size: 14px
+  line-height: $line_height
+  font-weight: $font_weight
+
+@mixin type-mono($line_height, $font_weight)
+  font-family: $inconsolata
+  font-size: 14px
+  line-height: $line_height
+  font-weight: $font_weight
+
+@mixin type-mono-small
+  font-family: $inconsolata
+  font-size: 9px
+  line-height: 12px
+  letter-spacing: 1px
+  font-weight: $bold
+  text-transform: uppercase
+
 // Speeds
 $speed: 333ms
 $speed_metal: 666ms
