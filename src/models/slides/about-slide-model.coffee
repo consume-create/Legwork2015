@@ -7,7 +7,7 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 # Dependencies
 BaseSlideModel = require './base-slide-model'
 
-class LandingSlideModel extends BaseSlideModel
+class AboutSlideModel extends BaseSlideModel
 
   ###
   *------------------------------------------*
@@ -20,4 +20,4 @@ class LandingSlideModel extends BaseSlideModel
   constructor: (data) ->
     super(data)
 
-module.exports = LandingSlideModel
+module.exports = AboutSlideModel

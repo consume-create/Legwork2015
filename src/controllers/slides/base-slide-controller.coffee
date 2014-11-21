@@ -34,4 +34,22 @@ class BaseSlideController
   build: ->
     # TODO
 
+  ###
+  *------------------------------------------*
+  | activate:void (-)
+  |
+  | Activate.
+  *----------------------------------------###
+  activate: ->
+    @model.getE().show()
+
+  ###
+  *------------------------------------------*
+  | suspend:void (-)
+  |
+  | Activate.
+  *----------------------------------------###
+  suspend: ->
+    @model.getE().hide()
+
 module.exports = BaseSlideController

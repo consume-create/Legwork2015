@@ -1,4 +1,17 @@
 <div id="<%= @id %>-page-inner" class="page-inner">
-	<div id="<%= @id %>-page-slides" class="slides-wrapper"></div>
-	<ul id="<%= @id %>-page-nav" class="page-nav"></ul>
+	<div id="<%= @id %>-page-slides" class="slides-wrapper">
+	<% for slide_id, slide of @slides: %>
+		<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
+	<% end %>
+	</div>
+	<% if _.size(@slides) > 1: %>
+		<div class="page-nav-wrapper">
+			<ul id="<%= @id %>-page-nav" class="page-nav" >
+				<% n = 1 %>
+				<% for slide_id, slide of @slides: %>
+					<li><a class="ajaxy" href="<%= if slide_id is LW.LANDING_SLIDE then '/' + @id else '/' + @id + '/' + slide_id %>"><%= ('0' + (n++)).slice(-2) %></a></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 </div>

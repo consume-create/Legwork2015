@@ -73,9 +73,9 @@ class Application
       for slide_url, slide of page.slides
 
         # Build the route
-        if page_url is 'home' and slide_url is 'landing'
+        if page_url is 'home' and slide_url is LW.LANDING_SLIDE
           r = '/'
-        else if slide_url is 'landing'
+        else if slide_url is LW.LANDING_SLIDE
           r = '/' + page_url
         else
           r = '/' + page_url + '/' + slide_url
@@ -126,7 +126,7 @@ class Application
     # Add callbacks for routes
     for page_url, page of LW.data.pages
       for slide_url, slide of page.slides
-        if page_url is 'home' and slide_url is 'landing'
+        if page_url is 'home' and slide_url is LW.LANDING_SLIDE
           LW.router.on('/', @goToPage)
         else
           LW.router.on('/' + page_url + '/*', @goToPage)
@@ -169,11 +169,12 @@ class Application
   | Go to page.
   *----------------------------------------###
   goToPage: (route) =>
+    # TODO: don't trigger while on a page, slide-to-slide?
     id = route.key.split(':')[0]
 
     @suspend()
     @header_c.setState(id)
-    @page_c[id].activate()
+    @page_c[id].activate(route)
     @active_c = @page_c[id]
 
   ###

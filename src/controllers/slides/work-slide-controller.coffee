@@ -6,7 +6,7 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 BaseSlideController = require './base-slide-controller'
 
-class LandingSlideController extends BaseSlideController
+class WorkSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
@@ -28,7 +28,7 @@ class LandingSlideController extends BaseSlideController
   build: ->
     super()
 
-    @model.setV($(JST['landing-slide-view']()))
+    @model.setV($(JST['work-slide-view']()))
     @model.getE().append(@model.getV())
 
-module.exports = LandingSlideController
+module.exports = WorkSlideController

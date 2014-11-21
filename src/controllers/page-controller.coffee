@@ -7,8 +7,10 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 # Slides
 HomeSlideModel = require '../models/slides/home-slide-model'
 HomeSlideController = require './slides/home-slide-controller'
-LandingSlideModel = require '../models/slides/landing-slide-model'
-LandingSlideController = require './slides/landing-slide-controller'
+AboutSlideModel = require '../models/slides/about-slide-model'
+AboutSlideController = require './slides/about-slide-controller'
+WorkSlideModel = require '../models/slides/work-slide-model'
+WorkSlideController = require './slides/work-slide-controller'
 FeaturedWorkSlideModel = require '../models/slides/featured-work-slide-model'
 FeaturedWorkSlideController = require './slides/featured-work-slide-controller'
 
@@ -36,7 +38,7 @@ class PageController
   | Build.
   *----------------------------------------###
   build: ->
-    @model.setV($(JST['page-view']({'id': @model.getId()})))
+    @model.setV($(JST['page-view']({'id': @model.getId(), 'slides': @model.getSlideData()})))
     @model.getE().append(@model.getV())
 
     # Cache selectors
@@ -53,7 +55,7 @@ class PageController
     # 4. Require the model and controller in the page controller and add a condition to the build method
 
     for id, slide of @model.getSlideData()
-      $el = $('<div id="' + @model.getId() + '-' + id + '" class="slide ' + slide.slide_type + '" />').appendTo(@$slide_wrapper)
+      $el = $('#' + @model.getId() + '-' + id)
 
       switch slide.slide_type
         when LW.slide_types.HOME
@@ -61,9 +63,14 @@ class PageController
           @slide_c[id] = new HomeSlideController({
             'model': @slide_m[id]
           })
-        when LW.slide_types.LANDING
-          @slide_m[id] = new LandingSlideModel({'$el': $el})
-          @slide_c[id] = new LandingSlideController({
+        when LW.slide_types.ABOUT
+          @slide_m[id] = new AboutSlideModel({'$el': $el})
+          @slide_c[id] = new AboutSlideController({
+            'model': @slide_m[id]
+          })
+        when LW.slide_types.WORK
+          @slide_m[id] = new WorkSlideModel({'$el': $el})
+          @slide_c[id] = new WorkSlideController({
             'model': @slide_m[id]
           })
         when LW.slide_types.FEATURED_WORK
@@ -90,13 +97,45 @@ class PageController
         else
           throw 'ERROR: slide type does not exist'
 
+      @$slides = $('.slide')
+
+    @observeSomeSweetEvents()
+
+  ###
+  *------------------------------------------*
+  | observeSomeSweetEvents:void (-)
+  |
+  | Observe some sweet events.
+  *----------------------------------------###
+  observeSomeSweetEvents: ->
+    LW.router.on('/' + @model.getId() + '/*', @goToSlide)
+
+  ###
+  *------------------------------------------*
+  | goToSlide:void (=)
+  |
+  | route:object - current route
+  |
+  | Go to slide.
+  *----------------------------------------###
+  goToSlide: (route) =>
+    slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
+
+    s.suspend() for id, s of @slide_c
+    @slide_c[slide].activate()
+    @active_c = @slide_c[slide]
+
   ###
   *------------------------------------------*
   | activate:void (-)
   |
+  | route:object - initial route
+  |
   | Activate.
   *----------------------------------------###
-  activate: ->
+  activate: (route) ->
+    @suspend()
+    @goToSlide(route)
     @model.getE().show()
 
   ###
@@ -107,5 +146,6 @@ class PageController
   *----------------------------------------###
   suspend: ->
     @model.getE().hide()
+    s.suspend() for id, s of @slide_c
 
 module.exports = PageController

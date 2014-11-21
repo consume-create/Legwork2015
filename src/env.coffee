@@ -1,6 +1,9 @@
 # Namespace
 window.LW = window.LW || {}
 
+# Landing slide constant
+LW.LANDING_SLIDE = 'landing'
+
 # Slide type constants
 
 # NOTE:
@@ -12,7 +15,8 @@ window.LW = window.LW || {}
 
 LW.slide_types = {}
 LW.slide_types.HOME = 'home'
-LW.slide_types.LANDING = 'landing'
+LW.slide_types.ABOUT = 'about'
+LW.slide_types.WORK = 'work'
 LW.slide_types.FEATURED_WORK = 'featured-work'
 
 # Medium constants
