@@ -169,7 +169,7 @@ class Application
   | Go to page.
   *----------------------------------------###
   goToPage: (route) =>
-    # TODO: don't trigger while on a page, slide-to-slide?
+    # TODO: don't trigger while on a page, slide-to-slide
     id = route.key.split(':')[0]
 
     @suspend()
