@@ -31,14 +31,16 @@
 	</div>
 	<!-- Detail zone -->
 	<div class="detail-zone">
-		<div class="cell video-cell">
-			<div class="video-poster"><span>See How We Made It</span></div>
-		</div>
-		<div class="cell summary-cell">
-			<div class="cell-inner">
-				<h3>Dare To Be Square</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.</p>
-				<div class="services">Strategy, UX, Art Direction, Design, Development</div>
+		<div class="detail-zone-inner">
+			<div class="cell video-cell">
+				<div class="video-poster"><span>See How We Made It</span></div>
+			</div>
+			<div class="cell summary-cell">
+				<div class="cell-inner">
+					<h3>Dare To Be Square</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.</p>
+					<div class="services">Strategy, UX, Art Direction, Design, Development</div>
+				</div>
 			</div>
 		</div>
 	</div>
