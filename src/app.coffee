@@ -51,7 +51,7 @@ class Application
     @page_c = []
 
     @cling_to = -1
-    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s', 'Want to see my watercolors?', 'Don\'t lie to me, boy.']
+    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s.', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'I got a mangina.']
     @$fallback = $('#fallback')
     @active_c = null
 
