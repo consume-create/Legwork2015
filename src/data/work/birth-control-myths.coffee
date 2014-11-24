@@ -11,8 +11,8 @@ data = {
     LW.callouts.ABOUT,
     LW.callouts.WATCH
   ],
-  "launch_url": "http://www.theboxtrolls.com",
-  "tagline": "Public service announcements for BC4U.",
+  "launch_url": "http://vimeo.com/73898940",
+  "tagline": "PSA video for BC4U.",
   # TODO: fallback png / opacity for picture_src?
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
