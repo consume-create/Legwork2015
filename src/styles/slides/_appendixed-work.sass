@@ -13,23 +13,89 @@
     height: 100%
     overflow: hidden
 
-    ul.cells
+ul.cells
+  position: absolute
+  top: 0px
+  left: 0px
+  right: 40px
+  height: 100%
+  font-size: 0
+  line-height: 0
+  overflow: hidden
+
+  li.cell
+    position: relative
+    width: 33.333%
+    height: 50%
+    display: inline-block
+    overflow: hidden
+
+    @for $i from 1 through 6
+      &:nth-child(#{$i})
+        background-color: rgba(0,0,0,(0.05 * $i))
+
+    .cell-inner
       position: absolute
-      top: 0px
-      left: 0px
-      right: 40px
-      height: 100%
-      font-size: 0
-      line-height: 0
-      overflow: hidden
+      top: 50%
+      left: 80px
+      right: 80px
 
-      li.cell
+      transform: translate(0,-50%)
+
+      .title-holder
         position: relative
-        width: 33.333%
-        height: 50%
-        display: inline-block
+        width: 100%
+        height: 105px
+        margin: 5px 0 0
         overflow: hidden
+      
+        .line-holder
+          position: absolute
+          top: 0px
+          left: 0px
+          width: 100%
+          height: 45px
+          overflow: hidden
 
-        @for $i from 1 through 6
-          &:nth-child(#{$i})
-            background-color: rgba(0,0,0,(0.05 * $i))
+          &:last-child
+            top: auto
+            bottom: 0px
+
+          h2
+            position: relative
+            height: 100%
+            overflow: hidden
+            display: inline-block
+
+            span
+              position: relative
+              height: 30px
+              padding: 0 0 15px
+              font-size: 33px
+              line-height: 28px
+              font-weight: $bold
+              color: $white
+              display: inline-block
+
+              &:after
+                content: ''
+                position: absolute
+                bottom: 0px
+                left: 0px
+                width: 100%
+                height: 5px
+                background-color: $black
+
+      h4
+        position: relative
+        width: 100%
+        padding: 28px 0 0
+        height: 24px
+        @include type-mono(24px, $regular)
+
+      a
+        position: absolute
+        top: 0px
+        left: 0px
+        width: 100%
+        height: 100%
