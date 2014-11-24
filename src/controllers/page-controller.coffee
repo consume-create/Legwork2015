@@ -97,7 +97,10 @@ class PageController
             'model': @slide_m[id]
           })
         when LW.slide_types.APPENDIXED_WORK
-          @slide_m[id] = new AppendixedWorkSlideModel({'$el': $el})
+          @slide_m[id] = new AppendixedWorkSlideModel({
+            '$el': $el,
+            'projects': slide.projects
+          })
           @slide_c[id] = new AppendixedWorkSlideController({
             'model': @slide_m[id]
           })

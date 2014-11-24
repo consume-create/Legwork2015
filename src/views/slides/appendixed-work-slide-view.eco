@@ -1,10 +1,22 @@
 <div class="slide-inner">
 	<ul class="cells">
-		<li class="cell"></li>
-		<li class="cell"></li>
-		<li class="cell"></li>
-		<li class="cell"></li>
-		<li class="cell"></li>
-		<li class="cell"></li>
+		<% for p, i in @projects: %>
+			<li class="cell">
+				<% if $.isEmptyObject(p) is false: %>
+					<div class="cell-inner">
+						<div class="title-holder">
+							<div class="line-holder">
+								<h2><span><%= p.title[0] %></span></h2>
+							</div>
+							<div class="line-holder">
+								<h2><span><%= p.title[1] %></span></h2>
+							</div>
+						</div>
+						<h4><%= p.tagline %></h4>
+						<a href="<%= p.launch_url %>" target="_new"></a>
+					</div>
+				<% end %>
+			</li>
+		<% end %>
 	</ul>
 </div>
