@@ -78,15 +78,14 @@ class PageController
         when LW.slide_types.FEATURED_WORK
           @slide_m[id] = new FeaturedWorkSlideModel({
             '$el': $el,
+            'rgb': slide.rgb,
             'title': slide.title,
             'callouts': slide.callouts,
             'launch_url': slide.launch_url,
+            'tagline': slide.tagline,
             'picture_src': slide.picture_src,
             'clients': slide.clients,
-            'mediums': [
-              LW.mediums.DESKTOP,
-              LW.mediums.MOBILE
-            ],
+            'mediums': slide.mediums,
             'poster_src': slide.details.poster_src,
             'poster_cta': slide.details.poster_cta,
             'vimeo_id': slide.details.vimeo_id,

@@ -20,6 +20,9 @@ class FeaturedWorkSlideModel extends BaseSlideModel
   constructor: (data) ->
     super(data)
 
+    @_rgb = null
+    @setRgb(data.rgb)
+
     @_title = null
     @setTitle(data.title)
 
@@ -28,6 +31,9 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
     @_launch_url = null
     @setLaunchUrl(data.launch_url)
+
+    @_tagline = null
+    @setTagline(data.tagline)
 
     @_picture_src = null
     @setPictureSrc(data.picture_src)
@@ -56,6 +62,39 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
     @_services = null
     @setServices(data.services)
+
+  ###
+  *------------------------------------------*
+  | getRgb:array (-)
+  |
+  | Get rgb.
+  *----------------------------------------###
+  getRgb: ->
+    return @_rgb
+
+  ###
+  *------------------------------------------*
+  | setRgb:void (-)
+  |
+  | rgb:array - rgb array
+  |
+  | Set rgb.
+  *----------------------------------------###
+  setRgb: (rgb) ->
+    passed = true
+
+    if _.isArray(rgb) is false or rgb.length isnt 3
+      passed = false
+      throw 'ERROR: rgb must be an array of 3 valid numbers, respectively (r,g,b)'
+
+    for n in rgb
+      if _.isNumber(n) is false or (n < 0 or n > 255)
+        passed = false
+        throw 'ERROR: each rgb value needs to be a number between 0 and 255'
+        break
+
+    if passed is true
+      @_rgb = rgb
 
   ###
   *------------------------------------------*
@@ -133,11 +172,33 @@ class FeaturedWorkSlideModel extends BaseSlideModel
   | Set launch url.
   *----------------------------------------###
   setLaunchUrl: (launch_url) ->
-    console.log 'launch_url:', launch_url
     if _.isString(launch_url) is false
       throw 'ERROR: launch_url must be a string'
     else
       @_launch_url = launch_url
+
+  ###
+  *------------------------------------------*
+  | getTagline:string (-)
+  |
+  | Get tagline.
+  *----------------------------------------###
+  getTagline: ->
+    return @_tagline
+
+  ###
+  *------------------------------------------*
+  | setTagline:void (-)
+  |
+  | tagline:string - tagline
+  |
+  | Set tagline.
+  *----------------------------------------###
+  setTagline: (tagline) ->
+    if _.isString(tagline) is false
+      throw 'ERROR: tagline must be a string'
+    else
+      @_tagline = tagline
 
   ###
   *------------------------------------------*
