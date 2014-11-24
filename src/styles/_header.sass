@@ -18,7 +18,7 @@ header
   #logo
     position: absolute
     top: 0px
-    left: 7%
+    left: 100px
     width: 76px
     height: 100%
     background-image: url('/images/logo@2x.gif')
@@ -71,29 +71,28 @@ header
     position: absolute
     top: 21px
     right: 0px
+    width: 80px
     height: 34px
     font-size: 0
     line-height: 0
 
     a
+      width: 50%
       height: 100%
-      width: 22px
       height: 20px
       margin-top: 7px
       text-decoration: none
       background-image: url('/images/icons-sprite@2x.png')
       background-repeat: no-repeat
-      background-size: 22px 60px
+      background-position: center top
+      background-size: 40px 60px
       display: inline-block
       opacity: 1
 
       transition: opacity $speed $ease
 
       &:last-child
-        width: 15px
-        height: 20px
-        margin-left: 20px
-        background-position: 0px -40px
+        background-position: center -40px
 
       &:hover
         opacity: 0.6
