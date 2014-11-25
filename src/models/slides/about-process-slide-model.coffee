@@ -21,30 +21,29 @@ class AboutProcessSlideModel extends BaseSlideModel
     super(data)
 
     @_name = null
-    @setName(data.name)
+    @setTitle(data.title)
 
   ###
   *------------------------------------------*
-  | getName:string (-)
+  | getTitle:string (-)
   |
-  | Get name.
+  | Get title.
   *----------------------------------------###
-  getName: ->
-    return @_launch_url
+  getTitle: ->
+    return @_title
 
   ###
   *------------------------------------------*
-  | setName:void (-)
+  | setTitle:void (-)
   |
-  | name:string - name
+  | title:string - title
   |
-  | Set name.
+  | Set title.
   *----------------------------------------###
-  setName: (name) ->
-    console.log name
-    if _.isString(name) is false
-      throw 'ERROR: name must be a string'
+  setTitle: (title) ->
+    if _.isString(title) is false
+      throw 'ERROR: title must be a string'
     else
-      @_name = name
+      @_title = title
 
 module.exports = AboutProcessSlideModel

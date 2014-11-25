@@ -83,7 +83,7 @@ class PageController
         when LW.slide_types.ABOUT_PROCESS
           @slide_m[id] = new AboutProcessSlideModel({
             '$el': $el,
-            'name': slide.name
+            'title': slide.title
           })
           @slide_c[id] = new AboutProcessSlideController({
             'model': @slide_m[id]
