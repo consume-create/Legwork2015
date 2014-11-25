@@ -33,6 +33,4 @@ class AppendixedWorkSlideController extends BaseSlideController
     })))
     @model.getE().append(@model.getV())
 
-    console.log('appendixed work slide')
-
 module.exports = AppendixedWorkSlideController
