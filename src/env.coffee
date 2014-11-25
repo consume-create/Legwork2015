@@ -14,8 +14,12 @@ LW.LANDING_SLIDE = 'landing'
 # 4. Require the model and controller in the page controller and add a condition to the build method
 
 LW.slide_types = {}
+# Home Slides
 LW.slide_types.HOME = 'home'
+# About Slides
 LW.slide_types.ABOUT = 'about'
+LW.slide_types.ABOUT_PROCESS = 'about-process'
+# Work Slides
 LW.slide_types.WORK = 'work'
 LW.slide_types.FEATURED_WORK = 'featured-work'
 LW.slide_types.APPENDIXED_WORK = 'appendixed-work'

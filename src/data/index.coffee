@@ -1,15 +1,18 @@
 # Import page / slide data
 
 # Home
-home = require "./home/landing"
+home = require './home/landing'
 
 # About
-about = require "./about/landing"
+about = require './about/landing'
+process_01 = require './about/process-01'
+process_02 = require './about/process-02'
+process_03 = require './about/process-03'
 
 # Work
-work = require "./work/landing"
-the_boxtrolls = require "./work/featured/the-boxtrolls"
-appendix_01 = require "./work/appendix-01/appendix-01"
+work = require './work/landing'
+the_boxtrolls = require './work/featured/the-boxtrolls'
+appendix_01 = require './work/appendix-01/appendix-01'
 
 # Describe the structure of the site
 
@@ -28,7 +31,10 @@ data = {
 		},
 		"about": {
 			"slides": {
-				"landing": about
+				"landing": about,
+				"process-01": process_01,
+				"process-02": process_02,
+				"process-03": process_03
 			}
 		},
 		"work": {

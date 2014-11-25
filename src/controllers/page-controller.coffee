@@ -4,11 +4,17 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 ###
 
-# Slides
+# Home Slides
 HomeSlideModel = require '../models/slides/home-slide-model'
 HomeSlideController = require './slides/home-slide-controller'
+
+# About Slides
 AboutSlideModel = require '../models/slides/about-slide-model'
 AboutSlideController = require './slides/about-slide-controller'
+AboutProcessSlideModel = require '../models/slides/about-process-slide-model'
+AboutProcessSlideController = require './slides/about-process-slide-controller'
+
+# Work Slides
 WorkSlideModel = require '../models/slides/work-slide-model'
 WorkSlideController = require './slides/work-slide-controller'
 FeaturedWorkSlideModel = require '../models/slides/featured-work-slide-model'
@@ -61,17 +67,31 @@ class PageController
 
       switch slide.slide_type
         when LW.slide_types.HOME
-          @slide_m[id] = new HomeSlideModel({'$el': $el})
+          @slide_m[id] = new HomeSlideModel({
+            '$el': $el
+          })
           @slide_c[id] = new HomeSlideController({
             'model': @slide_m[id]
           })
         when LW.slide_types.ABOUT
-          @slide_m[id] = new AboutSlideModel({'$el': $el})
+          @slide_m[id] = new AboutSlideModel({
+            '$el': $el
+          })
           @slide_c[id] = new AboutSlideController({
             'model': @slide_m[id]
           })
+        when LW.slide_types.ABOUT_PROCESS
+          @slide_m[id] = new AboutProcessSlideModel({
+            '$el': $el,
+            'name': slide.name
+          })
+          @slide_c[id] = new AboutProcessSlideController({
+            'model': @slide_m[id]
+          })
         when LW.slide_types.WORK
-          @slide_m[id] = new WorkSlideModel({'$el': $el})
+          @slide_m[id] = new WorkSlideModel({
+            '$el': $el
+          })
           @slide_c[id] = new WorkSlideController({
             'model': @slide_m[id]
           })
