@@ -17,8 +17,7 @@ class FeaturedWorkSlideController extends BaseSlideController
   | Construct.
   *----------------------------------------###
   constructor: (init) ->
-    @model = init.model
-    @build()
+    super(init)
 
   ###
   *------------------------------------------*
