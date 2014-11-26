@@ -19,6 +19,7 @@ LW.slide_types.HOME = 'home'
 # About Slides
 LW.slide_types.ABOUT = 'about'
 LW.slide_types.ABOUT_PROCESS = 'about-process'
+LW.slide_types.ABOUT_VIDEO = 'about-video'
 # Work Slides
 LW.slide_types.WORK = 'work'
 LW.slide_types.FEATURED_WORK = 'featured-work'

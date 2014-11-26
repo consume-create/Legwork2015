@@ -13,6 +13,8 @@ AboutSlideModel = require '../models/slides/about-slide-model'
 AboutSlideController = require './slides/about-slide-controller'
 AboutProcessSlideModel = require '../models/slides/about-process-slide-model'
 AboutProcessSlideController = require './slides/about-process-slide-controller'
+AboutVideoSlideModel = require '../models/slides/about-video-slide-model'
+AboutVideoSlideController = require './slides/about-video-slide-controller'
 
 # Work Slides
 WorkSlideModel = require '../models/slides/work-slide-model'
@@ -86,6 +88,14 @@ class PageController
             'title': slide.title
           })
           @slide_c[id] = new AboutProcessSlideController({
+            'model': @slide_m[id]
+          })
+        when LW.slide_types.ABOUT_VIDEO
+          @slide_m[id] = new AboutVideoSlideModel({
+            '$el': $el,
+            'poster_src': slide.poster_src
+          })
+          @slide_c[id] = new AboutVideoSlideController({
             'model': @slide_m[id]
           })
         when LW.slide_types.WORK

@@ -1,0 +1,3 @@
+<div class="slide-inner">
+	<div class="poster" style="background-image: url('<%= @poster_src %>');"></div>
+</div>
