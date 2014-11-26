@@ -1,2 +1,17 @@
 <div class="slide-inner">
+	<!-- Title zone -->
+	<div class="title-zone">
+		<div class="title-holder">
+			<div class="line-holder">
+				<h2><span><%- @title[0] %></span></h2>
+			</div>
+			<div class="line-holder">
+				<h2><span><%- @title[1] %></span></h2>
+			</div>
+		</div>
+	</div>
+	<!-- Meta zone -->
+	<div class="meta-zone">
+		<h4><%- @instructions %></h4>
+	</div>
 </div>

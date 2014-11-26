@@ -77,7 +77,9 @@ class PageController
           })
         when LW.slide_types.ABOUT
           @slide_m[id] = new AboutSlideModel({
-            '$el': $el
+            '$el': $el,
+            'title': slide.title,
+            'instructions': slide.instructions
           })
           @slide_c[id] = new AboutSlideController({
             'model': @slide_m[id]
@@ -100,7 +102,9 @@ class PageController
           })
         when LW.slide_types.WORK
           @slide_m[id] = new WorkSlideModel({
-            '$el': $el
+            '$el': $el,
+            'title': slide.title,
+            'instructions': slide.instructions
           })
           @slide_c[id] = new WorkSlideController({
             'model': @slide_m[id]

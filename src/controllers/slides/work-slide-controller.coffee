@@ -28,7 +28,10 @@ class WorkSlideController extends BaseSlideController
   build: ->
     super()
 
-    @model.setV($(JST['work-slide-view']()))
+    @model.setV($(JST['work-slide-view']({
+      'title': @model.getTitle(),
+      'instructions': @model.getInstructions()
+    })))
     @model.getE().append(@model.getV())
 
 module.exports = WorkSlideController

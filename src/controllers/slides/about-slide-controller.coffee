@@ -28,7 +28,10 @@ class AboutSlideController extends BaseSlideController
   build: ->
     super()
 
-    @model.setV($(JST['about-slide-view']()))
+    @model.setV($(JST['about-slide-view']({
+      'title': @model.getTitle(),
+      'instructions': @model.getInstructions()
+    })))
     @model.getE().append(@model.getV())
 
 module.exports = AboutSlideController
