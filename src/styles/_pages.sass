@@ -50,23 +50,26 @@
         top: 50%
         right: 0px
         width: 40px
+
         transform: translate(0%, -50%)
 
         li
-          display: block
           width: 100%
           height: 40px
 
           a
-            display: block
+            position: relative
             width: 100%
             height: 100%
+            font-size: 12px
+            line-height: 40px
+            font-weight: $bold
             text-align: center
-            font: normal normal normal 12px/40px $montserrat
-            color: #fff
+            display: block
 
-          a:hover, a.active
-            background-color: #000
+          a:hover,
+          a.active
+            background-color: $black
 
 // -----------------------------------------------
 // Home styles

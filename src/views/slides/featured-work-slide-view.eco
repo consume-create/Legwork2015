@@ -6,10 +6,10 @@
 	<div class="title-zone">
 		<div class="title-holder">
 			<div class="line-holder">
-				<h2><span><%= @title[0] %></span></h2>
+				<h2><span><%- @title[0] %></span></h2>
 			</div>
 			<div class="line-holder">
-				<h2><span><%= @title[1] %></span></h2>
+				<h2><span><%- @title[1] %></span></h2>
 			</div>
 		</div>
 		<div class="callouts cf">
@@ -40,14 +40,14 @@
 		<div class="detail-zone-inner">
 			<div class="cell video-cell" data-id="<%= @vimeo_id %>">
 				<div class="video-poster" style="background-image: url('<%= @poster_src %>');">
-					<span><%= @poster_cta %></span>
+					<span><%- @poster_cta %></span>
 				</div>
 			</div>
 			<div class="cell summary-cell">
 				<div class="cell-inner">
-					<h3><%= @descr_title %></h3>
-					<p><%= @descr_text %></p>
-					<div class="services"><% for s, i in @services: %><%= s %><% if i < (@services.length - 1): %>, <% end %><% end %></div>
+					<h3><%- @descr_title %></h3>
+					<p><%- @descr_text %></p>
+					<div class="services"><% for s, i in @services: %><%- s %><% if i < (@services.length - 1): %>, <% end %><% end %></div>
 				</div>
 			</div>
 		</div>
