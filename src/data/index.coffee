@@ -12,8 +12,8 @@ about_video = require './about/video'
 
 # Work
 work = require './work/landing'
-the_boxtrolls = require './work/featured/the-boxtrolls'
-appendix_01 = require './work/appendix-01/appendix-01'
+the_boxtrolls = require './work/interactive/the-boxtrolls'
+appendix_01 = require './work/appendix-01'
 
 # Describe the structure of the site
 
