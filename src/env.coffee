@@ -1,6 +1,9 @@
 # Namespace
 window.LW = window.LW || {}
 
+# Slide title max
+LW.TITLE_MAX = 16
+
 # Landing slide constant
 LW.LANDING_SLIDE = 'landing'
 

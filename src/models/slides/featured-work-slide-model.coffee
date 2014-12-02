@@ -114,12 +114,10 @@ class FeaturedWorkSlideModel extends BaseSlideModel
   | Set title.
   *----------------------------------------###
   setTitle: (title) ->
-    max = 16
-
     if _.isArray(title) is false or title.length isnt 2
       throw 'ERROR: title must be an array of 2 strings'
-    else if title[0].length > max or title[1].length > max
-      throw 'ERROR: title parts must be ' + max + ' characters or less'
+    else if title[0].length > LW.TITLE_MAX or title[1].length > LW.TITLE_MAX
+      throw 'ERROR: title parts must be ' + LW.TITLE_MAX + ' characters or less'
     else
       @_title = title
 

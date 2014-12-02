@@ -27,9 +27,8 @@ class AppendixedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   build: ->
     super()
-    @model.setV($(JST['appendixed-work-slide-view']({
-      'projects': @model.getProjects()
-    })))
+    console.log(@model.getProjects())
+    @model.setV($(JST['appendixed-work-slide-view']({'projects': @model.getProjects()})))
     @model.getE().append(@model.getV())
 
 module.exports = AppendixedWorkSlideController
