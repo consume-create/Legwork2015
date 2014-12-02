@@ -54,6 +54,7 @@ class PageController
     # Cache selectors
     @$slide_wrapper = $('.slides-wrapper', @model.getV())
     @$page_btns = $('.page-nav li a', @model.getV())
+    @total_page_btns = @$page_btns.length
 
     # Loop and create page slides
 
@@ -142,6 +143,8 @@ class PageController
           throw 'ERROR: slide type does not exist'
 
       @$slides = $('.slide')
+      @flicking = false
+      @active_index = 0
 
   ###
   *------------------------------------------*
@@ -157,7 +160,52 @@ class PageController
     s.suspend() for id, s of @slide_c
     @slide_c[slide].activate()
     @active_c = @slide_c[slide]
-    @$page_btns.removeClass('active').filter('[data-id="' + slide+ '"]').addClass('active')
+    @$page_btns.removeClass('active').filter('[data-id="' + slide + '"]').addClass('active')
+    @active_index = $('.page-nav li a.active', @model.getV()).parent().index()
+
+  ###
+  *------------------------------------------*
+  | onMousewheel:void (=)
+  |
+  | Rip'it with the mousewheel.
+  *----------------------------------------###
+  onMousewheel: (e) =>
+    e.preventDefault()
+
+    delta = e.originalEvent.wheelDelta / 120 or -e.originalEvent.detail / 3
+    
+    if Math.abs(delta) >= 1.5 and @flicking is false
+      @flicking = true
+      if delta > 0
+        @previous()
+      else
+        @next()
+
+      setTimeout =>
+        @flicking = false
+      , 666
+
+  ###
+  *------------------------------------------*
+  | previous:void (-)
+  |
+  | Previous slide, if there is one.
+  *----------------------------------------###
+  previous: ->
+    if @active_index > 0
+      href = @$page_btns.eq(@active_index - 1).attr('href')
+      History.pushState(null, null, href)
+
+  ###
+  *------------------------------------------*
+  | next:void (-)
+  |
+  | Next slide, if there is one.
+  *----------------------------------------###
+  next: ->
+    if @active_index < (@total_page_btns - 1)
+      href = @$page_btns.eq(@active_index + 1).attr('href')
+      History.pushState(null, null, href)
 
   ###
   *------------------------------------------*
@@ -168,6 +216,13 @@ class PageController
   activate: ->
     @model.getE().show()
 
+    # If there are page_btns,
+    # we have events to listen to...
+    if @total_page_btns > 1
+      LW.$doc
+        .off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id}")
+        .on("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id}", @onMousewheel)
+
   ###
   *------------------------------------------*
   | suspend:void (-)
@@ -177,5 +232,10 @@ class PageController
   suspend: ->
     @model.getE().hide()
     s.suspend() for id, s of @slide_c
+
+    # If there were page_btns,
+    # we have events to listen to turn off...
+    if @total_page_btns > 1
+      LW.$doc.off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id}")
 
 module.exports = PageController
