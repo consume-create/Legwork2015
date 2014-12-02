@@ -1,127 +1,114 @@
 .slide.work
-  position: absolute
-  top: 0px
-  left: 0px
-  width: 100%
-  height: 100%
+  
+  // ---------------------------------------------
+  // Picture zone
+  // ---------------------------------------------
 
-  .slide-inner
+  .picture-zone
     position: absolute
     top: 0px
-    left: 0px
+    left: 50%
     width: 100%
     height: 100%
+    background-repeat: no-repeat
+    background-position: left bottom
+    background-size: contain
+    background-blend-mode: multiply
     overflow: hidden
   
-    // ---------------------------------------------
-    // Picture zone
-    // ---------------------------------------------
+  // ---------------------------------------------
+  // Title zone
+  // ---------------------------------------------
 
-    .picture-zone
-      position: absolute
-      top: 0px
-      left: 50%
+  .title-zone
+    position: absolute
+    top: 50%
+    left: 100px
+    right: 100px
+
+    transform: translate(0,-50%)
+
+    .title-holder
+      position: relative
       width: 100%
-      height: 100%
-      background-repeat: no-repeat
-      background-position: left bottom
-      background-size: contain
-      background-blend-mode: multiply
+      height: 210px
+      margin: 0 0 76px
       overflow: hidden
     
-    // ---------------------------------------------
-    // Title zone
-    // ---------------------------------------------
-
-    .title-zone
-      position: absolute
-      top: 50%
-      left: 100px
-      right: 100px
-
-      transform: translate(0,-50%)
-
-      .title-holder
-        position: relative
+      .line-holder
+        position: absolute
+        top: 0px
+        left: 0px
         width: 100%
-        height: 210px
-        margin: 0 0 76px
+        height: 90px
         overflow: hidden
-      
-        .line-holder
-          position: absolute
-          top: 0px
-          left: 0px
-          width: 100%
-          height: 90px
-          overflow: hidden
-          
-          transform: translate3d(0,0%,0)
+        
+        transform: translate3d(0,0%,0)
 
-          &:last-child
-            top: auto
-            bottom: 0px
-
-          h2
-            position: relative
-            height: 100%
-            overflow: hidden
-            display: inline-block
-            cursor: default
-
-            span
-              position: relative
-              height: 60px
-              padding: 0 0 30px
-              font-size: 66px
-              line-height: 56px
-              font-weight: $bold
-              display: inline-block
-
-              &:after
-                content: ''
-                position: absolute
-                bottom: 0px
-                left: 0px
-                width: 100%
-                height: 10px
-                background-color: $black
-
-    // ---------------------------------------------
-    // Meta zone
-    // ---------------------------------------------
-
-    .meta-zone
-      position: absolute
-      bottom: 40px
-      left: 100px
-      right: 100px
-
-      h4
-        position: relative
-        height: 14px
-        padding: 0 0 0 25px
-        color: $black
-
-        @include type-mono(14px, $regular)
-
-        &:before
-          content: ''
-          position: absolute
-          top: 0px
-          left: 3px
-          width: 2px
-          height: 12px
-          margin: -1px 0 0
-          background-color: $black
-
-        &:after
-          content: ''
-          position: absolute
+        &:last-child
+          top: auto
           bottom: 0px
-          left: 0px
-          width: 0
-          height: 0
-          border-left: 4px solid transparent
-          border-right: 4px solid transparent
-          border-top: 6px solid $black
+
+        h2
+          position: relative
+          height: 100%
+          overflow: hidden
+          display: inline-block
+          cursor: default
+
+          span
+            position: relative
+            height: 60px
+            padding: 0 0 30px
+            font-size: 66px
+            line-height: 56px
+            font-weight: $bold
+            display: inline-block
+
+            &:after
+              content: ''
+              position: absolute
+              bottom: 0px
+              left: 0px
+              width: 100%
+              height: 10px
+              background-color: $black
+
+  // ---------------------------------------------
+  // Meta zone
+  // ---------------------------------------------
+
+  .meta-zone
+    position: absolute
+    bottom: 40px
+    left: 100px
+    right: 100px
+
+    h4
+      position: relative
+      height: 14px
+      padding: 0 0 0 25px
+      color: $black
+
+      @include type-mono(14px, $regular)
+
+      &:before
+        content: ''
+        position: absolute
+        top: 0px
+        left: 3px
+        width: 2px
+        height: 12px
+        margin: -1px 0 0
+        background-color: $black
+
+      &:after
+        content: ''
+        position: absolute
+        bottom: 0px
+        left: 0px
+        width: 0
+        height: 0
+        border-left: 4px solid transparent
+        border-right: 4px solid transparent
+        border-top: 6px solid $black
