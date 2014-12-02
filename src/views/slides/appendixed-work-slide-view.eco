@@ -1,19 +1,19 @@
 <div class="slide-inner">
 	<ul class="cells">
-		<% for p, i in @projects: %>
+		<% for i in [0..5]: %>
 			<li class="cell">
-				<% if $.isEmptyObject(p) is false: %>
+				<% if @projects[i]?: %>
 					<div class="cell-inner">
 						<div class="title-holder">
 							<div class="line-holder">
-								<h2><span><%= p.title[0] %></span></h2>
+								<h2><span><%= @projects[i].title[0] %></span></h2>
 							</div>
 							<div class="line-holder">
-								<h2><span><%= p.title[1] %></span></h2>
+								<h2><span><%= @projects[i].title[1] %></span></h2>
 							</div>
 						</div>
-						<h4><%= p.tagline %></h4>
-						<a href="<%= p.launch_url %>" target="_new"></a>
+						<h4><%= @projects[i].tagline %></h4>
+						<a href="<%= @projects[i].launch_url %>" target="_new"></a>
 					</div>
 				<% end %>
 			</li>
