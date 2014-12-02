@@ -34,4 +34,21 @@ class AboutSlideController extends BaseSlideController
     })))
     @model.getE().append(@model.getV())
 
+  ###
+  *------------------------------------------*
+  | transitionIn:void (-)
+  |
+  | Transition in.
+  *----------------------------------------###
+  transitionIn: (pos_in) ->
+
+  ###
+  *------------------------------------------*
+  | transitionOut:void (-)
+  |
+  | Transition out.
+  *----------------------------------------###
+  transitionOut: (pos_out, cb) ->
+    cb()
+
 module.exports = AboutSlideController
