@@ -11,6 +11,11 @@ nissan_leaf = require './motion/nissan-leaf'
 data = {
   "browser_title": "Legwork Studio / Appendix 01",
   "slide_type": LW.slide_types.APPENDIXED_WORK,
+  "rgb": [
+    69,
+    132,
+    190
+  ],
   "projects": [
     birth_control_myths,
     hands_on_ron_burgundy,
