@@ -176,13 +176,18 @@ class Application
       @active_c = @page_c[id]
       @active_c.goToSlide(route)
     else
-      @transition_c.activate()
-      @transition_c.go('left', =>
+      direction = if @page_c[id].model.getE().index() < @active_c.model.getE().index() then 'right' else 'left'
+
+      @active_c.transitionOut(direction, =>
         @suspend()
         @header_c.setState(id)
         @page_c[id].activate(route)
         @active_c = @page_c[id]
         @active_c.goToSlide(route)
+      )
+
+      @transition_c.activate()
+      @transition_c.go(direction, =>
         @transition_c.suspend()
       )
 

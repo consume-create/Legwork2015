@@ -56,7 +56,12 @@ class TransitionController
   | Go.
   *----------------------------------------###
   go: (direction, cb) ->
-    TweenLite.to(@t_mask.scale, 0.666, {'x': 0, 'ease': Expo.easeInOut, 'onComplete': cb})
+    _.delay(=>
+      @model.getE()
+        .addClass('out-' + direction)
+        .off(LW.utils.transition_end)
+        .one(LW.utils.transition_end, cb)
+    , 666)
 
   ###
   *------------------------------------------*
@@ -85,9 +90,7 @@ class TransitionController
   | Suspend.
   *----------------------------------------###
   suspend: ->
-    @model.getE().hide()
-
-    @t_mask.scale.x = 1
     cancelAnimationFrame(@frame)
+    @model.getE().hide().removeClass('out-left out-right')
 
 module.exports = TransitionController
