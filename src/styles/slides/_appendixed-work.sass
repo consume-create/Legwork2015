@@ -1,5 +1,8 @@
 .slide.appendixed-work
-  background-color: #4584be
+  
+  // ---------------------------------------------
+  // Cells
+  // ---------------------------------------------
 
   ul.cells
     position: absolute
@@ -7,20 +10,29 @@
     left: 0px
     right: 40px
     height: 100%
-    font-size: 0
-    line-height: 0
     overflow: hidden
 
     li.cell
+      float: left
       position: relative
       width: 33.333%
       height: 50%
-      display: inline-block
       overflow: hidden
+      opacity: 0
+
+      transform: translate3d(0,80px,0)
 
       @for $i from 1 through 6
         &:nth-child(#{$i})
           background-color: rgba(0,0,0,(0.05 * $i))
+          transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
+          // transition: transform ($speed / 2) $ease ((6 - $i) * 111ms), opacity ($speed / 2) $ease ((6 - $i) * 111ms)
+
+        &.active
+          opacity: 1
+          transform: translate3d(0,0px,0)
+
+          // transition: transform ($speed / 2) $ease ($i * 111ms), opacity ($speed / 2) $ease ($i * 111ms)
 
       .cell-inner
         position: absolute

@@ -14,7 +14,7 @@ data = {
   "launch_url": "http://i.imgur.com/5FLULzr.gif",
   "tagline": "Online contest for Dodge.",
   # TODO: fallback png / opacity for picture_src?
-  "picture_src": "/images/work/boxtrolls.jpg",
+  "picture_src": "/images/work/ron.png",
   "clients": [
     "/images/client-logos/nike.png"
   ],

@@ -9,7 +9,7 @@ nissan_leaf = require './motion/nissan-leaf'
 # Describe the structure of this appendix
 # NOTE: Each appendix can contain no more than SIX projects
 data = {
-  "browser_title": "Legwork Studio / Appendix 01",
+  "browser_title": "Legwork Studio / Appendix 02",
   "slide_type": LW.slide_types.APPENDIXED_WORK,
   "rgb": [
     69,

@@ -14,7 +14,7 @@ data = {
   "launch_url": "http://www.theboxtrolls.com",
   "tagline": "A interactive experience for Laika."
   # TODO: fallback png / opacity for picture_src?
-  "picture_src": "/images/work/boxtrolls.jpg",
+  "picture_src": "/images/work/boxtrolls.png",
   "clients": [
     "/images/client-logos/nike.png",
     "/images/client-logos/nike.png"

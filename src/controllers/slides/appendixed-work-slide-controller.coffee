@@ -30,6 +30,8 @@ class AppendixedWorkSlideController extends BaseSlideController
     @model.setV($(JST['appendixed-work-slide-view']({'projects': @model.getProjects()})))
     @model.getE().append(@model.getV())
 
+    @$cell = $('.cell', @model.getV())
+
   ###
   *------------------------------------------*
   | transitionIn:void (-)
@@ -37,6 +39,8 @@ class AppendixedWorkSlideController extends BaseSlideController
   | Transition in.
   *----------------------------------------###
   transitionIn: (pos_in) ->
+    _.defer =>
+      @$cell.addClass('active')
 
   ###
   *------------------------------------------*
@@ -45,6 +49,12 @@ class AppendixedWorkSlideController extends BaseSlideController
   | Transition out.
   *----------------------------------------###
   transitionOut: (pos_out, cb) ->
-    cb()
+    @$cell
+      .removeClass('active')
+      .eq(@$cell.length - 1)
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        cb()
+      )
 
 module.exports = AppendixedWorkSlideController

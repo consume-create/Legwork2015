@@ -14,7 +14,7 @@ data = {
   "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
   "tagline": "Facebook application for Coca-cola.",
   # TODO: fallback png / opacity for picture_src?
-  "picture_src": "/images/work/boxtrolls.jpg",
+  "picture_src": "/images/work/coke.png",
   "clients": [
     "/images/client-logos/nike.png"
   ],

@@ -34,6 +34,9 @@ class WorkSlideController extends BaseSlideController
     })))
     @model.getE().append(@model.getV())
 
+    @$title = $('.title-holder h2', @model.getV())
+    @$zone = $('.zone', @model.getV())
+
   ###
   *------------------------------------------*
   | transitionIn:void (-)
@@ -41,6 +44,17 @@ class WorkSlideController extends BaseSlideController
   | Transition in.
   *----------------------------------------###
   transitionIn: (pos_in) ->
+    obj = {}
+    obj[LW.utils.transform] = LW.utils.translate(0, (pos_in * 100) + '%')
+    @$title
+      .addClass('no-trans')
+      .css(obj)
+
+    _.defer =>
+      obj[LW.utils.transform] = LW.utils.translate(0, 0 + '%')
+      @$title
+        .removeClass('no-trans')
+        .css(obj)
 
   ###
   *------------------------------------------*
@@ -49,6 +63,14 @@ class WorkSlideController extends BaseSlideController
   | Transition out.
   *----------------------------------------###
   transitionOut: (pos_out, cb) ->
-    cb()
+    obj = {}
+    obj[LW.utils.transform] = LW.utils.translate(0, (pos_out * 100) + '%')
+    @$title
+      .css(obj)
+      .eq(0)
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        cb()
+      )
 
 module.exports = WorkSlideController

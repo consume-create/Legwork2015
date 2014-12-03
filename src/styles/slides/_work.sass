@@ -42,8 +42,6 @@
         width: 100%
         height: 90px
         overflow: hidden
-        
-        transform: translate3d(0,0%,0)
 
         &:last-child
           top: auto
@@ -55,6 +53,12 @@
           overflow: hidden
           display: inline-block
           cursor: default
+
+          transform: translate3d(0,0%,0)
+          transition: transform $speed $evil_ease
+
+          &.no-trans
+            transition: transform 0ms linear
 
           span
             position: relative
