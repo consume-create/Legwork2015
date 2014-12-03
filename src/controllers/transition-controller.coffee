@@ -51,17 +51,24 @@ class TransitionController
   | go:void (-)
   |
   | direction:string - left or right
-  | cb:function - callback
+  | cb1:function - stage 1 callback
+  | cb2:function - stage 2 callback
   |
   | Go.
   *----------------------------------------###
-  go: (direction, cb) ->
+  go: (direction, cb1, cb2) ->
     _.delay(=>
       @model.getE()
-        .addClass('out-' + direction)
+        .addClass('in-' + direction)
         .off(LW.utils.transition_end)
-        .one(LW.utils.transition_end, cb)
-    , 666)
+        .one(LW.utils.transition_end, =>
+          cb1()
+          @model.getE()
+            .addClass('out-' + direction)
+            .off(LW.utils.transition_end)
+            .one(LW.utils.transition_end, cb2)
+        )
+    , 27)
 
   ###
   *------------------------------------------*
@@ -91,6 +98,6 @@ class TransitionController
   *----------------------------------------###
   suspend: ->
     cancelAnimationFrame(@frame)
-    @model.getE().hide().removeClass('out-left out-right')
+    @model.getE().hide().removeClass('in-left in-right out-left out-right')
 
 module.exports = TransitionController

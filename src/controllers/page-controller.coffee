@@ -241,21 +241,6 @@ class PageController
 
   ###
   *------------------------------------------*
-  | transitionOut:void (-)
-  |
-  | direction:string - left or right
-  | cb:function - callback
-  |
-  | Transition out.
-  *----------------------------------------###
-  transitionOut: (direction, cb) ->
-    @model.getE()
-      .addClass('out-' + direction)
-      .off(LW.utils.transition_end)
-      .one(LW.utils.transition_end, cb)
-
-  ###
-  *------------------------------------------*
   | activate:void (-)
   |
   | Activate.
@@ -277,7 +262,7 @@ class PageController
   | Activate.
   *----------------------------------------###
   suspend: ->
-    @model.getE().hide().removeClass('out-left out-right')
+    @model.getE().hide()
     s.suspend() for id, s of @slide_c
     @active_c = null
 

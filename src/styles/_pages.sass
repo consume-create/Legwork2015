@@ -132,7 +132,7 @@
 // Transish
 // -----------------------------------------------
 .page.out-left, .page.out-right
-  transition: transform 666ms $evil_ease
+  transition: transform $speed_metal $evil_ease
   z-index: 1
 
 .page.out-left
@@ -145,7 +145,7 @@
   position: absolute
   top: 0px
   left: 0px
-  width: 100%
+  width: 0%
   height: 100%
   overflow: hidden
 
@@ -153,10 +153,20 @@
     width: 100%
     height: 100%
 
-#pages-transition.out-left, #pages-transition.out-right
-  transition: width 666ms $evil_ease
+#pages-transition.in-left, #pages-transition.in-right, #pages-transition.out-left, #pages-transition.out-right
+  transition: width $speed_metal $evil_ease
+
+#pages-transition.in-left
+  right: 0px
+  left: auto
+  width: 100%
+
+#pages-transition.in-right
+  width: 100%
 
 #pages-transition.out-left
+  right: auto
+  left: 0px
   width: 0%
 
 #pages-transition.out-right
