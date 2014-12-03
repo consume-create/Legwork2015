@@ -35,6 +35,7 @@ class WorkSlideController extends BaseSlideController
     @model.getE().append(@model.getV())
 
     @$title = $('.title-holder h2', @model.getV())
+    @$zone = $('.zone', @model.getV())
 
   ###
   *------------------------------------------*

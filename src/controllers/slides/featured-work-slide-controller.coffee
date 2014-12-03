@@ -48,6 +48,7 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$detail_zone = $('.detail-zone', @model.getV())
     @$about_btn = $('.callout.about', @model.getV())
     @$title = $('.title-holder h2', @model.getV())
+    @$zone = $('.zone', @model.getV())
 
   ###
   *------------------------------------------*
@@ -82,6 +83,8 @@ class FeaturedWorkSlideController extends BaseSlideController
         .removeClass('no-trans')
         .css(obj)
 
+      @$zone.css('opacity', 1)
+
   ###
   *------------------------------------------*
   | transitionOut:void (-)
@@ -98,6 +101,8 @@ class FeaturedWorkSlideController extends BaseSlideController
       .one(LW.utils.transition_end, =>
         cb()
       )
+
+    @$zone.css('opacity', 0)
 
   ###
   *------------------------------------------*
