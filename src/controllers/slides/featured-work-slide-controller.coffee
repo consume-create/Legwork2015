@@ -83,7 +83,7 @@ class FeaturedWorkSlideController extends BaseSlideController
         .removeClass('no-trans')
         .css(obj)
 
-      @$zone.css('opacity', 1)
+      @$zone.css('opacity': 1)
 
   ###
   *------------------------------------------*
@@ -102,7 +102,7 @@ class FeaturedWorkSlideController extends BaseSlideController
         cb()
       )
 
-    @$zone.css('opacity', 0)
+    @$zone.css('opacity': 0)
 
   ###
   *------------------------------------------*
