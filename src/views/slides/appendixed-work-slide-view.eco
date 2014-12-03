@@ -1,5 +1,5 @@
 <div class="slide-inner">
-	<ul class="cells">
+	<ul class="cells cf">
 		<% for i in [0..5]: %>
 			<li class="cell">
 				<% if @projects[i]?: %>
