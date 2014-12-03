@@ -1,6 +1,6 @@
-<div class="slide-inner" style="background-color: rgb(<%= @rgb %>);">
+<div class="slide-inner">
 	<!-- Picture zone -->
-	<div class="picture-zone" style="background-color: rgb(<%= @rgb %>); background-image: url('<%= @picture_src %>');">
+	<div class="picture-zone" style="background-image: url('<%= @picture_src %>');">
 	</div>
 	<!-- Title zone -->
 	<div class="title-zone">
