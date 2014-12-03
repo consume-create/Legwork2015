@@ -1,5 +1,8 @@
 .slide.appendixed-work
-  background-color: #4584be
+  
+  // ---------------------------------------------
+  // Cells
+  // ---------------------------------------------
 
   ul.cells
     position: absolute
@@ -22,7 +25,7 @@
       @for $i from 1 through 6
         &:nth-child(#{$i})
           background-color: rgba(0,0,0,(0.05 * $i))
-          transition: transform ($speed / 2) $ease ($i * 111ms), opacity ($speed / 2) $ease ($i * 111ms)
+          transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
           // transition: transform ($speed / 2) $ease ((6 - $i) * 111ms), opacity ($speed / 2) $ease ((6 - $i) * 111ms)
 
         &.active
