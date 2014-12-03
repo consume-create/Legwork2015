@@ -170,12 +170,21 @@ class Application
 
     if @page_c[id] is @active_c
       @active_c.goToSlide(route)
+    else if @active_c is null
+      @header_c.setState(id)
+      @page_c[id].activate()
+      @active_c = @page_c[id]
+      @active_c.goToSlide(route)
     else
+      @transition_c.activate()
+
       @suspend()
       @header_c.setState(id)
       @page_c[id].activate(route)
       @active_c = @page_c[id]
       @active_c.goToSlide(route)
+
+      @transition_c.suspend()
 
   ###
   *------------------------------------------*
