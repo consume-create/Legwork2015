@@ -71,16 +71,6 @@
             text-align: center
             display: block
 
-            span:last-child
-              position: absolute
-              top: 0px
-              left: 0px
-              width: 100%
-              height: 100%
-              background-color: transparent
-
-              transition: background-color $speed linear $speed
-
             span:first-child
               position: absolute
               top: 0px
@@ -92,7 +82,13 @@
               white-space: nowrap
 
               transform: translate3d(100%,0,0)
-              transition: transform $speed $evil_ease
+
+            span:last-child
+              position: absolute
+              top: 0px
+              left: 0px
+              width: 100%
+              height: 100%
 
           a:hover
             span:first-child
@@ -101,14 +97,10 @@
 
             span:last-child
               background-color: $black
-              
-              transition: background-color $speed linear
 
           a.active
             span:last-child
               background-color: $black
-
-              transition: background-color 0ms linear
 
 // -----------------------------------------------
 // Home styles
