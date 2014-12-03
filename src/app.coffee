@@ -177,14 +177,14 @@ class Application
       @active_c.goToSlide(route)
     else
       @transition_c.activate()
-
-      @suspend()
-      @header_c.setState(id)
-      @page_c[id].activate(route)
-      @active_c = @page_c[id]
-      @active_c.goToSlide(route)
-
-      @transition_c.suspend()
+      @transition_c.go('left', =>
+        @suspend()
+        @header_c.setState(id)
+        @page_c[id].activate(route)
+        @active_c = @page_c[id]
+        @active_c.goToSlide(route)
+        @transition_c.suspend()
+      )
 
   ###
   *------------------------------------------*
