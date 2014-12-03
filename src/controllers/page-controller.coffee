@@ -176,15 +176,14 @@ class PageController
         @slide_c[slide].activate()
         @slide_c[slide].transitionIn(pos_in)
         @active_c = @slide_c[slide]
-        @setBackgroundColor()
       )
     else
       s.suspend() for id, s of @slide_c
       @slide_c[slide].activate()
       @slide_c[slide].transitionIn(pos_in)
       @active_c = @slide_c[slide]
-      @setBackgroundColor()
-
+    
+    @setBackgroundColor(@slide_c[slide].model._rgb)
     @old_index = @active_index
 
   ###
@@ -193,8 +192,8 @@ class PageController
   |
   | Set background color.
   *----------------------------------------###
-  setBackgroundColor: ->
-    @model.getE().css('background-color': "rgb(#{@active_c.model._rgb})")
+  setBackgroundColor: (rgb) ->
+    @model.getE().css('background-color': "rgb(#{rgb})")
 
   ###
   *------------------------------------------*
