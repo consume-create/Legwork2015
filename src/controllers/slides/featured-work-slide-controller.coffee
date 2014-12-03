@@ -47,17 +47,7 @@ class FeaturedWorkSlideController extends BaseSlideController
 
     @$detail_zone = $('.detail-zone', @model.getV())
     @$about_btn = $('.callout.about', @model.getV())
-
-    @observeSomeSweetEvents()
-
-  ###
-  *------------------------------------------*
-  | observeSomeSweetEvents:void (-)
-  |
-  | Observe some sweet events.
-  *----------------------------------------###
-  observeSomeSweetEvents: ->
-    @$about_btn.on('click', @showHideDetailZone)
+    @$title = $('.title-holder h2', @model.getV())
 
   ###
   *------------------------------------------*
@@ -72,5 +62,63 @@ class FeaturedWorkSlideController extends BaseSlideController
     else
       @$detail_zone.hide()
       @$about_btn.find('.copy').text('About')
+
+  ###
+  *------------------------------------------*
+  | transitionIn:void (-)
+  |
+  | Transition in.
+  *----------------------------------------###
+  transitionIn: (pos_in) ->
+    obj = {}
+    obj[LW.utils.transform] = LW.utils.translate(0, (pos_in * 100) + '%')
+    @$title
+      .addClass('no-trans')
+      .css(obj)
+
+    _.defer =>
+      obj[LW.utils.transform] = LW.utils.translate(0, 0 + '%')
+      @$title
+        .removeClass('no-trans')
+        .css(obj)
+
+  ###
+  *------------------------------------------*
+  | transitionOut:void (-)
+  |
+  | Transition out.
+  *----------------------------------------###
+  transitionOut: (pos_out, cb) ->
+    obj = {}
+    obj[LW.utils.transform] = LW.utils.translate(0, (pos_out * 100) + '%')
+    @$title
+      .css(obj)
+      .eq(0)
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        cb()
+      )
+
+  ###
+  *------------------------------------------*
+  | activate:void (-)
+  |
+  | Activate.
+  *----------------------------------------###
+  activate: ->
+    super()
+
+    @$about_btn.off().on('click', @showHideDetailZone)
+
+  ###
+  *------------------------------------------*
+  | suspend:void (-)
+  |
+  | Activate.
+  *----------------------------------------###
+  suspend: ->
+    super()
+
+    @$about_btn.off()
 
 module.exports = FeaturedWorkSlideController

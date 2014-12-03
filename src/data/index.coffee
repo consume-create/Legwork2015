@@ -13,6 +13,8 @@ about_video = require './about/video'
 # Work
 work = require './work/landing'
 the_boxtrolls = require './work/interactive/the-boxtrolls'
+cokes_building_of_memories = require './work/interactive/cokes-building-of-memories'
+hands_on_ron_burgundy = require './work/interactive/hands-on-ron-burgundy'
 appendix_01 = require './work/appendix-01'
 
 # Describe the structure of the site
@@ -43,6 +45,8 @@ data = {
 			"slides": {
 				"landing": work,
 				"the-boxtrolls": the_boxtrolls,
+				"cokes-building-of-memories": cokes_building_of_memories,
+				"hands-on-ron-burgundy": hands_on_ron_burgundy,
 				"appendix-01": appendix_01
 			}
 		}

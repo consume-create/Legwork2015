@@ -143,8 +143,10 @@ class PageController
           throw 'ERROR: slide type does not exist'
 
       @$slides = $('.slide')
-      @flicking = false
+      @active_c = null
       @active_index = 0
+      @old_index = 0
+      @flicking = false
 
   ###
   *------------------------------------------*
@@ -157,11 +159,25 @@ class PageController
   goToSlide: (route) =>
     slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
 
-    s.suspend() for id, s of @slide_c
-    @slide_c[slide].activate()
-    @active_c = @slide_c[slide]
     @$page_btns.removeClass('active').filter('[data-id="' + slide + '"]').addClass('active')
     @active_index = $('.page-nav li a.active', @model.getV()).parent().index()
+    pos_in = if @active_index >= @old_index then 1 else -1
+    pos_out = (pos_in * -1)
+
+    if @active_c isnt null
+      @active_c.transitionOut(pos_out, =>
+        s.suspend() for id, s of @slide_c
+        @slide_c[slide].activate()
+        @slide_c[slide].transitionIn(pos_in)
+        @active_c = @slide_c[slide]
+      )
+    else
+      s.suspend() for id, s of @slide_c
+      @slide_c[slide].activate()
+      @slide_c[slide].transitionIn(pos_in)
+      @active_c = @slide_c[slide]
+
+    @old_index = @active_index
 
   ###
   *------------------------------------------*
