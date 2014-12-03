@@ -71,7 +71,8 @@ class PageController
       switch slide.slide_type
         when LW.slide_types.HOME
           @slide_m[id] = new HomeSlideModel({
-            '$el': $el
+            '$el': $el,
+            'rgb': slide.rgb,
           })
           @slide_c[id] = new HomeSlideController({
             'model': @slide_m[id]
@@ -79,6 +80,7 @@ class PageController
         when LW.slide_types.ABOUT
           @slide_m[id] = new AboutSlideModel({
             '$el': $el,
+            'rgb': slide.rgb,
             'title': slide.title,
             'instructions': slide.instructions
           })
@@ -88,6 +90,7 @@ class PageController
         when LW.slide_types.ABOUT_PROCESS
           @slide_m[id] = new AboutProcessSlideModel({
             '$el': $el,
+            'rgb': slide.rgb,
             'title': slide.title
           })
           @slide_c[id] = new AboutProcessSlideController({
@@ -96,6 +99,7 @@ class PageController
         when LW.slide_types.ABOUT_VIDEO
           @slide_m[id] = new AboutVideoSlideModel({
             '$el': $el,
+            'rgb': slide.rgb,
             'poster_src': slide.poster_src
           })
           @slide_c[id] = new AboutVideoSlideController({
@@ -104,6 +108,7 @@ class PageController
         when LW.slide_types.WORK
           @slide_m[id] = new WorkSlideModel({
             '$el': $el,
+            'rgb': slide.rgb,
             'title': slide.title,
             'instructions': slide.instructions
           })
@@ -134,6 +139,7 @@ class PageController
         when LW.slide_types.APPENDIXED_WORK
           @slide_m[id] = new AppendixedWorkSlideModel({
             '$el': $el,
+            'rgb': slide.rgb,
             'projects': slide.projects
           })
           @slide_c[id] = new AppendixedWorkSlideController({
@@ -170,14 +176,25 @@ class PageController
         @slide_c[slide].activate()
         @slide_c[slide].transitionIn(pos_in)
         @active_c = @slide_c[slide]
+        @setBackgroundColor()
       )
     else
       s.suspend() for id, s of @slide_c
       @slide_c[slide].activate()
       @slide_c[slide].transitionIn(pos_in)
       @active_c = @slide_c[slide]
+      @setBackgroundColor()
 
     @old_index = @active_index
+
+  ###
+  *------------------------------------------*
+  | setBackgroundColor:void (-)
+  |
+  | Set background color.
+  *----------------------------------------###
+  setBackgroundColor: ->
+    @model.getE().css('background-color': "rgb(#{@active_c.model._rgb})")
 
   ###
   *------------------------------------------*
@@ -248,6 +265,7 @@ class PageController
   suspend: ->
     @model.getE().hide()
     s.suspend() for id, s of @slide_c
+    @active_c = null
 
     # If there were page_btns,
     # we have events to listen to turn off...
