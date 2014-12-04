@@ -15,9 +15,23 @@
 		<div class="callouts cf">
 			<% for c in @callouts: %>
 				<% if c != 'launch': %>
-					<div class="callout <%= c %>"><span class="copy"><%= c %></span><span class="icon"></span></div>
+					<div class="callout <%= c %>">
+						<div class="copy"><%= c %></div>
+						<div class="icon">
+							<span class="rect"></span>
+							<span class="rect"></span>
+							<span class="tri"></span>
+						</div>
+					</div>
 				<% else: %>
-					<a class="callout <%= c %>" href="<%= @launch_url %>" target="_new"><span class="copy"><%= c %></span><span class="icon"></span></a>
+					<a class="callout <%= c %>" href="<%= @launch_url %>" target="_new">
+						<div class="copy"><%= c %></div>
+						<div class="icon">
+							<span class="rect"></span>
+							<span class="rect"></span>
+							<span class="tri"></span>
+						</div>
+					</a>
 				<% end %>
 			<% end %>
 		</div>

@@ -58,10 +58,14 @@ class FeaturedWorkSlideController extends BaseSlideController
   showHideDetailZone: =>
     if @$detail_zone.is(':hidden')
       @$detail_zone.show()
-      @$about_btn.find('.copy').text('Close')
+      @$about_btn
+        .addClass('close')
+        .find('.copy').text('Close')
     else
       @$detail_zone.hide()
-      @$about_btn.find('.copy').text('About')
+      @$about_btn
+        .removeClass('close')
+        .find('.copy').text('About')
 
   ###
   *------------------------------------------*
@@ -108,7 +112,8 @@ class FeaturedWorkSlideController extends BaseSlideController
   activate: ->
     super()
 
-    @$about_btn.off().on('click', @showHideDetailZone)
+    @$about_btn.off('click').on('click', @showHideDetailZone)
+    @$title.off('click').on('click', @showHideDetailZone)
 
   ###
   *------------------------------------------*
@@ -119,6 +124,7 @@ class FeaturedWorkSlideController extends BaseSlideController
   suspend: ->
     super()
 
-    @$about_btn.off()
+    @$about_btn.off('click')
+    @$title.off('click')
 
 module.exports = FeaturedWorkSlideController

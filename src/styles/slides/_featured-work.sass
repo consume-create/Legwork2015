@@ -58,8 +58,10 @@
           overflow: hidden
           display: inline-block
 
-          &:before
-            content: ''
+          transform: translate3d(0px,0,0)
+          transition: transform 100ms $ease
+
+          .rect
             position: absolute
             top: 50%
             left: 0px
@@ -68,8 +70,10 @@
             margin: -1px 0 0
             background-color: $white
 
-          &:after
-            content: ''
+            transform: rotate(0deg)
+            transition: transform 100ms $ease
+
+          .tri
             position: absolute
             top: 50%
             left: 12px
@@ -79,6 +83,34 @@
             border-top: 4px solid transparent
             border-bottom: 4px solid transparent
             border-left: 6px solid $white
+            visibility: visible
+            opacity: 1
+
+            transition: opacity 100ms $ease, visibility 0ms linear
+
+        &.close
+          transform: translate3d(0px,0,0)
+
+          .icon
+            .rect
+              transform: rotate(-45deg)
+
+            .rect:nth-of-type(2)
+              transform: rotate(45deg)
+
+            .tri
+              visibility: hidden
+              opacity: 0
+
+              transition: opacity 100ms $ease, visibility 0ms linear 100ms
+
+        &:hover
+          .icon
+            transform: translate3d(6px,0,0)
+
+        &.close:hover
+          .icon
+            transform: translate3d(0px,0,0)
 
   // ---------------------------------------------
   // Meta zone
@@ -148,7 +180,7 @@
             opacity: 1
 
             transform: translate3d(-50%,-10px,0)
-            transition: transform $speed $evil_ease $speed, opacity $speed $evil_ease $speed
+            transition: transform $speed $evil_ease 100ms, opacity $speed $evil_ease 100ms
 
         li:last-child
           width: 13px
