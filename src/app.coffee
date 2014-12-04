@@ -50,6 +50,12 @@ class Application
     @page_m = []
     @page_c = []
 
+    # Global app size
+    LW.size = {
+      'window': [LW.$win.width(), LW.$win.height()],
+      'app': [@$pages_inner.outerWidth(), @$pages_inner.outerHeight()]
+    }
+
     @cling_to = -1
     @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s.', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'I got a mangina.']
     @$fallback = $('#fallback')
@@ -134,6 +140,7 @@ class Application
     LW.$win
       .on('blur', @stageFiveClingerMode)
       .on('focus', @backToNormalMode)
+      .on('resize', @onWindowResize)
 
   ###
   *------------------------------------------*
@@ -156,6 +163,24 @@ class Application
     clearTimeout(@cling_to)
     document.title = LW.router.routes[LW.router.getState().key].title
     @cling_to = -1
+
+  ###
+  *------------------------------------------*
+  | onWindowResize:void (=)
+  |
+  | e:object - event object
+  |
+  | Handle window resize.
+  *----------------------------------------###
+  onWindowResize: (e) =>
+    LW.size = {
+      'window': [LW.$win.width(), LW.$win.height()],
+      'app': [@$pages_inner.outerWidth(), @$pages_inner.outerHeight()]
+    }
+
+    # TODO: additional resize stuff
+    @transition_c.resize()
+
 
   ###
   *------------------------------------------*
