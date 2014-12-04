@@ -20,19 +20,43 @@
       overflow: hidden
       opacity: 0
 
-      transform: translate3d(0,80px,0)
-
       @for $i from 1 through 6
         &:nth-child(#{$i})
           background-color: rgba(0,0,0,(0.05 * $i))
-          transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
-          // transition: transform ($speed / 2) $ease ((6 - $i) * 111ms), opacity ($speed / 2) $ease ((6 - $i) * 111ms)
 
-        &.active
-          opacity: 1
-          transform: translate3d(0,0px,0)
+      &.top
+        transform: translate3d(0,-80px,0)
 
-          // transition: transform ($speed / 2) $ease ($i * 111ms), opacity ($speed / 2) $ease ($i * 111ms)
+      &.bottom
+        transform: translate3d(0,80px,0)
+
+      &.trans-in
+        opacity: 1
+        transform: translate3d(0,0px,0)
+
+      &.trans-in.top
+        @for $i from 1 through 6
+          &:nth-child(#{$i})
+            transition: transform $speed $evil_ease ((6 - $i) * ($speed / 6)), opacity $speed $evil_ease ((6 - $i) * ($speed / 6))
+
+      &.trans-in.bottom
+        @for $i from 1 through 6
+          &:nth-child(#{$i})
+            transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
+
+      &.trans-out.top
+        transform: translate3d(0,80px,0)
+
+        @for $i from 1 through 6
+          &:nth-child(#{$i})
+            transition: transform $speed $evil_ease ((6 - $i) * ($speed / 6)), opacity $speed $evil_ease ((6 - $i) * ($speed / 6))
+
+      &.trans-out.bottom
+        transform: translate3d(0,-80px,0)
+
+        @for $i from 1 through 6
+          &:nth-child(#{$i})
+            transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
 
       .cell-inner
         position: absolute
