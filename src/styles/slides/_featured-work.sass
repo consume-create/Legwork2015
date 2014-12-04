@@ -101,9 +101,6 @@
         transform: rotate(-90deg) translate3d(0,0,0)
         transform-origin: bottom left
 
-      &.mediums:before
-        content: 'Medium(s)'
-
       li
         float: left
         position: relative
@@ -115,7 +112,44 @@
         &:first-child
           margin: 0 14px 0 22px
 
-      &:last-child
+      &.mediums
+        &:before
+          content: 'Medium(s)'
+        
+        li
+          span
+            position: absolute
+            bottom: 100%
+            left: 50%
+            height: 40px
+            padding: 0 20px
+            background-color: $black
+            text-transform: capitalize
+            visibility: hidden
+            opacity: 0
+
+            @include type-mono(40px, $regular)
+            transform: translate3d(-50%,-2px,0)
+
+            &:after
+              content: ''
+              position: absolute
+              top: 100%
+              left: 50%
+              width: 0
+              height: 0
+              margin: -1px 0 0 -6px
+              border-left: 6px solid transparent
+              border-right: 6px solid transparent
+              border-top: 6px solid $black            
+
+          &:hover span
+            visibility: visible
+            opacity: 1
+
+            transform: translate3d(-50%,-10px,0)
+            transition: transform $speed $evil_ease $speed, opacity $speed $evil_ease $speed
+
         li:last-child
           width: 13px
 
