@@ -167,20 +167,19 @@ class PageController
 
     @$page_btns.removeClass('active').filter('[data-id="' + slide + '"]').addClass('active')
     @active_index = $('.page-nav li a.active', @model.getV()).parent().index()
-    pos_in = if @active_index >= @old_index then 1 else -1
-    pos_out = (pos_in * -1)
+    direction = if @active_index >= @old_index then 'bottom' else 'top'
 
     if @active_c isnt null
-      @active_c.transitionOut(pos_out, =>
+      @active_c.transitionOut(direction, =>
         s.suspend() for id, s of @slide_c
         @slide_c[slide].activate()
-        @slide_c[slide].transitionIn(pos_in)
+        @slide_c[slide].transitionIn(direction)
         @active_c = @slide_c[slide]
       )
     else
       s.suspend() for id, s of @slide_c
       @slide_c[slide].activate()
-      @slide_c[slide].transitionIn(pos_in)
+      @slide_c[slide].transitionIn(direction)
       @active_c = @slide_c[slide]
     
     @setBackgroundColor(@slide_c[slide].model._rgb)

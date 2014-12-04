@@ -36,22 +36,35 @@ class AppendixedWorkSlideController extends BaseSlideController
   *------------------------------------------*
   | transitionIn:void (-)
   |
+  | direction:string - top or bottom
+  |
   | Transition in.
   *----------------------------------------###
-  transitionIn: (pos_in) ->
+  transitionIn: (direction) ->
+    @$cell
+      .removeClass('trans-in trans-out top bottom')
+      .addClass(direction)
+
     _.defer =>
-      @$cell.addClass('active')
+      @$cell
+        .addClass('trans-in')
+        # .removeClass(direction)
 
   ###
   *------------------------------------------*
   | transitionOut:void (-)
   |
+  | direction:string - top or bottom
+  |
   | Transition out.
   *----------------------------------------###
-  transitionOut: (pos_out, cb) ->
+  transitionOut: (direction, cb) ->
+    n = if direction is 'top' then 0 else @$cell.length - 1
+
     @$cell
-      .removeClass('active')
-      .eq(@$cell.length - 1)
+      .removeClass('trans-in trans-out top bottom')
+      .addClass("#{direction} trans-out")
+      .eq(n)
       .off(LW.utils.transition_end)
       .one(LW.utils.transition_end, =>
         cb()
