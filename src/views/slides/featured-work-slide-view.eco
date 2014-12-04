@@ -31,7 +31,7 @@
 		</ul>
 		<ul class="mediums">
 			<% for m in @mediums: %>
-				<li></li>
+				<li class="<%= m %>"><span><%= m %></span></li>
 			<% end %>
 		</ul>
 	</div>
