@@ -26,25 +26,60 @@ class TransitionController
   *----------------------------------------###
   build: ->
     @stage = new PIXI.Stage(0x000000)
-    @renderer = PIXI.autoDetectRenderer(@model.getE().outerWidth(), @model.getE().outerHeight(), {'resolution': 2, 'transparent': true})
+    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 2})
     @model.getE().html(@renderer.view)
 
-    @t_wrap = new PIXI.DisplayObjectContainer()
-    @stage.addChild(@t_wrap)
+    @$canvas = $(@renderer.view)
+    @$canvas.css({
+      'width': LW.size.app[0] + 'px',
+      'height': LW.size.app[1] + 'px'
+    })
 
-    @t_mask = new PIXI.Graphics()
-    @t_mask.beginFill(0x00FF00)
-    @t_mask.drawRect(0, 0, @renderer.width, @renderer.height)
-    @t_mask.endFill()
-    @t_mask.isMask = true
-    @stage.addChild(@t_mask)
-    @t_wrap.mask = @t_mask
+    @loadAnimationQueue()
 
-    @bg = new PIXI.Graphics()
-    @bg.beginFill(0x000000)
-    @bg.drawRect(0, 0, @renderer.width, @renderer.height)
-    @bg.endFill()
-    @t_wrap.addChild(@bg)
+  ###
+  *------------------------------------------*
+  | loadAnimationQueue:void (-)
+  |
+  | Load the animation queue behind
+  | the scenes.
+  *----------------------------------------###
+  loadAnimationQueue: ->
+    @animationQueue = []
+
+    # TODO: random sample of available animations
+    loader = new PIXI.AssetLoader(['/animations/wave-test.json'])
+    loader.onProgress = @animationQueueProgress
+    loader.load()
+
+  ###
+  *------------------------------------------*
+  | animationQueueProgress:void (-)
+  |
+  | Animation queue progress.
+  *----------------------------------------###
+  animationQueueProgress: =>
+    # TODO: how to get id, frames?
+    mc = new PIXI.MovieClip(@mapTextures('wave-test-', 37, true))
+    mc.animationSpeed = 24 / 60
+    mc.loop = false
+    mc.position = new PIXI.Point(300, 200)
+    @stage.addChild(mc)
+    mc.gotoAndStop(0)
+    @animationQueue.push(mc)
+
+  ###
+  *------------------------------------------*
+  | resize:void (-)
+  |
+  | Resize.
+  *----------------------------------------###
+  resize: ->
+    @renderer.resize(LW.size.app[0], LW.size.app[1])
+    @$canvas.css({
+      'width': LW.size.app[0] + 'px',
+      'height': LW.size.app[1] + 'px'
+    })
 
   ###
   *------------------------------------------*
@@ -58,17 +93,46 @@ class TransitionController
   *----------------------------------------###
   go: (direction, cb1, cb2) ->
     _.delay(=>
+      a = _.sample(@animationQueue)
+      if direction is 'left'
+        a.scale.x = -1
+        a.position.x -= a.width
+      a.gotoAndPlay(0)
+
       @model.getE()
         .addClass('in-' + direction)
         .off(LW.utils.transition_end)
         .one(LW.utils.transition_end, =>
+          _.delay(=>
+            @model.getE()
+              .addClass('out-' + direction)
+              .off(LW.utils.transition_end)
+              .one(LW.utils.transition_end, cb2)
+          , 500)
           cb1()
-          @model.getE()
-            .addClass('out-' + direction)
-            .off(LW.utils.transition_end)
-            .one(LW.utils.transition_end, cb2)
         )
-    , 27)
+    , 50)
+
+  ###
+  *------------------------------------------*
+  | mapTextures:void (-)
+  |
+  | id:string - texture id
+  | n:number - number of frames
+  | leading_zero:boolean - leading zero?
+  |
+  | Map texures for a movie clip.
+  *----------------------------------------###
+  mapTextures: (id, n, leading_zero = false) ->
+    textures = []
+
+    for i in [0..n]
+      if leading_zero is true and i < 10
+        i = '0' + i
+
+      textures.push(PIXI.Texture.fromFrame(id + i + '.png'))
+
+    return textures
 
   ###
   *------------------------------------------*
@@ -97,6 +161,11 @@ class TransitionController
   | Suspend.
   *----------------------------------------###
   suspend: ->
+    for a in @animationQueue
+      a.scale.x = 1
+      a.position.x = 300
+      a.gotoAndStop(0)
+
     cancelAnimationFrame(@frame)
     @model.getE().hide().removeClass('in-left in-right out-left out-right')
 
