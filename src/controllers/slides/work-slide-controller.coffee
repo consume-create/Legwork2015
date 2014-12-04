@@ -35,38 +35,37 @@ class WorkSlideController extends BaseSlideController
     @model.getE().append(@model.getV())
 
     @$title = $('.title-holder h2', @model.getV())
-    @$zone = $('.zone', @model.getV())
 
   ###
   *------------------------------------------*
   | transitionIn:void (-)
   |
+  | direction:string - top or bottom
+  |
   | Transition in.
   *----------------------------------------###
-  transitionIn: (pos_in) ->
-    obj = {}
-    obj[LW.utils.transform] = LW.utils.translate(0, (pos_in * 100) + '%')
+  transitionIn: (direction) ->
     @$title
-      .addClass('no-trans')
-      .css(obj)
+      .removeClass('trans-in trans-out top bottom')
+      .addClass(direction)
 
     _.defer =>
-      obj[LW.utils.transform] = LW.utils.translate(0, 0 + '%')
       @$title
-        .removeClass('no-trans')
-        .css(obj)
+        .addClass('trans-in')
+        .removeClass(direction)
 
   ###
   *------------------------------------------*
   | transitionOut:void (-)
   |
+  | direction:string - top or bottom
+  |
   | Transition out.
   *----------------------------------------###
-  transitionOut: (pos_out, cb) ->
-    obj = {}
-    obj[LW.utils.transform] = LW.utils.translate(0, (pos_out * 100) + '%')
+  transitionOut: (direction, cb) ->
     @$title
-      .css(obj)
+      .removeClass('trans-in trans-out top bottom')
+      .addClass("#{direction} trans-out")
       .eq(0)
       .off(LW.utils.transition_end)
       .one(LW.utils.transition_end, =>

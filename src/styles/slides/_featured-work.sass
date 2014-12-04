@@ -53,10 +53,25 @@
           cursor: pointer
 
           transform: translate3d(0,0%,0)
-          transition: transform $speed $evil_ease
 
-          &.no-trans
-            transition: transform 0ms linear
+          &.top
+            transform: translate3d(0,-100%,0)
+
+          &.bottom
+            transform: translate3d(0,100%,0)
+
+          &.trans-in
+            transform: translate3d(0,0%,0)
+            transition: transform $speed linear
+
+          &.trans-out
+            transition: transform $speed linear
+
+          &.trans-out.top
+            transform: translate3d(0,100%,0)
+
+          &.trans-out.bottom
+            transform: translate3d(0,-100%,0)
 
           span
             position: relative
