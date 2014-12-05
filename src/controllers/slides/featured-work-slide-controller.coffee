@@ -71,6 +71,12 @@ class FeaturedWorkSlideController extends BaseSlideController
         .removeClass('close')
         .find('.copy').text('About')
 
+  onMouseenterLineHolder: =>
+    @$about_btn.addClass('hover')
+
+  onMouseleaveLineHolder: =>
+    @$about_btn.removeClass('hover')
+
   ###
   *------------------------------------------*
   | transitionIn:void (-)
@@ -119,9 +125,16 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   activate: ->
     super()
-
-    @$about_btn.off().on('click', @showHideDetailZone)
-    @$line_holder.off().on('click', @showHideDetailZone)
+    @$about_btn.removeClass('hover')
+    
+    @$about_btn
+      .off()
+      .on('click', @showHideDetailZone)
+    @$line_holder
+      .off()
+      .on('click', @showHideDetailZone)
+      .on('mouseenter', @onMouseenterLineHolder)
+      .on('mouseleave', @onMouseleaveLineHolder)
 
   ###
   *------------------------------------------*
