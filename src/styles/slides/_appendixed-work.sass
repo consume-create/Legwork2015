@@ -58,68 +58,120 @@
           &:nth-child(#{$i})
             transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
 
-      .cell-inner
+      a
         position: absolute
-        top: 50%
-        left: 80px
-        right: 80px
+        top: 0px
+        left: 0px
+        width: 100%
+        height: 100%
+        display: block
+        cursor: pointer
 
-        transform: translate(0,-50%)
+        .cell-inner
+          position: absolute
+          top: 50%
+          left: 80px
+          right: 80px
 
-        .title-holder
-          position: relative
-          width: 100%
-          height: 105px
-          margin: 5px 0 0
-          overflow: hidden
-        
-          .line-holder
-            position: absolute
-            top: 0px
-            left: 0px
+          transform: translate(0,-50%)
+
+          .title-holder
+            position: relative
             width: 100%
-            height: 45px
+            height: 105px
+            margin: 5px 0 0
             overflow: hidden
-
-            &:last-child
-              top: auto
-              bottom: 0px
-
-            h2
-              position: relative
-              height: 100%
+          
+            .line-holder
+              position: absolute
+              top: 0px
+              left: 0px
+              width: 100%
+              height: 45px
               overflow: hidden
-              display: inline-block
 
-              span
+              &:last-child
+                top: auto
+                bottom: 0px
+
+              h2
                 position: relative
-                height: 30px
-                padding: 0 0 15px
-                font-size: 33px
-                line-height: 28px
-                font-weight: $bold
-                color: $white
+                height: 100%
+                overflow: hidden
                 display: inline-block
 
-                &:after
-                  content: ''
+                span
+                  position: relative
+                  height: 30px
+                  padding: 0 0 15px
+                  font-size: 33px
+                  line-height: 28px
+                  font-weight: $bold
+                  color: $white
+                  display: inline-block
+
+                  &:after
+                    content: ''
+                    position: absolute
+                    bottom: 0px
+                    left: 0px
+                    width: 100%
+                    height: 5px
+                    background-color: $black
+
+          .sub-text
+            position: relative
+            width: 100%
+            padding: 28px 0 0
+            height: 24px
+            display: block
+
+            @include type-mono(24px, $regular)
+
+            &.callout
+              text-transform: capitalize
+              display: none
+
+              .copy
+                float: left
+                position: relative
+                text-transform: capitalize
+
+              .icon
+                float: left
+                position: relative
+                width: 25px
+                height: 100%
+                margin: 0 0 0 12px
+                overflow: hidden
+
+                .rect
                   position: absolute
-                  bottom: 0px
+                  top: 50%
                   left: 0px
-                  width: 100%
-                  height: 5px
-                  background-color: $black
+                  width: 14px
+                  height: 2px
+                  margin: -1px 0 0
+                  background-color: $white
 
-        h4
-          position: relative
-          width: 100%
-          padding: 28px 0 0
-          height: 24px
-          @include type-mono(24px, $regular)
+                .tri
+                  position: absolute
+                  top: 50%
+                  left: 12px
+                  width: 0
+                  height: 0
+                  margin: -4px 0 0
+                  border-top: 4px solid transparent
+                  border-bottom: 4px solid transparent
+                  border-left: 6px solid $white
 
-        a
-          position: absolute
-          top: 0px
-          left: 0px
-          width: 100%
-          height: 100%
+        &:hover
+          .cell-inner
+            .sub-text.tagline
+              display: none
+
+            .sub-text.callout
+              display: block
+
+              .icon
+                animation: bounce $speed $evil_ease

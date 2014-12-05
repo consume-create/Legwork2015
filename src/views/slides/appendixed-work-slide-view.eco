@@ -3,18 +3,27 @@
 		<% for i in [0..5]: %>
 			<li class="cell">
 				<% if @projects[i]?: %>
-					<div class="cell-inner">
-						<div class="title-holder">
-							<div class="line-holder">
-								<h2><span><%= @projects[i].title[0] %></span></h2>
+					<a href="<%= @projects[i].launch_url %>" target="_new">
+						<div class="cell-inner">
+							<div class="title-holder">
+								<div class="line-holder">
+									<h2><span><%= @projects[i].title[0] %></span></h2>
+								</div>
+								<div class="line-holder">
+									<h2><span><%= @projects[i].title[1] %></span></h2>
+								</div>
 							</div>
-							<div class="line-holder">
-								<h2><span><%= @projects[i].title[1] %></span></h2>
+							<div class="sub-text tagline"><%= @projects[i].tagline %></div>
+							<div class="sub-text callout">
+								<div class="copy"><%= @projects[i].callouts[1] %></div>
+								<div class="icon">
+									<span class="rect"></span>
+									<span class="rect"></span>
+									<span class="tri"></span>
+								</div>
 							</div>
 						</div>
-						<h4><%= @projects[i].tagline %></h4>
-						<a href="<%= @projects[i].launch_url %>" target="_new"></a>
-					</div>
+					</a>
 				<% end %>
 			</li>
 		<% end %>
