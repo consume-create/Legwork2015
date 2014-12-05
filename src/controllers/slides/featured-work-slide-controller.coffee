@@ -47,6 +47,7 @@ class FeaturedWorkSlideController extends BaseSlideController
 
     @$detail_zone = $('.detail-zone', @model.getV())
     @$about_btn = $('.callout.about', @model.getV())
+    @$line_holder = $('.line-holder', @model.getV())
     @$title = $('.title-holder h2', @model.getV())
 
   ###
@@ -116,8 +117,8 @@ class FeaturedWorkSlideController extends BaseSlideController
   activate: ->
     super()
 
-    @$about_btn.off('click').on('click', @showHideDetailZone)
-    @$title.off('click').on('click', @showHideDetailZone)
+    @$about_btn.off().on('click', @showHideDetailZone)
+    @$line_holder.off().on('click', @showHideDetailZone)
 
   ###
   *------------------------------------------*
@@ -128,7 +129,7 @@ class FeaturedWorkSlideController extends BaseSlideController
   suspend: ->
     super()
 
-    @$about_btn.off('click')
-    @$title.off('click')
+    @$about_btn.off()
+    @$line_holder.off()
 
 module.exports = FeaturedWorkSlideController
