@@ -297,6 +297,6 @@ class PageController
     # If there were page_btns,
     # we have events to listen to turn off...
     if @total_page_btns > 1
-      LW.$doc.off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id}")
+      LW.$doc.off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id} keyup.#{@model._id}")
 
 module.exports = PageController
