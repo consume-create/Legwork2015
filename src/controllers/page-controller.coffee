@@ -56,6 +56,13 @@ class PageController
     @$page_btns = $('.page-nav li a', @model.getV())
     @total_page_btns = @$page_btns.length
 
+    @active_c = null
+    @active_index = 0
+    @old_index = 0
+    @threshold_hit = false
+    @scroll = 0
+    @scroll_dir = 1
+
     # Loop and create page slides
 
     # NOTE:
@@ -148,12 +155,6 @@ class PageController
         else
           throw 'ERROR: slide type does not exist'
 
-      @$slides = $('.slide')
-      @active_c = null
-      @active_index = 0
-      @old_index = 0
-      @flicking = false
-
   ###
   *------------------------------------------*
   | goToSlide:void (=)
@@ -184,6 +185,7 @@ class PageController
     
     @setBackgroundColor(@slide_c[slide].model._rgb)
     @old_index = @active_index
+    @scroll = 0
 
   ###
   *------------------------------------------*
@@ -204,16 +206,28 @@ class PageController
     e.preventDefault()
 
     delta = e.originalEvent.wheelDelta / 120 or -e.originalEvent.detail / 3
+
+    # if @threshold_hit is false
+    #   @old_scroll = @scroll
+    #   n = if delta > 0 then -1 else 1
+    #   @scroll = Math.min(Math.max((@scroll + n), -100), 100)
+
+    #   if @scroll >= @old_scroll
+    #     @scroll_dir = 1
+    #   else
+    #     @scroll_dir = -1
+
+    #   console.log Math.abs(@scroll)
     
-    if Math.abs(delta) >= 1.5 and @flicking is false
-      @flicking = true
+    if Math.abs(delta) >= 1.5 and @threshold_hit is false
+      @threshold_hit = true
       if delta > 0
         @previous()
       else
         @next()
 
       setTimeout =>
-        @flicking = false
+        @threshold_hit = false
       , 666
 
   ###
@@ -238,6 +252,17 @@ class PageController
       href = @$page_btns.eq(@active_index + 1).attr('href')
       History.pushState(null, null, href)
 
+  onKeyup: (e) =>
+    kc = e.keyCode
+
+    if kc is 38
+      e.preventDefault()
+      @previous()
+
+    if kc is 40
+      e.preventDefault()
+      @next()
+
   ###
   *------------------------------------------*
   | activate:void (-)
@@ -250,9 +275,13 @@ class PageController
     # If there are page_btns,
     # we have events to listen to...
     if @total_page_btns > 1
+      @scroll = 0
+      @scroll_dir = 1
+
       LW.$doc
-        .off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id}")
+        .off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id} keyup.#{@model._id}")
         .on("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id}", @onMousewheel)
+        .on("keyup.#{@model._id}", @onKeyup)
 
   ###
   *------------------------------------------*
