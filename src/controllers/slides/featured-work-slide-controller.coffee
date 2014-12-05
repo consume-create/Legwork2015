@@ -56,13 +56,17 @@ class FeaturedWorkSlideController extends BaseSlideController
   | Show and hide detail zone.
   *----------------------------------------###
   showHideDetailZone: =>
-    if @$detail_zone.is(':hidden')
-      @$detail_zone.show()
+    if @$detail_zone.hasClass('show') is false
+      @$detail_zone
+        .addClass('show')
+      
       @$about_btn
         .addClass('close')
         .find('.copy').text('Close')
     else
-      @$detail_zone.hide()
+      @$detail_zone
+        .removeClass('show')
+      
       @$about_btn
         .removeClass('close')
         .find('.copy').text('About')
