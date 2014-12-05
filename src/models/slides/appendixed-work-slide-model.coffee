@@ -64,7 +64,17 @@ class AppendixedWorkSlideModel extends BaseSlideModel
       if _.isString(obj.launch_url) is false
         throw 'ERROR: launch_url must be a string'
 
-      return _.pick(obj, 'title', 'tagline', 'launch_url')
+      if _.isArray(obj.callouts) is false or obj.callouts.length isnt 2
+        passed = false
+        throw 'ERROR: callouts must be an array of 2 of the defined LW.callouts listed in ./src/env.coffee'
+
+      for m in obj.callouts
+        if _.contains(_.values(LW.callouts), m) is false
+          passed = false
+          throw 'ERROR: each callout needs to match one of the defined LW.callouts listed in ./src/env.coffee'
+          break
+
+      return _.pick(obj, 'title', 'tagline', 'launch_url', 'callouts')
     )
 
     if passed is true
