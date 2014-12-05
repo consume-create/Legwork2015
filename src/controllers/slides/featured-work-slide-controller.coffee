@@ -45,10 +45,11 @@ class FeaturedWorkSlideController extends BaseSlideController
     })))
     @model.getE().append(@model.getV())
 
-    @$detail_zone = $('.detail-zone', @model.getV())
     @$about_btn = $('.callout.about', @model.getV())
     @$line_holder = $('.line-holder', @model.getV())
     @$title = $('.title-holder h2', @model.getV())
+    @$picture_zone = $('.picture-zone', @model.getV())
+    @$detail_zone = $('.detail-zone', @model.getV())
 
   ###
   *------------------------------------------*
@@ -60,14 +61,12 @@ class FeaturedWorkSlideController extends BaseSlideController
     if @$detail_zone.hasClass('show') is false
       @$detail_zone
         .addClass('show')
-      
       @$about_btn
         .addClass('close')
         .find('.copy').text('Close')
     else
       @$detail_zone
         .removeClass('show')
-      
       @$about_btn
         .removeClass('close')
         .find('.copy').text('About')
@@ -89,6 +88,8 @@ class FeaturedWorkSlideController extends BaseSlideController
       @$title
         .addClass('trans-in')
         .removeClass(direction)
+      @$picture_zone
+        .addClass('show')
 
   ###
   *------------------------------------------*
@@ -107,6 +108,8 @@ class FeaturedWorkSlideController extends BaseSlideController
       .one(LW.utils.transition_end, =>
         cb()
       )
+    @$picture_zone
+      .removeClass('show')
 
   ###
   *------------------------------------------*
