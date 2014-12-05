@@ -58,9 +58,6 @@
           overflow: hidden
           display: inline-block
 
-          transform: translate3d(0px,0,0)
-          transition: transform 100ms $ease
-
           .rect
             position: absolute
             top: 50%
@@ -106,11 +103,11 @@
 
         &:hover
           .icon
-            transform: translate3d(6px,0,0)
+            animation: bounce $speed $evil_ease
 
         &.close:hover
           .icon
-            transform: translate3d(0px,0,0)
+            animation: bounce 0ms linear
 
   // ---------------------------------------------
   // Meta zone
