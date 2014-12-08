@@ -22,72 +22,67 @@
     top: 50%
     left: 100px
     right: 100px
+    font-size: 0
+    line-height: 0
 
     transform: translate(0,-50%)
 
     .title-holder
       position: relative
-      width: 100%
       height: 210px
       overflow: hidden
-    
-      .line-holder
-        position: absolute
-        top: 0px
-        left: 0px
-        height: 120px
+      display: inline-block
+      cursor: pointer
+
+      h2
+        position: relative
+        float: left
+        height: 60px
+        padding: 0 0 30px
+        font-size: 66px
+        line-height: 56px
+        font-weight: $bold
+        display: inline-block
         overflow: hidden
-        cursor: pointer
+        opacity: 0
+
+        transform: translate3d(0,0px,0)
 
         &:last-child
-          top: auto
+          margin: 30px 0 0
+          clear: both
+
+        &:after
+          content: ''
+          position: absolute
           bottom: 0px
-          height: 90px
+          left: 0px
+          width: 100%
+          height: 10px
+          background-color: $black
 
-        h2
-          position: relative
-          height: 90px
-          overflow: hidden
-          display: inline-block
+      &.top h2
+        transform: translate3d(0,-90px,0)
 
-          transform: translate3d(0,0%,0)
+      &.bottom h2
+        transform: translate3d(0,90px,0)
 
-          &.top
-            transform: translate3d(0,-100%,0)
+      &.trans-in h2
+        opacity: 1
 
-          &.bottom
-            transform: translate3d(0,100%,0)
+        transform: translate3d(0,0px,0)
+        transition: transform $speed $ease_out, opacity $speed $ease_out
 
-          &.trans-in
-            transform: translate3d(0,0%,0)
-            transition: transform $speed $ease_out
+      &.trans-out h2
+        opacity: 0
+        
+        transition: transform $speed $ease_in, opacity $speed $ease_in
 
-          &.trans-out
-            transition: transform $speed $ease_in
+      &.trans-out.top h2
+        transform: translate3d(0,90px,0)
 
-          &.trans-out.top
-            transform: translate3d(0,100%,0)
-
-          &.trans-out.bottom
-            transform: translate3d(0,-100%,0)
-
-          span
-            position: relative
-            height: 60px
-            padding: 0 0 30px
-            font-size: 66px
-            line-height: 56px
-            font-weight: $bold
-            display: inline-block
-
-            &:after
-              content: ''
-              position: absolute
-              bottom: 0px
-              left: 0px
-              width: 100%
-              height: 10px
-              background-color: $black
+      &.trans-out.bottom h2
+        transform: translate3d(0,-90px,0)
 
   // ---------------------------------------------
   // Shared styles: Meta zone
