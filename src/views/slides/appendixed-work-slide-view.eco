@@ -6,12 +6,8 @@
 					<a href="<%= @projects[i].launch_url %>" target="_new">
 						<div class="cell-inner">
 							<div class="title-holder">
-								<div class="line-holder">
-									<h2><span><%= @projects[i].title[0] %></span></h2>
-								</div>
-								<div class="line-holder">
-									<h2><span><%= @projects[i].title[1] %></span></h2>
-								</div>
+								<h2><%= @projects[i].title[0] %></h2>
+								<h2><%= @projects[i].title[1] %></h2>
 							</div>
 							<div class="sub-text tagline"><%= @projects[i].tagline %></div>
 							<div class="sub-text callout">

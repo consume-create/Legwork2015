@@ -77,47 +77,34 @@
 
           .title-holder
             position: relative
-            width: 100%
             height: 105px
             margin: 5px 0 0
             overflow: hidden
-          
-            .line-holder
-              position: absolute
-              top: 0px
-              left: 0px
-              width: 100%
-              height: 45px
+            cursor: pointer
+
+            h2
+              position: relative
+              float: left
+              height: 30px
+              padding: 0 0 15px
+              font-size: 33px
+              line-height: 28px
+              font-weight: $bold
+              display: inline-block
               overflow: hidden
 
               &:last-child
-                top: auto
+                margin: 15px 0 0
+                clear: both
+          
+              &:after
+                content: ''
+                position: absolute
                 bottom: 0px
-
-              h2
-                position: relative
-                height: 100%
-                overflow: hidden
-                display: inline-block
-
-                span
-                  position: relative
-                  height: 30px
-                  padding: 0 0 15px
-                  font-size: 33px
-                  line-height: 28px
-                  font-weight: $bold
-                  color: $white
-                  display: inline-block
-
-                  &:after
-                    content: ''
-                    position: absolute
-                    bottom: 0px
-                    left: 0px
-                    width: 100%
-                    height: 5px
-                    background-color: $black
+                left: 0px
+                width: 100%
+                height: 5px
+                background-color: $black
 
           .sub-text
             position: relative
