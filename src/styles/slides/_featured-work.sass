@@ -28,7 +28,6 @@
   // ---------------------------------------------
 
   .title-zone
-
     .callouts
       position: relative
       width: 100%
@@ -107,15 +106,24 @@
 
               transition: opacity 100ms $ease_out, visibility 0ms linear 100ms
 
-        &:hover,
-        &.hover
+        &:hover
           .icon
             animation: bounce $speed $evil_ease
 
-        &.close:hover,
-        &.close.hover
+        &.close:hover
           .icon
             animation: bounce 0ms linear
+
+    .title-holder:hover + .callouts
+      .callout
+        &.about
+          .icon
+            animation: bounce $speed $evil_ease
+
+        &.close
+          .icon
+            animation: bounce 0ms linear
+
 
   // ---------------------------------------------
   // Meta zone
