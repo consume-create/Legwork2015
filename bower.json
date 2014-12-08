@@ -22,6 +22,7 @@
     "history.js": null,
     "sass-meyer-reset": null,
     "greensock": null,
-    "pixi": "~2.1.1"
+    "pixi": "~2.1.1",
+    "froogaloop": "~0.1.0"
   }
 }
