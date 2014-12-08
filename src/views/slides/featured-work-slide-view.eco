@@ -5,12 +5,8 @@
 	<!-- Title zone -->
 	<div class="title-zone">
 		<div class="title-holder">
-			<div class="line-holder">
-				<h2><span><%- @title[0] %></span></h2>
-			</div>
-			<div class="line-holder">
-				<h2><span><%- @title[1] %></span></h2>
-			</div>
+			<h2><%- @title[0] %></h2>
+			<h2><%- @title[1] %></h2>
 		</div>
 		<div class="callouts cf">
 			<% for c in @callouts: %>
