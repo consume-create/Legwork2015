@@ -34,7 +34,7 @@ class WorkSlideController extends BaseSlideController
     })))
     @model.getE().append(@model.getV())
 
-    @$title = $('.title-holder h2', @model.getV())
+    @$title_holder = $('.title-holder', @model.getV())
 
   ###
   *------------------------------------------*
@@ -45,12 +45,12 @@ class WorkSlideController extends BaseSlideController
   | Transition in.
   *----------------------------------------###
   transitionIn: (direction) ->
-    @$title
+    @$title_holder
       .removeClass('trans-in trans-out top bottom')
       .addClass(direction)
 
     _.defer =>
-      @$title
+      @$title_holder
         .addClass('trans-in')
         .removeClass(direction)
 
@@ -63,7 +63,7 @@ class WorkSlideController extends BaseSlideController
   | Transition out.
   *----------------------------------------###
   transitionOut: (direction, cb) ->
-    @$title
+    @$title_holder
       .removeClass('trans-in trans-out top bottom')
       .addClass("#{direction} trans-out")
       .eq(0)
