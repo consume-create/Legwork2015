@@ -46,8 +46,7 @@ class FeaturedWorkSlideController extends BaseSlideController
     @model.getE().append(@model.getV())
 
     @$about_btn = $('.callout.about', @model.getV())
-    @$line_holder = $('.line-holder', @model.getV())
-    @$title = $('.title-holder h2', @model.getV())
+    @$title_holder = $('.title-holder', @model.getV())
     @$picture_zone = $('.picture-zone', @model.getV())
     @$detail_zone = $('.detail-zone', @model.getV())
 
@@ -71,12 +70,6 @@ class FeaturedWorkSlideController extends BaseSlideController
         .removeClass('close')
         .find('.copy').text('About')
 
-  onMouseenterLineHolder: =>
-    @$about_btn.addClass('hover')
-
-  onMouseleaveLineHolder: =>
-    @$about_btn.removeClass('hover')
-
   ###
   *------------------------------------------*
   | transitionIn:void (-)
@@ -86,12 +79,12 @@ class FeaturedWorkSlideController extends BaseSlideController
   | Transition in.
   *----------------------------------------###
   transitionIn: (direction) ->
-    @$title
+    @$title_holder
       .removeClass('trans-in trans-out top bottom')
       .addClass(direction)
 
     _.defer =>
-      @$title
+      @$title_holder
         .addClass('trans-in')
         .removeClass(direction)
       @$picture_zone
@@ -106,7 +99,7 @@ class FeaturedWorkSlideController extends BaseSlideController
   | Transition out.
   *----------------------------------------###
   transitionOut: (direction, cb) ->
-    @$title
+    @$title_holder
       .removeClass('trans-in trans-out top bottom')
       .addClass("#{direction} trans-out")
       .eq(0)
@@ -130,11 +123,10 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$about_btn
       .off()
       .on('click', @showHideDetailZone)
-    @$line_holder
+
+    @$title_holder
       .off()
       .on('click', @showHideDetailZone)
-      .on('mouseenter', @onMouseenterLineHolder)
-      .on('mouseleave', @onMouseleaveLineHolder)
 
   ###
   *------------------------------------------*
@@ -146,6 +138,6 @@ class FeaturedWorkSlideController extends BaseSlideController
     super()
 
     @$about_btn.off()
-    @$line_holder.off()
+    @$title_holder.off()
 
 module.exports = FeaturedWorkSlideController
