@@ -60,10 +60,10 @@
 
           &.trans-in
             transform: translate3d(0,0%,0)
-            transition: transform $speed cubic-bezier(0.215, 0.610, 0.355, 1.000)
+            transition: transform $speed $ease_out
 
           &.trans-out
-            transition: transform $speed cubic-bezier(0.550, 0.055, 0.675, 0.190)
+            transition: transform $speed $ease_in
 
           &.trans-out.top
             transform: translate3d(0,100%,0)
@@ -103,12 +103,3 @@
       float: left
       position: relative
       width: 234px
-
-  // ---------------------------------------------
-  // Zones that will fade in/out
-  // ---------------------------------------------
-
-  .zone
-    opacity: 0
-
-    transition: opacity $speed $ease

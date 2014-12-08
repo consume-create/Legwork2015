@@ -16,12 +16,12 @@
     overflow: hidden
     opacity: 0
 
-    transition: opacity $speed cubic-bezier(0.550, 0.055, 0.675, 0.190)
+    transition: opacity $speed $ease_in
 
     &.show
       opacity: 1
 
-      transition: opacity $speed cubic-bezier(0.215, 0.610, 0.355, 1.000)
+      transition: opacity $speed $ease_out
   
   // ---------------------------------------------
   // Title zone
@@ -76,7 +76,7 @@
             background-color: $white
 
             transform: rotate(0deg)
-            transition: transform 100ms $ease
+            transition: transform 100ms $ease_out
 
           .tri
             position: absolute
@@ -91,7 +91,7 @@
             visibility: visible
             opacity: 1
 
-            transition: opacity 100ms $ease, visibility 0ms linear
+            transition: opacity 100ms $ease_out, visibility 0ms linear
 
         &.close
           transform: translate3d(0px,0,0)
@@ -107,7 +107,7 @@
               visibility: hidden
               opacity: 0
 
-              transition: opacity 100ms $ease, visibility 0ms linear 100ms
+              transition: opacity 100ms $ease_out, visibility 0ms linear 100ms
 
         &:hover,
         &.hover
