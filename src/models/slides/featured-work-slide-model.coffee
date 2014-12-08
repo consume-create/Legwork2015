@@ -105,9 +105,9 @@ class FeaturedWorkSlideModel extends BaseSlideModel
   setCallouts: (callouts) ->
     passed = true
 
-    if _.isArray(callouts) is false or callouts.length isnt 2
+    if _.isArray(callouts) is false or (callouts.length < 2 or callouts.length > 3)
       passed = false
-      throw 'ERROR: callouts must be an array of 2 of the defined LW.callouts listed in ./src/env.coffee'
+      throw 'ERROR: callouts must be an array of at least 2, but no more than 3 of the defined LW.callouts listed in ./src/env.coffee'
 
     for m in callouts
       if _.contains(_.values(LW.callouts), m) is false
