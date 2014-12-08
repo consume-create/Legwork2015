@@ -62,4 +62,14 @@
 			</div>
 		</div>
 	</div>
+	<!-- Video zone -->
+	<div class="video-zone" style="background-color: rgb(<%= @rgb %>)">
+		<div class="video-zone-inner">
+			<div class="video-holder"></div>
+			<div class="close-btn">
+				<div class="copy">Close</div>
+				<div class="icon"></div>
+			</div>
+		</div>
+	</div>
 </div>
