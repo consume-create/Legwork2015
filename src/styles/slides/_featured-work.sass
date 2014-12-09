@@ -233,11 +233,12 @@
           &:nth-child(#{$i})
             transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
 
-        &.video-cell
+        &.video-holder
           height: 0
           padding: 0 0 56.25%
+          background-color: $black
 
-          iframe,
+          .video-iframe,
           .video-poster
             position: absolute
             top: -1px
@@ -246,11 +247,29 @@
             bottom: -1px
             overflow: hidden
 
+          .video-iframe
+            iframe
+              position: absolute
+              top: 0px
+              left: 0px
+              width: 100%
+              height: 100%
+
           .video-poster
             background-repeat: no-repeat
             background-position: center center
             background-size: cover
             cursor: pointer
+            visibility: visible
+            opacity: 1
+
+            transition: visibility 0ms linear, opacity $speed $ease_out
+
+            &.hide
+              visibility: hidden
+              opacity: 0
+
+              transition: visibility 0ms linear $speed, opacity $speed $ease_out
 
             span
               position: absolute
@@ -365,13 +384,23 @@
         left: 100px
         right: 100px
         bottom: 100px
+        background-color: $black
         overflow: hidden
 
-        background-color: rgba(0,0,0,1)
-        background-image: url('/images/work/poster.jpg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
+        .video-iframe
+          position: absolute
+          top: -1px
+          left: -1px
+          right: -1px
+          bottom: -1px
+          overflow: hidden
+
+          iframe
+            position: absolute
+            top: 0px
+            left: 0px
+            width: 100%
+            height: 100%
 
       .close-btn
         position: absolute

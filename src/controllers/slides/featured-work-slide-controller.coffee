@@ -45,40 +45,155 @@ class FeaturedWorkSlideController extends BaseSlideController
     })))
     @model.getE().append(@model.getV())
 
+    @$title_holder = $('.title-holder', @model.getV())
     @$about_btn = $('.callout.about', @model.getV())
     @$watch_btn = $('.callout.watch', @model.getV())
-    @$title_holder = $('.title-holder', @model.getV())
     @$picture_zone = $('.picture-zone', @model.getV())
+    
     @$detail_zone = $('.detail-zone', @model.getV())
+    @$video_poster = $('.video-poster', @model.getV())
+
     @$video_zone = $('.video-zone', @model.getV())
     @$close_video_btn = $('.close-btn', @model.getV())
 
+    @$video_iframe = $('.video-iframe', @model.getV())
+
   ###
   *------------------------------------------*
-  | showHideDetailZone:void (=)
+  | onClickToggleDetailZone:void (=)
   |
   | Show and hide detail zone.
   *----------------------------------------###
-  showHideDetailZone: =>
+  onClickToggleDetailZone: =>
     if @$detail_zone.hasClass('show') is false
-      @$detail_zone
-        .addClass('show')
-      @$about_btn
-        .addClass('close')
-        .find('.copy').text('Close')
+      @showDetailZone()
     else
-      @$detail_zone
-        .removeClass('show')
-      @$about_btn
-        .removeClass('close')
-        .find('.copy').text('About')
+      @removeVideos()
+      @hideDetailZone()
 
-  showVideoZone: =>
+  ###
+  *------------------------------------------*
+  | showDetailZone:void (=)
+  |
+  | Show detail zone.
+  *----------------------------------------###
+  showDetailZone: (e) =>
+    @$detail_zone.addClass('show')
+    @$about_btn.addClass('close').find('.copy').text('Close')
+
+  ###
+  *------------------------------------------*
+  | hideDetailZone:void (=)
+  |
+  | Hide detail zone.
+  *----------------------------------------###
+  hideDetailZone: (e) =>
+    @$detail_zone.removeClass('show')
+    @$about_btn.removeClass('close').find('.copy').text('About')
+
+  ###
+  *------------------------------------------*
+  | showVideoZone:void (=)
+  |
+  | Show video zone.
+  *----------------------------------------###
+  showVideoZone: (e) =>
     @$video_zone.addClass('show')
-    @$close_video_btn.off().one('click', @hideVideoZone)
 
+  ###
+  *------------------------------------------*
+  | hideVideoZone:void (=)
+  |
+  | Hide video zone.
+  *----------------------------------------###
   hideVideoZone: =>
     @$video_zone.removeClass('show')
+
+  ###
+  *------------------------------------------*
+  | onClickVideoPoster:void (=)
+  |
+  | Click video poster.
+  *----------------------------------------###
+  onClickVideoPoster: (e) =>
+    $t = $(e.currentTarget)
+    id = $(e.currentTarget).data('id')
+
+    if $t.hasClass('hide')
+      return false
+
+    @buildVideo('about', id)
+    @$video_poster.addClass('hide')
+
+  ###
+  *------------------------------------------*
+  | onClickWatchBtn:void (=)
+  |
+  | Click watch btn.
+  | Reset, build, and show video.
+  *----------------------------------------###
+  onClickWatchBtn: (e) =>
+    $t = $(e.currentTarget)
+    id = $t.data('id')
+
+    @buildVideo('watch', id)
+    @showVideoZone()
+
+  ###
+  *------------------------------------------*
+  | onClickCloseVideoBtn:void (=)
+  |
+  | Click close video btn.
+  *----------------------------------------###
+  onClickCloseVideoBtn: =>
+    @hideVideoZone()
+    @removeVideos()
+
+  ###
+  *------------------------------------------*
+  | buildVideo:void (=)
+  |
+  | Build video.
+  *----------------------------------------###
+  buildVideo: (type, id) =>
+    @removeVideos()
+    console.log 'build a video:', type
+
+    $v = $('<iframe src="//player.vimeo.com/video/' + id + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1&amp;api=1&amp;player_id=player" id="player" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')
+    
+    @$video_iframe.empty()
+    $(".video-iframe.#{type}", @model.getV()).empty().append($v)
+    
+    @$player = $f($('#player', @model.getV())[0])
+    @$player.addEvent('ready', =>
+      if type is 'about'
+        @$player.addEvent('finish', @removeVideos)
+    )
+
+  ###
+  *------------------------------------------*
+  | removeVideos:void (=)
+  |
+  | Remove videos.
+  *----------------------------------------###
+  removeVideos: =>
+    $iframe = $('iframe', @model.getV())
+    @$video_poster.removeClass('hide')
+
+    if $iframe.length > 0
+      console.log 'remove video(s):', $('iframe', @model.getV()).length
+      @$video_iframe.empty()
+
+  ###
+  *------------------------------------------*
+  | reset:void (=)
+  |
+  | Reset.
+  *----------------------------------------###
+  reset: =>
+    @removeVideos()
+    @hideDetailZone()
+    @hideVideoZone()
 
   ###
   *------------------------------------------*
@@ -128,19 +243,26 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   activate: ->
     super()
-    @$about_btn.removeClass('hover')
     
+    @$title_holder
+      .off()
+      .on('click', @onClickToggleDetailZone)
+
     @$about_btn
       .off()
-      .on('click', @showHideDetailZone)
+      .on('click', @onClickToggleDetailZone)
+
+    @$video_poster
+      .off()
+      .on('click', @onClickVideoPoster)
 
     @$watch_btn
       .off()
-      .on('click', @showVideoZone)
+      .on('click', @onClickWatchBtn)
 
-    @$title_holder
+    @$close_video_btn
       .off()
-      .on('click', @showHideDetailZone)
+      .on('click', @onClickCloseVideoBtn)
 
   ###
   *------------------------------------------*
@@ -153,5 +275,10 @@ class FeaturedWorkSlideController extends BaseSlideController
 
     @$about_btn.off()
     @$title_holder.off()
+    @$video_poster.off()
+    @$watch_btn.off()
+    @$close_video_btn.off()
+
+    @reset()
 
 module.exports = FeaturedWorkSlideController

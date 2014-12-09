@@ -11,7 +11,7 @@
 		<div class="callouts cf">
 			<% for c in @callouts: %>
 				<% if c != 'launch': %>
-					<div class="callout <%= c %>">
+					<div class="callout <%= c %>"<% if c == 'watch': %> data-id="<%= @vimeo_id %>"<% end %>>
 						<div class="copy"><%= c %></div>
 						<div class="icon">
 							<span class="rect"></span>
@@ -48,8 +48,9 @@
 	<!-- Detail zone -->
 	<div class="detail-zone">
 		<div class="detail-zone-inner">
-			<div class="cell video-cell" data-id="<%= @vimeo_id %>">
-				<div class="video-poster" style="background-image: url('<%= @poster_src %>');">
+			<div class="cell video-holder">
+				<div class="video-iframe about"></div>
+				<div class="video-poster" data-id="<%= @vimeo_id %>" style="background-image: url('<%= @poster_src %>');">
 					<span><%- @poster_cta %></span>
 				</div>
 			</div>
@@ -65,7 +66,9 @@
 	<!-- Video zone -->
 	<div class="video-zone" style="background-color: rgb(<%= @rgb %>)">
 		<div class="video-zone-inner">
-			<div class="video-holder"></div>
+			<div class="video-holder">
+				<div class="video-iframe watch"></div>
+			</div>
 			<div class="close-btn">
 				<div class="copy">Close</div>
 				<div class="icon"></div>
