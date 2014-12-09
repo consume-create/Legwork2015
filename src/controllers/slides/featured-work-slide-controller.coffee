@@ -54,7 +54,7 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$video_poster = $('.video-poster', @model.getV())
 
     @$video_zone = $('.video-zone', @model.getV())
-    @$close_video_btn = $('.close-btn', @model.getV())
+    @$video_close_zone = $('.video-close-zone', @model.getV())
 
     @$video_iframe = $('.video-iframe', @model.getV())
 
@@ -141,11 +141,11 @@ class FeaturedWorkSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
-  | onClickCloseVideoBtn:void (=)
+  | onClickCloseVideoZone:void (=)
   |
   | Click close video btn.
   *----------------------------------------###
-  onClickCloseVideoBtn: =>
+  onClickCloseVideoZone: =>
     @hideVideoZone()
     @removeVideos()
 
@@ -157,8 +157,6 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   buildVideo: (type, id) =>
     @removeVideos()
-    console.log 'build a video:', type
-
     $v = $('<iframe src="//player.vimeo.com/video/' + id + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1&amp;api=1&amp;player_id=player" id="player" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')
     
     @$video_iframe.empty()
@@ -181,7 +179,6 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$video_poster.removeClass('hide')
 
     if $iframe.length > 0
-      console.log 'remove video(s):', $('iframe', @model.getV()).length
       @$video_iframe.empty()
 
   ###
@@ -260,9 +257,9 @@ class FeaturedWorkSlideController extends BaseSlideController
       .off()
       .on('click', @onClickWatchBtn)
 
-    @$close_video_btn
+    @$video_close_zone
       .off()
-      .on('click', @onClickCloseVideoBtn)
+      .on('click', @onClickCloseVideoZone)
 
   ###
   *------------------------------------------*
@@ -277,7 +274,7 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$title_holder.off()
     @$video_poster.off()
     @$watch_btn.off()
-    @$close_video_btn.off()
+    @$video_close_zone.off()
 
     @reset()
 

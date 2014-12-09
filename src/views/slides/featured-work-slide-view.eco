@@ -66,12 +66,14 @@
 	<!-- Video zone -->
 	<div class="video-zone" style="background-color: rgb(<%= @rgb %>)">
 		<div class="video-zone-inner">
+			<div class="video-close-zone">
+				<div class="close-btn">
+					<div class="copy">Close</div>
+					<div class="icon"></div>
+				</div>
+			</div>
 			<div class="video-holder">
 				<div class="video-iframe watch"></div>
-			</div>
-			<div class="close-btn">
-				<div class="copy">Close</div>
-				<div class="icon"></div>
 			</div>
 		</div>
 	</div>
