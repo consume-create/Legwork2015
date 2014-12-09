@@ -46,9 +46,12 @@ class FeaturedWorkSlideController extends BaseSlideController
     @model.getE().append(@model.getV())
 
     @$about_btn = $('.callout.about', @model.getV())
+    @$watch_btn = $('.callout.watch', @model.getV())
     @$title_holder = $('.title-holder', @model.getV())
     @$picture_zone = $('.picture-zone', @model.getV())
     @$detail_zone = $('.detail-zone', @model.getV())
+    @$video_zone = $('.video-zone', @model.getV())
+    @$close_video_btn = $('.close-btn', @model.getV())
 
   ###
   *------------------------------------------*
@@ -69,6 +72,13 @@ class FeaturedWorkSlideController extends BaseSlideController
       @$about_btn
         .removeClass('close')
         .find('.copy').text('About')
+
+  showVideoZone: =>
+    @$video_zone.addClass('show')
+    @$close_video_btn.off().one('click', @hideVideoZone)
+
+  hideVideoZone: =>
+    @$video_zone.removeClass('show')
 
   ###
   *------------------------------------------*
@@ -123,6 +133,10 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$about_btn
       .off()
       .on('click', @showHideDetailZone)
+
+    @$watch_btn
+      .off()
+      .on('click', @showVideoZone)
 
     @$title_holder
       .off()
