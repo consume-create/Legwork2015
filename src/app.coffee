@@ -178,9 +178,8 @@ class Application
       'app': [@$pages_inner.outerWidth(), @$pages_inner.outerHeight()]
     }
 
-    # TODO: additional resize stuff
+    @active_c.resize()
     @transition_c.resize()
-
 
   ###
   *------------------------------------------*
@@ -202,6 +201,9 @@ class Application
       @active_c.goToSlide(route)
     else
       direction = if @page_c[id].model.getE().index() < @active_c.model.getE().index() then 'right' else 'left'
+
+      if @transition_c.running_hot is true
+        @transition_c.suspend()
 
       @transition_c.activate()
       @transition_c.go(

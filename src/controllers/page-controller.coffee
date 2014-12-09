@@ -157,6 +157,15 @@ class PageController
 
   ###
   *------------------------------------------*
+  | resize:void (-)
+  |
+  | Resize.
+  *----------------------------------------###
+  resize: ->
+    @active_c.resize() if @active_c.resize?
+
+  ###
+  *------------------------------------------*
   | goToSlide:void (=)
   |
   | route:object - current route

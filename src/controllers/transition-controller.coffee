@@ -16,6 +16,9 @@ class TransitionController
   *----------------------------------------###
   constructor: (init) ->
     @model = init.model
+    @running_hot = false
+    @animation_to = -1
+
     @build()
 
   ###
@@ -92,6 +95,8 @@ class TransitionController
   | Go.
   *----------------------------------------###
   go: (direction, cb1, cb2) ->
+    @running_hot = true
+
     _.delay(=>
       a = _.sample(@animationQueue)
       if direction is 'left'
@@ -103,11 +108,15 @@ class TransitionController
         .addClass('in-' + direction)
         .off(LW.utils.transition_end)
         .one(LW.utils.transition_end, =>
-          _.delay(=>
+          clearTimeout(@animation_to)
+          @animation_to = setTimeout(=>
             @model.getE()
               .addClass('out-' + direction)
               .off(LW.utils.transition_end)
-              .one(LW.utils.transition_end, cb2)
+              .one(LW.utils.transition_end, =>
+                cb2()
+                @running_hot = false
+              )
           , 500)
           cb1()
         )
@@ -136,6 +145,18 @@ class TransitionController
 
   ###
   *------------------------------------------*
+  | suspendAllAnimations:void (-)
+  |
+  | Suspend the animations, all of them.
+  *----------------------------------------###
+  suspendAllAnimations: ->
+    for a in @animationQueue
+      a.scale.x = 1
+      a.position.x = 300
+      a.gotoAndStop(0)
+
+  ###
+  *------------------------------------------*
   | render:void (=)
   |
   | Render.
@@ -161,12 +182,9 @@ class TransitionController
   | Suspend.
   *----------------------------------------###
   suspend: ->
-    for a in @animationQueue
-      a.scale.x = 1
-      a.position.x = 300
-      a.gotoAndStop(0)
-
+    clearTimeout(@animation_to)
+    @suspendAllAnimations()
     cancelAnimationFrame(@frame)
-    @model.getE().hide().removeClass('in-left in-right out-left out-right')
+    @model.getE().off(LW.utils.transition_end).hide().removeClass('in-left in-right out-left out-right')
 
 module.exports = TransitionController

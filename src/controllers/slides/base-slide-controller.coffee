@@ -36,6 +36,23 @@ class BaseSlideController
 
   ###
   *------------------------------------------*
+  | transitionIn:void (-)
+  |
+  | Transition in.
+  *----------------------------------------###
+  transitionIn: (pos_in) ->
+
+  ###
+  *------------------------------------------*
+  | transitionOut:void (-)
+  |
+  | Transition out.
+  *----------------------------------------###
+  transitionOut: (pos_out, cb) ->
+    cb()
+
+  ###
+  *------------------------------------------*
   | activate:void (-)
   |
   | Activate.
