@@ -50,7 +50,7 @@
 		<div class="detail-zone-inner">
 			<div class="cell video-holder">
 				<div class="video-iframe about"></div>
-				<div class="video-poster" data-id="<%= @vimeo_id %>" style="background-image: url('<%= @poster_src %>');">
+				<div class="video-poster" data-id="<%= @detail_vimeo_id %>" style="background-image: url('<%= @poster_src %>');">
 					<span><%- @poster_cta %></span>
 				</div>
 			</div>

@@ -3,8 +3,8 @@
 		<% for i in [0..5]: %>
 			<li class="cell">
 				<% if @projects[i]?: %>
-					<a href="<%= @projects[i].launch_url %>" target="_new">
-						<div class="cell-inner">
+					<% if @projects[i].callouts[1] == 'launch': %><a href="<%= @projects[i].launch_url %>" target="_new"><% else: %><div class="watch-btn" data-id="<%= @projects[i].vimeo_id %>"><% end %>
+						<div class="content">
 							<div class="title-holder">
 								<h2><%= @projects[i].title[0] %></h2>
 								<h2><%= @projects[i].title[1] %></h2>
@@ -19,9 +19,23 @@
 								</div>
 							</div>
 						</div>
-					</a>
+					<% if @projects[i].callouts[1] == 'launch': %></a><% else: %></div><% end %>
 				<% end %>
 			</li>
 		<% end %>
 	</ul>
+	<!-- Video zone -->
+	<div class="video-zone" style="background-color: rgb(<%= @rgb %>)">
+		<div class="video-zone-inner">
+			<div class="video-close-zone">
+				<div class="close-btn">
+					<div class="copy">Close</div>
+					<div class="icon"></div>
+				</div>
+			</div>
+			<div class="video-holder">
+				<div class="video-iframe"></div>
+			</div>
+		</div>
+	</div>
 </div>

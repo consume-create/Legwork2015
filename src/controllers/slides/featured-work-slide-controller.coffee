@@ -31,6 +31,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'title': @model.getTitle(),
       'rgb': @model.getRgb(),
       'callouts': @model.getCallouts(),
+      'vimeo_id': @model.getVimeoId(),
       'launch_url': @model.getLaunchUrl(),
       'tagline': @model.getTagline(),
       'picture_src': @model.getPictureSrc(),
@@ -38,7 +39,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'mediums': @model.getMediums(),
       'poster_src': @model.getPosterSrc(),
       'poster_cta': @model.getPosterCta(),
-      'vimeo_id': @model.getVimeoId(),
+      'detail_vimeo_id': @model.getDetailVimeoId(),
       'descr_title': @model.getDescrTitle(),
       'descr_text': @model.getDescrText(),
       'services': @model.getServices()
@@ -93,24 +94,6 @@ class FeaturedWorkSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
-  | showVideoZone:void (=)
-  |
-  | Show video zone.
-  *----------------------------------------###
-  showVideoZone: (e) =>
-    @$video_zone.addClass('show')
-
-  ###
-  *------------------------------------------*
-  | hideVideoZone:void (=)
-  |
-  | Hide video zone.
-  *----------------------------------------###
-  hideVideoZone: =>
-    @$video_zone.removeClass('show')
-
-  ###
-  *------------------------------------------*
   | onClickVideoPoster:void (=)
   |
   | Click video poster.
@@ -151,6 +134,24 @@ class FeaturedWorkSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
+  | showVideoZone:void (=)
+  |
+  | Show video zone.
+  *----------------------------------------###
+  showVideoZone: (e) =>
+    @$video_zone.addClass('show')
+
+  ###
+  *------------------------------------------*
+  | hideVideoZone:void (=)
+  |
+  | Hide video zone.
+  *----------------------------------------###
+  hideVideoZone: =>
+    @$video_zone.removeClass('show')
+
+  ###
+  *------------------------------------------*
   | buildVideo:void (=)
   |
   | Build video.
@@ -160,7 +161,7 @@ class FeaturedWorkSlideController extends BaseSlideController
     $v = $('<iframe src="//player.vimeo.com/video/' + id + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1&amp;api=1&amp;player_id=player" id="player" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')
     
     @$video_iframe.empty()
-    $(".video-iframe.#{type}", @model.getV()).empty().append($v)
+    $(".video-iframe.#{type}", @model.getV()).append($v)
     
     @$player = $f($('#player', @model.getV())[0])
     @$player.addEvent('ready', =>

@@ -26,6 +26,9 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @_callouts = null
     @setCallouts(data.callouts)
 
+    @_vimeo_id = null
+    @setVimeoId(data.vimeo_id)
+
     @_launch_url = null
     @setLaunchUrl(data.launch_url)
 
@@ -48,8 +51,8 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @_poster_cta = null
     @setPosterCta(data.poster_cta)
 
-    @_vimeo_id = null
-    @setVimeoId(data.vimeo_id)
+    @_detail_vimeo_id = null
+    @setDetailVimeoId(data.detail_vimeo_id)
 
     @_descr_title = null
     @setDescrTitle(data.descr_title)
@@ -120,6 +123,29 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
   ###
   *------------------------------------------*
+  | getVimeoId:string (-)
+  |
+  | Get detail vimeo id.
+  *----------------------------------------###
+  getVimeoId: ->
+    return @_vimeo_id
+
+  ###
+  *------------------------------------------*
+  | setVimeoId:void (-)
+  |
+  | vimeo_id:string - vimeo id
+  |
+  | Set vimeo id.
+  *----------------------------------------###
+  setVimeoId: (vimeo_id) ->
+    if vimeo_id isnt null and _.isString(vimeo_id) is false
+      throw 'ERROR: vimeo_id must be a string'
+    else
+      @_vimeo_id = vimeo_id
+
+  ###
+  *------------------------------------------*
   | getLaunchUrl:string (-)
   |
   | Get launch url.
@@ -136,7 +162,7 @@ class FeaturedWorkSlideModel extends BaseSlideModel
   | Set launch url.
   *----------------------------------------###
   setLaunchUrl: (launch_url) ->
-    if _.isString(launch_url) is false
+    if launch_url isnt null and _.isString(launch_url) is false
       throw 'ERROR: launch_url must be a string'
     else
       @_launch_url = launch_url
@@ -305,26 +331,26 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
   ###
   *------------------------------------------*
-  | getVimeoId:string (-)
+  | getDetailVimeoId:string (-)
   |
-  | Get vimeo id.
+  | Get detail vimeo id.
   *----------------------------------------###
-  getVimeoId: ->
-    return @_vimeo_id
+  getDetailVimeoId: ->
+    return @_detail_vimeo_id
 
   ###
   *------------------------------------------*
-  | setVimeoId:void (-)
+  | setDetailVimeoId:void (-)
   |
-  | vimeo_id:string - vimeo id
+  | detail_vimeo_id:string - vimeo id
   |
-  | Set vimeo id.
+  | Set detail vimeo id.
   *----------------------------------------###
-  setVimeoId: (vimeo_id) ->
-    if _.isString(vimeo_id) is false
-      throw 'ERROR: vimeo_id must be a string'
+  setDetailVimeoId: (detail_vimeo_id) ->
+    if _.isString(detail_vimeo_id) is false
+      throw 'ERROR: detail_vimeo_id must be a string'
     else
-      @_vimeo_id = vimeo_id
+      @_detail_vimeo_id = detail_vimeo_id
 
   ###
   *------------------------------------------*

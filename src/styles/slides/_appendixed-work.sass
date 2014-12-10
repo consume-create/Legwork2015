@@ -58,7 +58,8 @@
           &:nth-child(#{$i})
             transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
 
-      a
+      a,
+      .watch-btn
         position: absolute
         top: 0px
         left: 0px
@@ -67,7 +68,7 @@
         display: block
         cursor: pointer
 
-        .cell-inner
+        .content
           position: absolute
           top: 50%
           left: 80px
@@ -153,7 +154,7 @@
                   border-left: 6px solid $white
 
         &:hover
-          .cell-inner
+          .content
             .sub-text.tagline
               display: none
 

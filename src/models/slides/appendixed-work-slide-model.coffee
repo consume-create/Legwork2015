@@ -61,7 +61,10 @@ class AppendixedWorkSlideModel extends BaseSlideModel
         passed = false
         throw 'ERROR: tagline must be a string'
 
-      if _.isString(obj.launch_url) is false
+      if obj.vimeo_id isnt null and _.isString(obj.vimeo_id) is false
+        throw 'ERROR: vimeo_id must be a string'
+
+      if obj.launch_url isnt null and _.isString(obj.launch_url) is false
         throw 'ERROR: launch_url must be a string'
 
       if _.isArray(obj.callouts) is false or obj.callouts.length isnt 2
@@ -74,7 +77,7 @@ class AppendixedWorkSlideModel extends BaseSlideModel
           throw 'ERROR: each callout needs to match one of the defined LW.callouts listed in ./src/env.coffee'
           break
 
-      return _.pick(obj, 'title', 'tagline', 'launch_url', 'callouts')
+      return _.pick(obj, 'title', 'tagline', 'vimeo_id', 'launch_url', 'callouts')
     )
 
     if passed is true

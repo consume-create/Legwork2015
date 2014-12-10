@@ -128,6 +128,7 @@ class PageController
             'rgb': slide.rgb,
             'title': slide.title,
             'callouts': slide.callouts,
+            'vimeo_id': slide.vimeo_id,
             'launch_url': slide.launch_url,
             'tagline': slide.tagline,
             'picture_src': slide.picture_src,
@@ -135,7 +136,7 @@ class PageController
             'mediums': slide.mediums,
             'poster_src': slide.details.poster_src,
             'poster_cta': slide.details.poster_cta,
-            'vimeo_id': slide.details.vimeo_id,
+            'detail_vimeo_id': slide.details.detail_vimeo_id,
             'descr_title': slide.details.descr_title,
             'descr_text': slide.details.descr_text,
             'services': slide.details.services
