@@ -195,11 +195,11 @@ class Application
   *----------------------------------------###
   goToPage: (route) =>
     id = if route.url is '/' then 'home' else route.key.split(':')[0]
+    @header_c.setState(id)
 
     if @page_c[id] is @active_c
       @active_c.goToSlide(route)
     else if @active_c is null
-      @header_c.setState(id)
       @page_c[id].activate()
       @active_c = @page_c[id]
       @active_c.goToSlide(route)
@@ -214,7 +214,6 @@ class Application
         direction,
         =>
           @suspend()
-          @header_c.setState(id)
           @page_c[id].activate(route)
           @active_c = @page_c[id]
           @active_c.goToSlide(route)
