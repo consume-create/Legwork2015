@@ -3,7 +3,7 @@
 		<% for i in [0..5]: %>
 			<li class="cell">
 				<% if @projects[i]?: %>
-					<% if @projects[i].callouts[1] == 'launch': %><a href="<%= @projects[i].launch_url %>" target="_new"><% else: %><div class="watch-btn" data-id="<%= @projects[i].vimeo_id %>"><% end %>
+					<% if @projects[i].callouts[1] == 'launch': %><a class="link-btn" href="<%= @projects[i].launch_url %>" target="_new"><% else: %><div class="watch-btn" data-id="<%= @projects[i].vimeo_id %>"><% end %>
 						<div class="content">
 							<div class="title-holder">
 								<h2><%= @projects[i].title[0] %></h2>
@@ -13,7 +13,6 @@
 							<div class="sub-text callout">
 								<div class="copy"><%= @projects[i].callouts[1] %></div>
 								<div class="icon">
-									<span class="rect"></span>
 									<span class="rect"></span>
 									<span class="tri"></span>
 								</div>
