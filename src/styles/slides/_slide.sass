@@ -124,9 +124,12 @@
       position: absolute
       top: 0px
       left: 0px
-      right: 40px
+      right: 30px
       bottom: 0px
       cursor: pointer
+
+      @include respond-above($media_480)
+        right: 40px
 
       .video-close-zone
         position: absolute
@@ -138,12 +141,23 @@
         .close-btn
           position: absolute
           top: 50%
-          left: 40px
-          height: 40px
+          left: 0px
+          height: 20px
           cursor: pointer
 
-          @include type-mono(40px, $bold)
+          @include type-mono(20px, $bold)
+
+          transform-origin: bottom center
           transform: rotate(-90deg) translate(0,-50%)
+
+          @include respond-above($media_480)
+            left: 10px
+
+          @include respond-above($media_768)
+            left: 20px
+
+          @include respond-above($media_1024)
+            left: 40px
           
           .copy
             float: left
@@ -177,12 +191,30 @@
 
       .video-holder
         position: absolute
-        top: 100px
-        left: 100px
-        right: 100px
-        bottom: 100px
+        top: 20px
+        left: 20px
+        right: 20px
+        bottom: 20px
         background-color: $black
         overflow: hidden
+
+        @include respond-above($media_480)
+          top: 40px
+          left: 40px
+          right: 40px
+          bottom: 40px
+
+        @include respond-above($media_768)
+          top: 60px
+          left: 60px
+          right: 60px
+          bottom: 60px
+
+        @include respond-above($media_1024)
+          top: 100px
+          left: 100px
+          right: 100px
+          bottom: 100px
 
         .video-iframe
           position: absolute

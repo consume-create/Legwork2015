@@ -97,9 +97,12 @@
 
           .title-holder
             position: relative
-            height: 30px
+            height: 20px
             overflow: hidden
             cursor: pointer
+
+            @include respond-above($media_768)
+              height: 30px
 
             @include respond-above($media_1400)
               height: 105px
@@ -107,18 +110,17 @@
 
             h2
               position: relative
-              height: 30px
+              height: 20px
               font-size: 14px
-              line-height: 30px
+              line-height: 20px
               font-weight: $bold
               display: inline-block
               overflow: hidden
 
-              @include respond-above($media_480)
-                font-size: 18px
-
               @include respond-above($media_768)
+                height: 30px
                 font-size: 23px
+                line-height: 30px
 
               @include respond-above($media_1400)
                 float: left
@@ -142,10 +144,10 @@
           .sub-text
             position: relative
             width: 100%
-            height: 24px
+            height: 14px
             display: none
 
-            @include type-mono(24px, $regular)
+            @include type-mono(14px, $regular)
 
             &.callout
               text-transform: capitalize
@@ -183,6 +185,10 @@
                   border-top: 4px solid transparent
                   border-bottom: 4px solid transparent
                   border-left: 6px solid $white
+
+            @include respond-above($media_768)
+              height: 24px
+              line-height: 24px
 
             @include respond-above($media_1400)
               padding: 28px 0 0
