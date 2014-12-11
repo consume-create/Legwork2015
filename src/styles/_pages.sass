@@ -1,10 +1,13 @@
 #pages
   position: absolute
-  top: 76px
+  top: 50px
   left: 0px
   right: 0px
   bottom: 0px
   background-color: $light_gray
+
+  @include respond-above($media_768)
+    top: 76px
 
 #pages-inner
   position: absolute
@@ -45,31 +48,40 @@
       position: absolute
       top: 0px
       right: 0px
-      width: 40px
+      width: 30px
       height: 100%
-      background-color: rgba(0, 0, 0, 0.06)
+      background-color: rgba(0,0,0,0.06)
+
+      @include respond-above($media_480)
+        width: 40px
 
       .page-nav
         position: absolute
         top: 50%
         right: 0px
-        width: 40px
+        width: 100%
 
         transform: translate(0%, -50%)
 
         li
           width: 100%
-          height: 40px
+          height: 30px
+
+          @include respond-above($media_480)
+            height: 40px
 
           a
             position: relative
             width: 100%
             height: 100%
             font-size: 12px
-            line-height: 40px
+            line-height: 30px
             font-weight: $bold
             text-align: center
             display: block
+
+            @include respond-above($media_480)
+              line-height: 40px
 
             span:first-child
               position: absolute
@@ -91,12 +103,13 @@
               height: 100%
 
           a:hover
-            span:first-child
-              transform: translate3d(0%,0,0)
-              transition: transform $speed $evil_ease 100ms
+            @include respond-above($media_1024)
+              span:first-child
+                transform: translate3d(0%,0,0)
+                transition: transform $speed $evil_ease 100ms
 
-            span:last-child
-              background-color: $black
+              span:last-child
+                background-color: $black
 
           a.active
             span:last-child

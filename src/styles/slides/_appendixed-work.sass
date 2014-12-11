@@ -8,17 +8,24 @@
     position: absolute
     top: 0px
     left: 0px
-    right: 40px
+    right: 30px
     height: 100%
     overflow: hidden
+
+    @include respond-above($media_480)
+      right: 40px
 
     li.cell
       float: left
       position: relative
-      width: 33.333%
-      height: 50%
+      width: 100%
+      height: 16.8%
       overflow: hidden
       opacity: 0
+
+      @include respond-above($media_1400)
+        width: 33.333%
+        height: 50%
 
       @for $i from 1 through 6
         &:nth-child(#{$i})
@@ -58,67 +65,91 @@
           &:nth-child(#{$i})
             transition: transform $speed $evil_ease ($i * ($speed / 6)), opacity $speed $evil_ease ($i * ($speed / 6))
 
-      a,
+      .link-btn,
       .watch-btn
         position: absolute
         top: 0px
         left: 0px
         width: 100%
         height: 100%
-        display: block
         cursor: pointer
 
         .content
           position: absolute
           top: 50%
-          left: 80px
-          right: 80px
+          left: 20px
+          right: 0px
 
           transform: translate(0,-50%)
 
+          @include respond-above($media_480)
+            left: 40px
+
+          @include respond-above($media_768)
+            left: 60px
+
+          @include respond-above($media_1024)
+            left: 100px
+
+          @include respond-above($media_1400)
+            left: 80px
+            right: 80px
+
           .title-holder
             position: relative
-            height: 105px
-            margin: 5px 0 0
+            height: 30px
             overflow: hidden
             cursor: pointer
 
+            @include respond-above($media_1400)
+              height: 105px
+              margin: 5px 0 0
+
             h2
               position: relative
-              float: left
               height: 30px
-              padding: 0 0 15px
-              font-size: 33px
-              line-height: 28px
+              font-size: 14px
+              line-height: 30px
               font-weight: $bold
               display: inline-block
               overflow: hidden
 
-              &:last-child
-                margin: 15px 0 0
-                clear: both
-          
-              &:after
-                content: ''
-                position: absolute
-                bottom: 0px
-                left: 0px
-                width: 100%
-                height: 5px
-                background-color: $black
+              @include respond-above($media_480)
+                font-size: 18px
+
+              @include respond-above($media_768)
+                font-size: 23px
+
+              @include respond-above($media_1400)
+                float: left
+                font-size: 33px
+                line-height: 28px
+                padding: 0 0 15px
+
+                &:last-child
+                  margin: 15px 0 0
+                  clear: both
+            
+                &:after
+                  content: ''
+                  position: absolute
+                  bottom: 0px
+                  left: 0px
+                  width: 100%
+                  height: 5px
+                  background-color: $black
 
           .sub-text
             position: relative
             width: 100%
-            padding: 28px 0 0
             height: 24px
-            display: block
+            display: none
 
             @include type-mono(24px, $regular)
 
             &.callout
               text-transform: capitalize
-              display: none
+              display: block
 
               .copy
                 float: left
@@ -153,13 +184,30 @@
                   border-bottom: 4px solid transparent
                   border-left: 6px solid $white
 
-        &:hover
-          .content
-            .sub-text.tagline
-              display: none
-
-            .sub-text.callout
+            @include respond-above($media_1400)
+              padding: 28px 0 0
               display: block
 
-              .icon
-                animation: bounce $speed $evil_ease
+              &.callout
+                display: none
+
+// ---------------------------------------------
+// Party mode
+// ---------------------------------------------
+
+.party-on
+  ul.cells
+    li.cell
+      .link-btn:hover,
+      .watch-btn:hover
+        .content
+          .sub-text
+            .icon
+              animation: bounce $speed $evil_ease
+
+            @include respond-above($media_1400)
+              &.tagline
+                display: none
+
+              &.callout
+                display: block

@@ -31,7 +31,15 @@ a
 #wrapper-inner
   position: absolute
   top: 0px
-  left: 40px
-  right: 40px
+  left: 0px
+  right: 0px
   bottom: 0px
   overflow: hidden
+
+  @include respond-above($media_480)
+    left: 20px
+    right: 20px
+
+  @include respond-above($media_768)
+    left: 40px
+    right: 40px

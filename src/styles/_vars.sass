@@ -43,3 +43,13 @@ $evil_ease: cubic-bezier(0.666, 0.000, 0.333, 1.000)
   letter-spacing: 1px
   font-weight: $bold
   text-transform: uppercase
+
+// MQ mixins
+$media_480: 480px
+$media_768: 768px
+$media_1024: 1024px
+$media_1400: 1400px
+
+@mixin respond-above($min-size)
+  @media all and (min-width: $min-size)
+    @content

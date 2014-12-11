@@ -3,96 +3,133 @@ header
   top: 0px
   left: 0px
   width: 100%
-  height: 76px
-  overflow: hidden
-  
-#header-inner
-  position: absolute
-  top: 0px
-  left: 0px
-  width: 100%
-  height: 100%
-  text-align: center
+  height: 50px
   overflow: hidden
 
-  #logo
+  @include respond-above($media_768)
+    height: 76px
+  
+  #header-inner
     position: absolute
     top: 0px
-    left: 100px
-    width: 76px
+    left: 0px
+    width: 100%
     height: 100%
-    background-image: url('/images/logo@2x.gif')
-    background-repeat: no-repeat
-    background-position: center center
-    background-size: 100%
+    text-align: center
     overflow: hidden
-    cursor: pointer
 
-  #primary-nav
-    position: relative
-    margin: 23px 0 0
-    font-size: 0
-    line-height: 0
-    display: inline-block
-
-    .nav-item
-      position: relative
-      height: 20px
-      margin: 0 10px
-      padding: 0 10px 14px
-      color: $black
-      text-transform: capitalize
-      display: inline-block
+    #logo
+      position: absolute
+      top: 0px
+      left: 20px
+      width: 50px
+      height: 100%
+      background-image: url('/images/logo@2x.gif')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 100%
+      overflow: hidden
       cursor: pointer
 
-      @include type(24px, $bold)
+      @include respond-above($media_480)
+        left: 40px
 
-      span
-        position: absolute
-        bottom: 8px
-        left: 10px
-        right: 10px
-        height: 3px
-        background-color: $light_gray
+      @include respond-above($media_768)
+        left: 60px
+        width: 76px
 
-        transition: background-color $speed $ease_out
+      @include respond-above($media_1024)
+        left: 100px
 
-      &.active
-        cursor: default
-        
-        span
-          background-color: $black
-
-      &:hover
-        span
-          background-color: $black
-
-  #secondary-nav
-    position: absolute
-    top: 21px
-    right: 0px
-    width: 80px
-    height: 34px
-    font-size: 0
-    line-height: 0
-
-    a
-      width: 50%
-      height: 100%
+    #primary-nav
+      position: absolute
+      top: 50%
+      left: 50%
       height: 20px
-      margin-top: 7px
-      text-decoration: none
-      background-image: url('/images/icons-sprite@2x.png')
-      background-repeat: no-repeat
-      background-position: center top
-      background-size: 40px 60px
-      display: inline-block
-      opacity: 1
+      font-size: 0
+      line-height: 0
 
-      transition: opacity $speed $ease_out
+      transform: translate(-50%,-50%)
 
-      &:last-child
-        background-position: center -40px
+      .nav-item
+        position: relative
+        height: 14px
+        padding: 0 10px 6px
+        color: $black
+        text-transform: capitalize
+        display: inline-block
+        cursor: pointer
 
-      &:hover
-        opacity: 0.6
+        @include type(14px, $bold)
+        @include respond-above($media_480)
+          margin: 0 10px
+
+        span
+          position: absolute
+          bottom: 0px
+          left: 10px
+          right: 10px
+          height: 3px
+          background-color: $light_gray
+
+          transition: background-color $speed $ease_out
+
+        &.active
+          cursor: default
+          
+          span
+            background-color: $black
+
+    #secondary-nav
+      position: absolute
+      top: 50%
+      right: 0px
+      width: 60px
+      height: 20px
+      margin: -10px 0 0
+      font-size: 0
+      line-height: 0
+
+      @include respond-above($media_480)
+        width: 80px
+
+      a
+        width: 50%
+        height: 100%
+        height: 20px
+        text-decoration: none
+        background-image: url('/images/icons-sprite@2x.png')
+        background-repeat: no-repeat
+        background-position: center 2px
+        background-size: 32px 48px
+        display: inline-block
+
+        &:last-child
+          background-position: center -30px
+
+        @include respond-above($media_480)
+          background-position: center top
+          background-size: 40px 60px
+
+          &:last-child
+            background-position: center -40px
+
+// ---------------------------------------------
+// Party mode
+// ---------------------------------------------
+
+.party-on
+  header
+    #header-inner
+      #primary-nav
+        .nav-item:hover
+          span
+            background-color: $black
+
+      #secondary-nav
+        a
+          opacity: 1
+          transition: opacity $speed $ease_out
+          
+          &:hover
+            opacity: 0.6
