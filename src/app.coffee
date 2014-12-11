@@ -96,6 +96,10 @@ class Application
   | Build.
   *----------------------------------------###
   build: ->
+    # Specify if not desktop
+    if LW.utils.is_mobile.any() is false
+      LW.$body.addClass('party-on')
+
     # Header
     @header_m = new HeaderModel({'$el': $('header')})
     @header_c = new HeaderController({
