@@ -31,6 +31,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'title': @model.getTitle(),
       'rgb': @model.getRgb(),
       'callouts': @model.getCallouts(),
+      'vimeo_id': @model.getVimeoId(),
       'launch_url': @model.getLaunchUrl(),
       'tagline': @model.getTagline(),
       'picture_src': @model.getPictureSrc(),
@@ -38,7 +39,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'mediums': @model.getMediums(),
       'poster_src': @model.getPosterSrc(),
       'poster_cta': @model.getPosterCta(),
-      'vimeo_id': @model.getVimeoId(),
+      'detail_vimeo_id': @model.getDetailVimeoId(),
       'descr_title': @model.getDescrTitle(),
       'descr_text': @model.getDescrText(),
       'services': @model.getServices()
@@ -54,7 +55,7 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$video_poster = $('.video-poster', @model.getV())
 
     @$video_zone = $('.video-zone', @model.getV())
-    @$close_video_btn = $('.close-btn', @model.getV())
+    @$video_close_zone = $('.video-close-zone', @model.getV())
 
     @$video_iframe = $('.video-iframe', @model.getV())
 
@@ -93,24 +94,6 @@ class FeaturedWorkSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
-  | showVideoZone:void (=)
-  |
-  | Show video zone.
-  *----------------------------------------###
-  showVideoZone: (e) =>
-    @$video_zone.addClass('show')
-
-  ###
-  *------------------------------------------*
-  | hideVideoZone:void (=)
-  |
-  | Hide video zone.
-  *----------------------------------------###
-  hideVideoZone: =>
-    @$video_zone.removeClass('show')
-
-  ###
-  *------------------------------------------*
   | onClickVideoPoster:void (=)
   |
   | Click video poster.
@@ -141,13 +124,31 @@ class FeaturedWorkSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
-  | onClickCloseVideoBtn:void (=)
+  | onClickCloseVideoZone:void (=)
   |
   | Click close video btn.
   *----------------------------------------###
-  onClickCloseVideoBtn: =>
+  onClickCloseVideoZone: =>
     @hideVideoZone()
     @removeVideos()
+
+  ###
+  *------------------------------------------*
+  | showVideoZone:void (=)
+  |
+  | Show video zone.
+  *----------------------------------------###
+  showVideoZone: (e) =>
+    @$video_zone.addClass('show')
+
+  ###
+  *------------------------------------------*
+  | hideVideoZone:void (=)
+  |
+  | Hide video zone.
+  *----------------------------------------###
+  hideVideoZone: =>
+    @$video_zone.removeClass('show')
 
   ###
   *------------------------------------------*
@@ -157,12 +158,10 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   buildVideo: (type, id) =>
     @removeVideos()
-    console.log 'build a video:', type
-
     $v = $('<iframe src="//player.vimeo.com/video/' + id + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1&amp;api=1&amp;player_id=player" id="player" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')
     
     @$video_iframe.empty()
-    $(".video-iframe.#{type}", @model.getV()).empty().append($v)
+    $(".video-iframe.#{type}", @model.getV()).append($v)
     
     @$player = $f($('#player', @model.getV())[0])
     @$player.addEvent('ready', =>
@@ -181,7 +180,6 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$video_poster.removeClass('hide')
 
     if $iframe.length > 0
-      console.log 'remove video(s):', $('iframe', @model.getV()).length
       @$video_iframe.empty()
 
   ###
@@ -260,9 +258,9 @@ class FeaturedWorkSlideController extends BaseSlideController
       .off()
       .on('click', @onClickWatchBtn)
 
-    @$close_video_btn
+    @$video_close_zone
       .off()
-      .on('click', @onClickCloseVideoBtn)
+      .on('click', @onClickCloseVideoZone)
 
   ###
   *------------------------------------------*
@@ -277,7 +275,7 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$title_holder.off()
     @$video_poster.off()
     @$watch_btn.off()
-    @$close_video_btn.off()
+    @$video_close_zone.off()
 
     @reset()
 
