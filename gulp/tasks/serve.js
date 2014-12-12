@@ -15,6 +15,7 @@ var gulp = require('gulp'),
 gulp.task('serve', function() {
   gulp.src(config.root)
     .pipe(webserver({
+      'host': '0.0.0.0',
       'fallback': 'index.html',  // Set for single page app style
       'livereload': true,        // Reload 'er on the fly?
       'open': true,              // Open the default browser when this task is run?
