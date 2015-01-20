@@ -1,5 +1,5 @@
 data = {
-  "browser_title": "Legwork Studio / About Us",
+  "browser_title": "Legwork Studio / About",
   "slide_type": LW.slide_types.ABOUT,
   "rgb": [
     0,
@@ -7,10 +7,10 @@ data = {
     239
   ],
   "title": [
-    "Check out our hot",
-    "&amp; wild process."
+    "We are an integrated",
+    "production company."
   ],
-  "instructions": "Ok, time to start scrolling down."
+  "instructions": "It's time to start scrolling."
 }
 
 module.exports = data

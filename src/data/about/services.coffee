@@ -1,12 +1,12 @@
 data = {
-  "browser_title": "Legwork Studio / Process 02",
+  "browser_title": "Legwork Studio / Services",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "rgb": [
     0,
     174,
     239
   ],
-  "title": "Process 02"
+  "title": "Services"
 }
 
 module.exports = data

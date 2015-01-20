@@ -1,5 +1,5 @@
 data = {
-  "browser_title": "Legwork Studio / Our Work",
+  "browser_title": "Legwork Studio / Work",
   "slide_type": LW.slide_types.WORK,
   "rgb": [
     0,

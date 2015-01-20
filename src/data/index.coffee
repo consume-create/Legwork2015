@@ -5,10 +5,11 @@ home = require './home/landing'
 
 # About
 about = require './about/landing'
-process_01 = require './about/process-01'
-process_02 = require './about/process-02'
-process_03 = require './about/process-03'
-about_video = require './about/video'
+summary = require './about/summary'
+services = require './about/services'
+accolades = require './about/accolades'
+contact = require './about/contact'
+careers = require './about/careers'
 
 # Work
 work = require './work/landing'
@@ -37,10 +38,11 @@ data = {
 		"about": {
 			"slides": {
 				"landing": about,
-				"process-01": process_01,
-				"process-02": process_02,
-				"process-03": process_03,
-				"video": about_video
+				"summary": summary,
+				"services": services,
+				"accolades": accolades,
+				"contact": contact,
+				"careers": careers
 			}
 		},
 		"work": {
