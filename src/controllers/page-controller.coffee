@@ -98,8 +98,11 @@ class PageController
           @slide_m[id] = new AboutProcessSlideModel({
             '$el': $el,
             'rgb': slide.rgb,
+            'id': slide.id,
             'title': slide.title,
-            'picture_src': slide.picture_src
+            'picture_src': slide.picture_src,
+            'copy': slide.copy,
+            'lists': slide.lists
           })
           @slide_c[id] = new AboutProcessSlideController({
             'model': @slide_m[id]

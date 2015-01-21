@@ -7,4 +7,45 @@
 			<h2><%- @title %></h2>
 		</div>
 	</div>
+	<!-- Info zone -->
+	<div class="info-zone">
+		<div class="content">
+			<% if @lists.length > 0: %>
+				<% if @id is 'summary': %>
+					<%- @copy %>
+					<ul class="callouts">
+						<% for list in @lists: %>
+							<li class="callout <%= list.type %>">
+								<div class="copy"><%- list.copy %></div>
+								<div class="icon">
+									<span class="rect"></span>
+									<span class="rect"></span>
+									<span class="tri"></span>
+								</div>
+							</li>
+						<% end %>
+					</ul>
+				<% else if @id is 'contact': %>
+					<% for list in @lists: %>
+						<ul class="stack">
+							<% for item in list.items: %>
+								<li><%- item %></li>
+							<% end %>
+						</ul>
+					<% end %>
+					<%- @copy %>
+				<% else: %>
+					<% for list in @lists: %>
+						<ul class="lists cf">
+							<% for item in list.items: %>
+								<li><%- item %></li>
+							<% end %>
+						</ul>
+					<% end %>
+				<% end %>
+			<% else: %>
+				<%- @copy %>
+			<% end %>
+		</div>
+	</div>
 </div>
