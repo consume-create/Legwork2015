@@ -33,6 +33,7 @@ class AboutSlideController extends BaseSlideController
       'instructions': @model.getInstructions()
     })))
     @model.getE().append(@model.getV())
+    @$title_holder = $('.title-holder', @model.getV())
 
   ###
   *------------------------------------------*
@@ -40,7 +41,15 @@ class AboutSlideController extends BaseSlideController
   |
   | Transition in.
   *----------------------------------------###
-  transitionIn: (pos_in) ->
+  transitionIn: (direction) ->
+    @$title_holder
+      .removeClass('trans-in trans-out top bottom')
+      .addClass(direction)
+
+    _.defer =>
+      @$title_holder
+        .addClass('trans-in')
+        .removeClass(direction)
 
   ###
   *------------------------------------------*
@@ -48,7 +57,13 @@ class AboutSlideController extends BaseSlideController
   |
   | Transition out.
   *----------------------------------------###
-  transitionOut: (pos_out, cb) ->
-    cb()
+  transitionOut: (direction, cb) ->
+    @$title_holder
+      .removeClass('trans-in trans-out top bottom')
+      .addClass("#{direction} trans-out")
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        cb()
+      )
 
 module.exports = AboutSlideController

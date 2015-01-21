@@ -20,8 +20,11 @@ class AboutProcessSlideModel extends BaseSlideModel
   constructor: (data) ->
     super(data)
 
-    @_name = null
+    @_title = null
     @setTitle(data.title)
+
+    @_picture_src = null
+    @setPictureSrc(data.picture_src)
 
   ###
   *------------------------------------------*
@@ -45,5 +48,30 @@ class AboutProcessSlideModel extends BaseSlideModel
       throw 'ERROR: title must be a string'
     else
       @_title = title
+
+  ###
+  *------------------------------------------*
+  | getPictureSrc:string (-)
+  |
+  | Get picture src.
+  *----------------------------------------###
+  getPictureSrc: ->
+    return @_picture_src
+
+  ###
+  *------------------------------------------*
+  | setPictureSrc:void (-)
+  |
+  | picture_src:string - picture src
+  |
+  | Set picture src.
+  *----------------------------------------###
+  setPictureSrc: (picture_src) ->
+    if _.isString(picture_src) is false
+      throw 'ERROR: picture_src must be a string'
+    else if (/^\/images\//).test(picture_src) is false
+      throw 'ERROR: picture_src must be a local reference from the root (e.g. /images/path/to/image.jpg)'
+    else
+      @_picture_src = picture_src
 
 module.exports = AboutProcessSlideModel

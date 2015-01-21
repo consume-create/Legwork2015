@@ -1,3 +1,10 @@
 <div class="slide-inner">
-	<h2><%= @title %></h2>
+	<!-- Picture zone -->
+	<div class="picture-zone" style="background-image: url('<%= @picture_src %>');"></div>
+	<!-- Title zone -->
+	<div class="title-zone">
+		<div class="title-holder">
+			<h2><%- @title %></h2>
+		</div>
+	</div>
 </div>

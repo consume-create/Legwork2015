@@ -28,9 +28,12 @@ class AboutProcessSlideController extends BaseSlideController
   build: ->
     super()
     @model.setV($(JST['about-process-slide-view']({
-      'title': @model.getTitle()
+      'title': @model.getTitle(),
+      'picture_src': @model.getPictureSrc()
     })))
     @model.getE().append(@model.getV())
+
+    @$title_holder = $('.title-holder', @model.getV())
 
   ###
   *------------------------------------------*
@@ -38,7 +41,15 @@ class AboutProcessSlideController extends BaseSlideController
   |
   | Transition in.
   *----------------------------------------###
-  transitionIn: (pos_in) ->
+  transitionIn: (direction) ->
+    @$title_holder
+      .removeClass('trans-in trans-out top bottom')
+      .addClass(direction)
+
+    _.defer =>
+      @$title_holder
+        .addClass('trans-in')
+        .removeClass(direction)
 
   ###
   *------------------------------------------*
@@ -46,7 +57,14 @@ class AboutProcessSlideController extends BaseSlideController
   |
   | Transition out.
   *----------------------------------------###
-  transitionOut: (pos_out, cb) ->
-    cb()
+  transitionOut: (direction, cb) ->
+    @$title_holder
+      .removeClass('trans-in trans-out top bottom')
+      .addClass("#{direction} trans-out")
+      .eq(0)
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        cb()
+      )
 
 module.exports = AboutProcessSlideController
