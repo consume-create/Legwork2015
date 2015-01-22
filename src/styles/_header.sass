@@ -7,7 +7,8 @@ header
   overflow: hidden
 
   @include respond-above($media_768)
-    height: 76px
+    @include respond-above-ht($media_ht_420)
+      height: 76px
   
   #header-inner
     position: absolute
@@ -36,7 +37,9 @@ header
 
       @include respond-above($media_768)
         left: 60px
-        width: 76px
+
+        @include respond-above-ht($media_ht_420)
+          width: 76px
 
       @include respond-above($media_1024)
         left: 100px

@@ -12,17 +12,25 @@
     height: 100%
     background-repeat: no-repeat
     background-position: right bottom
-    background-size: contain
-    overflow: hidden
+    background-size: 100% auto
+
+    @media all and (max-aspect-ratio: 1)
+      display: none
   
   // ---------------------------------------------
   // Title zone
   // ---------------------------------------------
 
   .title-zone
-    top: 92px
+    top: 12px
 
     transform: none
+
+    @include respond-above-ht($media_ht_420)
+      top: 32px
+
+    @include respond-above-ht($media_ht_666)
+      top: 92px
 
     .title-holder
       height: 40px
@@ -75,9 +83,24 @@
 
   .info-zone
     position: absolute
-    bottom: 92px
-    left: 100px
+    bottom: 14px
+    left: 20px
     right: 50%
+
+    @include respond-above-ht($media_ht_420)
+      bottom: 32px
+
+    @include respond-above-ht($media_ht_666)
+      bottom: 92px
+
+    @include respond-above($media_480)
+      left: 40px
+
+    @include respond-above($media_768)
+      left: 60px
+
+    @include respond-above($media_1024)
+      left: 100px
 
     .content
       width: 100%
@@ -85,10 +108,16 @@
 
       h4
         color: $black
-        @include type-mono(24px, $regular)
+        @include type-mono(20px, $regular)
+        
+        @include respond-above-ht($media_ht_420)
+          @include type-mono(24px, $regular)
 
       p
-        @include type-mono(24px, $regular)
+        @include type-mono(20px, $regular)
+
+        @include respond-above-ht($media_ht_420)
+          @include type-mono(24px, $regular)
 
         a
           position: relative
@@ -106,7 +135,10 @@
 
       ul.callouts
         height: 40px
-        margin: 20px 0 -8px
+        margin: 10px 0 -10px
+
+        @include respond-above-ht($media_ht_420)
+          margin: 20px 0 -8px
 
         li.callout
           float: left
@@ -162,20 +194,47 @@
       ul.lists
         float: left
         width: 50%
-        margin: 20px 0 0
+        margin: 10px 0 0
 
         li
-          @include type-mono(24px, $regular)
+          @include type-mono(20px, $regular)
+          display: none
 
           &:first-child
             color: $black
+
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(6),
+          &:nth-child(7),
+          &:nth-child(8),
+          &:nth-child(9)
+            display: block
+
+        @include respond-above-ht($media_ht_420)
+          margin: 20px 0 0
+
+          li
+            @include type-mono(24px, $regular)
+
+        @include respond-above-ht($media_ht_560)
+          li
+            display: block
 
       ul.stack
-        margin: 0 0 20px
+        margin: 0 0 10px
 
         li
-          @include type-mono(24px, $regular)
+          @include type-mono(20px, $regular)
 
           &:first-child
             color: $black
 
+        @include respond-above-ht($media_ht_420)
+          margin: 0 0 20px
+
+          li
+            @include type-mono(24px, $regular)

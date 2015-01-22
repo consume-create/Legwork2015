@@ -24,8 +24,9 @@
       opacity: 0
 
       @include respond-above($media_1400)
-        width: 33.333%
-        height: 50%
+        @include respond-above-ht($media_ht_560)
+          width: 33.333%
+          height: 50%
 
       @for $i from 1 through 6
         &:nth-child(#{$i})
@@ -97,49 +98,60 @@
 
           .title-holder
             position: relative
-            height: 20px
-            overflow: hidden
+            height: 14px
             cursor: pointer
 
+            @include respond-above-ht($media_ht_420)
+              height: 20px
+
             @include respond-above($media_768)
-              height: 30px
+              @include respond-above-ht($media_ht_560)
+                height: 30px
 
             @include respond-above($media_1400)
-              height: 105px
-              margin: 5px 0 0
+              @include respond-above-ht($media_ht_560)
+                height: 105px
+                margin: 5px 0 0
 
             h2
               position: relative
-              height: 20px
-              font-size: 14px
-              line-height: 20px
+              height: 14px
+              font-size: 12px
+              line-height: 14px
               font-weight: $bold
               display: inline-block
               overflow: hidden
 
+              @include respond-above-ht($media_ht_420)
+                height: 20px
+                font-size: 14px
+                line-height: 20px
+
               @include respond-above($media_768)
-                height: 30px
-                font-size: 23px
-                line-height: 30px
+                @include respond-above-ht($media_ht_560)
+                  height: 30px
+                  font-size: 23px
+                  line-height: 30px
 
               @include respond-above($media_1400)
-                float: left
-                font-size: 33px
-                line-height: 28px
-                padding: 0 0 15px
+                @include respond-above-ht($media_ht_560)
+                  float: left
+                  font-size: 33px
+                  line-height: 28px
+                  padding: 0 0 15px
 
-                &:last-child
-                  margin: 15px 0 0
-                  clear: both
-            
-                &:after
-                  content: ''
-                  position: absolute
-                  bottom: 0px
-                  left: 0px
-                  width: 100%
-                  height: 5px
-                  background-color: $black
+                  &:last-child
+                    margin: 15px 0 0
+                    clear: both
+              
+                  &:after
+                    content: ''
+                    position: absolute
+                    bottom: 0px
+                    left: 0px
+                    width: 100%
+                    height: 5px
+                    background-color: $black
 
           .sub-text
             position: relative
@@ -191,11 +203,12 @@
               line-height: 24px
 
             @include respond-above($media_1400)
-              padding: 28px 0 0
-              display: block
+              @include respond-above-ht($media_ht_560)
+                padding: 28px 0 0
+                display: block
 
-              &.callout
-                display: none
+                &.callout
+                  display: none
 
 // ---------------------------------------------
 // Party mode
@@ -212,8 +225,9 @@
               animation: bounce $speed $evil_ease
 
             @include respond-above($media_1400)
-              &.tagline
-                display: none
+              @include respond-above-ht($media_ht_560)
+                &.tagline
+                  display: none
 
-              &.callout
-                display: block
+                &.callout
+                  display: block

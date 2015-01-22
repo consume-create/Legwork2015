@@ -20,12 +20,24 @@
   .title-zone
     position: absolute
     top: 50%
-    left: 100px
-    right: 100px
+    left: 20px
+    right: 20px
     font-size: 0
     line-height: 0
 
     transform: translate(0,-50%)
+
+    @include respond-above($media_480)
+      left: 40px
+      right: 40px
+
+    @include respond-above($media_768)
+      left: 60px
+      right: 60px
+
+    @include respond-above($media_1024)
+      left: 100px
+      right: 100px
 
     .title-holder
       position: relative
@@ -91,8 +103,20 @@
   .meta-zone
     position: absolute
     bottom: 40px
-    left: 100px
-    right: 100px
+    left: 20px
+    right: 20px
+
+    @include respond-above($media_480)
+      left: 40px
+      right: 40px
+
+    @include respond-above($media_768)
+      left: 60px
+      right: 60px
+
+    @include respond-above($media_1024)
+      left: 100px
+      right: 100px
 
     ul
       float: left
