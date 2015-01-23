@@ -19,13 +19,14 @@
 
   .title-zone
     position: absolute
-    top: 50%
+    top: 40px
     left: 20px
     right: 20px
     font-size: 0
     line-height: 0
 
-    transform: translate(0,-50%)
+    @include respond-above-ht($media_ht_480)
+      top: 100px
 
     @include respond-above($media_480)
       left: 40px
@@ -35,13 +36,17 @@
       left: 60px
       right: 60px
 
-    @include respond-above($media_1024)
+      @include respond-above-ht($media_ht_560)
+        top: 50%
+        transform: translate(0,-50%)
+
+    @include respond-above($media_1180)
       left: 100px
       right: 100px
 
     .title-holder
       position: relative
-      height: 210px
+      height: 105px
       overflow: hidden
       display: inline-block
       cursor: pointer
@@ -49,10 +54,10 @@
       h2
         position: relative
         float: left
-        height: 60px
-        padding: 0 0 30px
-        font-size: 66px
-        line-height: 56px
+        height: 30px
+        padding: 0 0 15px
+        font-size: 30px
+        line-height: 23px
         font-weight: $bold
         display: inline-block
         overflow: hidden
@@ -61,7 +66,7 @@
         transform: translate3d(0,0px,0)
 
         &:last-child
-          margin: 30px 0 0
+          margin: 15px 0 0
           clear: both
 
         &:after
@@ -70,14 +75,14 @@
           bottom: 0px
           left: 0px
           width: 100%
-          height: 10px
+          height: 5px
           background-color: $black
 
       &.top h2
-        transform: translate3d(0,-90px,0)
+        transform: translate3d(0,-40px,0)
 
       &.bottom h2
-        transform: translate3d(0,90px,0)
+        transform: translate3d(0,40px,0)
 
       &.trans-in h2
         opacity: 1
@@ -91,10 +96,44 @@
         transition: transform $speed $ease_in, opacity $speed $ease_in
 
       &.trans-out.top h2
-        transform: translate3d(0,90px,0)
+        transform: translate3d(0,40px,0)
 
       &.trans-out.bottom h2
-        transform: translate3d(0,-90px,0)
+        transform: translate3d(0,-40px,0)
+
+      @include respond-above($media_1024)
+        @include respond-above-ht($media_ht_560)
+          height: 210px
+
+          h2
+            height: 60px
+            padding: 0 0 30px
+            font-size: 66px
+            line-height: 56px
+
+            transform: translate3d(0,0px,0)
+
+            &:last-child
+              margin: 30px 0 0
+
+            &:after
+              height: 10px
+
+          &.top h2
+            transform: translate3d(0,-90px,0)
+
+          &.bottom h2
+            transform: translate3d(0,90px,0)
+
+          &.trans-in h2
+            transform: translate3d(0,0px,0)
+
+          &.trans-out.top h2
+            transform: translate3d(0,90px,0)
+
+          &.trans-out.bottom h2
+            transform: translate3d(0,-90px,0)
+
 
   // ---------------------------------------------
   // Shared styles: Meta zone
@@ -102,9 +141,20 @@
 
   .meta-zone
     position: absolute
-    bottom: 40px
+    bottom: 20px
     left: 20px
     right: 20px
+
+    ul
+      float: left
+      position: relative
+      width: 234px
+
+      &:last-child
+        display: none
+
+    @include respond-above-ht($media_ht_480)
+      bottom: 40px
 
     @include respond-above($media_480)
       left: 40px
@@ -114,14 +164,12 @@
       left: 60px
       right: 60px
 
-    @include respond-above($media_1024)
+      ul:last-child
+        display: block
+
+    @include respond-above($media_1180)
       left: 100px
       right: 100px
-
-    ul
-      float: left
-      position: relative
-      width: 234px
 
   // ---------------------------------------------
   // Video zone
@@ -167,9 +215,10 @@
           top: 50%
           left: 0px
           height: 20px
+          line-height: 20px
+          font-weight: $bold
           cursor: pointer
-
-          @include type-mono(20px, $bold)
+          @include type-mono
 
           transform-origin: bottom center
           transform: rotate(-90deg) translate(0,-50%)
@@ -180,7 +229,10 @@
           @include respond-above($media_768)
             left: 20px
 
-          @include respond-above($media_1024)
+            @include respond-above-ht($media_ht_480)
+              line-height: 20px
+
+          @include respond-above($media_1180)
             left: 40px
           
           .copy
@@ -234,7 +286,7 @@
           right: 60px
           bottom: 60px
 
-        @include respond-above($media_1024)
+        @include respond-above($media_1180)
           top: 100px
           left: 100px
           right: 100px

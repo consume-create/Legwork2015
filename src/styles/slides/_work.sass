@@ -15,6 +15,9 @@
     background-size: contain
     background-blend-mode: multiply
     overflow: hidden
+
+    @media all and (max-aspect-ratio: 5/4)
+      opacity: 0.33
   
   // ---------------------------------------------
   // Title zone
@@ -22,8 +25,12 @@
 
   .title-zone
     .title-holder
-      margin: 0 0 76px
+      margin: 0 0 50px
       cursor: default
+
+      @include respond-above($media_1024)
+        @include respond-above-ht($media_ht_560)
+          margin: 0 0 76px
 
   // ---------------------------------------------
   // Meta zone
@@ -34,9 +41,9 @@
       position: relative
       height: 14px
       padding: 0 0 0 25px
+      line-height: 14px
       color: $black
-
-      @include type-mono(14px, $regular)
+      @include type-mono
 
       &:before
         content: ''

@@ -23,18 +23,49 @@ $ease_in: cubic-bezier(0.550, 0.055, 0.675, 0.190)
 $ease_out: cubic-bezier(0.215, 0.610, 0.355, 1.000)
 $evil_ease: cubic-bezier(0.666, 0.000, 0.333, 1.000)
 
-// Typography mixins
-@mixin type($line_height, $font_weight)
-  font-family: $montserrat
-  font-size: 14px
-  line-height: $line_height
-  font-weight: $font_weight
+// MQs
+$media_480: 480px
+$media_768: 768px
+$media_1024: 1024px
+$media_1180: 1180px
+$media_1400: 1400px
+@mixin respond-above($min-size)
+  @media all and (min-width: $min-size)
+    @content
 
-@mixin type-mono($line_height, $font_weight)
+$media_ht_480: 480px
+$media_ht_560: 560px
+$media_ht_666: 666px
+@mixin respond-above-ht($min-size)
+  @media all and (min-height: $min-size)
+    @content
+
+// Typography mixins
+@mixin type
+  font-family: $montserrat
+  font-size: 12px
+  line-height: 16px
+
+  @include respond-above-ht($media_ht_480)
+    line-height: 20px
+
+  @include respond-above($media_768)
+    @include respond-above-ht($media_ht_480)
+      font-size: 14px
+      line-height: 24px
+
+@mixin type-mono
   font-family: $inconsolata
-  font-size: 14px
-  line-height: $line_height
-  font-weight: $font_weight
+  font-size: 12px
+  line-height: 16px
+
+  @include respond-above-ht($media_ht_480)
+    line-height: 20px
+
+  @include respond-above($media_768)
+    @include respond-above-ht($media_ht_480)
+      font-size: 14px
+      line-height: 24px
 
 @mixin type-mono-small
   font-family: $inconsolata
@@ -43,19 +74,3 @@ $evil_ease: cubic-bezier(0.666, 0.000, 0.333, 1.000)
   letter-spacing: 1px
   font-weight: $bold
   text-transform: uppercase
-
-// MQs
-$media_480: 480px
-$media_768: 768px
-$media_1024: 1024px
-$media_1400: 1400px
-@mixin respond-above($min-size)
-  @media all and (min-width: $min-size)
-    @content
-
-$media_ht_420: 420px
-$media_ht_560: 560px
-$media_ht_666: 666px
-@mixin respond-above-ht($min-size)
-  @media all and (min-height: $min-size)
-    @content

@@ -31,28 +31,51 @@
     .callouts
       position: relative
       width: 100%
-      height: 76px
+      height: 50px
       overflow: hidden
+
+      @include respond-above($media_1024)
+        @include respond-above-ht($media_ht_560)
+          height: 76px
 
       .callout
         float: left
         position: relative
         height: 100%
-        padding: 0 20px
+        padding: 0 10px
         cursor: pointer
+        font-family: $inconsolata
+        font-size: 12px
+        line-height: 50px
+        font-weight: $bold
+        text-transform: capitalize
 
-        @include type-mono(76px, $bold)
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_480)
+            font-size: 14px
+
+        @include respond-above($media_1024)
+          @include respond-above-ht($media_ht_560)
+            line-height: 76px
 
         &:first-child
-          padding: 0 20px 0 0
+          padding: 0 10px 0 0
 
         &:last-child
-          padding: 0 0 0 20px
+          padding: 0 0 0 10px
+
+        @include respond-above($media_480)
+          padding: 0 20px
+
+          &:first-child
+            padding: 0 20px 0 0
+
+          &:last-child
+            padding: 0 0 0 20px
 
         .copy
           float: left
           position: relative
-          text-transform: capitalize
 
         .icon
           float: left
@@ -137,10 +160,8 @@
         left: 10px
         height: 10px
         color: $black
-        display: block
-        
+        display: block        
         @include type-mono-small
-        font-weight: $regular
 
         transform: rotate(-90deg) translate3d(0,0,0)
         transform-origin: bottom left
@@ -167,12 +188,13 @@
             left: 50%
             height: 40px
             padding: 0 20px
-            background-color: $black
+            line-height: 40px
             text-transform: capitalize
+            background-color: $black
             visibility: hidden
             opacity: 0
+            @include type-mono
 
-            @include type-mono(40px, $regular)
             transform: translate3d(-50%,-2px,0)
 
             &:after
@@ -276,9 +298,9 @@
               top: 50%
               left: 50%
               height: 30px
+              line-height: 30px
               padding: 60px 0 0
-
-              @include type(30px, $regular)
+              @include type
 
               transform: translate(-50%,-50%)
 
@@ -316,18 +338,17 @@
           bottom: 40px
 
           h3
-            @include type-mono(24px, $bold)
+            @include type-mono
 
           p
             color: $gray
-            @include type-mono(24px, $bold)
+            @include type-mono
 
           .services
             position: absolute
             bottom: 0px
             left: 0px
             color: $gray
-
             @include type-mono-small
 
             &:before

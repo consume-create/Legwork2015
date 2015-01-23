@@ -38,7 +38,11 @@
 					<% for list in @lists: %>
 						<ul class="lists cf">
 							<% for item in list.items: %>
-								<li><%- item %></li>
+								<% if item.alt_name?: %>
+									<li><span class="full"><%- item.name %></span><span class="chop"><%- item.alt_name %></span></li>
+								<% else: %>
+									<li><%- item.name %></li>
+								<% end %>
 							<% end %>
 						</ul>
 					<% end %>

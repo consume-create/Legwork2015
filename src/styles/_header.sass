@@ -7,7 +7,7 @@ header
   overflow: hidden
 
   @include respond-above($media_768)
-    @include respond-above-ht($media_ht_420)
+    @include respond-above-ht($media_ht_480)
       height: 76px
   
   #header-inner
@@ -38,10 +38,10 @@ header
       @include respond-above($media_768)
         left: 60px
 
-        @include respond-above-ht($media_ht_420)
+        @include respond-above-ht($media_ht_480)
           width: 76px
 
-      @include respond-above($media_1024)
+      @include respond-above($media_1180)
         left: 100px
 
     #primary-nav
@@ -59,13 +59,20 @@ header
         height: 14px
         padding: 0 10px 6px
         color: $black
+        font-size: 12px
+        line-height: 14px
+        font-weight: $bold
         text-transform: capitalize
         display: inline-block
         cursor: pointer
 
-        @include type(14px, $bold)
         @include respond-above($media_480)
-          margin: 0 10px
+          @include respond-above-ht($media_ht_480)
+            font-size: 14px
+
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_480)
+            margin: 0 10px
 
         span
           position: absolute

@@ -9,36 +9,74 @@ data = {
   "lists": [
     {
       "items": [
-        "Animation",
-        "2D Animation",
-        "3D/CG Animation",
-        "Stop Motion",
-        "Cel"
+        {
+          "name": "Animation"
+        },
+        {
+          "name": "2D Animation"
+        },
+        {
+          "name": "3D/CG Animation"
+        },
+        {
+          "name": "Stop Motion"
+        },
+        {
+          "name": "Cel"
+        }
       ]
     },
     {
       "items": [
-        "Interactive",
-        "Websites",
-        "Brand Platforms",
-        "Games",
-        "Mobile Experiences"
+        {
+          "name": "Interactive"
+        },
+        {
+          "name": "Websites"
+        },
+        {
+          "name": "Brand Platforms"
+        },
+        {
+          "name": "Games"
+        },
+        {
+          "name": "Mobile Experiences"
+        }
       ]
     },
     {
       "items": [
-        "Installations",
-        "Projection Mapping",
-        "Interactive Environments",
-        "Digital Retail"
+        {
+          "name": "Installations"
+        },
+        {
+          "name": "Projection Mapping"
+        },
+        {
+          "name": "Interactive Environments",
+          "alt_name": "Interactive Env"
+        },
+        {
+          "name": "Digital Retail"
+        }
       ]
     },
     {
       "items": [
-        "Products",
-        "App Design &amp; Development",
-        "E-commerce",
-        "Explainer Videos"
+        {
+          "name": "Products"
+        },
+        {
+          "name": "App Design &amp; Development",
+          "alt_name": "App Design &amp; Dev"
+        },
+        {
+          "name": "E-commerce"
+        },
+        {
+          "name": "Explainer Videos"
+        }
       ]
     }
   ]
