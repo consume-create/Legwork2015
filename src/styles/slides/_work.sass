@@ -1,25 +1,6 @@
 .slide.work
   
   // ---------------------------------------------
-  // Picture zone
-  // ---------------------------------------------
-
-  .picture-zone
-    position: absolute
-    top: 0px
-    left: 50%
-    width: 100%
-    height: 100%
-    background-repeat: no-repeat
-    background-position: left bottom
-    background-size: contain
-    background-blend-mode: multiply
-    overflow: hidden
-
-    @media all and (max-aspect-ratio: 5/4)
-      opacity: 0.33
-  
-  // ---------------------------------------------
   // Title zone
   // ---------------------------------------------
 
@@ -37,31 +18,7 @@
   // ---------------------------------------------
 
   .meta-zone
-    h4
-      position: relative
-      height: 14px
-      padding: 0 0 0 25px
-      line-height: 14px
-      color: $black
-      @include type-mono
+    bottom: 18px
 
-      &:before
-        content: ''
-        position: absolute
-        top: 0px
-        left: 3px
-        width: 2px
-        height: 12px
-        margin: -1px 0 0
-        background-color: $black
-
-      &:after
-        content: ''
-        position: absolute
-        bottom: 0px
-        left: 0px
-        width: 0
-        height: 0
-        border-left: 4px solid transparent
-        border-right: 4px solid transparent
-        border-top: 6px solid $black
+    @include respond-above-ht($media_ht_480)
+      bottom: 38px

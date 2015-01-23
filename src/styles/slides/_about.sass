@@ -18,31 +18,7 @@
   // ---------------------------------------------
 
   .meta-zone
-    h4
-      position: relative
-      height: 14px
-      padding: 0 0 0 25px
-      color: $black
-      line-height: 14px
-      @include type-mono
-
-      &:before
-        content: ''
-        position: absolute
-        top: 0px
-        left: 3px
-        width: 2px
-        height: 12px
-        margin: -1px 0 0
-        background-color: $black
-
-      &:after
-        content: ''
-        position: absolute
-        bottom: 0px
-        left: 0px
-        width: 0
-        height: 0
-        border-left: 4px solid transparent
-        border-right: 4px solid transparent
-        border-top: 6px solid $black
+    bottom: 18px
+    
+    @include respond-above-ht($media_ht_480)
+      bottom: 38px
