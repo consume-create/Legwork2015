@@ -66,17 +66,6 @@
         bottom: 0px
         background-color: $black
 
-      &:hover
-        transform: translate3d(-270px,0,0)
-        transition: transform $speed_metal $evil_ease
-
-      @include respond-above($media_480)
-        @include respond-above-ht($media_ht_480)
-          transform: translate3d(-40px,0,0)
-
-          &:before
-            left: 40px
-
       .page-nav
         position: absolute
         top: 50%
@@ -161,6 +150,23 @@
 
           a.active
             cursor: default
+
+      &:hover
+        transform: translate3d(-270px,0,0)
+        transition: transform $speed_metal $evil_ease
+
+        .page-nav
+          li
+            a
+              span.black-bar
+                transition: transform $speed $evil_ease
+
+      @include respond-above($media_480)
+        @include respond-above-ht($media_ht_480)
+          transform: translate3d(-40px,0,0)
+
+          &:before
+            left: 40px
 
       #filter-zone
         position: absolute
@@ -250,7 +256,6 @@
 
               span
                 margin: 0 0 0 20px
-                font-size: 14px
                 line-height: 40px
 
             ul
@@ -261,7 +266,6 @@
 
                 span
                   margin: 0 0 0 20px
-                  font-size: 14px
                   line-height: 40px
 
         &:hover
