@@ -11,12 +11,24 @@
 				<% for slide_id, slide of @slides: %>
 					<li>
 						<a class="ajaxy" href="<%= if slide_id is LW.LANDING_SLIDE then '/' + @id else '/' + @id + '/' + slide_id %>" data-id="<%= slide_id %>">
-							<span><%= $.trim(slide.browser_title.split('/')[1]) %></span>
-							<span><%= ('0' + (n++)).slice(-2) %></span>
+							<span class="black-bar"></span>
+							<h4><%= ('0' + (n++)).slice(-2) %></h4>
+							<h4><%= $.trim(slide.browser_title.split('/')[1]) %></h4>
 						</a>
 					</li>
 				<% end %>
 			</ul>
+			<% if @id is 'work': %>
+				<div id="filter-zone">
+					<ul>
+						<li class="filter-item active"><span>Featured</span></li>
+						<li class="filter-item"><span>Motion</span></li>
+						<li class="filter-item"><span>Interactive</span></li>
+						<li class="filter-item"><span>Integrated</span></li>
+					</ul>
+					<h4><span>Featured Projects</span></h4>
+				</div>
+			<% end %>
 		</div>
 	<% end %>
 </div>
