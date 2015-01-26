@@ -45,24 +45,6 @@
 			<% end %>
 		</ul>
 	</div>
-	<!-- Detail zone -->
-	<div class="detail-zone">
-		<div class="detail-zone-inner">
-			<div class="cell video-holder">
-				<div class="video-iframe about"></div>
-				<div class="video-poster" data-id="<%= @detail_vimeo_id %>" style="background-image: url('<%= @poster_src %>');">
-					<span><%- @poster_cta %></span>
-				</div>
-			</div>
-			<div class="cell summary-cell">
-				<div class="cell-inner">
-					<h3><%- @descr_title %></h3>
-					<p><%- @descr_text %></p>
-					<div class="services"><% for s, i in @services: %><%- s %><% if i < (@services.length - 1): %>, <% end %><% end %></div>
-				</div>
-			</div>
-		</div>
-	</div>
 	<!-- Video zone -->
 	<div class="video-zone" style="background-color: rgb(<%= @rgb %>)">
 		<div class="video-zone-inner">

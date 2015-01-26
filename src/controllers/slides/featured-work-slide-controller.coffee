@@ -50,63 +50,11 @@ class FeaturedWorkSlideController extends BaseSlideController
     @$about_btn = $('.callout.about', @model.getV())
     @$watch_btn = $('.callout.watch', @model.getV())
     @$picture_zone = $('.picture-zone', @model.getV())
-    
-    @$detail_zone = $('.detail-zone', @model.getV())
-    @$video_poster = $('.video-poster', @model.getV())
 
     @$video_zone = $('.video-zone', @model.getV())
     @$video_close_zone = $('.video-close-zone', @model.getV())
 
     @$video_iframe = $('.video-iframe', @model.getV())
-
-  ###
-  *------------------------------------------*
-  | onClickToggleDetailZone:void (=)
-  |
-  | Show and hide detail zone.
-  *----------------------------------------###
-  onClickToggleDetailZone: =>
-    if @$detail_zone.hasClass('show') is false
-      @showDetailZone()
-    else
-      @removeVideos()
-      @hideDetailZone()
-
-  ###
-  *------------------------------------------*
-  | showDetailZone:void (=)
-  |
-  | Show detail zone.
-  *----------------------------------------###
-  showDetailZone: (e) =>
-    @$detail_zone.addClass('show')
-    @$about_btn.addClass('close').find('.copy').text('Close')
-
-  ###
-  *------------------------------------------*
-  | hideDetailZone:void (=)
-  |
-  | Hide detail zone.
-  *----------------------------------------###
-  hideDetailZone: (e) =>
-    @$detail_zone.removeClass('show')
-    @$about_btn.removeClass('close').find('.copy').text('About')
-
-  ###
-  *------------------------------------------*
-  | onClickVideoPoster:void (=)
-  |
-  | Click video poster.
-  *----------------------------------------###
-  onClickVideoPoster: (e) =>
-    $t = $(e.currentTarget)
-    id = $(e.currentTarget).data('id')
-
-    if $t.hasClass('hide')
-      return false
-
-    @buildVideo('about', id)
-    @$video_poster.addClass('hide')
 
   ###
   *------------------------------------------*
@@ -177,7 +125,6 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   removeVideos: =>
     $iframe = $('iframe', @model.getV())
-    @$video_poster.removeClass('hide')
 
     if $iframe.length > 0
       @$video_iframe.empty()
@@ -190,7 +137,6 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   reset: =>
     @removeVideos()
-    @hideDetailZone()
     @hideVideoZone()
 
   ###
@@ -241,18 +187,6 @@ class FeaturedWorkSlideController extends BaseSlideController
   *----------------------------------------###
   activate: ->
     super()
-    
-    @$title_holder
-      .off()
-      .on('click', @onClickToggleDetailZone)
-
-    @$about_btn
-      .off()
-      .on('click', @onClickToggleDetailZone)
-
-    @$video_poster
-      .off()
-      .on('click', @onClickVideoPoster)
 
     @$watch_btn
       .off()
@@ -271,9 +205,6 @@ class FeaturedWorkSlideController extends BaseSlideController
   suspend: ->
     super()
 
-    @$about_btn.off()
-    @$title_holder.off()
-    @$video_poster.off()
     @$watch_btn.off()
     @$video_close_zone.off()
 
