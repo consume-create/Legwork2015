@@ -52,7 +52,13 @@ class PageController
     @model.getE().append(@model.getV())
 
     # Cache selectors
-    @$slide_wrapper = $('.slides-wrapper', @model.getV())
+    @$slides_wrapper = $('.slides-wrapper', @model.getV())
+    @$nav = $('.page-nav-wrapper', @model.getV())
+    @$menu_btn = $('.menu-btn', @model.getV())
+    @$filter_zone = $('.filter-zone', @model.getV())
+    @$filter_btn = $('.filter-btn', @model.getV())
+    @$filter_item = $('.filter-item', @model.getV())
+    @$filter_bg = $('.filter-bg', @model.getV())
     @$page_btns = $('.page-nav li a', @model.getV())
     @total_page_btns = @$page_btns.length
 
@@ -197,6 +203,7 @@ class PageController
     
     @setBackgroundColor(@slide_c[slide].model._rgb)
     @old_index = @active_index
+    @hidePageNav()
 
   ###
   *------------------------------------------*
@@ -206,6 +213,23 @@ class PageController
   *----------------------------------------###
   setBackgroundColor: (rgb) ->
     @model.getE().css('background-color': "rgb(#{rgb})")
+
+  ###
+  *------------------------------------------*
+  | onKeyup:void (-)
+  |
+  | Keyup.
+  *----------------------------------------###
+  onKeyup: (e) =>
+    kc = e.keyCode
+
+    if kc is 38
+      e.preventDefault()
+      @previous()
+
+    if kc is 40
+      e.preventDefault()
+      @next()
 
   ###
   *------------------------------------------*
@@ -250,16 +274,93 @@ class PageController
       href = @$page_btns.eq(@active_index + 1).attr('href')
       History.pushState(null, null, href)
 
-  onKeyup: (e) =>
-    kc = e.keyCode
+  ###
+  *------------------------------------------*
+  | onMouseEnterNav:void (=)
+  |
+  | Mouse enter nav.
+  *----------------------------------------###
+  onMouseEnterNav: =>
+    if @$menu_btn.is(':hidden')
+      @showPageNav()
 
-    if kc is 38
-      e.preventDefault()
-      @previous()
+  ###
+  *------------------------------------------*
+  | onMouseLeaveNav:void (=)
+  |
+  | Mouse leave nav.
+  *----------------------------------------###
+  onMouseLeaveNav: =>
+    if @$menu_btn.is(':hidden')
+      @hidePageNav()
 
-    if kc is 40
-      e.preventDefault()
-      @next()
+  ###
+  *------------------------------------------*
+  | hidePageNav:void (=)
+  |
+  | Hide page nav.
+  *----------------------------------------###
+  hidePageNav: =>
+    @$nav.removeClass('show')
+    @$menu_btn.removeClass('close')
+
+    if @$filter_zone.length > 0
+      @hideFilterList()
+
+  ###
+  *------------------------------------------*
+  | showPageNav:void (=)
+  |
+  | Show page nav.
+  *----------------------------------------###
+  showPageNav: =>
+    @$nav.addClass('show')
+    @$menu_btn.addClass('close')
+
+  ###
+  *------------------------------------------*
+  | onClickFilterBtn:void (=)
+  |
+  | Click filter btn.
+  *----------------------------------------###
+  onClickFilterBtn: =>
+    if @$filter_zone.hasClass('show')
+      @hideFilterList()
+    else
+      @showFilterList()
+
+  ###
+  *------------------------------------------*
+  | onClickFilterBg:void (=)
+  |
+  | Click filter bg.
+  *----------------------------------------###
+  onClickFilterBg: =>
+    @hideFilterList()
+
+  ###
+  *------------------------------------------*
+  | hideFilterList:void (=)
+  |
+  | Hide filter list.
+  *----------------------------------------###
+  hideFilterList: =>
+    @$filter_zone.removeClass('show')
+
+  ###
+  *------------------------------------------*
+  | showFilterList:void (=)
+  |
+  | Show filter list.
+  *----------------------------------------###
+  showFilterList: =>
+    @$filter_zone.addClass('show')
+
+  onClickMenuBtn: =>
+    if @$menu_btn.hasClass('close')
+      @hidePageNav()
+    else
+      @showPageNav()
 
   ###
   *------------------------------------------*
@@ -274,9 +375,29 @@ class PageController
     # we have events to listen to...
     if @total_page_btns > 1
       LW.$doc
-        .off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id} keyup.#{@model._id}")
-        .on("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id}", @onMousewheel)
+        .off("keyup.#{@model._id}")
         .on("keyup.#{@model._id}", @onKeyup)
+
+      @$slides_wrapper
+        .off("mousewheel DOMMouseScroll")
+        .on("mousewheel DOMMouseScroll", @onMousewheel)
+
+      @$nav
+        .off('mouseenter mouseleave')
+        .on('mouseenter', @onMouseEnterNav)
+        .on('mouseleave', @onMouseLeaveNav)
+
+      @$filter_btn
+        .off('click')
+        .on('click', @onClickFilterBtn)
+
+      @$filter_bg
+        .off('click')
+        .on('click', @onClickFilterBg)
+
+      @$menu_btn
+        .off('click')
+        .on('click', @onClickMenuBtn)
 
   ###
   *------------------------------------------*
@@ -292,6 +413,11 @@ class PageController
     # If there were page_btns,
     # we have events to listen to turn off...
     if @total_page_btns > 1
-      LW.$doc.off("mousewheel.#{@model._id} DOMMouseScroll.#{@model._id} keyup.#{@model._id}")
+      LW.$doc.off("keyup.#{@model._id}")
+      @$slides_wrapper.off("mousewheel DOMMouseScroll")
+      @$nav.off('mouseenter mouseleave')
+      @$filter_btn.off('click')
+      @$filter_bg.off('click')
+      @$menu_btn.off('click')
 
 module.exports = PageController

@@ -55,7 +55,7 @@
       overflow: hidden
 
       transform: translate3d(-30px,0,0)
-      transition: transform $speed_metal $evil_ease $speed_metal
+      transition: transform $speed_metal $evil_ease
 
       &:before
         content: ''
@@ -163,7 +163,7 @@
             a.active
               cursor: default
 
-      &:hover
+      &.show
         transform: translate3d(-250px,0,0)
         transition: transform $speed_metal $evil_ease
 
@@ -182,7 +182,7 @@
         &:before
           left: 40px
 
-        &:hover
+        &.show
           transform: translate3d(-320px,0,0)
 
         .page-nav
@@ -205,16 +205,26 @@
                   h4:nth-of-type(1)
                     display: inline-block
 
-      #filter-zone
+      .filter-zone
         position: absolute
         top: 0px
         left: 30px
         right: 0px
         height: 30px
-        background-color: rgba(0,0,0,0)
         overflow: hidden
 
-        transition: height 0ms linear $speed_metal, background-color $speed_metal $evil_ease
+        transition: height 0ms linear $speed_metal
+
+        .filter-bg
+          position: absolute
+          top: 0px
+          left: 0px
+          width: 100%
+          height: 100%
+          background-color: rgba(0,0,0,0)
+          overflow: hidden
+
+          transition: background-color $speed_metal $evil_ease
 
         h4
           position: absolute
@@ -223,7 +233,7 @@
           width: 100%
           height: 30px
           background-color: #242424
-          cursor: default
+          cursor: pointer
 
           transform: translate3d(0,0,0)
 
@@ -250,7 +260,6 @@
           top: 30px
           left: 0px
           width: 100%
-          height: 100%
           overflow: hidden
 
           transform: translate3d(0,-100%,0)
@@ -315,11 +324,13 @@
                 span
                   font-size: 14px
 
-        &:hover
+        &.show
           height: 100%
-          background-color: rgba(0,0,0,0.7)
 
-          transition: height 0ms linear, background-color $speed_metal
+          transition: height 0ms linear
+
+          .filter-bg
+            background-color: rgba(0,0,0,0.7)
 
           ul
             transform: translate3d(0,0%,0)
@@ -327,17 +338,18 @@
 
       .menu-btn
         position: absolute
-        top: 0px
+        top: 50%
         left: 0px
         width: 30px
         height: 30px
-        background-color: #242424
+        margin: -15px 0 0
         overflow: hidden
         cursor: pointer
 
         @include respond-above($media_480)
           width: 40px
           height: 40px
+          margin: -20px 0 0
 
         @include respond-above($media_1024)
           @include respond-above-ht($media_ht_560)
@@ -350,7 +362,7 @@
           width: 16px
           height: 2px
           margin: -1px 0 0 -8px
-          background-color: $white
+          background-color: $black
 
           &:nth-child(1)
             margin: -6px 0 0 -8px
@@ -368,7 +380,7 @@
             transform: rotate(0deg)
             transition: margin 100ms $ease_out, transform 100ms $ease_out
 
-        &.open
+        &.close
           span
             &:nth-child(1)
               margin: 0 0 0 -8px

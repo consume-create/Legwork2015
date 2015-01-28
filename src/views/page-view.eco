@@ -21,14 +21,15 @@
 				</ul>
 			</div>
 			<% if @id is 'work': %>
-				<div id="filter-zone">
+				<div class="filter-zone">
+					<div class="filter-bg"></div>
 					<ul>
 						<li class="filter-item active"><span>Featured</span></li>
 						<li class="filter-item"><span>Motion</span></li>
 						<li class="filter-item"><span>Interactive</span></li>
 						<li class="filter-item"><span>Integrated</span></li>
 					</ul>
-					<h4><span>Featured Projects</span></h4>
+					<h4 class="filter-btn"><span>Featured Projects</span></h4>
 				</div>
 			<% end %>
 			<div class="menu-btn">
