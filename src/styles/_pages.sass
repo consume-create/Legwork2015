@@ -49,7 +49,7 @@
       position: absolute
       top: 0px
       left: 100%
-      width: 320px
+      width: 250px
       height: 100%
       background-color: rgba(0,0,0,0.06)
       overflow: hidden
@@ -68,106 +68,142 @@
 
       .page-nav
         position: absolute
-        top: 50%
-        left: 0px
-        width: 100%
+        top: 30px
+        left: 30px
+        right: 0px
+        bottom: 0px
+        overflow: hidden
 
-        transform: translate(0%, -50%)
-
-        li
+        ul
+          position: relative
           width: 100%
-          height: 30px
+          height: 100%
+          overflow-x: hidden
+          overflow-y: scroll
 
-          @include respond-above($media_480)
-            height: 40px
+          -webkit-overflow-scrolling: touch
 
-          a
-            position: relative
+          transform: translate3d(0,0,0)
+
+          li
             width: 100%
-            height: 100%
-            font-size: 0
-            line-height: 0
-            white-space: nowrap
-            overflow: hidden
-            display: block
-
-            span.black-bar
-              position: absolute
-              top: 0px
-              left: 0px
-              width: 100%
-              height: 100%
-              background-color: $black
-
-              transform: translate3d(30px,0,0)
-              transition: transform $speed_metal $evil_ease
-
-            h4
-              position: absolute
-              top: 0px
-              left: 0px
-              width: 100%
-              height: 100%
-              color: $white
-              font-size: 12px
-              line-height: 30px
-
-              transform: translate3d(0,0,0)
-
-              &:nth-of-type(1)
-                width: 30px
-                text-align: center
-
-              &:nth-of-type(2)
-                left: 40px
-                color: #999
-
-                transition: color $speed $ease_out
+            height: 30px
 
             @include respond-above($media_480)
+              height: 40px
+
+            a
+              position: relative
+              width: 100%
+              height: 100%
+              font-size: 0
+              line-height: 0
+              white-space: nowrap
+              overflow: hidden
+              display: block
+
               span.black-bar
-                transform: translate3d(40px,0,0)
+                position: absolute
+                top: 0px
+                left: 0px
+                width: 100%
+                height: 100%
+                background-color: $black
+
+                transform: translate3d(30px,0,0)
+                transition: transform $speed_metal $evil_ease
 
               h4
-                line-height: 40px
+                position: relative
+                height: 100%
+                color: $white
+                font-size: 12px
+                line-height: 30px
+                display: inline-block
+
+                transform: translate3d(0,0,0)
 
                 &:nth-of-type(1)
-                  width: 40px
+                  width: 30px
+                  text-align: center
+                  display: none
 
                 &:nth-of-type(2)
-                  left: 60px
+                  margin: 0 0 0 10px
+                  color: #999
 
-            @include respond-above($media_768)
-              @include respond-above-ht($media_ht_480)
+                  transition: color $speed $ease_out
+
+              @include respond-above($media_480)
+                span.black-bar
+                  transform: translate3d(40px,0,0)
+
                 h4
-                  font-size: 14px
+                  line-height: 40px
 
-          a:hover,
-          a.active
-            span.black-bar
-              transform: translate3d(0px,0,0)
+                  &:nth-of-type(1)
+                    width: 40px
 
-            h4:nth-of-type(2)
-              color: $white
+                  &:nth-of-type(2)
+                    margin: 0 0 0 20px
 
-          a.active
-            cursor: default
+              @include respond-above($media_768)
+                @include respond-above-ht($media_ht_480)
+                  h4
+                    font-size: 14px
+
+            a:hover,
+            a.active
+              span.black-bar
+                transform: translate3d(0px,0,0)
+
+              h4:nth-of-type(2)
+                color: $white
+
+            a.active
+              cursor: default
 
       &:hover
-        transform: translate3d(-320px,0,0)
+        transform: translate3d(-250px,0,0)
         transition: transform $speed_metal $evil_ease
 
         .page-nav
-          li
-            a
-              span.black-bar
-                transition: transform $speed $evil_ease
+          ul
+            li
+              a
+                span.black-bar
+                  transition: transform $speed $evil_ease
 
       @include respond-above($media_480)
+        width: 320px
+
         transform: translate3d(-40px,0,0)
 
         &:before
           left: 40px
+
+        &:hover
+          transform: translate3d(-320px,0,0)
+
+        .page-nav
+          top: 40px
+          left: 40px
+
+      @include respond-above($media_1024)
+        @include respond-above-ht($media_ht_560)
+          .page-nav
+            top: 50%
+            left: 0px
+            bottom: auto
+            margin: -20px 0 0
+
+            transform: translate(0%,-50%)
+
+            ul
+              li
+                a
+                  h4:nth-of-type(1)
+                    display: inline-block
 
       #filter-zone
         position: absolute
@@ -288,6 +324,62 @@
           ul
             transform: translate3d(0,0%,0)
             transition: transform $speed_metal $evil_ease
+
+      .menu-btn
+        position: absolute
+        top: 0px
+        left: 0px
+        width: 30px
+        height: 30px
+        background-color: #242424
+        overflow: hidden
+        cursor: pointer
+
+        @include respond-above($media_480)
+          width: 40px
+          height: 40px
+
+        @include respond-above($media_1024)
+          @include respond-above-ht($media_ht_560)
+            display: none
+
+        span
+          position: absolute
+          top: 50%
+          left: 50%
+          width: 16px
+          height: 2px
+          margin: -1px 0 0 -8px
+          background-color: $white
+
+          &:nth-child(1)
+            margin: -6px 0 0 -8px
+
+            transform: rotate(0deg)
+            transition: margin 100ms $ease_out, transform 100ms $ease_out
+
+          &:nth-child(2)
+            opacity: 1
+            transition: opacity 100ms $ease_out
+
+          &:nth-child(3)
+            margin: 4px 0 0 -8px
+
+            transform: rotate(0deg)
+            transition: margin 100ms $ease_out, transform 100ms $ease_out
+
+        &.open
+          span
+            &:nth-child(1)
+              margin: 0 0 0 -8px
+              transform: rotate(45deg)
+
+            &:nth-child(2)
+              opacity: 0
+
+            &:nth-child(3)
+              margin: 0 0 0 -8px
+              transform: rotate(-45deg)
 
 // -----------------------------------------------
 // Home styles
