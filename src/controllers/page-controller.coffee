@@ -203,7 +203,9 @@ class PageController
     
     @setBackgroundColor(@slide_c[slide].model._rgb)
     @old_index = @active_index
-    @hidePageNav()
+
+    if LW.virgin is false
+      @hidePageNav()
 
   ###
   *------------------------------------------*
@@ -383,9 +385,8 @@ class PageController
         .on("mousewheel DOMMouseScroll", @onMousewheel)
 
       @$nav
-        .off('mouseenter mouseleave')
+        .off('mouseenter')
         .on('mouseenter', @onMouseEnterNav)
-        .on('mouseleave', @onMouseLeaveNav)
 
       @$filter_btn
         .off('click')
@@ -398,6 +399,23 @@ class PageController
       @$menu_btn
         .off('click')
         .on('click', @onClickMenuBtn)
+
+      if LW.virgin is true
+        @showPageNav()
+
+        setTimeout =>
+          LW.virgin = false
+          @$nav
+            .off('mouseleave')
+            .on('mouseleave', @onMouseLeaveNav)
+          
+          if @$nav.is(':hover') is false
+            @hidePageNav()
+        , 2000
+      else
+        @$nav
+          .off('mouseleave')
+          .on('mouseleave', @onMouseLeaveNav)
 
   ###
   *------------------------------------------*

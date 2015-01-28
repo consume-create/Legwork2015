@@ -43,6 +43,7 @@ class Application
       'regex': LW.url_regex,
       '$el': LW.$body
     })
+    LW.virgin = true
 
     # Class vars
     @$pages_inner = $('#pages-inner')
