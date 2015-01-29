@@ -400,6 +400,13 @@ class PageController
         .off('click')
         .on('click', @onClickMenuBtn)
 
+      # Check if cookie is set
+      if $.cookie('cookie_monster') is 'stuffed'
+        LW.virgin = false
+      else
+        $.cookie('cookie_monster', 'stuffed', {expires: 13, path: '/'})
+
+      # Now check if it's our first time and show or hide the nav
       if LW.virgin is true
         @showPageNav()
 
