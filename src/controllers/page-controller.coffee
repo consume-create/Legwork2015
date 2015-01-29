@@ -65,7 +65,25 @@ class PageController
     @active_c = null
     @active_index = 0
     @old_index = 0
+    
+    # Mousewheel vars
     @threshold_hit = false
+
+    # Draggable vars
+    @resistance = 1
+    @dragging = false
+    @drag_time = 666
+    @start_time = 0
+    @start_y = 0
+    @current_y = 0
+    @range = 30
+    @current_range = 0
+    @now = 0
+    @drag_obj = {}
+
+    @mousedown = if Modernizr.touch then "touchstart" else "mousedown"
+    @mousemove = if Modernizr.touch then "touchmove" else "mousemove"
+    @mouseup = if Modernizr.touch then "touchend" else "mouseup"
 
     # Loop and create page slides
 
@@ -256,6 +274,71 @@ class PageController
 
   ###
   *------------------------------------------*
+  | onMouseDown:void (=)
+  |
+  | Mouse down.
+  *----------------------------------------###
+  onMouseDown: (e) =>
+    @dragging = true
+
+    @start_time = (new Date()).getTime()
+    @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+
+    LW.$doc.off(@mouseup)
+      .one(@mouseup, @onMouseUp)
+
+  ###
+  *------------------------------------------*
+  | onMouseMove:void (=)
+  |
+  | Mouse move.
+  *----------------------------------------###
+  onMouseMove: (e) =>
+    if @dragging is true
+      e.preventDefault()
+
+      @current_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+      @direction_y = @current_y - @start_y
+      @current_range = if @start_y is 0 then 0 else Math.abs(@direction_y)
+      @now = (new Date()).getTime()
+
+      if @direction_y >= 0 and @active_index is 0 or @direction_y <= 0 and @active_index is (@$page_btns.length - 1)
+        obj = {}
+        obj[LW.utils.transform] = LW.utils.translate(0,"#{(@direction_y * 0.25) + 'px'}")
+        @$slides_wrapper.css(obj)
+      else
+        console.log 'todo: color shift'
+
+      @$slides_wrapper.addClass('dragging')
+      return false
+
+  ###
+  *------------------------------------------*
+  | onMouseUp:void (=)
+  |
+  | Mouse Up.
+  *----------------------------------------###
+  onMouseUp: =>
+    obj = {}
+    obj[LW.utils.transform] = LW.utils.translate(0,0 + 'px')
+    @$slides_wrapper.css(obj)
+
+    if @$slides_wrapper.hasClass('dragging') is false
+      @dragging = false
+    else
+      @$slides_wrapper.removeClass('dragging')
+
+      if @now - @start_time < @drag_time and @current_range > @range or @current_range > (@$slides_wrapper.height() / 2)
+        if @current_y < @start_y
+          @next()
+        if @current_y > @start_y
+          @previous()
+
+      @dragging = false
+      return false
+
+  ###
+  *------------------------------------------*
   | previous:void (-)
   |
   | Previous slide, if there is one.
@@ -366,12 +449,27 @@ class PageController
 
   ###
   *------------------------------------------*
+  | reset:void (-)
+  |
+  | Reset.
+  *----------------------------------------###
+  reset: ->
+    @dragging = false
+    @start_time = 0
+    @start_y = 0
+    @current_y = 0
+    @current_range = 0
+    @now = 0
+
+  ###
+  *------------------------------------------*
   | activate:void (-)
   |
   | Activate.
   *----------------------------------------###
   activate: ->
     @model.getE().show()
+    @reset()
 
     # If there are page_btns,
     # we have events to listen to...
@@ -381,8 +479,13 @@ class PageController
         .on("keyup.#{@model._id}", @onKeyup)
 
       @$slides_wrapper
-        .off("mousewheel DOMMouseScroll")
+        .off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove} contextmenu")
         .on("mousewheel DOMMouseScroll", @onMousewheel)
+        .on(@mousedown, @onMouseDown)
+        .on(@mousemove, @onMouseMove)
+        .on('contextmenu', =>
+          return false
+        )
 
       @$nav
         .off('mouseenter')
@@ -439,7 +542,7 @@ class PageController
     # we have events to listen to turn off...
     if @total_page_btns > 1
       LW.$doc.off("keyup.#{@model._id}")
-      @$slides_wrapper.off("mousewheel DOMMouseScroll")
+      @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove} contextmenu")
       @$nav.off('mouseenter mouseleave')
       @$filter_btn.off('click')
       @$filter_bg.off('click')
