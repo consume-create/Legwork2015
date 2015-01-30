@@ -1,21 +1,20 @@
 data = {
-  "browser_title": "Legwork Studio / Hanes Sock Puppets",
+  "browser_title": "Legwork Studio / Newton Running",
   "slide_type": LW.slide_types.FEATURED_WORK,
   "rgb": [
-    3,
-    153,
-    171
+    250,
+    217,
+    87
   ],
-  "title": ["Hanes", "Sock Puppets"],
+  "title": ["Newton Running", "Run Better"],
   "callouts": [
     LW.callouts.ABOUT,
-    LW.callouts.WATCH,
     LW.callouts.LAUNCH
   ],
   "vimeo_id": "1234",
-  "launch_url": "http://i.imgur.com/ZUGpTEg.gif",
-  "tagline": "Video and site for some socks.",
-  "picture_src": "/images/work/sock.png",
+  "launch_url": "http://runbetter.newtonrunning.com",
+  "tagline": "A really cool shoe site.",
+  "picture_src": "/images/work/newton.png",
   "clients": [
     "/images/client-logos/nike.png",
     "/images/client-logos/nike.png"
