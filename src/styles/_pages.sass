@@ -47,9 +47,14 @@
       width: 100%
       height: 100%
       overflow: hidden
+      cursor: move
+      cursor: grab
 
       user-select: none
       transform: translate3d(0,0px,0)
+
+      &.dragging
+        cursor: grabbing
 
     .page-nav-wrapper
       position: absolute
