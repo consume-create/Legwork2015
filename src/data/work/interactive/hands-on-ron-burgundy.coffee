@@ -14,7 +14,7 @@ data = {
   "vimeo_id": null,
   "launch_url": "http://i.imgur.com/5FLULzr.gif",
   "tagline": "Online contest for Dodge.",
-  "picture_src": "/images/work/ron.png",
+  "picture_src": "/images/work/ron/ron.png",
   "clients": [
     "/images/client-logos/nike.png"
   ],
@@ -23,6 +23,7 @@ data = {
     LW.mediums.MOBILE
   ],
   "details": {
+    "bg_src": "/images/work/ron/details/ron-bg.jpg",
     "poster_src": "/images/work/poster.jpg",
     "poster_cta": "Call To Action",
     "detail_vimeo_id": "1234",

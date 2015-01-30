@@ -14,7 +14,7 @@ data = {
   "vimeo_id": null,
   "launch_url": "http://www.theboxtrolls.com",
   "tagline": "A interactive experience for Laika.",
-  "picture_src": "/images/work/boxtrolls.png",
+  "picture_src": "/images/work/boxtrolls/boxtrolls.png",
   "clients": [
     "/images/client-logos/nike.png",
     "/images/client-logos/nike.png"
@@ -24,6 +24,7 @@ data = {
     LW.mediums.MOBILE
   ],
   "details": {
+    "bg_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
     "poster_src": "/images/work/poster.jpg",
     "poster_cta": "See How We Made It",
     "detail_vimeo_id": "1234",

@@ -1,12 +1,12 @@
 data = {
-  "browser_title": "Legwork Studio / Nissan Leaf",
+  "browser_title": "Legwork Studio / Nissan Zero Gravity",
   "slide_type": LW.slide_types.FEATURED_WORK,
   "rgb": [
     0,
     0,
     0
   ],
-  "title": ["Nissan", "Leaf"],
+  "title": ["Nissan", "Zero Gravity"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
@@ -14,7 +14,7 @@ data = {
   "vimeo_id": "1234",
   "launch_url": null,
   "tagline": "Animated commercial for Nissan.",
-  "picture_src": "/images/work/boxtrolls.jpg",
+  "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
     "/images/client-logos/nike.png"
   ],
@@ -22,6 +22,7 @@ data = {
     LW.mediums.MOTION
   ],
   "details": {
+    "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
     "poster_src": "/images/work/poster.jpg",
     "poster_cta": "Call To Action",
     "detail_vimeo_id": "1234",

@@ -14,7 +14,7 @@ data = {
   "vimeo_id": "1234",
   "launch_url": "http://runbetter.newtonrunning.com",
   "tagline": "A really cool shoe site.",
-  "picture_src": "/images/work/newton.png",
+  "picture_src": "/images/work/newton/newton.png",
   "clients": [
     "/images/client-logos/nike.png",
     "/images/client-logos/nike.png"
@@ -25,6 +25,7 @@ data = {
     LW.mediums.MOBILE
   ],
   "details": {
+    "bg_src": "/images/work/newton/details/newton-bg.jpg",
     "poster_src": "/images/work/poster.jpg",
     "poster_cta": "Call To Action",
     "detail_vimeo_id": "1234",
