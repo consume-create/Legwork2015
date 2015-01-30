@@ -1,6 +1,6 @@
 AuthUserFile /home/devleg/2015.legworkstudio.com/.htpasswd
 AuthType Basic
-AuthName "2015 Legsite"
+AuthName "This website is NSFW!"
 Require valid-user
 
 RewriteEngine On
