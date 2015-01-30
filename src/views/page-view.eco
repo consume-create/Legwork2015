@@ -1,8 +1,8 @@
 <div id="<%= @id %>-page-inner" class="page-inner">
 	<div id="<%= @id %>-page-slides" class="slides-wrapper">
-	<% for slide_id, slide of @slides: %>
-		<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
-	<% end %>
+		<% for slide_id, slide of @slides: %>
+			<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
+		<% end %>
 	</div>
 	<% if _.size(@slides) > 1: %>
 		<div class="page-nav-wrapper">
@@ -37,6 +37,57 @@
 				<span></span>
 				<span></span>
 			</div>
+		</div>
+	<% end %>
+	<% if @id is 'work': %>
+		<div id="detail-slides">
+			<% for slide_id, slide of @slides: %>
+				<% if slide.slide_type is LW.slide_types.FEATURED_WORK: %>
+					<div class="detail-slide" data-detail="detail-<%= slide_id %>">
+						<div class="bg" style="background-image: url('<%= slide.details.bg_src %>');"></div>
+						<div class="content">
+							<section></section>
+							<section class="overview">
+								<div class="overview-inner">
+									<div class="black-box">
+										<h4><%= slide.details.descr_title %></h4>
+										<p><%= slide.details.descr_text %></p>
+										<div class="lists cf">
+											<ul>
+												<% for service in slide.details.services: %>
+													<li><%= service %></li>
+												<% end %>
+											</ul>
+											<% if slide.details.accolades: %>
+												<ul>
+													<% for accolade in slide.details.accolades: %>
+														<li><%= accolade %></li>
+													<% end %>
+												</ul>
+											<% end %>
+										</div>
+										<a href="<%= slide.launch_url %>" target="_new">Launch</a>
+									</div>
+								</div>
+							</section>
+							<section>
+								<div class="inner">
+									<h4>How We Made This Damn Thing</h4>
+									<p><%= slide.details.descr_text %></p>
+									<div class="placeholder"></div>
+								</div>
+							</section>
+							<section>
+								<div class="inner">
+									<h4>Here Are Some Comps</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									<div class="placeholder"></div>
+								</div>
+							</section>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
 		</div>
 	<% end %>
 </div>

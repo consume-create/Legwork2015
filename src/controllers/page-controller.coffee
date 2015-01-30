@@ -60,8 +60,12 @@ class PageController
     @$filter_item = $('.filter-item', @model.getV())
     @$filter_bg = $('.filter-bg', @model.getV())
     @$page_btns = $('.page-nav li a', @model.getV())
-    @total_page_btns = @$page_btns.length
 
+    # Details selectors
+    @$detail_slides = $('#detail-slides', @model.getV())
+    @$detail_slide = $('.detail-slide', @model.getV())
+
+    @total_page_btns = @$page_btns.length
     @active_c = null
     @active_index = 0
     @old_index = 0
@@ -160,6 +164,7 @@ class PageController
             'picture_src': slide.picture_src,
             'clients': slide.clients,
             'mediums': slide.mediums,
+            'bg_src': slide.details.bg_src,
             'poster_src': slide.details.poster_src,
             'poster_cta': slide.details.poster_cta,
             'detail_vimeo_id': slide.details.detail_vimeo_id,
@@ -542,6 +547,15 @@ class PageController
           .off('mouseleave')
           .on('mouseleave', @onMouseLeaveNav)
 
+      # Temp btns to show detail slide
+      @model.getV().off('click', '.about, .title-holder').on('click', '.about, .title-holder', =>
+        id = $('.slide', @model.getV()).eq(@active_index).attr('id')
+        id = id.replace('work', 'detail')
+        
+        @$detail_slides.show()
+        @$detail_slide.hide().filter("[data-detail='#{id}']").show()
+      )
+
   ###
   *------------------------------------------*
   | suspend:void (-)
@@ -562,5 +576,10 @@ class PageController
       @$filter_btn.off('click')
       @$filter_bg.off('click')
       @$menu_btn.off('click')
+
+      # Temp btns to show detail slide
+      @model.getV().off('click', '.about, .title-holder')
+      @$detail_slides.hide()
+      @$detail_slide.hide()
 
 module.exports = PageController
