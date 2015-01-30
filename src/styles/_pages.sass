@@ -28,7 +28,10 @@
   overflow: hidden
   display: none
 
-  transition: background-color ($speed_metal * 1.5) linear
+  transition: background-color $speed_metal linear
+
+  &.no-trans
+    transition-duration: 0ms
 
   .page-inner
     position: absolute

@@ -232,6 +232,12 @@ class PageController
   | Set background color.
   *----------------------------------------###
   setBackgroundColor: (rgb) ->
+    if @dragging is true
+      @model.getE().addClass('no-trans')
+    else
+      @model.getE().removeClass('no-trans')
+
+    @model.getE()[0].offsetHeight
     @model.getE().css('background-color': "rgb(#{rgb})")
 
   ###
@@ -302,12 +308,21 @@ class PageController
       @current_range = if @start_y is 0 then 0 else Math.abs(@direction_y)
       @now = (new Date()).getTime()
 
-      if @direction_y >= 0 and @active_index is 0 or @direction_y <= 0 and @active_index is (@$page_btns.length - 1)
+      if @direction_y >= 0 and @active_index is 0 or @direction_y <= 0 and @active_index is (@total_page_btns - 1)
         obj = {}
         obj[LW.utils.transform] = LW.utils.translate(0,"#{(@direction_y * 0.25) + 'px'}")
         @$slides_wrapper.css(obj)
       else
-        console.log 'todo: color shift'
+        c1 = @$page_btns.eq(@active_index).data('rgb')
+        c2 = if @direction_y < 0 then @$page_btns.eq(@active_index + 1).data('rgb') else @$page_btns.eq(@active_index - 1).data('rgb')
+        
+        p = Math.min(Math.max((@current_range / 200), 0), 1)
+        r = Math.round(((c2[0] - c1[0]) * p) + c1[0])
+        g = Math.round(((c2[1] - c1[1]) * p) + c1[1])
+        b = Math.round(((c2[2] - c1[2]) * p) + c1[2])
+        rgb = [r, g, b]
+
+        @setBackgroundColor(rgb)
 
       @$slides_wrapper.addClass('dragging')
       return false
@@ -322,10 +337,9 @@ class PageController
     obj = {}
     obj[LW.utils.transform] = LW.utils.translate(0,0 + 'px')
     @$slides_wrapper.css(obj)
+    @dragging = false
 
-    if @$slides_wrapper.hasClass('dragging') is false
-      @dragging = false
-    else
+    if @$slides_wrapper.hasClass('dragging')
       @$slides_wrapper.removeClass('dragging')
 
       if @now - @start_time < @drag_time and @current_range > @range or @current_range > (@$slides_wrapper.height() / 2)
@@ -333,8 +347,9 @@ class PageController
           @next()
         if @current_y > @start_y
           @previous()
+      else
+        @setBackgroundColor(@$page_btns.eq(@active_index).data('rgb'))
 
-      @dragging = false
       return false
 
   ###
