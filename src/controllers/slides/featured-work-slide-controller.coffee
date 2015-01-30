@@ -37,6 +37,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'picture_src': @model.getPictureSrc(),
       'clients': @model.getClients(),
       'mediums': @model.getMediums(),
+      'bg_src': @model.getBgSrc(),
       'poster_src': @model.getPosterSrc(),
       'poster_cta': @model.getPosterCta(),
       'detail_vimeo_id': @model.getDetailVimeoId(),

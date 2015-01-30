@@ -45,6 +45,9 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @setMediums(data.mediums)
 
     # Details
+    @_bg_src = null
+    @setBgSrc(data.bg_src)
+
     @_poster_src = null
     @setPosterSrc(data.poster_src)
 
@@ -280,6 +283,31 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
     if passed is true
       @_mediums = mediums
+
+  ###
+  *------------------------------------------*
+  | getBgSrc:string (-)
+  |
+  | Get bg src.
+  *----------------------------------------###
+  getBgSrc: ->
+    return @_bg_src
+
+  ###
+  *------------------------------------------*
+  | setBgSrc:void (-)
+  |
+  | bg_src:string - bg src
+  |
+  | Set bg src.
+  *----------------------------------------###
+  setBgSrc: (bg_src) ->
+    if _.isString(bg_src) is false
+      throw 'ERROR: bg_src must be a string'
+    else if (/^\/images\//).test(bg_src) is false
+      throw 'ERROR: bg_src must be a local reference from the root (e.g. /images/path/to/image.jpg)'
+    else
+      @_bg_src = bg_src
 
   ###
   *------------------------------------------*
