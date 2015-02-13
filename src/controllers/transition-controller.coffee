@@ -51,7 +51,7 @@ class TransitionController
     @animationQueue = []
 
     # TODO: random sample of available animations
-    loader = new PIXI.AssetLoader(['/animations/wave-test.json'])
+    loader = new PIXI.AssetLoader(['/animations/ben-test.json'])
     loader.onProgress = @animationQueueProgress
     loader.load()
 
@@ -63,10 +63,11 @@ class TransitionController
   *----------------------------------------###
   animationQueueProgress: =>
     # TODO: how to get id, frames?
-    mc = new PIXI.MovieClip(@mapTextures('wave-test-', 37, true))
+    mc = new PIXI.MovieClip(@mapTextures('ben-test-', 50, true))
     mc.animationSpeed = 24 / 60
     mc.loop = false
-    mc.position = new PIXI.Point(300, 200)
+    mc.position = new PIXI.Point(-500, -200)
+    mc.scale = new PIXI.Point(3, 3)
     @stage.addChild(mc)
     mc.gotoAndStop(0)
     @animationQueue.push(mc)
@@ -99,8 +100,8 @@ class TransitionController
 
     _.delay(=>
       a = _.sample(@animationQueue)
-      if direction is 'left'
-        a.scale.x = -1
+      if direction is 'right'
+        a.scale = new PIXI.Point(-3, 3)
         a.position.x -= a.width
       a.gotoAndPlay(0)
 
@@ -117,7 +118,7 @@ class TransitionController
                 cb2()
                 @running_hot = false
               )
-          , 500)
+          , 1000)
           cb1()
         )
     , 50)
@@ -151,8 +152,8 @@ class TransitionController
   *----------------------------------------###
   suspendAllAnimations: ->
     for a in @animationQueue
-      a.scale.x = 1
-      a.position.x = 300
+      a.scale = new PIXI.Point(3, 3)
+      a.position.x = -500
       a.gotoAndStop(0)
 
   ###
