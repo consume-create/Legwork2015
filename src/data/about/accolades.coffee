@@ -37,7 +37,7 @@ data = {
           "name": "One Show x9"
         },
         {
-          "name": "Art Directos Club x5"
+          "name": "Art Directors Club x5"
         },
         {
           "name": "Awwwards x16"
