@@ -36,7 +36,7 @@ LW.slide_types.APPENDIXED_WORK = 'appendixed-work'
 LW.mediums = []
 LW.mediums.DESKTOP = "desktop"
 LW.mediums.MOBILE = "mobile"
-LW.mediums.MOTION = "motion"
+LW.mediums.ANIMATION = "animation"
 
 LW.callouts = []
 LW.callouts.ABOUT = "about"

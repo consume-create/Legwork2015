@@ -19,7 +19,7 @@ data = {
     "/images/client-logos/nike.png"
   ],
   "mediums": [
-    LW.mediums.MOTION
+    LW.mediums.ANIMATION
   ],
   "details": {
     "poster_src": "/images/work/poster.jpg",

@@ -19,7 +19,7 @@ data = {
     "/images/client-logos/nike.png"
   ],
   "mediums": [
-    LW.mediums.MOTION
+    LW.mediums.ANIMATION
   ],
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",

@@ -9,7 +9,8 @@ data = {
   "title": ["Newton Running", "Run Better"],
   "callouts": [
     LW.callouts.ABOUT,
-    LW.callouts.LAUNCH
+    LW.callouts.LAUNCH,
+    LW.callouts.WATCH
   ],
   "vimeo_id": "1234",
   "launch_url": "http://runbetter.newtonrunning.com",
@@ -20,7 +21,7 @@ data = {
     "/images/client-logos/nike.png"
   ],
   "mediums": [
-    LW.mediums.MOTION,
+    LW.mediums.ANIMATION,
     LW.mediums.DESKTOP,
     LW.mediums.MOBILE
   ],
