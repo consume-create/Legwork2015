@@ -56,165 +56,176 @@
       &.dragging
         cursor: grabbing
 
-    .page-nav-wrapper
+    .page-nav-zone
       position: absolute
       top: 0px
-      left: 100%
-      width: 250px
+      right: 0px
+      width: 30px
       height: 100%
-      background-color: rgba(0,0,0,0.06)
-      overflow: hidden
 
-      transform: translate3d(-30px,0,0)
-      transition: transform $speed_metal $evil_ease
-
-      &:before
-        content: ''
+      .page-nav-wrapper
         position: absolute
         top: 0px
-        left: 30px
-        right: 0px
-        bottom: 0px
-        background-color: $black
-
-      .page-nav
-        position: absolute
-        top: 30px
-        left: 30px
-        right: 0px
-        bottom: 0px
+        left: 100%
+        width: 250px
+        height: 100%
+        background-color: rgba(0,0,0,0.06)
         overflow: hidden
 
-        ul
-          position: relative
-          width: 100%
-          height: 100%
-          overflow-x: hidden
-          overflow-y: scroll
-
-          -webkit-overflow-scrolling: touch
-
-          transform: translate3d(0,0,0)
-
-          li
-            width: 100%
-            height: 30px
-
-            @include respond-above($media_480)
-              height: 40px
-
-            a
-              position: relative
-              width: 100%
-              height: 100%
-              font-size: 0
-              line-height: 0
-              white-space: nowrap
-              overflow: hidden
-              display: block
-
-              span.black-bar
-                position: absolute
-                top: 0px
-                left: 0px
-                width: 100%
-                height: 100%
-                background-color: $black
-
-                transform: translate3d(30px,0,0)
-                transition: transform $speed_metal $evil_ease
-
-              h4
-                position: relative
-                height: 100%
-                color: $white
-                font-size: 12px
-                line-height: 30px
-                display: inline-block
-
-                transform: translate3d(0,0,0)
-
-                &:nth-of-type(1)
-                  width: 30px
-                  text-align: center
-                  display: none
-
-                &:nth-of-type(2)
-                  margin: 0 0 0 10px
-                  color: #999
-
-                  transition: color $speed $ease_out
-
-              @include respond-above($media_480)
-                span.black-bar
-                  transform: translate3d(40px,0,0)
-
-                h4
-                  line-height: 40px
-
-                  &:nth-of-type(1)
-                    width: 40px
-
-                  &:nth-of-type(2)
-                    margin: 0 0 0 20px
-
-              @include respond-above($media_768)
-                @include respond-above-ht($media_ht_480)
-                  h4
-                    font-size: 14px
-
-            a:hover,
-            a.active
-              span.black-bar
-                transform: translate3d(0px,0,0)
-
-              h4:nth-of-type(2)
-                color: $white
-
-            a.active
-              cursor: default
-
-      &.show
-        transform: translate3d(-250px,0,0)
-        transition: transform $speed_metal $evil_ease
-
-        .page-nav
-          ul
-            li
-              a
-                span.black-bar
-                  transition: transform $speed $evil_ease
-
-      @include respond-above($media_480)
-        width: 320px
-
-        transform: translate3d(-40px,0,0)
+        transform: translate3d(-30px,0,0)
+        transition: transform 500ms $ease_out
 
         &:before
-          left: 40px
-
-        &.show
-          transform: translate3d(-320px,0,0)
+          content: ''
+          position: absolute
+          top: 0px
+          left: 30px
+          right: 0px
+          bottom: 0px
+          background-color: $black
 
         .page-nav
-          top: 40px
-          left: 40px
+          position: absolute
+          top: 30px
+          left: 30px
+          right: 0px
+          bottom: 0px
+          overflow: hidden
+
+          ul
+            position: relative
+            width: 100%
+            height: 100%
+            overflow-x: hidden
+            overflow-y: scroll
+
+            -webkit-overflow-scrolling: touch
+
+            transform: translate3d(0,0,0)
+
+            li
+              width: 100%
+              height: 30px
+
+              @include respond-above($media_480)
+                height: 40px
+
+              a
+                position: relative
+                width: 100%
+                height: 100%
+                font-size: 0
+                line-height: 0
+                white-space: nowrap
+                overflow: hidden
+                display: block
+
+                span.black-bar
+                  position: absolute
+                  top: 0px
+                  left: 0px
+                  width: 100%
+                  height: 100%
+                  background-color: $black
+
+                  transform: translate3d(30px,0,0)
+                  transition: transform 500ms $ease_out
+
+                h4
+                  position: relative
+                  height: 100%
+                  color: $white
+                  font-size: 12px
+                  line-height: 30px
+                  display: inline-block
+
+                  transform: translate3d(0,0,0)
+
+                  &:nth-of-type(1)
+                    width: 30px
+                    text-align: center
+                    display: none
+
+                  &:nth-of-type(2)
+                    margin: 0 0 0 10px
+                    color: #999
+
+                    transition: color $speed $ease_out
+
+                @include respond-above($media_480)
+                  span.black-bar
+                    transform: translate3d(40px,0,0)
+
+                  h4
+                    line-height: 40px
+
+                    &:nth-of-type(1)
+                      width: 40px
+
+                    &:nth-of-type(2)
+                      margin: 0 0 0 20px
+
+                @include respond-above($media_768)
+                  @include respond-above-ht($media_ht_480)
+                    h4
+                      font-size: 14px
+
+              a:hover,
+              a.active
+                span.black-bar
+                  transform: translate3d(0px,0,0)
+
+                h4:nth-of-type(2)
+                  color: $white
+
+              a.active
+                cursor: default
+
+      &.show
+        .page-nav-wrapper
+          transform: translate3d(-250px,0,0)
+
+      @include respond-above($media_480)
+        .page-nav-wrapper
+          width: 320px
+
+          transform: translate3d(-40px,0,0)
+
+          &:before
+            left: 40px
+
+          .page-nav
+            top: 40px
+            left: 40px
+
+        &.show
+          .page-nav-wrapper
+            transform: translate3d(-320px,0,0)
 
       @include respond-above($media_1024)
         @include respond-above-ht($media_ht_560)
-          .page-nav
-            top: 50%
-            left: 0px
-            bottom: auto
-            margin: -20px 0 0
+          width: 320px
 
-            transform: translate(0%,-50%)
+          .page-nav-wrapper
+            .page-nav
+              top: 50%
+              left: 0px
+              bottom: auto
+              margin: -20px 0 0
 
-            ul
-              li
-                a
-                  h4:nth-of-type(1)
-                    display: inline-block
+              transform: translate(0%,-50%)
+
+              ul
+                li
+                  a
+                    h4:nth-of-type(1)
+                      display: inline-block
+
+          &.show
+            .page-nav-wrapper
+              .page-nav
+                top: 50%
+                left: 0px
 
       .filter-zone
         position: absolute
@@ -224,7 +235,7 @@
         height: 30px
         overflow: hidden
 
-        transition: height 0ms linear $speed_metal
+        transition: height 0ms linear 500ms
 
         .filter-bg
           position: absolute
@@ -235,7 +246,7 @@
           background-color: rgba(0,0,0,0)
           overflow: hidden
 
-          transition: background-color $speed_metal $evil_ease
+          transition: background-color 500ms $ease_out
 
         h4
           position: absolute
@@ -274,7 +285,7 @@
           overflow: hidden
 
           transform: translate3d(0,-100%,0)
-          transition: transform $speed_metal $evil_ease
+          transition: transform 500ms $ease_out
 
           li.filter-item
             position: relative
@@ -335,7 +346,7 @@
                 span
                   font-size: 14px
 
-        &.show
+        &.drop-down
           height: 100%
 
           transition: height 0ms linear
@@ -345,7 +356,6 @@
 
           ul
             transform: translate3d(0,0%,0)
-            transition: transform $speed_metal $evil_ease
 
       .menu-btn
         position: absolute

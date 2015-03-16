@@ -53,7 +53,7 @@ class PageController
 
     # Cache selectors
     @$slides_wrapper = $('.slides-wrapper', @model.getV())
-    @$nav = $('.page-nav-wrapper', @model.getV())
+    @$nav = $('.page-nav-zone', @model.getV())
     @$menu_btn = $('.menu-btn', @model.getV())
     @$filter_zone = $('.filter-zone', @model.getV())
     @$filter_btn = $('.filter-btn', @model.getV())
@@ -429,7 +429,7 @@ class PageController
   | Click filter btn.
   *----------------------------------------###
   onClickFilterBtn: =>
-    if @$filter_zone.hasClass('show')
+    if @$filter_zone.hasClass('drop-down')
       @hideFilterList()
     else
       @showFilterList()
@@ -450,7 +450,7 @@ class PageController
   | Hide filter list.
   *----------------------------------------###
   hideFilterList: =>
-    @$filter_zone.removeClass('show')
+    @$filter_zone.removeClass('drop-down')
 
   ###
   *------------------------------------------*
@@ -459,8 +459,14 @@ class PageController
   | Show filter list.
   *----------------------------------------###
   showFilterList: =>
-    @$filter_zone.addClass('show')
+    @$filter_zone.addClass('drop-down')
 
+  ###
+  *------------------------------------------*
+  | onClickMenuBtn:void (=)
+  |
+  | Click menu btn.
+  *----------------------------------------###
   onClickMenuBtn: =>
     if @$menu_btn.hasClass('close')
       @hidePageNav()
