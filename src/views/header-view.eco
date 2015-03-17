@@ -1,6 +1,11 @@
 <div id="header-inner">
 	<a id="logo" class="nav-item ajaxy" data-id="home" href="/"></a>
-	<nav id="primary-nav"></nav>
+	<nav id="primary-nav">
+		<div id="primary-nav-inner">
+			<ul></ul>
+			<ul><li><div id="close-project-btn">Close Project<span></span></div></li></ul>
+		</div>
+	</nav>
 	<nav id="secondary-nav">
 		<a href="mailto:hello@legworkstudio.com"></a>
 		<a href="http://goo.gl/2uCNuD" target="_new"></a>

@@ -44,6 +44,7 @@ class Application
       '$el': LW.$body
     })
     LW.virgin = true
+    LW.close_project = false
 
     # Class vars
     @$pages_inner = $('#pages-inner')
@@ -146,6 +147,12 @@ class Application
       .on('blur', @stageFiveClingerMode)
       .on('focus', @backToNormalMode)
       .on('resize', @onWindowResize)
+
+    # Custom events
+    LW.$body
+      .on('rip_hide_details', =>
+        @active_c.hideDetails() if @active_c.hideDetails?
+      )
 
   ###
   *------------------------------------------*

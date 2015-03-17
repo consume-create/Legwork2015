@@ -53,43 +53,63 @@ header
       height: 20px
       font-size: 0
       line-height: 0
+      overflow: hidden
 
       transform: translate(-50%,-50%)
 
-      .nav-item
+      #primary-nav-inner
         position: relative
-        height: 14px
-        padding: 0 10px 6px
-        color: $black
-        font-size: 12px
-        line-height: 14px
-        text-transform: capitalize
+        height: 60px
         display: inline-block
-        cursor: pointer
 
-        @include respond-above($media_480)
-          @include respond-above-ht($media_ht_480)
-            font-size: 14px
+        transform: translate3d(0,0px,0)
+        transition: transform $speed_metal $evil_ease
 
-        @include respond-above($media_768)
-          @include respond-above-ht($media_ht_480)
-            margin: 0 10px
+        ul
+          height: 20px
 
-        span
-          position: absolute
-          bottom: 0px
-          left: 10px
-          right: 10px
-          height: 3px
-          background-color: $light_gray
+          &:last-child
+            margin-top: 20px
 
-          transition: background-color $speed $ease_out
+          li
+            height: 100%
+            display: inline-block
 
-        &.active
-          cursor: default
-          
-          span
-            background-color: $black
+            .nav-item,
+            #close-project-btn
+              position: relative
+              height: 14px
+              padding: 0 10px 6px
+              color: $black
+              font-size: 12px
+              line-height: 14px
+              text-transform: capitalize
+              display: block
+              cursor: pointer
+
+              @include respond-above($media_480)
+                @include respond-above-ht($media_ht_480)
+                  font-size: 14px
+
+              @include respond-above($media_768)
+                @include respond-above-ht($media_ht_480)
+                  margin: 0 10px
+
+              span
+                position: absolute
+                bottom: 0px
+                left: 10px
+                right: 10px
+                height: 3px
+                background-color: $light_gray
+
+                transition: background-color $speed $ease_out
+
+              &.active
+                cursor: default
+                
+                span
+                  background-color: $black
 
     #secondary-nav
       position: absolute
@@ -133,9 +153,13 @@ header
   header
     #header-inner
       #primary-nav
-        .nav-item:hover
-          span
-            background-color: $black
+        #primary-nav-inner
+          ul
+            li
+              .nav-item:hover,
+              #close-project-btn:hover
+                span
+                  background-color: $black
 
       #secondary-nav
         a
