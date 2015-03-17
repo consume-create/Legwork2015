@@ -1,8 +1,10 @@
 <div id="<%= @id %>-page-inner" class="page-inner">
-	<div id="<%= @id %>-page-slides" class="slides-wrapper">
-		<% for slide_id, slide of @slides: %>
-			<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
-		<% end %>
+	<div class="slides-and-nav-wrapper">
+		<div id="<%= @id %>-page-slides" class="slides-wrapper">
+			<% for slide_id, slide of @slides: %>
+				<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
+			<% end %>
+		</div>
 	</div>
 	<% if _.size(@slides) > 1: %>
 		<div class="page-nav-zone">

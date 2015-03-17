@@ -51,44 +51,6 @@ class PageController
     @model.setV($(JST['page-view']({'id': @model.getId(), 'slides': @model.getSlideData()})))
     @model.getE().append(@model.getV())
 
-    # Cache selectors
-    @$slides_wrapper = $('.slides-wrapper', @model.getV())
-    @$nav = $('.page-nav-zone', @model.getV())
-    @$menu_btn = $('.menu-btn', @model.getV())
-    @$filter_zone = $('.filter-zone', @model.getV())
-    @$filter_btn = $('.filter-btn', @model.getV())
-    @$filter_item = $('.filter-item', @model.getV())
-    @$filter_bg = $('.filter-bg', @model.getV())
-    @$page_btns = $('.page-nav li a', @model.getV())
-
-    # Details selectors
-    @$detail_slides = $('#detail-slides', @model.getV())
-    @$detail_slide = $('.detail-slide', @model.getV())
-
-    @total_page_btns = @$page_btns.length
-    @active_c = null
-    @active_index = 0
-    @old_index = 0
-    
-    # Mousewheel vars
-    @threshold_hit = false
-
-    # Draggable vars
-    @resistance = 1
-    @dragging = false
-    @drag_time = 666
-    @start_time = 0
-    @start_y = 0
-    @current_y = 0
-    @range = 30
-    @current_range = 0
-    @now = 0
-    @drag_obj = {}
-
-    @mousedown = if Modernizr.touch then "touchstart" else "mousedown"
-    @mousemove = if Modernizr.touch then "touchmove" else "mousemove"
-    @mouseup = if Modernizr.touch then "touchend" else "mouseup"
-
     # Loop and create page slides
 
     # NOTE:
@@ -187,6 +149,45 @@ class PageController
         else
           throw 'ERROR: slide type does not exist'
 
+    # Cache selectors
+    @$slides_wrapper = $('.slides-wrapper', @model.getV())
+    @$nav = $('.page-nav-zone', @model.getV())
+    @$filter_zone = $('.filter-zone', @model.getV())
+    @$filter_btn = $('.filter-btn', @model.getV())
+    @$filter_item = $('.filter-item', @model.getV())
+    @$filter_bg = $('.filter-bg', @model.getV())
+    @$page_btns = $('.page-nav li a', @model.getV())
+    @$menu_btn = $('.menu-btn', @model.getV())
+    @$about_btn = $('.about', @model.getV())
+
+    # Details selectors
+    @$detail_slides = $('#detail-slides', @model.getV())
+    @$detail_slide = $('.detail-slide', @model.getV())
+
+    @total_page_btns = @$page_btns.length
+    @active_c = null
+    @active_index = 0
+    @old_index = 0
+    
+    # Mousewheel vars
+    @threshold_hit = false
+
+    # Draggable vars
+    @resistance = 1
+    @dragging = false
+    @drag_time = 666
+    @start_time = 0
+    @start_y = 0
+    @current_y = 0
+    @range = 30
+    @current_range = 0
+    @now = 0
+    @drag_obj = {}
+
+    @mousedown = if Modernizr.touch then "touchstart" else "mousedown"
+    @mousemove = if Modernizr.touch then "touchmove" else "mousemove"
+    @mouseup = if Modernizr.touch then "touchend" else "mouseup"
+
   ###
   *------------------------------------------*
   | resize:void (-)
@@ -229,6 +230,8 @@ class PageController
 
     if LW.virgin is false
       @hidePageNav()
+
+    @hideDetails()
 
   ###
   *------------------------------------------*
@@ -475,6 +478,43 @@ class PageController
 
   ###
   *------------------------------------------*
+  | showDetails:void (=)
+  |
+  | Show details.
+  *----------------------------------------###
+  showDetails: =>
+    console.log 'show details'
+    id = $('.slide', @model.getV()).eq(@active_index).attr('id')
+    id = id.replace('work', 'detail')
+    
+    @$detail_slide.hide().filter("[data-detail='#{id}']").show()
+    @$detail_slides.show()
+
+    @$slides_wrapper[0].offsetHeight # Reflow like a a defer
+    @model.getV().addClass('show-details')
+
+    LW.close_project = true
+    LW.instance.header_c.navTransition()
+
+  ###
+  *------------------------------------------*
+  | hideDetails:void (=)
+  |
+  | Hide details.
+  *----------------------------------------###
+  hideDetails: =>
+    if @model.getV().hasClass('show-details')
+      @model.getV()
+        .removeClass('show-details')
+        .off()
+        .one(LW.utils.transition_end, =>
+          console.log 'hide details'
+          @$detail_slides.hide()
+          @$detail_slide.hide()
+        )
+
+  ###
+  *------------------------------------------*
   | reset:void (-)
   |
   | Reset.
@@ -529,6 +569,10 @@ class PageController
         .off('click')
         .on('click', @onClickMenuBtn)
 
+      @$about_btn
+        .off('click')
+        .on('click', @showDetails)
+
       # Check if cookie is set
       if $.cookie('cookie_monster') is 'stuffed'
         LW.virgin = false
@@ -553,15 +597,6 @@ class PageController
           .off('mouseleave')
           .on('mouseleave', @onMouseLeaveNav)
 
-      # Temp btns to show detail slide
-      @model.getV().off('click', '.about, .title-holder').on('click', '.about, .title-holder', =>
-        id = $('.slide', @model.getV()).eq(@active_index).attr('id')
-        id = id.replace('work', 'detail')
-        
-        @$detail_slides.show()
-        @$detail_slide.hide().filter("[data-detail='#{id}']").show()
-      )
-
   ###
   *------------------------------------------*
   | suspend:void (-)
@@ -582,10 +617,7 @@ class PageController
       @$filter_btn.off('click')
       @$filter_bg.off('click')
       @$menu_btn.off('click')
-
-      # Temp btns to show detail slide
-      @model.getV().off('click', '.about, .title-holder')
-      @$detail_slides.hide()
-      @$detail_slide.hide()
+      @$about_btn.off('click')
+      @hideDetails()
 
 module.exports = PageController

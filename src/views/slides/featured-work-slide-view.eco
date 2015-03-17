@@ -4,7 +4,7 @@
 	</div>
 	<!-- Title zone -->
 	<div class="title-zone">
-		<div class="title-holder">
+		<div class="title-holder about">
 			<h2><%- @title[0] %></h2>
 			<h2><%- @title[1] %></h2>
 		</div>
