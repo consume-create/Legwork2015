@@ -49,9 +49,9 @@
       width: 100%
       height: 100%
 
-      transform: rotateX(0deg) translate3d(0,0,0)
-      transform-origin: center bottom
-      transition: transform $speed_metal $evil_ease $speed
+      transform: rotate(0deg) translate3d(0,0,0)
+      transform-origin: right bottom
+      transition: transform $speed_metal $evil_ease
 
     .slides-wrapper
       position: absolute
@@ -429,14 +429,10 @@
 
     &.show-details
       .slides-and-nav-wrapper
-        transform: rotateX(33deg) translate3d(0,0,0)
-        transition: transform $speed_metal $evil_ease
+        transform: rotate(-90deg) translate3d(0,0,0)
 
       #detail-slides
-        opacity: 1
-
-        transform: rotateX(0deg) translate3d(0,0,0)
-        transition: transform $speed_metal $evil_ease $speed, opacity $speed_metal $evil_ease $speed
+        transform: rotate(0deg) translate3d(0,0,0)
 
 // -----------------------------------------------
 // Home styles
@@ -534,11 +530,10 @@
   background-color: $light_gray
   overflow: hidden
   display: none
-  opacity: 0
 
-  transform: rotateX(-33deg) translate3d(0,0,0)
-  transform-origin: center bottom
-  transition: transform $speed_metal $evil_ease, opacity $speed_metal $evil_ease
+  transform: rotate(90deg) translate3d(0,0,0)
+  transform-origin: right bottom
+  transition: transform $speed_metal $evil_ease
 
   .detail-slide
     position: absolute
@@ -621,12 +616,12 @@
             padding-bottom: 80px
 
         &.overview
+          background-color: transparent
           height: auto
 
           .overview-inner
             position: relative
             width: 100%
-            background-color: $white
 
             .black-box
               width: 100%

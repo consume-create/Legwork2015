@@ -483,12 +483,12 @@ class PageController
   | Show details.
   *----------------------------------------###
   showDetails: =>
-    console.log 'show details'
     id = $('.slide', @model.getV()).eq(@active_index).attr('id')
     id = id.replace('work', 'detail')
     
-    @$detail_slide.hide().filter("[data-detail='#{id}']").show()
     @$detail_slides.show()
+    @$detail_slide.hide().filter("[data-detail='#{id}']").show()
+    @$detail_slide.filter("[data-detail='#{id}']").find('.content').scrollTop(0)
 
     @$slides_wrapper[0].offsetHeight # Reflow like a a defer
     @model.getV().addClass('show-details')
@@ -508,7 +508,6 @@ class PageController
         .removeClass('show-details')
         .off()
         .one(LW.utils.transition_end, =>
-          console.log 'hide details'
           @$detail_slides.hide()
           @$detail_slide.hide()
         )
