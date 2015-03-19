@@ -150,6 +150,7 @@ class PageController
           throw 'ERROR: slide type does not exist'
 
     # Cache selectors
+    @$mask_wrapper = $('.mask-wrapper', @model.getV())
     @$slides_wrapper = $('.slides-wrapper', @model.getV())
     @$nav = $('.page-nav-zone', @model.getV())
     @$filter_zone = $('.filter-zone', @model.getV())
@@ -241,12 +242,12 @@ class PageController
   *----------------------------------------###
   setBackgroundColor: (rgb) ->
     if @dragging is true
-      @model.getE().addClass('no-trans')
+      @$mask_wrapper.addClass('no-bg-trans')
     else
-      @model.getE().removeClass('no-trans')
+      @$mask_wrapper.removeClass('no-bg-trans')
 
-    @model.getE()[0].offsetHeight
-    @model.getE().css('background-color': "rgb(#{rgb})")
+    @$mask_wrapper[0].offsetHeight
+    @$mask_wrapper.css('background-color': "rgb(#{rgb})")
 
   ###
   *------------------------------------------*
@@ -493,6 +494,8 @@ class PageController
     @$slides_wrapper[0].offsetHeight # Reflow like a a defer
     @model.getV().addClass('show-details')
 
+    console.log('show details')
+
     LW.close_project = true
     LW.instance.header_c.navTransition()
 
@@ -508,6 +511,7 @@ class PageController
         .removeClass('show-details')
         .off()
         .one(LW.utils.transition_end, =>
+          console.log('hide details')
           @$detail_slides.hide()
           @$detail_slide.hide()
         )

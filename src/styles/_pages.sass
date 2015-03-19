@@ -4,7 +4,6 @@
   left: 0px
   right: 0px
   bottom: 0px
-  background-color: $light_gray
 
   @include respond-above($media_768)
     @include respond-above-ht($media_ht_480)
@@ -24,14 +23,8 @@
   left: 0px
   width: 100%
   height: 100%
-  background-color: rgb(102,102,102)
   overflow: hidden
   display: none
-
-  transition: background-color $speed_metal linear
-
-  &.no-trans
-    transition-duration: 0ms
 
   .page-inner
     position: absolute
@@ -40,18 +33,30 @@
     width: 100%
     height: 100%
 
-    perspective: 1000px
-
-    .slides-and-nav-wrapper
+    .mask-wrapper
       position: absolute
       top: 0px
       left: 0px
       width: 100%
       height: 100%
+      overflow: hidden
 
-      transform: rotate(0deg) translate3d(0,0,0)
-      transform-origin: right bottom
-      transition: transform $speed_metal $evil_ease
+      transform: translate3d(0,0%,0)
+      transition: transform $speed_metal $evil_ease, background-color $speed_metal linear
+
+      &.no-bg-trans
+        transition: transform $speed_metal $evil_ease, background-color 0ms linear
+
+      .mask-wrapper-inner
+        position: absolute
+        top: 0px
+        left: 0px
+        width: 100%
+        height: 100%
+        overflow: hidden
+
+        transform: translate3d(0,0%,0)
+        transition: transform $speed_metal $evil_ease
 
     .slides-wrapper
       position: absolute
@@ -428,29 +433,32 @@
               transform: rotate(-45deg)
 
     &.show-details
-      .slides-and-nav-wrapper
-        transform: rotate(-90deg) translate3d(0,0,0)
+      .mask-wrapper
+        transform: translate3d(0,-100%,0)
 
-      #detail-slides
-        transform: rotate(0deg) translate3d(0,0,0)
+        .mask-wrapper-inner
+          transform: translate3d(0,100%,0)
 
 // -----------------------------------------------
 // Home styles
 // -----------------------------------------------
 .page#home
-  background-color: rgb(255,242,0)
+  .page-inner
+    background-color: rgb(255,242,0)
  
 // -----------------------------------------------
 // About styles
 // -----------------------------------------------
 .page#about
-  background-color: rgb(0,174,239)
+  .page-inner
+    background-color: rgb(0,174,239)
  
 // -----------------------------------------------
 // Work styles
 // -----------------------------------------------
 .page#work
-  background-color: rgb(0,174,239)
+  .page-inner
+    background-color: rgb(0,174,239)
 
 // -----------------------------------------------
 // Transish
@@ -527,13 +535,9 @@
   left: 0px
   width: 100%
   height: 100%
-  background-color: $light_gray
+  background-color: $black
   overflow: hidden
   display: none
-
-  transform: rotate(90deg) translate3d(0,0,0)
-  transform-origin: right bottom
-  transition: transform $speed_metal $evil_ease
 
   .detail-slide
     position: absolute

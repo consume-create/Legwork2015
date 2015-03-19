@@ -1,48 +1,4 @@
 <div id="<%= @id %>-page-inner" class="page-inner">
-	<div class="slides-and-nav-wrapper">
-		<div id="<%= @id %>-page-slides" class="slides-wrapper">
-			<% for slide_id, slide of @slides: %>
-				<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
-			<% end %>
-		</div>
-	</div>
-	<% if _.size(@slides) > 1: %>
-		<div class="page-nav-zone">
-			<div class="page-nav-wrapper">
-				<div id="<%= @id %>-page-nav" class="page-nav" >
-					<ul>
-						<% n = 1 %>
-						<% for slide_id, slide of @slides: %>
-							<li>
-								<a class="ajaxy" href="<%= if slide_id is LW.LANDING_SLIDE then '/' + @id else '/' + @id + '/' + slide_id %>" data-id="<%= slide_id %>" data-rgb="[<%= slide.rgb %>]">
-									<span class="black-bar"></span>
-									<h4><%= ('0' + (n++)).slice(-2) %></h4>
-									<h4><%= $.trim(slide.browser_title.split('/')[1]) %></h4>
-								</a>
-							</li>
-						<% end %>
-					</ul>
-				</div>
-				<% if @id is 'work': %>
-					<div class="filter-zone">
-						<div class="filter-bg"></div>
-						<ul>
-							<li class="filter-item active"><span>Featured</span></li>
-							<li class="filter-item"><span>Motion</span></li>
-							<li class="filter-item"><span>Interactive</span></li>
-							<li class="filter-item"><span>Integrated</span></li>
-						</ul>
-						<h4 class="filter-btn"><span>Featured Projects</span></h4>
-					</div>
-				<% end %>
-				<div class="menu-btn">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-			</div>
-		</div>
-	<% end %>
 	<% if @id is 'work': %>
 		<div id="detail-slides">
 			<% for slide_id, slide of @slides: %>
@@ -94,4 +50,50 @@
 			<% end %>
 		</div>
 	<% end %>
+	<div class="mask-wrapper">
+		<div class="mask-wrapper-inner">
+			<div id="<%= @id %>-page-slides" class="slides-wrapper">
+				<% for slide_id, slide of @slides: %>
+					<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
+				<% end %>
+			</div>
+			<% if _.size(@slides) > 1: %>
+				<div class="page-nav-zone">
+					<div class="page-nav-wrapper">
+						<div id="<%= @id %>-page-nav" class="page-nav" >
+							<ul>
+								<% n = 1 %>
+								<% for slide_id, slide of @slides: %>
+									<li>
+										<a class="ajaxy" href="<%= if slide_id is LW.LANDING_SLIDE then '/' + @id else '/' + @id + '/' + slide_id %>" data-id="<%= slide_id %>" data-rgb="[<%= slide.rgb %>]">
+											<span class="black-bar"></span>
+											<h4><%= ('0' + (n++)).slice(-2) %></h4>
+											<h4><%= $.trim(slide.browser_title.split('/')[1]) %></h4>
+										</a>
+									</li>
+								<% end %>
+							</ul>
+						</div>
+						<% if @id is 'work': %>
+							<div class="filter-zone">
+								<div class="filter-bg"></div>
+								<ul>
+									<li class="filter-item active"><span>Featured</span></li>
+									<li class="filter-item"><span>Motion</span></li>
+									<li class="filter-item"><span>Interactive</span></li>
+									<li class="filter-item"><span>Integrated</span></li>
+								</ul>
+								<h4 class="filter-btn"><span>Featured Projects</span></h4>
+							</div>
+						<% end %>
+						<div class="menu-btn">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
