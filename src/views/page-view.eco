@@ -4,7 +4,7 @@
 			<% for slide_id, slide of @slides: %>
 				<% if slide.slide_type is LW.slide_types.FEATURED_WORK: %>
 					<div class="detail-slide" data-detail="detail-<%= slide_id %>">
-						<div class="bg" style="background-image: url('<%= slide.details.bg_src %>');"></div>
+						<div class="bg" data-src="<%= slide.details.bg_src %>"></div>
 						<div class="content">
 							<section></section>
 							<section class="overview">
@@ -45,6 +45,7 @@
 								</div>
 							</section>
 						</div>
+						<div class="detail-loader"><h2>Loading</h2></div>
 					</div>
 				<% end %>
 			<% end %>

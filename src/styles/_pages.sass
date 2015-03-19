@@ -44,9 +44,6 @@
       transform: translate3d(0,0%,0)
       transition: transform $speed_metal $evil_ease, background-color $speed_metal linear
 
-      &.no-bg-trans
-        transition: transform $speed_metal $evil_ease, background-color 0ms linear
-
       .mask-wrapper-inner
         position: absolute
         top: 0px
@@ -57,6 +54,15 @@
 
         transform: translate3d(0,0%,0)
         transition: transform $speed_metal $evil_ease
+
+      &.no-bg-trans
+        transition: transform $speed_metal $evil_ease, background-color 0ms linear
+
+      &.unmask
+        transform: translate3d(0,-100%,0)
+
+        .mask-wrapper-inner
+          transform: translate3d(0,100%,0)
 
     .slides-wrapper
       position: absolute
@@ -432,13 +438,6 @@
               margin: 0 0 0 -8px
               transform: rotate(-45deg)
 
-    &.show-details
-      .mask-wrapper
-        transform: translate3d(0,-100%,0)
-
-        .mask-wrapper-inner
-          transform: translate3d(0,100%,0)
-
 // -----------------------------------------------
 // Home styles
 // -----------------------------------------------
@@ -633,7 +632,11 @@
               padding: 100px
               background-color: $black
 
-              transform: translate(0,-200px)
+              transform: translate3d(0,0px,0)
+
+              &.slide-up
+                transform: translate3d(0,-40%,0)
+                transition: transform $speed_metal $evil_ease
 
               h4
                 @include type-mono
@@ -659,3 +662,29 @@
               a
                 @include type-mono
                 display: inline-block
+
+    .detail-loader
+      position: absolute
+      top: 0px
+      left: 0px
+      width: 100%
+      height: 100%
+      background-color: $black
+      overflow: hidden
+      opacity: 1
+
+      &.loaded
+        opacity: 0
+
+        transition: opacity $speed_metal linear ($speed_metal * 2)
+
+      h2
+        position: absolute
+        top: 50%
+        left: 0px
+        width: 100%
+        color: $white
+        @include type-mono
+        text-align: center
+
+        transform: translate(0,-50%)

@@ -163,6 +163,7 @@ class PageController
 
     # Details selectors
     @$detail_slide = $('.detail-slide', @model.getV())
+    @$active_detail = null
 
     @total_page_btns = @$page_btns.length
     @active_c = null
@@ -478,6 +479,16 @@ class PageController
 
   ###
   *------------------------------------------*
+  | hideDetails:void (=)
+  |
+  | Hide details.
+  *----------------------------------------###
+  hideDetails: =>
+    if @$mask_wrapper.hasClass('unmask')
+      @$mask_wrapper.removeClass('unmask')
+
+  ###
+  *------------------------------------------*
   | showDetails:void (=)
   |
   | Show details.
@@ -487,25 +498,51 @@ class PageController
     id = id.replace('work', 'detail')
     
     @$detail_slide.removeClass('active').filter("[data-detail='#{id}']").addClass('active')
-    @$detail_slide.filter("[data-detail='#{id}']").find('.content').scrollTop(0)
+    @$active_detail = @$detail_slide.filter("[data-detail='#{id}']")
 
-    @$slides_wrapper[0].offsetHeight # Reflow like a a defer
-    @model.getV().addClass('show-details')
-
-    console.log('show details')
+    @$mask_wrapper[0].offsetHeight # Reflow like a a defer
+    @$mask_wrapper.addClass('unmask')
 
     LW.close_project = true
     LW.instance.header_c.navTransition()
 
+    @loadDetailTransition()
+
   ###
   *------------------------------------------*
-  | hideDetails:void (=)
+  | loadDetailTransition:void (=)
   |
-  | Hide details.
+  | Load detail and transition black box.
   *----------------------------------------###
-  hideDetails: =>
-    if @model.getV().hasClass('show-details')
-      @model.getV().removeClass('show-details')
+  loadDetailTransition: =>
+    $loader = $('.detail-loader', @$active_detail)
+    $black_box = $('.black-box', @$active_detail)
+    $bg = $('.bg', @$active_detail)
+    src = $bg.attr('data-src')
+
+    $black_box.removeClass('slide-up')
+    @$active_detail.find('.content').scrollTop(0)
+    @$active_detail[0].offsetHeight # Reflow like a a defer
+
+    if $loader.length > 0
+      $current = $('<img />').attr
+        'src': src
+      .one 'load', (e) =>
+        $bg.attr('style': "background-image: url(#{src})")
+        $loader
+          .addClass('loaded')
+          .off()
+          .one(LW.utils.transition_end, =>
+            $black_box.addClass('slide-up')
+            $loader.remove()
+          )
+
+      if $current[0].complete is true
+        $current.trigger('load')
+
+      return $current[0]
+    else
+      $black_box.addClass('slide-up')
 
   ###
   *------------------------------------------*
