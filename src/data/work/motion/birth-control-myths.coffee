@@ -1,11 +1,7 @@
 data = {
   "browser_title": "Legwork Studio / Birth Control Myths",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [
-    255,
-    109,
-    0
-  ],
+  "rgb": [129,116,166],
   "title": ["Birth Control", "Myths"],
   "callouts": [
     LW.callouts.ABOUT,
@@ -22,6 +18,7 @@ data = {
     LW.mediums.ANIMATION
   ],
   "details": {
+    "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
     "poster_src": "/images/work/poster.jpg",
     "poster_cta": "See How We Made It",
     "detail_vimeo_id": "1234",

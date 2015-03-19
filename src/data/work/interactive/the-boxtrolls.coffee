@@ -1,11 +1,7 @@
 data = {
   "browser_title": "Legwork Studio / The Boxtrolls",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [
-    3,
-    171,
-    140
-  ],
+  "rgb": [148,188,150],
   "title": ["The", "Boxtrolls"],
   "callouts": [
     LW.callouts.ABOUT,

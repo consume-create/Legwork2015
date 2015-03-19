@@ -1,11 +1,7 @@
 data = {
   "browser_title": "Legwork Studio / Ello",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [
-    229,
-    229,
-    229
-  ],
+  "rgb": [195,86,71],
   "title": ["Introducing", "Ello"],
   "callouts": [
     LW.callouts.ABOUT,
@@ -22,6 +18,7 @@ data = {
     LW.mediums.ANIMATION
   ],
   "details": {
+    "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
     "poster_src": "/images/work/poster.jpg",
     "poster_cta": "Call To Action",
     "detail_vimeo_id": "1234",

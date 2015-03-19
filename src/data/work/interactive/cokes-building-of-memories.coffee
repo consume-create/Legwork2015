@@ -1,11 +1,7 @@
 data = {
   "browser_title": "Legwork Studio / Coke's Building Of Memories",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [
-    254,
-    0,
-    26
-  ],
+  "rgb": [104,167,184],
   "title": ["Coke's Building", "Of Memories"],
   "callouts": [
     LW.callouts.ABOUT,
