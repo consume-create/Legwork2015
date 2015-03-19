@@ -45,7 +45,9 @@
 								</div>
 							</section>
 						</div>
-						<div class="detail-loader"><h2>Loading</h2></div>
+						<div class="detail-loader">
+							<div class="spinner"><span></span></div>
+						</div>
 					</div>
 				<% end %>
 			<% end %>

@@ -525,6 +525,7 @@ class PageController
     @$active_detail[0].offsetHeight # Reflow like a a defer
 
     if $loader.length > 0
+      $loader.addClass('loading')
       $current = $('<img />').attr
         'src': src
       .one 'load', (e) =>
@@ -534,7 +535,7 @@ class PageController
           .off()
           .one(LW.utils.transition_end, =>
             $black_box.addClass('slide-up')
-            $loader.remove()
+            $loader.removeClass('loading').remove()
           )
 
       if $current[0].complete is true

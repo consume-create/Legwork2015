@@ -673,18 +673,34 @@
       overflow: hidden
       opacity: 1
 
+      .spinner
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 50px
+        height: 50px
+        overflow: hidden
+
+        transform: translate(-50%,-50%)
+
+        span
+          position: absolute
+          top: 0px
+          left: 0px
+          right: 0px
+          bottom: 0px
+          border: 10px solid $white
+          border-top: 10px solid transparent
+          border-radius: 50%
+
+          transform: rotate(0deg)
+
+      &.loading
+        .spinner
+          span
+            animation: spinner 1s linear infinite
+
       &.loaded
         opacity: 0
 
         transition: opacity $speed_metal linear ($speed_metal * 2)
-
-      h2
-        position: absolute
-        top: 50%
-        left: 0px
-        width: 100%
-        color: $white
-        @include type-mono
-        text-align: center
-
-        transform: translate(0,-50%)
