@@ -162,7 +162,6 @@ class PageController
     @$about_btn = $('.about', @model.getV())
 
     # Details selectors
-    @$detail_slides = $('#detail-slides', @model.getV())
     @$detail_slide = $('.detail-slide', @model.getV())
 
     @total_page_btns = @$page_btns.length
@@ -487,8 +486,7 @@ class PageController
     id = $('.slide', @model.getV()).eq(@active_index).attr('id')
     id = id.replace('work', 'detail')
     
-    @$detail_slides.show()
-    @$detail_slide.hide().filter("[data-detail='#{id}']").show()
+    @$detail_slide.removeClass('active').filter("[data-detail='#{id}']").addClass('active')
     @$detail_slide.filter("[data-detail='#{id}']").find('.content').scrollTop(0)
 
     @$slides_wrapper[0].offsetHeight # Reflow like a a defer
@@ -507,14 +505,7 @@ class PageController
   *----------------------------------------###
   hideDetails: =>
     if @model.getV().hasClass('show-details')
-      @model.getV()
-        .removeClass('show-details')
-        .off()
-        .one(LW.utils.transition_end, =>
-          console.log('hide details')
-          @$detail_slides.hide()
-          @$detail_slide.hide()
-        )
+      @model.getV().removeClass('show-details')
 
   ###
   *------------------------------------------*
