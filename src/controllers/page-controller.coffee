@@ -577,13 +577,10 @@ class PageController
         .on("keyup.#{@model._id}", @onKeyup)
 
       @$slides_wrapper
-        .off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove} contextmenu")
+        .off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
         .on("mousewheel DOMMouseScroll", @onMousewheel)
         .on(@mousedown, @onMouseDown)
         .on(@mousemove, @onMouseMove)
-        .on('contextmenu', =>
-          return false
-        )
 
       @$nav
         .off('mouseenter')
@@ -644,7 +641,7 @@ class PageController
     # we have events to listen to turn off...
     if @total_page_btns > 1
       LW.$doc.off("keyup.#{@model._id}")
-      @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove} contextmenu")
+      @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
       @$nav.off('mouseenter mouseleave')
       @$filter_btn.off('click')
       @$filter_bg.off('click')
