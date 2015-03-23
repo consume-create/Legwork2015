@@ -11,7 +11,7 @@
 		<div class="callouts cf">
 			<% for c in @callouts: %>
 				<% if c != 'launch': %>
-					<div class="callout <%= c %>"<% if c == 'watch': %> data-id="<%= @vimeo_id %>"<% end %>>
+					<div class="callout <%= c %>"<% if c == 'watch': %> data-id="<%= @watch_video_id %>"<% end %>>
 						<div class="copy"><%= c %></div>
 						<div class="icon">
 							<span class="rect"></span>

@@ -7,9 +7,8 @@ data = {
     LW.callouts.ABOUT,
     LW.callouts.WATCH
   ],
-  "vimeo_id": "1234",
   "launch_url": null,
-  "tagline": "Instructional videos for Ello.",
+  "watch_video_id": "1234",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
     "/images/client-logos/nike.png"
@@ -17,19 +16,18 @@ data = {
   "mediums": [
     LW.mediums.ANIMATION
   ],
+  "tagline": "Instructional videos for Ello.",
   "details": {
-    "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
-    "poster_src": "/images/work/poster.jpg",
-    "poster_cta": "Call To Action",
-    "detail_vimeo_id": "1234",
-    "descr_title": "Some Lorem Ipsum Title",
-    "descr_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
-    "services": [
+    "detail_bg": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+    "detail_title": "Some Lorem Ipsum Title",
+    "detail_overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "detail_services": [
       "Lorem Ipsum",
       "Dummy Words",
       "And Other",
       "Services"
-    ]
+    ],
+    "detail_accolades": null
   }
 }
 

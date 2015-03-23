@@ -7,9 +7,8 @@ data = {
     LW.callouts.ABOUT,
     LW.callouts.LAUNCH
   ],
-  "vimeo_id": null,
   "launch_url": "http://i.imgur.com/5FLULzr.gif",
-  "tagline": "Online contest for Dodge.",
+  "watch_video_id": null,
   "picture_src": "/images/work/ron/ron.png",
   "clients": [
     "/images/client-logos/nike.png"
@@ -18,19 +17,18 @@ data = {
     LW.mediums.DESKTOP,
     LW.mediums.MOBILE
   ],
+  "tagline": "Online contest for Dodge.",
   "details": {
-    "bg_src": "/images/work/ron/details/ron-bg.jpg",
-    "poster_src": "/images/work/poster.jpg",
-    "poster_cta": "Call To Action",
-    "detail_vimeo_id": "1234",
-    "descr_title": "Some Lorem Ipsum Title",
-    "descr_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
-    "services": [
+    "detail_bg": "/images/work/ron/details/ron-bg.jpg",
+    "detail_title": "Some Lorem Ipsum Title",
+    "detail_overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "detail_services": [
       "Lorem Ipsum",
       "Dummy Words",
       "And Other",
       "Services"
-    ]
+    ],
+    "detail_accolades": null
   }
 }
 

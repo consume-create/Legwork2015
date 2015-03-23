@@ -26,14 +26,11 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @_callouts = null
     @setCallouts(data.callouts)
 
-    @_vimeo_id = null
-    @setVimeoId(data.vimeo_id)
-
     @_launch_url = null
     @setLaunchUrl(data.launch_url)
 
-    @_tagline = null
-    @setTagline(data.tagline)
+    @_watch_video_id = null
+    @setWatchVideoId(data.watch_video_id)
 
     @_picture_src = null
     @setPictureSrc(data.picture_src)
@@ -44,27 +41,24 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @_mediums = null
     @setMediums(data.mediums)
 
+    @_tagline = null
+    @setTagline(data.tagline)
+
     # Details
-    @_bg_src = null
-    @setBgSrc(data.bg_src)
+    @_detail_bg = null
+    @setDetailBg(data.detail_bg)
 
-    @_poster_src = null
-    @setPosterSrc(data.poster_src)
+    @_detail_title = null
+    @setDetailTitle(data.detail_title)
 
-    @_poster_cta = null
-    @setPosterCta(data.poster_cta)
+    @_detail_overview = null
+    @setDetailOverview(data.detail_overview)
 
-    @_detail_vimeo_id = null
-    @setDetailVimeoId(data.detail_vimeo_id)
+    @_detail_services = null
+    @setDetailServices(data.detail_services)
 
-    @_descr_title = null
-    @setDescrTitle(data.descr_title)
-
-    @_descr_text = null
-    @setDescrText(data.descr_text)
-
-    @_services = null
-    @setServices(data.services)
+    @_detail_accolades = null
+    @setDetailAccolades(data.detail_accolades)
 
   ###
   *------------------------------------------*
@@ -126,29 +120,6 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
   ###
   *------------------------------------------*
-  | getVimeoId:string (-)
-  |
-  | Get detail vimeo id.
-  *----------------------------------------###
-  getVimeoId: ->
-    return @_vimeo_id
-
-  ###
-  *------------------------------------------*
-  | setVimeoId:void (-)
-  |
-  | vimeo_id:string - vimeo id
-  |
-  | Set vimeo id.
-  *----------------------------------------###
-  setVimeoId: (vimeo_id) ->
-    if vimeo_id isnt null and _.isString(vimeo_id) is false
-      throw 'ERROR: vimeo_id must be a string'
-    else
-      @_vimeo_id = vimeo_id
-
-  ###
-  *------------------------------------------*
   | getLaunchUrl:string (-)
   |
   | Get launch url.
@@ -172,26 +143,26 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
   ###
   *------------------------------------------*
-  | getTagline:string (-)
+  | getWatchVideoId:string (-)
   |
-  | Get tagline.
+  | Get watch video id.
   *----------------------------------------###
-  getTagline: ->
-    return @_tagline
+  getWatchVideoId: ->
+    return @_watch_video_id
 
   ###
   *------------------------------------------*
-  | setTagline:void (-)
+  | setWatchVideoId:void (-)
   |
-  | tagline:string - tagline
+  | watch_video_id:string - vimeo id
   |
-  | Set tagline.
+  | Set watch video id.
   *----------------------------------------###
-  setTagline: (tagline) ->
-    if _.isString(tagline) is false
-      throw 'ERROR: tagline must be a string'
+  setWatchVideoId: (watch_video_id) ->
+    if watch_video_id isnt null and _.isString(watch_video_id) is false
+      throw 'ERROR: watch_video_id must be a string'
     else
-      @_tagline = tagline
+      @_watch_video_id = watch_video_id
 
   ###
   *------------------------------------------*
@@ -286,177 +257,161 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
   ###
   *------------------------------------------*
-  | getBgSrc:string (-)
+  | getTagline:string (-)
   |
-  | Get bg src.
+  | Get tagline.
   *----------------------------------------###
-  getBgSrc: ->
-    return @_bg_src
+  getTagline: ->
+    return @_tagline
+ 
+  ###
+  *------------------------------------------*
+  | setTagline:void (-)
+  |
+  | tagline:string - tagline
+  |
+  | Set tagline.
+  *----------------------------------------###
+  setTagline: (tagline) ->
+    if _.isString(tagline) is false
+      throw 'ERROR: tagline must be a string'
 
   ###
   *------------------------------------------*
-  | setBgSrc:void (-)
+  | getDetailBg:string (-)
   |
-  | bg_src:string - bg src
-  |
-  | Set bg src.
+  | Get detail bg.
   *----------------------------------------###
-  setBgSrc: (bg_src) ->
-    if _.isString(bg_src) is false
-      throw 'ERROR: bg_src must be a string'
-    else if (/^\/images\//).test(bg_src) is false
-      throw 'ERROR: bg_src must be a local reference from the root (e.g. /images/path/to/image.jpg)'
+  getDetailBg: ->
+    return @_detail_bg
+
+  ###
+  *------------------------------------------*
+  | setDetailBg:void (-)
+  |
+  | detail_bg:string - detail bg
+  |
+  | Set detail bg.
+  *----------------------------------------###
+  setDetailBg: (detail_bg) ->
+    if _.isString(detail_bg) is false
+      throw 'ERROR: detail_bg must be a string'
+    else if (/^\/images\//).test(detail_bg) is false
+      throw 'ERROR: detail_bg must be a local reference from the root (e.g. /images/path/to/image.jpg)'
     else
-      @_bg_src = bg_src
+      @_detail_bg = detail_bg
 
   ###
   *------------------------------------------*
-  | getPosterSrc:string (-)
+  | getDetailTitle:string (-)
   |
-  | Get poster src.
+  | Get detail title.
   *----------------------------------------###
-  getPosterSrc: ->
-    return @_poster_src
+  getDetailTitle: ->
+    return @_detail_title
 
   ###
   *------------------------------------------*
-  | setPosterSrc:void (-)
+  | setDetailTitle:void (-)
   |
-  | poster_src:string - poster src
+  | detail_title:string - detail title
   |
-  | Set poster src.
+  | Set detail title.
   *----------------------------------------###
-  setPosterSrc: (poster_src) ->
-    if _.isString(poster_src) is false
-      throw 'ERROR: poster_src must be a string'
-    else if (/^\/images\//).test(poster_src) is false
-      throw 'ERROR: poster_src must be a local reference from the root (e.g. /images/path/to/image.jpg)'
+  setDetailTitle: (detail_title) ->
+    if _.isString(detail_title) is false
+      throw 'ERROR: detail_title must be a string'
     else
-      @_poster_src = poster_src
+      @_detail_title = detail_title
 
   ###
   *------------------------------------------*
-  | getPosterCta:string (-)
+  | getDetailOverview:string (-)
   |
-  | Get poster cta.
+  | Get detail overview.
   *----------------------------------------###
-  getPosterCta: ->
-    return @_poster_cta
+  getDetailOverview: ->
+    return @_detail_overview
 
   ###
   *------------------------------------------*
-  | setPosterCta:void (-)
+  | setDetailOverview:void (-)
   |
-  | poster_cta:string - poster cta
+  | detail_overview:string - detail overview
   |
-  | Set poster src.
+  | Set detail overview.
   *----------------------------------------###
-  setPosterCta: (poster_cta) ->
-    if _.isString(poster_cta) is false
-      throw 'ERROR: poster_cta must be a string'
+  setDetailOverview: (detail_overview) ->
+    if _.isString(detail_overview) is false or detail_overview.length > 250
+      throw 'ERROR: detail_overview must be a string and no more than 250 characters'
     else
-      @_poster_cta = poster_cta
+      @_detail_overview = detail_overview
 
   ###
   *------------------------------------------*
-  | getDetailVimeoId:string (-)
+  | getDetailServices:array (-)
   |
-  | Get detail vimeo id.
+  | Get detail services.
   *----------------------------------------###
-  getDetailVimeoId: ->
-    return @_detail_vimeo_id
+  getDetailServices: ->
+    return @_detail_services
 
   ###
   *------------------------------------------*
-  | setDetailVimeoId:void (-)
+  | setDetailServices:void (-)
   |
-  | detail_vimeo_id:string - vimeo id
+  | detail_services:array - detail services array
   |
-  | Set detail vimeo id.
+  | Set detail services.
   *----------------------------------------###
-  setDetailVimeoId: (detail_vimeo_id) ->
-    if _.isString(detail_vimeo_id) is false
-      throw 'ERROR: detail_vimeo_id must be a string'
-    else
-      @_detail_vimeo_id = detail_vimeo_id
-
-  ###
-  *------------------------------------------*
-  | getDescrTitle:string (-)
-  |
-  | Get descr title.
-  *----------------------------------------###
-  getDescrTitle: ->
-    return @_descr_title
-
-  ###
-  *------------------------------------------*
-  | setDescrTitle:void (-)
-  |
-  | descr_title:string - descr title
-  |
-  | Set descr title.
-  *----------------------------------------###
-  setDescrTitle: (descr_title) ->
-    if _.isString(descr_title) is false
-      throw 'ERROR: descr_title must be a string'
-    else
-      @_descr_title = descr_title
-
-  ###
-  *------------------------------------------*
-  | getDescrText:string (-)
-  |
-  | Get descr text.
-  *----------------------------------------###
-  getDescrText: ->
-    return @_descr_text
-
-  ###
-  *------------------------------------------*
-  | setDescrText:void (-)
-  |
-  | descr_text:string - descr text
-  |
-  | Set descr text.
-  *----------------------------------------###
-  setDescrText: (descr_text) ->
-    if _.isString(descr_text) is false or descr_text.length > 250
-      throw 'ERROR: descr_text must be a string and no more than 250 characters'
-    else
-      @_descr_text = descr_text
-
-  ###
-  *------------------------------------------*
-  | getServices:array (-)
-  |
-  | Get services.
-  *----------------------------------------###
-  getServices: ->
-    return @_services
-
-  ###
-  *------------------------------------------*
-  | setServices:void (-)
-  |
-  | services:array - services array
-  |
-  | Set services.
-  *----------------------------------------###
-  setServices: (services) ->
+  setDetailServices: (detail_services) ->
     passed = true
     
-    if _.isArray(services) is false or (services.length < 1 or services.length > 5)
+    if _.isArray(detail_services) is false or (detail_services.length < 1 or detail_services.length > 5)
       passed = false
-      throw 'ERROR: services must be an array of at least 1 string, but no more than 5'
+      throw 'ERROR: detail_services must be an array of at least 1 string, but no more than 5'
     
-    for s in services
+    for s in detail_services
       if _.isString(s) is false
         passed = false
         throw 'ERROR: each service must be a string'
         break
 
     if passed is true
-      @_services = services
+      @_detail_services = detail_services
+
+  ###
+  *------------------------------------------*
+  | getDetailAccolades:array (-)
+  |
+  | Get detail accolades.
+  *----------------------------------------###
+  getDetailAccolades: ->
+    return @_detail_accolades
+
+  ###
+  *------------------------------------------*
+  | setDetailAccolades:void (-)
+  |
+  | detail_accolades:array - detail accolades array
+  |
+  | Set detail accolades.
+  *----------------------------------------###
+  setDetailAccolades: (detail_accolades) ->
+    passed = true
+    
+    if detail_accolades isnt null
+      if _.isArray(detail_accolades) is false or (detail_accolades.length < 1 or detail_accolades.length > 5)
+        passed = false
+        throw 'ERROR: detail_accolades must be an array of at least 1 string, but no more than 5'
+    
+      for s in detail_accolades
+        if _.isString(s) is false
+          passed = false
+          throw 'ERROR: each accolade must be a string'
+          break
+
+      if passed is true
+        @_detail_accolades = detail_accolades
 
 module.exports = FeaturedWorkSlideModel

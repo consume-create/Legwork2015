@@ -31,19 +31,17 @@ class FeaturedWorkSlideController extends BaseSlideController
       'title': @model.getTitle(),
       'rgb': @model.getRgb(),
       'callouts': @model.getCallouts(),
-      'vimeo_id': @model.getVimeoId(),
       'launch_url': @model.getLaunchUrl(),
-      'tagline': @model.getTagline(),
+      'watch_video_id': @model.getWatchVideoId(),
       'picture_src': @model.getPictureSrc(),
       'clients': @model.getClients(),
       'mediums': @model.getMediums(),
-      'bg_src': @model.getBgSrc(),
-      'poster_src': @model.getPosterSrc(),
-      'poster_cta': @model.getPosterCta(),
-      'detail_vimeo_id': @model.getDetailVimeoId(),
-      'descr_title': @model.getDescrTitle(),
-      'descr_text': @model.getDescrText(),
-      'services': @model.getServices()
+      'tagline': @model.getTagline(),
+      'detail_bg': @model.getDetailBg(),
+      'detail_title': @model.getDetailTitle(),
+      'detail_overview': @model.getDetailOverview(),
+      'detail_services': @model.getDetailServices(),
+      'detail_accolades': @model.getDetailAccolades()
     })))
     @model.getE().append(@model.getV())
 

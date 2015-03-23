@@ -120,19 +120,17 @@ class PageController
             'rgb': slide.rgb,
             'title': slide.title,
             'callouts': slide.callouts,
-            'vimeo_id': slide.vimeo_id,
             'launch_url': slide.launch_url,
-            'tagline': slide.tagline,
+            'watch_video_id': slide.watch_video_id,
             'picture_src': slide.picture_src,
             'clients': slide.clients,
             'mediums': slide.mediums,
-            'bg_src': slide.details.bg_src,
-            'poster_src': slide.details.poster_src,
-            'poster_cta': slide.details.poster_cta,
-            'detail_vimeo_id': slide.details.detail_vimeo_id,
-            'descr_title': slide.details.descr_title,
-            'descr_text': slide.details.descr_text,
-            'services': slide.details.services
+            'tagline': slide.tagline,
+            'detail_bg': slide.details.detail_bg,
+            'detail_title': slide.details.detail_title,
+            'detail_overview': slide.details.detail_overview,
+            'detail_services': slide.details.detail_services,
+            'detail_accolades': slide.details.detail_accolades
           })
           @slide_c[id] = new FeaturedWorkSlideController({
             'model': @slide_m[id]

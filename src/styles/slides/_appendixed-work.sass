@@ -23,11 +23,6 @@
       overflow: hidden
       opacity: 0
 
-      @include respond-above($media_1400)
-        @include respond-above-ht($media_ht_560)
-          width: 33.333%
-          height: 50%
-
       @for $i from 1 through 6
         &:nth-child(#{$i})
           background-color: rgba(0,0,0,(0.05 * $i))
@@ -92,10 +87,6 @@
           @include respond-above($media_1180)
             left: 100px
 
-          @include respond-above($media_1400)
-            left: 80px
-            right: 80px
-
           .title-holder
             position: relative
             height: 14px
@@ -107,11 +98,6 @@
             @include respond-above($media_768)
               @include respond-above-ht($media_ht_560)
                 height: 30px
-
-            @include respond-above($media_1400)
-              @include respond-above-ht($media_ht_560)
-                height: 105px
-                margin: 5px 0 0
 
             h2
               position: relative
@@ -132,26 +118,6 @@
                   height: 30px
                   font-size: 23px
                   line-height: 30px
-
-              @include respond-above($media_1400)
-                @include respond-above-ht($media_ht_560)
-                  float: left
-                  font-size: 33px
-                  line-height: 28px
-                  padding: 0 0 15px
-
-                  &:last-child
-                    margin: 15px 0 0
-                    clear: both
-              
-                  &:after
-                    content: ''
-                    position: absolute
-                    bottom: 0px
-                    left: 0px
-                    width: 100%
-                    height: 5px
-                    background-color: $black
 
           .sub-text
             position: relative
@@ -203,14 +169,6 @@
               height: 24px
               line-height: 24px
 
-            @include respond-above($media_1400)
-              @include respond-above-ht($media_ht_560)
-                padding: 28px 0 0
-                display: block
-
-                &.callout
-                  display: none
-
 // ---------------------------------------------
 // Party mode
 // ---------------------------------------------
@@ -224,11 +182,3 @@
           .sub-text
             .icon
               animation: bounce $speed $evil_ease
-
-            @include respond-above($media_1400)
-              @include respond-above-ht($media_ht_560)
-                &.tagline
-                  display: none
-
-                &.callout
-                  display: block
