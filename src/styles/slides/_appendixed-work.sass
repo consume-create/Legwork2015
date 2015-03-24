@@ -174,11 +174,27 @@
 // ---------------------------------------------
 
 .party-on
-  ul.cells
-    li.cell
-      .link-btn:hover,
-      .watch-btn:hover
-        .content
-          .sub-text
-            .icon
-              animation: bounce $speed $evil_ease
+  .slide.appendixed-work
+    ul.cells
+      li.cell
+        .link-btn,
+        .watch-btn
+          .content
+            .sub-text
+              display: none
+
+              &.tagline
+                display: block
+
+        .link-btn:hover,
+        .watch-btn:hover
+          .content
+            .sub-text
+              .icon
+                animation: bounce $speed $evil_ease
+
+              &.tagline
+                display: none
+
+              &.callout
+                display: block
