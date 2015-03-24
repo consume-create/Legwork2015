@@ -5,7 +5,7 @@ data = {
   "id": "contact",
   "title": "Contact",
   "picture_src": "/images/about/contact.jpg",
-  "copy": "<p>You can also keep tabs on us at <a href='https://twitter.com/legwork' target='_new'>Twitter</a> and <a href='https://www.facebook.com/legwork' target='_new'>Facebook</a>.</p>",
+  "copy": null,
   "lists": [
     {
       "items": [

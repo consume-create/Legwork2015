@@ -33,7 +33,12 @@
 							<% end %>
 						</ul>
 					<% end %>
-					<%- @copy %>
+					<ul class="socials">
+						<li class="social"><a href='https://twitter.com/legwork' target='_new'>Twitter</a></li>
+						<li class="social"><a href='https://facebook.com/legwork' target='_new'>Facebook</a></li>
+						<li class="social"><a href='https://vimeo.com/legworkstudio' target='_new'>Vimeo</a></li>
+						<li class="social"><a href='https://github.com/legworkstudio' target='_new'>Github</a></li>
+					</ul>
 				<% else: %>
 					<% for list in @lists: %>
 						<ul class="lists cf">
