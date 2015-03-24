@@ -11,7 +11,8 @@ data = {
   "watch_video_id": null,
   "picture_src": "/images/work/ron/ron.png",
   "clients": [
-    "/images/client-logos/nike.png"
+    "/images/client-logos/chrysler.png",
+    "/images/client-logos/w-k.png"
   ],
   "mediums": [
     LW.mediums.DESKTOP,

@@ -11,7 +11,7 @@ data = {
   "watch_video_id": "1234",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
-    "/images/client-logos/nike.png"
+    "/images/client-logos/tbwa.png"
   ],
   "mediums": [
     LW.mediums.ANIMATION

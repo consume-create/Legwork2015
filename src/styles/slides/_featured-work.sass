@@ -179,19 +179,26 @@
       li
         float: left
         position: relative
-        width: 42px
-        height: 22px
+        width: 25px
+        height: 20px
         margin: 0 14px 0 0
-        box-shadow: inset 0px 0px 0px 2px $black
+        background-image: url('/images/mediums@2x.png')
+        background-size: 25px 180px
 
         &:first-child
-          margin: 0 14px 0 22px
+          margin: 0 14px 0 20px
 
       &.mediums
         &:before
           content: 'Medium(s)'
         
         li
+          &.mobile
+            background-position: center -40px
+          
+          &.animation
+            background-position: center -80px
+
           span
             position: absolute
             bottom: 100%
@@ -226,6 +233,3 @@
 
             transform: translate3d(-50%,-10px,0)
             transition: transform $speed $evil_ease 100ms, opacity $speed $evil_ease 100ms
-
-        li:last-child
-          width: 13px
