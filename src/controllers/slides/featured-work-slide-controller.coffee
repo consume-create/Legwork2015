@@ -46,7 +46,6 @@ class FeaturedWorkSlideController extends BaseSlideController
     @model.getE().append(@model.getV())
 
     @$title_holder = $('.title-holder', @model.getV())
-    @$about_btn = $('.callout.about', @model.getV())
     @$watch_btn = $('.callout.watch', @model.getV())
     @$picture_zone = $('.picture-zone', @model.getV())
 

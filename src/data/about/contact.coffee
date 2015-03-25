@@ -1,10 +1,10 @@
 data = {
   "browser_title": "Legwork Studio / Contact",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
-  "rgb": [0, 174, 239],
+  "rgb": [162, 116, 165],
   "id": "contact",
   "title": "Contact",
-  "picture_src": "/images/about/contact.jpg",
+  "picture_src": "/images/about/contact.png",
   "copy": null,
   "lists": [
     {

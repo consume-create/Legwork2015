@@ -157,7 +157,7 @@ class PageController
     @$filter_bg = $('.filter-bg', @model.getV())
     @$page_btns = $('.page-nav li a', @model.getV())
     @$menu_btn = $('.menu-btn', @model.getV())
-    @$about_btn = $('.about', @model.getV())
+    @$about_btn = $('.title-zone .about', @model.getV())
 
     # Details selectors
     @$detail_slide = $('.detail-slide', @model.getV())
