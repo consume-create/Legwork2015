@@ -36,7 +36,7 @@
 	<div class="meta-zone cf">
 		<ul class="clients">
 			<% for c in @clients: %>
-				<li></li>
+				<li><img src="<%= c %>" alt="" /></li>
 			<% end %>
 		</ul>
 		<ul class="mediums">

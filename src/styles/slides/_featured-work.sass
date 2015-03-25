@@ -179,25 +179,38 @@
       li
         float: left
         position: relative
-        width: 25px
         height: 20px
         margin: 0 14px 0 0
-        background-image: url('/images/mediums@2x.png')
-        background-size: 25px 180px
 
         &:first-child
-          margin: 0 14px 0 20px
+          margin: 0 14px 0 25px
+
+        img
+          width: auto
+          height: 100%
+          vertical-align: middle
+          display: block
 
       &.mediums
         &:before
           content: 'Medium(s)'
         
         li
+          width: 25px
+          background-image: url('/images/mediums@2x.png')
+          background-size: 25px 180px
+
           &.mobile
             background-position: center -40px
-          
+
           &.animation
             background-position: center -80px
+
+          &.three-dimensional
+            background-position: center -120px
+          
+          &.experimental
+            background-position: center -160px
 
           span
             position: absolute

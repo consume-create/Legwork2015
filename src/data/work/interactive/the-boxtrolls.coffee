@@ -13,7 +13,7 @@ data = {
   "clients": [
     "/images/client-logos/laika.png",
     "/images/client-logos/nike.png",
-    "/images/client-logos/k-k.png"
+    "/images/client-logos/w-k.png"
   ],
   "mediums": [
     LW.mediums.DESKTOP,
