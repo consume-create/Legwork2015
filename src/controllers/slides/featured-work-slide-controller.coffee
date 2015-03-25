@@ -29,7 +29,6 @@ class FeaturedWorkSlideController extends BaseSlideController
     super()
     @model.setV($(JST['featured-work-slide-view']({
       'title': @model.getTitle(),
-      'rgb': @model.getRgb(),
       'callouts': @model.getCallouts(),
       'launch_url': @model.getLaunchUrl(),
       'watch_video_id': @model.getWatchVideoId(),
