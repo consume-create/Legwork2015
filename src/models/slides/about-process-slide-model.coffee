@@ -124,7 +124,7 @@ class AboutProcessSlideModel extends BaseSlideModel
   | Set copy.
   *----------------------------------------###
   setCopy: (copy) ->
-    if _.isString(copy) is false
+    if copy isnt null and _.isString(copy) is false
       throw 'ERROR: copy must be a string'
     else
       @_copy = copy

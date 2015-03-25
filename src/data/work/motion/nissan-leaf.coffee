@@ -11,7 +11,7 @@ data = {
   "watch_video_id": "1234",
   "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
-    "/images/client-logos/nike.png"
+    "/images/client-logos/nissan.png"
   ],
   "mediums": [
     LW.mediums.ANIMATION

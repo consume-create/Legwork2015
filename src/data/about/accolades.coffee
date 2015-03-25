@@ -1,10 +1,10 @@
 data = {
   "browser_title": "Legwork Studio / Accolades",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
-  "rgb": [0, 174, 239],
+  "rgb": [116, 136, 165],
   "id": "accolades",
   "title": "Accolades",
-  "picture_src": "/images/about/accolades.jpg",
+  "picture_src": "/images/about/accolades.png",
   "copy": '',
   "lists": [
     {

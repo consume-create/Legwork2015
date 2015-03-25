@@ -179,19 +179,39 @@
       li
         float: left
         position: relative
-        width: 42px
-        height: 22px
+        height: 20px
         margin: 0 14px 0 0
-        box-shadow: inset 0px 0px 0px 2px $black
 
         &:first-child
-          margin: 0 14px 0 22px
+          margin: 0 14px 0 25px
+
+        img
+          width: auto
+          height: 100%
+          vertical-align: middle
+          display: block
 
       &.mediums
         &:before
           content: 'Medium(s)'
         
         li
+          width: 25px
+          background-image: url('/images/mediums@2x.png')
+          background-size: 25px 180px
+
+          &.mobile
+            background-position: center -40px
+
+          &.animation
+            background-position: center -80px
+
+          &.three-dimensional
+            background-position: center -120px
+          
+          &.experimental
+            background-position: center -160px
+
           span
             position: absolute
             bottom: 100%
@@ -226,6 +246,3 @@
 
             transform: translate3d(-50%,-10px,0)
             transition: transform $speed $evil_ease 100ms, opacity $speed $evil_ease 100ms
-
-        li:last-child
-          width: 13px

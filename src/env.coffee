@@ -31,12 +31,14 @@ LW.slide_types.APPENDIXED_WORK = 'appendixed-work'
 # Medium constants
 
 # NOTE:
-# To add a new medium, add it to ./styles/_slides.sass and ./public/images/mediums-sprite@2x.png
+# To add a new medium, add it to ./styles/_featured-work.sass and ./public/images/mediums@2x.png
 
 LW.mediums = []
 LW.mediums.DESKTOP = "desktop"
 LW.mediums.MOBILE = "mobile"
 LW.mediums.ANIMATION = "animation"
+LW.mediums.THREE_DIMENSIONAL = "three-dimensional"
+LW.mediums.EXPERIMENTAL = "experimental"
 
 LW.callouts = []
 LW.callouts.ABOUT = "about"

@@ -1,11 +1,11 @@
 data = {
   "browser_title": "Legwork Studio / Contact",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
-  "rgb": [0, 174, 239],
+  "rgb": [162, 116, 165],
   "id": "contact",
   "title": "Contact",
-  "picture_src": "/images/about/contact.jpg",
-  "copy": "<p>You can also keep tabs on us at <a href='https://twitter.com/legwork' target='_new'>Twitter</a> and <a href='https://www.facebook.com/legwork' target='_new'>Facebook</a>.</p>",
+  "picture_src": "/images/about/contact.png",
+  "copy": null,
   "lists": [
     {
       "items": [
