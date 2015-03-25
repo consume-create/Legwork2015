@@ -18,8 +18,6 @@ newton = require './work/interactive/newton'
 cokes_building_of_memories = require './work/interactive/cokes-building-of-memories'
 hands_on_ron_burgundy = require './work/interactive/hands-on-ron-burgundy'
 birth_control_myths = require './work/motion/birth-control-myths'
-climate_reality = require './work/motion/climate-reality'
-ello = require './work/motion/ello'
 nissan_leaf = require './work/motion/nissan-leaf'
 appendix_01 = require './work/appendix-01'
 
@@ -56,8 +54,6 @@ data = {
 				"cokes-building-of-memories": cokes_building_of_memories,
 				"hands-on-ron-burgundy": hands_on_ron_burgundy,
 				"birth-control-myths": birth_control_myths,
-				"climate-reality": climate_reality,
-				"ello": ello,
 				"nissan-leaf": nissan_leaf,
 				"appendix-01": appendix_01
 			}

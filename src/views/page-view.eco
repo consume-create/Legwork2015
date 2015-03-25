@@ -68,7 +68,7 @@
 								<% n = 1 %>
 								<% for slide_id, slide of @slides: %>
 									<li>
-										<a class="ajaxy" href="<%= if slide_id is LW.LANDING_SLIDE then '/' + @id else '/' + @id + '/' + slide_id %>" data-id="<%= slide_id %>" data-rgb="[<%= slide.rgb %>]">
+										<a class="ajaxy" href="<%= if slide_id is LW.LANDING_SLIDE then '/' + @id else '/' + @id + '/' + slide_id %>" data-id="<%= slide_id %>" data-rgb="[<%= LW.colors[0] %>]">
 											<span class="black-bar"></span>
 											<h4><%= ('0' + (n++)).slice(-2) %></h4>
 											<h4><%= $.trim(slide.browser_title.split('/')[1]) %></h4>

@@ -67,7 +67,7 @@ class PageController
         when LW.slide_types.HOME
           @slide_m[id] = new HomeSlideModel({
             '$el': $el,
-            'rgb': slide.rgb,
+            'rgb': slide.rgb
           })
           @slide_c[id] = new HomeSlideController({
             'model': @slide_m[id]
@@ -75,7 +75,6 @@ class PageController
         when LW.slide_types.ABOUT
           @slide_m[id] = new AboutSlideModel({
             '$el': $el,
-            'rgb': slide.rgb,
             'title': slide.title,
             'instructions': slide.instructions
           })
@@ -85,7 +84,6 @@ class PageController
         when LW.slide_types.ABOUT_PROCESS
           @slide_m[id] = new AboutProcessSlideModel({
             '$el': $el,
-            'rgb': slide.rgb,
             'id': slide.id,
             'title': slide.title,
             'picture_src': slide.picture_src,
@@ -98,7 +96,6 @@ class PageController
         when LW.slide_types.ABOUT_VIDEO
           @slide_m[id] = new AboutVideoSlideModel({
             '$el': $el,
-            'rgb': slide.rgb,
             'poster_src': slide.poster_src
           })
           @slide_c[id] = new AboutVideoSlideController({
@@ -107,7 +104,6 @@ class PageController
         when LW.slide_types.WORK
           @slide_m[id] = new WorkSlideModel({
             '$el': $el,
-            'rgb': slide.rgb,
             'title': slide.title,
             'instructions': slide.instructions
           })
@@ -117,7 +113,6 @@ class PageController
         when LW.slide_types.FEATURED_WORK
           @slide_m[id] = new FeaturedWorkSlideModel({
             '$el': $el,
-            'rgb': slide.rgb,
             'title': slide.title,
             'callouts': slide.callouts,
             'launch_url': slide.launch_url,
@@ -138,7 +133,6 @@ class PageController
         when LW.slide_types.APPENDIXED_WORK
           @slide_m[id] = new AppendixedWorkSlideModel({
             '$el': $el,
-            'rgb': slide.rgb,
             'projects': slide.projects
           })
           @slide_c[id] = new AppendixedWorkSlideController({
@@ -224,7 +218,7 @@ class PageController
       @slide_c[slide].transitionIn(direction)
       @active_c = @slide_c[slide]
     
-    @setBackgroundColor(@slide_c[slide].model._rgb)
+    @setBackgroundColor(LW.colors[0].rgb)
     @old_index = @active_index
 
     if LW.virgin is false

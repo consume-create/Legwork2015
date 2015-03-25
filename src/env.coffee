@@ -44,3 +44,22 @@ LW.callouts = []
 LW.callouts.ABOUT = "about"
 LW.callouts.LAUNCH = "launch"
 LW.callouts.WATCH = "watch"
+
+# RGB constants
+
+# NOTE:
+# These are the 9 colors from the color palette
+# The loop in order by every other one and repeat
+# Make sense? Of course not. Just trust us.
+
+LW.colors = [
+	{"rgb": [195,85,71]},
+	{"rgb": [218,153,81]},
+	{"rgb": [148,189,151]},
+	{"rgb": [116,136,165]},
+	{"rgb": [162,116,165]},
+	{"rgb": [195,105,71]},
+	{"rgb": [218,176,81]},
+	{"rgb": [104,167,184]},
+	{"rgb": [129,116,165]},
+]
