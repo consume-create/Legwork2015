@@ -19,7 +19,6 @@ cokes_building_of_memories = require './work/interactive/cokes-building-of-memor
 hands_on_ron_burgundy = require './work/interactive/hands-on-ron-burgundy'
 birth_control_myths = require './work/motion/birth-control-myths'
 nissan_leaf = require './work/motion/nissan-leaf'
-appendix_01 = require './work/appendix-01'
 
 # Describe the structure of the site
 
@@ -54,8 +53,7 @@ data = {
 				"cokes-building-of-memories": cokes_building_of_memories,
 				"hands-on-ron-burgundy": hands_on_ron_burgundy,
 				"birth-control-myths": birth_control_myths,
-				"nissan-leaf": nissan_leaf,
-				"appendix-01": appendix_01
+				"nissan-leaf": nissan_leaf
 			}
 		}
 	}

@@ -13,16 +13,12 @@ AboutSlideModel = require '../models/slides/about-slide-model'
 AboutSlideController = require './slides/about-slide-controller'
 AboutProcessSlideModel = require '../models/slides/about-process-slide-model'
 AboutProcessSlideController = require './slides/about-process-slide-controller'
-AboutVideoSlideModel = require '../models/slides/about-video-slide-model'
-AboutVideoSlideController = require './slides/about-video-slide-controller'
 
 # Work Slides
 WorkSlideModel = require '../models/slides/work-slide-model'
 WorkSlideController = require './slides/work-slide-controller'
 FeaturedWorkSlideModel = require '../models/slides/featured-work-slide-model'
 FeaturedWorkSlideController = require './slides/featured-work-slide-controller'
-AppendixedWorkSlideModel = require '../models/slides/appendixed-work-slide-model'
-AppendixedWorkSlideController = require './slides/appendixed-work-slide-controller'
 
 class PageController
 
@@ -93,14 +89,6 @@ class PageController
           @slide_c[id] = new AboutProcessSlideController({
             'model': @slide_m[id]
           })
-        when LW.slide_types.ABOUT_VIDEO
-          @slide_m[id] = new AboutVideoSlideModel({
-            '$el': $el,
-            'poster_src': slide.poster_src
-          })
-          @slide_c[id] = new AboutVideoSlideController({
-            'model': @slide_m[id]
-          })
         when LW.slide_types.WORK
           @slide_m[id] = new WorkSlideModel({
             '$el': $el,
@@ -128,14 +116,6 @@ class PageController
             'detail_accolades': slide.details.detail_accolades
           })
           @slide_c[id] = new FeaturedWorkSlideController({
-            'model': @slide_m[id]
-          })
-        when LW.slide_types.APPENDIXED_WORK
-          @slide_m[id] = new AppendixedWorkSlideModel({
-            '$el': $el,
-            'projects': slide.projects
-          })
-          @slide_c[id] = new AppendixedWorkSlideController({
             'model': @slide_m[id]
           })
         else

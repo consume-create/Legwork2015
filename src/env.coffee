@@ -26,7 +26,6 @@ LW.slide_types.ABOUT_VIDEO = 'about-video'
 # Work Slides
 LW.slide_types.WORK = 'work'
 LW.slide_types.FEATURED_WORK = 'featured-work'
-LW.slide_types.APPENDIXED_WORK = 'appendixed-work'
 
 # Medium constants
 
