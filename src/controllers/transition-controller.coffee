@@ -66,8 +66,8 @@ class TransitionController
     mc = new PIXI.MovieClip(@mapTextures('ben-test-', 50, true))
     mc.animationSpeed = 24 / 60
     mc.loop = false
-    mc.position = new PIXI.Point(-500, -200)
-    mc.scale = new PIXI.Point(3, 3)
+    mc.position = new PIXI.Point(-200, 0)
+    mc.scale = new PIXI.Point(2, 2)
     @stage.addChild(mc)
     mc.gotoAndStop(0)
     @animationQueue.push(mc)
@@ -101,9 +101,12 @@ class TransitionController
     _.delay(=>
       a = _.sample(@animationQueue)
       if direction is 'right'
-        a.scale = new PIXI.Point(-3, 3)
+        a.scale = new PIXI.Point(-2, 2)
         a.position.x -= a.width
-      a.gotoAndPlay(0)
+
+      _.delay(=>
+        a.gotoAndPlay(0)
+      , 250)
 
       @model.getE()
         .addClass('in-' + direction)
@@ -152,8 +155,8 @@ class TransitionController
   *----------------------------------------###
   suspendAllAnimations: ->
     for a in @animationQueue
-      a.scale = new PIXI.Point(3, 3)
-      a.position.x = -500
+      a.scale = new PIXI.Point(2, 2)
+      a.position.x = -200
       a.gotoAndStop(0)
 
   ###
