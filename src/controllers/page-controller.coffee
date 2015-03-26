@@ -13,16 +13,12 @@ AboutSlideModel = require '../models/slides/about-slide-model'
 AboutSlideController = require './slides/about-slide-controller'
 AboutProcessSlideModel = require '../models/slides/about-process-slide-model'
 AboutProcessSlideController = require './slides/about-process-slide-controller'
-AboutVideoSlideModel = require '../models/slides/about-video-slide-model'
-AboutVideoSlideController = require './slides/about-video-slide-controller'
 
 # Work Slides
 WorkSlideModel = require '../models/slides/work-slide-model'
 WorkSlideController = require './slides/work-slide-controller'
 FeaturedWorkSlideModel = require '../models/slides/featured-work-slide-model'
 FeaturedWorkSlideController = require './slides/featured-work-slide-controller'
-AppendixedWorkSlideModel = require '../models/slides/appendixed-work-slide-model'
-AppendixedWorkSlideController = require './slides/appendixed-work-slide-controller'
 
 class PageController
 
@@ -93,14 +89,6 @@ class PageController
           @slide_c[id] = new AboutProcessSlideController({
             'model': @slide_m[id]
           })
-        when LW.slide_types.ABOUT_VIDEO
-          @slide_m[id] = new AboutVideoSlideModel({
-            '$el': $el,
-            'poster_src': slide.poster_src
-          })
-          @slide_c[id] = new AboutVideoSlideController({
-            'model': @slide_m[id]
-          })
         when LW.slide_types.WORK
           @slide_m[id] = new WorkSlideModel({
             '$el': $el,
@@ -130,14 +118,6 @@ class PageController
           @slide_c[id] = new FeaturedWorkSlideController({
             'model': @slide_m[id]
           })
-        when LW.slide_types.APPENDIXED_WORK
-          @slide_m[id] = new AppendixedWorkSlideModel({
-            '$el': $el,
-            'projects': slide.projects
-          })
-          @slide_c[id] = new AppendixedWorkSlideController({
-            'model': @slide_m[id]
-          })
         else
           throw 'ERROR: slide type does not exist'
 
@@ -145,10 +125,6 @@ class PageController
     @$mask_wrapper = $('.mask-wrapper', @model.getV())
     @$slides_wrapper = $('.slides-wrapper', @model.getV())
     @$nav = $('.page-nav-zone', @model.getV())
-    @$filter_zone = $('.filter-zone', @model.getV())
-    @$filter_btn = $('.filter-btn', @model.getV())
-    @$filter_item = $('.filter-item', @model.getV())
-    @$filter_bg = $('.filter-bg', @model.getV())
     @$page_btns = $('.page-nav li a', @model.getV())
     @$menu_btn = $('.menu-btn', @model.getV())
     @$about_btn = $('.title-zone .about', @model.getV())
@@ -220,10 +196,6 @@ class PageController
     
     @setBackgroundColor(LW.colors[0].rgb)
     @old_index = @active_index
-
-    if LW.virgin is false
-      @hidePageNav()
-
     @hideDetails()
 
   ###
@@ -405,9 +377,6 @@ class PageController
     @$nav.removeClass('show')
     @$menu_btn.removeClass('close')
 
-    if @$filter_zone.length > 0
-      @hideFilterList()
-
   ###
   *------------------------------------------*
   | showPageNav:void (=)
@@ -417,45 +386,6 @@ class PageController
   showPageNav: =>
     @$nav.addClass('show')
     @$menu_btn.addClass('close')
-
-  ###
-  *------------------------------------------*
-  | onClickFilterBtn:void (=)
-  |
-  | Click filter btn.
-  *----------------------------------------###
-  onClickFilterBtn: =>
-    if @$filter_zone.hasClass('drop-down')
-      @hideFilterList()
-    else
-      @showFilterList()
-
-  ###
-  *------------------------------------------*
-  | onClickFilterBg:void (=)
-  |
-  | Click filter bg.
-  *----------------------------------------###
-  onClickFilterBg: =>
-    @hideFilterList()
-
-  ###
-  *------------------------------------------*
-  | hideFilterList:void (=)
-  |
-  | Hide filter list.
-  *----------------------------------------###
-  hideFilterList: =>
-    @$filter_zone.removeClass('drop-down')
-
-  ###
-  *------------------------------------------*
-  | showFilterList:void (=)
-  |
-  | Show filter list.
-  *----------------------------------------###
-  showFilterList: =>
-    @$filter_zone.addClass('drop-down')
 
   ###
   *------------------------------------------*
@@ -578,14 +508,6 @@ class PageController
         .off('mouseenter')
         .on('mouseenter', @onMouseEnterNav)
 
-      @$filter_btn
-        .off('click')
-        .on('click', @onClickFilterBtn)
-
-      @$filter_bg
-        .off('click')
-        .on('click', @onClickFilterBg)
-
       @$menu_btn
         .off('click')
         .on('click', @onClickMenuBtn)
@@ -635,8 +557,6 @@ class PageController
       LW.$doc.off("keyup.#{@model._id}")
       @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
       @$nav.off('mouseenter mouseleave')
-      @$filter_btn.off('click')
-      @$filter_bg.off('click')
       @$menu_btn.off('click')
       @$about_btn.off('click')
       @hideDetails()
