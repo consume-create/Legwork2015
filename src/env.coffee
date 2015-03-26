@@ -49,7 +49,7 @@ LW.callouts.WATCH = "watch"
 # NOTE:
 # These are the 9 colors from the color palette
 # The loop in order by every other one and repeat
-# Make sense? Of course not. Just trust us.
+# Make sense? Of course not. Just trust this. It works.
 
 LW.colors = [
 	{"rgb": [195,85,71]},
@@ -60,5 +60,5 @@ LW.colors = [
 	{"rgb": [195,105,71]},
 	{"rgb": [218,176,81]},
 	{"rgb": [104,167,184]},
-	{"rgb": [129,116,165]},
+	{"rgb": [129,116,165]}
 ]

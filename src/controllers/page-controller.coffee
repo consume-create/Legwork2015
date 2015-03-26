@@ -124,6 +124,7 @@ class PageController
     # Cache selectors
     @$mask_wrapper = $('.mask-wrapper', @model.getV())
     @$slides_wrapper = $('.slides-wrapper', @model.getV())
+    @$slide = $('.slide', @model.getV())
     @$nav = $('.page-nav-zone', @model.getV())
     @$page_btns = $('.page-nav li a', @model.getV())
     @$menu_btn = $('.menu-btn', @model.getV())
@@ -133,7 +134,7 @@ class PageController
     @$detail_slide = $('.detail-slide', @model.getV())
     @$active_detail = null
 
-    @total_page_btns = @$page_btns.length
+    @total_slides = @$slide.length
     @active_c = null
     @active_index = 0
     @old_index = 0
@@ -156,6 +157,12 @@ class PageController
     @mousedown = if Modernizr.touch then "touchstart" else "mousedown"
     @mousemove = if Modernizr.touch then "touchmove" else "mousemove"
     @mouseup = if Modernizr.touch then "touchend" else "mouseup"
+
+    # Loop and assign colors to each slide in order
+    c = 0
+    for n in [0...@$slide.length]
+      @$slide.eq(n).attr('data-rgb', LW.colors[c].rgb)
+      c = if (c is LW.colors.length - 1) then 0 else c + 1
 
   ###
   *------------------------------------------*
@@ -194,7 +201,7 @@ class PageController
       @slide_c[slide].transitionIn(direction)
       @active_c = @slide_c[slide]
     
-    @setBackgroundColor(LW.colors[0].rgb)
+    @setBackgroundColor(@$slide.eq(@active_index).attr('data-rgb'))
     @old_index = @active_index
     @hideDetails()
 
@@ -281,13 +288,13 @@ class PageController
       @current_range = if @start_y is 0 then 0 else Math.abs(@direction_y)
       @now = (new Date()).getTime()
 
-      if @direction_y >= 0 and @active_index is 0 or @direction_y <= 0 and @active_index is (@total_page_btns - 1)
+      if @direction_y >= 0 and @active_index is 0 or @direction_y <= 0 and @active_index is (@total_slides - 1)
         obj = {}
         obj[LW.utils.transform] = LW.utils.translate(0,"#{(@direction_y * 0.25) + 'px'}")
         @$slides_wrapper.css(obj)
       else
-        c1 = @$page_btns.eq(@active_index).data('rgb')
-        c2 = if @direction_y < 0 then @$page_btns.eq(@active_index + 1).data('rgb') else @$page_btns.eq(@active_index - 1).data('rgb')
+        c1 = @$slide.eq(@active_index).attr('data-rgb')
+        c2 = if @direction_y < 0 then @$slide.eq(@active_index + 1).attr('data-rgb') else @$slide.eq(@active_index - 1).attr('data-rgb')
         
         p = Math.min(Math.max((@current_range / 200), 0), 1)
         r = Math.round(((c2[0] - c1[0]) * p) + c1[0])
@@ -321,7 +328,7 @@ class PageController
         if @current_y > @start_y
           @previous()
       else
-        @setBackgroundColor(@$page_btns.eq(@active_index).data('rgb'))
+        @setBackgroundColor(@$slide.eq(@active_index).attr('data-rgb'))
 
       return false
 
@@ -343,7 +350,7 @@ class PageController
   | Next slide, if there is one.
   *----------------------------------------###
   next: ->
-    if @active_index < (@total_page_btns - 1)
+    if @active_index < (@total_slides - 1)
       href = @$page_btns.eq(@active_index + 1).attr('href')
       History.pushState(null, null, href)
 
@@ -416,7 +423,7 @@ class PageController
   | Show details.
   *----------------------------------------###
   showDetails: =>
-    id = $('.slide', @model.getV()).eq(@active_index).attr('id')
+    id = @$slide.eq(@active_index).attr('id')
     id = id.replace('work', 'detail')
     
     @$detail_slide.removeClass('active').filter("[data-detail='#{id}']").addClass('active')
@@ -491,9 +498,9 @@ class PageController
     @model.getE().show()
     @reset()
 
-    # If there are page_btns,
+    # If there is more than one slide,
     # we have events to listen to...
-    if @total_page_btns > 1
+    if @total_slides > 1
       LW.$doc
         .off("keyup.#{@model._id}")
         .on("keyup.#{@model._id}", @onKeyup)
@@ -551,9 +558,9 @@ class PageController
     s.suspend() for id, s of @slide_c
     @active_c = null
 
-    # If there were page_btns,
+    # If there was more than one slide,
     # we have events to listen to turn off...
-    if @total_page_btns > 1
+    if @total_slides > 1
       LW.$doc.off("keyup.#{@model._id}")
       @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
       @$nav.off('mouseenter mouseleave')
