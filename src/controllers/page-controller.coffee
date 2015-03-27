@@ -290,9 +290,6 @@ class PageController
     @start_time = (new Date()).getTime()
     @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
 
-    @c1 = @$slide.eq(@active_index).attr('data-rgb').split(',').map(Number)
-    @c2 = if @direction_y < 0 then @$slide.eq(@active_index + 1).attr('data-rgb').split(',').map(Number) else @$slide.eq(@active_index - 1).attr('data-rgb').split(',').map(Number)
-
     LW.$doc.off(@mouseup)
       .one(@mouseup, @onMouseUp)
 
@@ -311,15 +308,18 @@ class PageController
       @current_range = if @start_y is 0 then 0 else Math.abs(@direction_y)
       @now = (new Date()).getTime()
 
+      c1 = @$slide.eq(@active_index).attr('data-rgb').split(',').map(Number)
+      c2 = if @direction_y < 0 then @$slide.eq(@active_index + 1).attr('data-rgb').split(',').map(Number) else @$slide.eq(@active_index - 1).attr('data-rgb').split(',').map(Number)
+
       if @direction_y >= 0 and @active_index is 0 or @direction_y <= 0 and @active_index is (@total_slides - 1)
         obj = {}
         obj[LW.utils.transform] = LW.utils.translate(0,"#{(@direction_y * 0.25) + 'px'}")
         @$slides_wrapper.css(obj)
       else
         p = Math.min(Math.max((@current_range / 200), 0), 1)
-        r = Math.round(((@c2[0] - @c1[0]) * p) + @c1[0])
-        g = Math.round(((@c2[1] - @c1[1]) * p) + @c1[1])
-        b = Math.round(((@c2[2] - @c1[2]) * p) + @c1[2])
+        r = Math.round(((c2[0] - c1[0]) * p) + c1[0])
+        g = Math.round(((c2[1] - c1[1]) * p) + c1[1])
+        b = Math.round(((c2[2] - c1[2]) * p) + c1[2])
         rgb = [r, g, b]
 
         @setBackgroundColor(rgb)
