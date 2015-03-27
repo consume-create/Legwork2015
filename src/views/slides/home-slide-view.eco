@@ -1,2 +1,9 @@
 <div class="slide-inner">
+	<div id="home-video-wrap">
+		<% for n in [0..6]: %>
+		<video id="home-video-<%=n %>" preload="auto" loop="true">
+			<source src="/video/<%=n %>.mp4" type="video/mp4">
+		</video>
+		<% end %>
+	</div>
 </div>
