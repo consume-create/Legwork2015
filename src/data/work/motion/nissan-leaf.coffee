@@ -1,7 +1,6 @@
 data = {
-  "browser_title": "Legwork Studio / Nissan Zero Gravity",
+  "browser_title": "Nissan Zero Gravity",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [195,105,71],
   "title": ["Nissan", "Zero Gravity"],
   "callouts": [
     LW.callouts.ABOUT,

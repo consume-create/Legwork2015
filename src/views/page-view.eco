@@ -57,33 +57,11 @@
 		<div class="mask-wrapper-inner">
 			<div id="<%= @id %>-page-slides" class="slides-wrapper">
 				<% for slide_id, slide of @slides: %>
-					<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>"></div>
+					<div id="<%= @id %>-<%= slide_id %>" class="slide <%= slide.slide_type %>" data-id="<%= slide_id %>"></div>
 				<% end %>
 			</div>
 			<% if _.size(@slides) > 1: %>
-				<div class="page-nav-zone">
-					<div class="page-nav-wrapper">
-						<div id="<%= @id %>-page-nav" class="page-nav" >
-							<ul>
-								<% n = 1 %>
-								<% for slide_id, slide of @slides: %>
-									<li>
-										<a class="ajaxy" href="<%= if slide_id is LW.LANDING_SLIDE then '/' + @id else '/' + @id + '/' + slide_id %>" data-id="<%= slide_id %>">
-											<span class="black-bar"></span>
-											<h4><%= ('0' + (n++)).slice(-2) %></h4>
-											<h4><%= $.trim(slide.browser_title.split('/')[1]) %></h4>
-										</a>
-									</li>
-								<% end %>
-							</ul>
-						</div>
-						<div class="menu-btn">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</div>
-				</div>
+				<div class="page-nav-zone"></div>
 			<% end %>
 		</div>
 	</div>

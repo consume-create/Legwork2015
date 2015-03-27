@@ -1,7 +1,6 @@
 data = {
-  "browser_title": "Legwork Studio / Ello",
+  "browser_title": "Ello",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [195,86,71],
   "title": ["Introducing", "Ello"],
   "callouts": [
     LW.callouts.ABOUT,

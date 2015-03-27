@@ -1,7 +1,6 @@
 data = {
-  "browser_title": "Legwork Studio / Birth Control Myths",
+  "browser_title": "Birth Control Myths",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [129,116,166],
   "title": ["Birth Control", "Myths"],
   "callouts": [
     LW.callouts.ABOUT,

@@ -89,7 +89,7 @@ class Application
           r = '/' + page_url + '/' + slide_url
 
         # Add it
-        LW.router.add(r, slide.browser_title)
+        LW.router.add(r, 'Legwork Studio / ' + slide.browser_title)
 
   ###
   *------------------------------------------*

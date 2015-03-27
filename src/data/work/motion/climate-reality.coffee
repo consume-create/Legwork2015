@@ -1,7 +1,6 @@
 data = {
-  "browser_title": "Legwork Studio / Climate Reality",
+  "browser_title": "Climate Reality",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [162,116,166],
   "title": ["Climate Reality", "Pledge"],
   "callouts": [
     LW.callouts.ABOUT,

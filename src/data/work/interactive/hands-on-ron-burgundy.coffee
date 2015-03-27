@@ -1,7 +1,6 @@
 data = {
-  "browser_title": "Legwork Studio / Hands On Ron Burgundy",
+  "browser_title": "Hands On Ron Burgundy",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [116,135,165],
   "title": ["Hands On", "Ron Burgundy"],
   "callouts": [
     LW.callouts.ABOUT,

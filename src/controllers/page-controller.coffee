@@ -20,6 +20,14 @@ WorkSlideController = require './slides/work-slide-controller'
 FeaturedWorkSlideModel = require '../models/slides/featured-work-slide-model'
 FeaturedWorkSlideController = require './slides/featured-work-slide-controller'
 
+# Page Nav
+PageNavModel = require '../models/page-nav-model'
+PageNavController = require './page-nav-controller'
+
+# Detail
+DetailModel = require '../models/slides/detail/detail-model'
+DetailController = require './slides/detail/detail-controller'
+
 class PageController
 
   ###
@@ -125,14 +133,9 @@ class PageController
     @$mask_wrapper = $('.mask-wrapper', @model.getV())
     @$slides_wrapper = $('.slides-wrapper', @model.getV())
     @$slide = $('.slide', @model.getV())
-    @$nav = $('.page-nav-zone', @model.getV())
-    @$page_btns = $('.page-nav li a', @model.getV())
-    @$menu_btn = $('.menu-btn', @model.getV())
-    @$about_btn = $('.title-zone .about', @model.getV())
 
-    # Details selectors
-    @$detail_slide = $('.detail-slide', @model.getV())
-    @$active_detail = null
+    @$page_nav_zone = $('.page-nav-zone', @model.getV())
+    @$about_btn = $('.title-zone .about', @model.getV())
 
     @total_slides = @$slide.length
     @active_c = null
@@ -164,6 +167,24 @@ class PageController
       @$slide.eq(n).attr('data-rgb', LW.colors[c].rgb)
       c = if (c is LW.colors.length - 1) then 0 else c + 1
 
+
+    # If there are more than one slide,
+    # Create a cool page nav MVC!
+    if @total_slides > 1
+      @page_nav_m = new PageNavModel({
+        '$el': @$page_nav_zone,
+        'id': @model.getId(),
+        'ids': _.keys(@model.getSlideData()),
+        'titles': _.pluck(@model.getSlideData(), 'browser_title')
+      })
+      @page_nav_c = new PageNavController({
+        'model': @page_nav_m
+      })
+
+    # Details selectors
+    @$detail_slide = $('.detail-slide', @model.getV())
+    @$active_detail = null
+
   ###
   *------------------------------------------*
   | resize:void (-)
@@ -184,8 +205,9 @@ class PageController
   goToSlide: (route) =>
     slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
 
-    @$page_btns.removeClass('active').filter('[data-id="' + slide + '"]').addClass('active')
-    @active_index = $('.page-nav li a.active', @model.getV()).parent().index()
+    @page_nav_c.updatePageNav(slide)
+    @$slide.removeClass('active').filter('[data-id="' + slide + '"]').addClass('active')
+    @active_index = $('.slide.active', @model.getV()).index()
     direction = if @active_index >= @old_index then 'bottom' else 'top'
 
     if @active_c isnt null
@@ -212,6 +234,7 @@ class PageController
   | Set background color.
   *----------------------------------------###
   setBackgroundColor: (rgb) ->
+    console.log 'set bg color:', rgb
     if @dragging is true
       @$mask_wrapper.addClass('no-bg-trans')
     else
@@ -302,6 +325,7 @@ class PageController
         b = Math.round(((c2[2] - c1[2]) * p) + c1[2])
         rgb = [r, g, b]
 
+        console.log r
         @setBackgroundColor(rgb)
 
       @$slides_wrapper.addClass('dragging')
@@ -340,8 +364,7 @@ class PageController
   *----------------------------------------###
   previous: ->
     if @active_index > 0
-      href = @$page_btns.eq(@active_index - 1).attr('href')
-      History.pushState(null, null, href)
+      @page_nav_c.previous(@active_index)
 
   ###
   *------------------------------------------*
@@ -351,60 +374,7 @@ class PageController
   *----------------------------------------###
   next: ->
     if @active_index < (@total_slides - 1)
-      href = @$page_btns.eq(@active_index + 1).attr('href')
-      History.pushState(null, null, href)
-
-  ###
-  *------------------------------------------*
-  | onMouseEnterNav:void (=)
-  |
-  | Mouse enter nav.
-  *----------------------------------------###
-  onMouseEnterNav: =>
-    if @$menu_btn.is(':hidden')
-      @showPageNav()
-
-  ###
-  *------------------------------------------*
-  | onMouseLeaveNav:void (=)
-  |
-  | Mouse leave nav.
-  *----------------------------------------###
-  onMouseLeaveNav: =>
-    if @$menu_btn.is(':hidden')
-      @hidePageNav()
-
-  ###
-  *------------------------------------------*
-  | hidePageNav:void (=)
-  |
-  | Hide page nav.
-  *----------------------------------------###
-  hidePageNav: =>
-    @$nav.removeClass('show')
-    @$menu_btn.removeClass('close')
-
-  ###
-  *------------------------------------------*
-  | showPageNav:void (=)
-  |
-  | Show page nav.
-  *----------------------------------------###
-  showPageNav: =>
-    @$nav.addClass('show')
-    @$menu_btn.addClass('close')
-
-  ###
-  *------------------------------------------*
-  | onClickMenuBtn:void (=)
-  |
-  | Click menu btn.
-  *----------------------------------------###
-  onClickMenuBtn: =>
-    if @$menu_btn.hasClass('close')
-      @hidePageNav()
-    else
-      @showPageNav()
+      @page_nav_c.next(@active_index)
 
   ###
   *------------------------------------------*
@@ -511,14 +481,6 @@ class PageController
         .on(@mousedown, @onMouseDown)
         .on(@mousemove, @onMouseMove)
 
-      @$nav
-        .off('mouseenter')
-        .on('mouseenter', @onMouseEnterNav)
-
-      @$menu_btn
-        .off('click')
-        .on('click', @onClickMenuBtn)
-
       @$about_btn
         .off('click')
         .on('click', @showDetails)
@@ -531,21 +493,17 @@ class PageController
 
       # Now check if it's our first time and show or hide the nav
       if LW.virgin is true
-        @showPageNav()
+        @page_nav_c.showPageNav()
 
         setTimeout =>
           LW.virgin = false
-          @$nav
-            .off('mouseleave')
-            .on('mouseleave', @onMouseLeaveNav)
-          
-          if @$nav.is(':hover') is false
-            @hidePageNav()
+          @page_nav_c.activate()
+
+          if @$page_nav_zone.is(':hover') is false
+            @page_nav_c.hidePageNav()
         , 2000
       else
-        @$nav
-          .off('mouseleave')
-          .on('mouseleave', @onMouseLeaveNav)
+        @page_nav_c.activate()
 
   ###
   *------------------------------------------*
@@ -563,8 +521,6 @@ class PageController
     if @total_slides > 1
       LW.$doc.off("keyup.#{@model._id}")
       @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
-      @$nav.off('mouseenter mouseleave')
-      @$menu_btn.off('click')
       @$about_btn.off('click')
       @hideDetails()
 

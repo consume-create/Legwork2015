@@ -1,7 +1,6 @@
 data = {
-  "browser_title": "Legwork Studio / Newton Running",
+  "browser_title": "Newton Running",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "rgb": [105,186,187],
   "title": ["Newton Running", "Run Better"],
   "callouts": [
     LW.callouts.ABOUT,

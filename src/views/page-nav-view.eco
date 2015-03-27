@@ -1,0 +1,21 @@
+<div class="page-nav-wrapper">
+	<div class="page-nav" >
+		<ul>
+			<% n = 1 %>
+			<% for t, title of @titles: %>
+				<li>
+					<a class="ajaxy" href="<%= if n is 1 then '/' + @id else '/' + @id + '/' + @ids[t] %>" data-id="<%= @ids[t] %>">
+						<span class="black-bar"></span>
+						<h4><%= ('0' + (n++)).slice(-2) %></h4>
+						<h4><%= title %></h4>
+					</a>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="menu-btn">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</div>

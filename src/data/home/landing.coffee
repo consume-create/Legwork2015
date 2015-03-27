@@ -1,7 +1,6 @@
 data = {
-	"browser_title": "Legwork Studio / Creativity. Innovation. DIY Ethic.",
-	"slide_type": LW.slide_types.HOME,
-	"rgb": [255, 242, 0]
+	"browser_title": "Creativity. Innovation. DIY Ethic.",
+	"slide_type": LW.slide_types.HOME
 }
 
 module.exports = data

@@ -4,7 +4,7 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 ###
 
-class WorkDetailController
+class DetailController
 
   ###
   *------------------------------------------*
@@ -41,4 +41,4 @@ class WorkDetailController
   *----------------------------------------###
   suspend: ->
 
-module.exports = WorkDetailController
+module.exports = DetailController
