@@ -32,8 +32,6 @@ class PageNavController
     })))
     @model.getE().append(@model.getV())
 
-    console.log @model
-
     @$page_btns = $('.page-nav li a', @model.getV())
     @$menu_btn = $('.menu-btn', @model.getV())
 

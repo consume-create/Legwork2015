@@ -70,8 +70,7 @@ class PageController
       switch slide.slide_type
         when LW.slide_types.HOME
           @slide_m[id] = new HomeSlideModel({
-            '$el': $el,
-            'rgb': slide.rgb
+            '$el': $el
           })
           @slide_c[id] = new HomeSlideController({
             'model': @slide_m[id]
@@ -164,11 +163,10 @@ class PageController
     # Loop and assign colors to each slide in order
     c = 0
     for n in [0...@$slide.length]
-      @$slide.eq(n).attr('data-rgb', LW.colors[c].rgb)
+      @$slide.eq(n).attr('data-rgb', "#{LW.colors[c]}")
       c = if (c is LW.colors.length - 1) then 0 else c + 1
 
-
-    # If there are more than one slide,
+    # If there is more than one slide,
     # Create a cool page nav MVC!
     if @total_slides > 1
       @page_nav_m = new PageNavModel({
@@ -234,14 +232,13 @@ class PageController
   | Set background color.
   *----------------------------------------###
   setBackgroundColor: (rgb) ->
-    console.log 'set bg color:', rgb
     if @dragging is true
       @$mask_wrapper.addClass('no-bg-trans')
     else
       @$mask_wrapper.removeClass('no-bg-trans')
 
     @$mask_wrapper[0].offsetHeight
-    @$mask_wrapper.css('background-color': "rgb(#{rgb})")
+    @$mask_wrapper.css('background-color', "rgb(#{rgb})")
 
   ###
   *------------------------------------------*
@@ -293,6 +290,9 @@ class PageController
     @start_time = (new Date()).getTime()
     @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
 
+    @c1 = @$slide.eq(@active_index).attr('data-rgb').split(',').map(Number)
+    @c2 = if @direction_y < 0 then @$slide.eq(@active_index + 1).attr('data-rgb').split(',').map(Number) else @$slide.eq(@active_index - 1).attr('data-rgb').split(',').map(Number)
+
     LW.$doc.off(@mouseup)
       .one(@mouseup, @onMouseUp)
 
@@ -316,16 +316,12 @@ class PageController
         obj[LW.utils.transform] = LW.utils.translate(0,"#{(@direction_y * 0.25) + 'px'}")
         @$slides_wrapper.css(obj)
       else
-        c1 = @$slide.eq(@active_index).attr('data-rgb')
-        c2 = if @direction_y < 0 then @$slide.eq(@active_index + 1).attr('data-rgb') else @$slide.eq(@active_index - 1).attr('data-rgb')
-        
         p = Math.min(Math.max((@current_range / 200), 0), 1)
-        r = Math.round(((c2[0] - c1[0]) * p) + c1[0])
-        g = Math.round(((c2[1] - c1[1]) * p) + c1[1])
-        b = Math.round(((c2[2] - c1[2]) * p) + c1[2])
+        r = Math.round(((@c2[0] - @c1[0]) * p) + @c1[0])
+        g = Math.round(((@c2[1] - @c1[1]) * p) + @c1[1])
+        b = Math.round(((@c2[2] - @c1[2]) * p) + @c1[2])
         rgb = [r, g, b]
 
-        console.log r
         @setBackgroundColor(rgb)
 
       @$slides_wrapper.addClass('dragging')
