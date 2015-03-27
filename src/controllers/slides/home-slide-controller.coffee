@@ -30,15 +30,66 @@ class HomeSlideController extends BaseSlideController
     @model.setV($(JST['home-slide-view']()))
     @model.getE().append(@model.getV())
 
-    @stage = new PIXI.Stage(0x000000)
-    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 2, 'transparent': true})
-    @model.getV().html(@renderer.view)
+    @$video_wrap = $('#home-video-wrap')
+    @$videos = $('video', @$video_wrap)
+    @zone_w = Math.ceil(@$video_wrap.outerWidth() / 7)
+    @reported = 0
+    @playing = false
 
-    @$canvas = $(@renderer.view)
-    @$canvas.css({
-      'width': LW.size.app[0] + 'px',
-      'height': LW.size.app[1] + 'px'
-    })
+    @observe()
+
+  ###
+  *------------------------------------------*
+  | observe:void (-)
+  |
+  | Observe.
+  *----------------------------------------###
+  observe: ->
+    @$videos.on('canplay', @onCanPlay)
+    @$video_wrap
+      .on('mousemove', @onWrapMove)
+      .on('canplayall', @onCanPlayAll)
+
+  ###
+  *------------------------------------------*
+  | onCanPlay:void (=)
+  |
+  | e:object - event object
+  |
+  | Handle can play.
+  *----------------------------------------###
+  onCanPlay: (e) =>
+    @reported++
+    @$video_wrap.trigger('canplayall') if @reported is (@$videos.length - 1)
+
+
+  ###
+  *------------------------------------------*
+  | onCanPlayAll:void (=)
+  |
+  | e:object - event object
+  |
+  | Handle can play all.
+  *----------------------------------------###
+  onCanPlayAll: (e) =>
+    @alpha_v = @$videos.eq(0).get(0)
+    @$videos.each((id, el) => el.play())
+
+    @playing = true
+
+  ###
+  *------------------------------------------*
+  | onWrapMove:void (=)
+  |
+  | e:object - event object
+  |
+  | Handle wrapper mouse move.
+  *----------------------------------------###
+  onWrapMove: (e) =>
+    normal_x = (e.pageX - (@$video_wrap.offset().left + (@$video_wrap.outerWidth() * 0.25)))
+    zone = Math.max(Math.min(Math.floor(normal_x / @zone_w), (@$videos.length - 1)), 0)
+
+    @$videos.hide().eq(zone).show()
 
   ###
   *------------------------------------------*
@@ -47,21 +98,7 @@ class HomeSlideController extends BaseSlideController
   | Resize.
   *----------------------------------------###
   resize: ->
-    @renderer.resize(LW.size.app[0], LW.size.app[1])
-    @$canvas.css({
-      'width': LW.size.app[0] + 'px',
-      'height': LW.size.app[1] + 'px'
-    })
-
-  ###
-  *------------------------------------------*
-  | render:void (=)
-  |
-  | Render.
-  *----------------------------------------###
-  render: =>
-    @renderer.render(@stage)
-    @frame = requestAnimationFrame(@render)
+    @zone_w = Math.ceil((@$video_wrap.outerWidth() * 0.5) / 7)
 
   ###
   *------------------------------------------*
@@ -72,7 +109,6 @@ class HomeSlideController extends BaseSlideController
   activate: ->
     super()
     @resize()
-    @frame = requestAnimationFrame(@render)
     @model.getE().show()
 
   ###
@@ -83,6 +119,5 @@ class HomeSlideController extends BaseSlideController
   *----------------------------------------###
   suspend: ->
     super()
-    cancelAnimationFrame(@frame)
 
 module.exports = HomeSlideController
