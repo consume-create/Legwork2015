@@ -24,9 +24,9 @@ FeaturedWorkSlideController = require './slides/featured-work-slide-controller'
 PageNavModel = require '../models/page-nav-model'
 PageNavController = require './page-nav-controller'
 
-# Detail
-DetailModel = require '../models/slides/detail/detail-model'
-DetailController = require './slides/detail/detail-controller'
+# Work Detail
+WorkDetailModel = require '../models/slides/detail/work-detail-model'
+WorkDetailController = require './slides/detail/work-detail-controller'
 
 class PageController
 
@@ -42,6 +42,8 @@ class PageController
     @model = init.model
     @slide_m = []
     @slide_c = []
+    @work_detail_m = []
+    @work_detail_c = []
 
     @build()
 
@@ -115,16 +117,26 @@ class PageController
             'picture_src': slide.picture_src,
             'clients': slide.clients,
             'mediums': slide.mediums,
-            'tagline': slide.tagline,
-            'detail_bg': slide.details.detail_bg,
-            'detail_title': slide.details.detail_title,
-            'detail_overview': slide.details.detail_overview,
-            'detail_services': slide.details.detail_services,
-            'detail_accolades': slide.details.detail_accolades
+            'tagline': slide.tagline
           })
           @slide_c[id] = new FeaturedWorkSlideController({
             'model': @slide_m[id]
           })
+
+          if slide.details?
+            $detail_el = $('#' + @model.getId() + '-' + id + '-detail')
+            @work_detail_m[id] = new WorkDetailModel({
+              '$el': $detail_el,
+              'bg_src': slide.details.bg_src,
+              'title': slide.details.title,
+              'overview': slide.details.overview,
+              'services': slide.details.services,
+              'accolades': slide.details.accolades,
+              'launch_url': slide.launch_url
+            })
+            @work_detail_c[id] = new WorkDetailController({
+              'model': @work_detail_m[id]
+            })
         else
           throw 'ERROR: slide type does not exist'
 
@@ -203,7 +215,8 @@ class PageController
   goToSlide: (route) =>
     slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
 
-    @page_nav_c.updatePageNav(slide)
+    @page_nav_c.updatePageNav(slide) if @page_nav_c?
+
     @$slide.removeClass('active').filter('[data-id="' + slide + '"]').addClass('active')
     @active_index = $('.slide.active', @model.getV()).index()
     direction = if @active_index >= @old_index then 'bottom' else 'top'
@@ -488,18 +501,19 @@ class PageController
         $.cookie('cookie_monster', 'stuffed', {expires: 13, path: '/'})
 
       # Now check if it's our first time and show or hide the nav
-      if LW.virgin is true
-        @page_nav_c.showPageNav()
+      if @page_nav_c?
+        if LW.virgin is true
+          @page_nav_c.showPageNav() 
 
-        setTimeout =>
-          LW.virgin = false
+          setTimeout =>
+            LW.virgin = false
+            @page_nav_c.activate()
+
+            if @$page_nav_zone.is(':hover') is false
+              @page_nav_c.hidePageNav()
+          , 2000
+        else
           @page_nav_c.activate()
-
-          if @$page_nav_zone.is(':hover') is false
-            @page_nav_c.hidePageNav()
-        , 2000
-      else
-        @page_nav_c.activate()
 
   ###
   *------------------------------------------*

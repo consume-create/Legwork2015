@@ -19,17 +19,17 @@ data = {
   ],
   "tagline": "Facebook application for Coca-cola.",
   "details": {
-    "detail_bg": "/images/work/coke/details/coke-bg.jpg",
-    "detail_title": "Some Lorem Ipsum Title",
-    "detail_overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
-    "detail_services": [
+    "bg_src": "/images/work/coke/details/coke-bg.jpg",
+    "title": "Some Lorem Ipsum Title",
+    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "services": [
       "Services Provided",
       "Lorem Ipsum",
       "Dummy Words",
       "And Other",
       "Services"
     ],
-    "detail_accolades": [
+    "accolades": [
       "Accolades",
       "FWA",
       "Awwwards",

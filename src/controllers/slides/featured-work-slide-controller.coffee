@@ -35,12 +35,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'picture_src': @model.getPictureSrc(),
       'clients': @model.getClients(),
       'mediums': @model.getMediums(),
-      'tagline': @model.getTagline(),
-      'detail_bg': @model.getDetailBg(),
-      'detail_title': @model.getDetailTitle(),
-      'detail_overview': @model.getDetailOverview(),
-      'detail_services': @model.getDetailServices(),
-      'detail_accolades': @model.getDetailAccolades()
+      'tagline': @model.getTagline()
     })))
     @model.getE().append(@model.getV())
 

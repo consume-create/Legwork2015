@@ -1,58 +1,11 @@
 <div id="<%= @id %>-page-inner" class="page-inner">
-	<% if @id is 'work': %>
-		<div id="detail-slides">
-			<% for slide_id, slide of @slides: %>
-				<% if slide.slide_type is LW.slide_types.FEATURED_WORK: %>
-					<div class="detail-slide" data-detail="detail-<%= slide_id %>">
-						<div class="bg" data-src="<%= slide.details.detail_bg %>"></div>
-						<div class="content">
-							<section></section>
-							<section class="overview">
-								<div class="overview-inner">
-									<div class="black-box">
-										<h4><%= slide.details.detail_title %></h4>
-										<p><%= slide.details.detail_overview %></p>
-										<div class="lists cf">
-											<ul>
-												<% for service in slide.details.detail_services: %>
-													<li><%= service %></li>
-												<% end %>
-											</ul>
-											<% if slide.details.detail_accolades: %>
-												<ul>
-													<% for accolade in slide.details.detail_accolades: %>
-														<li><%= accolade %></li>
-													<% end %>
-												</ul>
-											<% end %>
-										</div>
-										<a href="<%= slide.launch_url %>" target="_new">Launch</a>
-									</div>
-								</div>
-							</section>
-							<section>
-								<div class="inner">
-									<h4>How We Made This Damn Thing</h4>
-									<p><%= slide.details.detail_overview %></p>
-									<div class="placeholder"></div>
-								</div>
-							</section>
-							<section>
-								<div class="inner">
-									<h4>Here Are Some Comps</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-									<div class="placeholder"></div>
-								</div>
-							</section>
-						</div>
-						<div class="detail-loader">
-							<div class="spinner"><span></span></div>
-						</div>
-					</div>
-				<% end %>
+	<div class="detail-slides">
+		<% for slide_id, slide of @slides: %>
+			<% if slide.details?: %>
+				<div id="<%= @id %>-<%= slide_id %>-detail" class="detail-slide" data-detail="detail-<%= slide_id %>"></div>
 			<% end %>
-		</div>
-	<% end %>
+		<% end %>
+	</div>
 	<div class="mask-wrapper">
 		<div class="mask-wrapper-inner">
 			<div id="<%= @id %>-page-slides" class="slides-wrapper">

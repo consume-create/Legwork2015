@@ -20,17 +20,17 @@ data = {
   ],
   "tagline": "A interactive experience for Laika.",
   "details": {
-    "detail_bg": "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-    "detail_title": "Dare To Be square",
-    "detail_overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
-    "detail_services": [
+    "bg_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
+    "title": "Dare To Be square",
+    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "services": [
       "Strategy",
       "UX",
       "Art Direction",
       "Design",
       "Development"
     ],
-    "detail_accolades": null
+    "accolades": null
   }
 }
 

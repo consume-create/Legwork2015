@@ -19,16 +19,16 @@ data = {
   ],
   "tagline": "Online contest for Dodge.",
   "details": {
-    "detail_bg": "/images/work/ron/details/ron-bg.jpg",
-    "detail_title": "Some Lorem Ipsum Title",
-    "detail_overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
-    "detail_services": [
+    "bg_src": "/images/work/ron/details/ron-bg.jpg",
+    "title": "Some Lorem Ipsum Title",
+    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "services": [
       "Lorem Ipsum",
       "Dummy Words",
       "And Other",
       "Services"
     ],
-    "detail_accolades": null
+    "accolades": null
   }
 }
 
