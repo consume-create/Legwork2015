@@ -2,9 +2,6 @@
 
 # Home
 home = require './home/landing'
-
-# About
-about = require './about/landing'
 summary = require './about/summary'
 services = require './about/services'
 accolades = require './about/accolades'
@@ -38,11 +35,6 @@ data = {
     "home": {
       "slides": {
         "landing": home
-      }
-    },
-    "about": {
-      "slides": {
-        "landing": about,
         "summary": summary,
         "services": services,
         "accolades": accolades,
