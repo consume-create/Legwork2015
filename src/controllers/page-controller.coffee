@@ -144,8 +144,6 @@ class PageController
     @$mask_wrapper = $('.mask-wrapper', @model.getV())
     @$slides_wrapper = $('.slides-wrapper', @model.getV())
     @$slide = $('.slide', @model.getV())
-
-    @$page_nav_zone = $('.page-nav-zone', @model.getV())
     @$about_btn = $('.title-zone .about', @model.getV())
 
     @total_slides = @$slide.length
@@ -178,18 +176,39 @@ class PageController
       @$slide.eq(n).attr('data-rgb', "#{LW.colors[c]}")
       c = if (c is LW.colors.length - 1) then 0 else c + 1
 
-    # If there is more than one slide,
-    # Create a cool page nav MVC!
-    if @total_slides > 1
-      @page_nav_m = new PageNavModel({
-        '$el': @$page_nav_zone,
-        'id': @model.getId(),
-        'ids': _.keys(@model.getSlideData()),
-        'titles': _.pluck(@model.getSlideData(), 'browser_title')
-      })
-      @page_nav_c = new PageNavController({
-        'model': @page_nav_m
-      })
+    # Build subnav if we're dealing with multiple slides
+    # (Type of slides that'll double up on a dude like me!)
+    @buildSubnav() if @total_slides > 1
+
+  ###
+  *------------------------------------------*
+  | buildSubnav:void (-)
+  |
+  | Build subnav.
+  *----------------------------------------###
+  buildSubnav: ->
+    links = _.map(@model.getSlideData(), (el, key) =>
+      url = ''
+
+      if key is 'landing'
+        url = if @model.getId() is 'home' then '/' else '/' + @model.getId()
+      else
+        url = '/' + @model.getId() + '/' + key
+
+      return {
+        'id': key,
+        'url': url,
+        'title': el.browser_title
+      }
+    )
+
+    @page_nav_m = new PageNavModel({
+      '$el': $('.page-nav-zone', @model.getV()),
+      'links': links
+    })
+    @page_nav_c = new PageNavController({
+      'model': @page_nav_m
+    })
 
   ###
   *------------------------------------------*
@@ -461,18 +480,11 @@ class PageController
 
       # Now check if it's our first time and show or hide the nav
       if @page_nav_c?
+        @page_nav_c.activate()
+
         if LW.virgin is true
-          @page_nav_c.showPageNav() 
-
-          setTimeout =>
-            LW.virgin = false
-            @page_nav_c.activate()
-
-            if @$page_nav_zone.is(':hover') is false
-              @page_nav_c.hidePageNav()
-          , 2000
-        else
-          @page_nav_c.activate()
+          @page_nav_c.preview()
+          LW.virgin = false
 
   ###
   *------------------------------------------*

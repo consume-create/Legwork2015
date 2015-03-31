@@ -1,13 +1,12 @@
 <div class="page-nav-wrapper">
 	<div class="page-nav" >
 		<ul>
-			<% n = 1 %>
-			<% for t, title of @titles: %>
+			<% for i, link of @links: %>
 				<li>
-					<a class="ajaxy" href="<%= if n is 1 then '/' + @id else '/' + @id + '/' + @ids[t] %>" data-id="<%= @ids[t] %>">
+					<a class="ajaxy" href="<%= link.url %>" data-id="<%= link.id %>">
 						<span class="black-bar"></span>
-						<h4><%= ('0' + (n++)).slice(-2) %></h4>
-						<h4><%= title %></h4>
+						<h4><%= ('0' + (parseInt(i) + 1)).slice(-2) %></h4>
+						<h4><%= link.title %></h4>
 					</a>
 				</li>
 			<% end %>

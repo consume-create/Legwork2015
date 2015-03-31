@@ -26,14 +26,26 @@ class PageNavController
   *----------------------------------------###
   build: ->
     @model.setV($(JST['page-nav-view']({
-      'id': @model.getId(),
-      'ids': @model.getIds(),
-      'titles': @model.getTitles()
+      'links': @model.getLinks()
     })))
     @model.getE().append(@model.getV())
 
     @$page_btns = $('.page-nav li a', @model.getV())
     @$menu_btn = $('.menu-btn', @model.getV())
+
+  ###
+  *------------------------------------------*
+  | preview:void (-)
+  |
+  | Preview.
+  *----------------------------------------###
+  preview: ->
+    @showPageNav() 
+
+    setTimeout =>
+      if @model.getE().is(':hover') is false
+        @hidePageNav()
+    , 2000
 
   ###
   *------------------------------------------*
