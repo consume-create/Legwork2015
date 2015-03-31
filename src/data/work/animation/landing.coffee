@@ -1,9 +1,9 @@
 data = {
-  "browser_title": "Work",
+  "browser_title": "Animation",
   "slide_type": LW.slide_types.WORK,
   "title": [
-    "Some examples",
-    "of our capabilities."
+    "Hot motion...",
+    "Get your lotion!"
   ],
   "instructions": "Ok, time to start scrolling down."
 }

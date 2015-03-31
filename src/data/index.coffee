@@ -11,14 +11,19 @@ accolades = require './about/accolades'
 contact = require './about/contact'
 careers = require './about/careers'
 
-# Work
-work = require './work/landing'
+# Interactive
+interactive = require './work/interactive/landing'
 the_boxtrolls = require './work/interactive/the-boxtrolls'
 newton = require './work/interactive/newton'
 cokes_building_of_memories = require './work/interactive/cokes-building-of-memories'
 hands_on_ron_burgundy = require './work/interactive/hands-on-ron-burgundy'
-birth_control_myths = require './work/motion/birth-control-myths'
-nissan_leaf = require './work/motion/nissan-leaf'
+
+# Animation
+animation = require './work/animation/landing'
+birth_control_myths = require './work/animation/birth-control-myths'
+climate_reality = require './work/animation/climate-reality'
+ello = require './work/animation/ello'
+nissan_leaf = require './work/animation/nissan-leaf'
 
 # Describe the structure of the site
 
@@ -29,34 +34,41 @@ nissan_leaf = require './work/motion/nissan-leaf'
 # will be "/[page object key]/[slide object key]" for any subsequent slides.
 
 data = {
-	"pages": {
-		"home": {
-			"slides": {
-				"landing": home
-			}
-		},
-		"about": {
-			"slides": {
-				"landing": about,
-				"summary": summary,
-				"services": services,
-				"accolades": accolades,
-				"contact": contact,
-				"careers": careers
-			}
-		},
-		"work": {
-			"slides": {
-				"landing": work,
-				"the-boxtrolls": the_boxtrolls,
-				"newton": newton,
-				"cokes-building-of-memories": cokes_building_of_memories,
-				"hands-on-ron-burgundy": hands_on_ron_burgundy,
-				"birth-control-myths": birth_control_myths,
-				"nissan-leaf": nissan_leaf
-			}
-		}
-	}
+  "pages": {
+    "home": {
+      "slides": {
+        "landing": home
+      }
+    },
+    "about": {
+      "slides": {
+        "landing": about,
+        "summary": summary,
+        "services": services,
+        "accolades": accolades,
+        "contact": contact,
+        "careers": careers
+      }
+    },
+    "animation": {
+      "slides": {
+        "landing": animation,
+        "birth-control-myths": birth_control_myths,
+        "climate-reality": climate_reality,
+        "ello": ello,
+        "nissan-leaf": nissan_leaf
+      }
+    },
+    "interactive": {
+      "slides": {
+        "landing": interactive,
+        "the-boxtrolls": the_boxtrolls,
+        "newton": newton,
+        "cokes-building-of-memories": cokes_building_of_memories,
+        "hands-on-ron-burgundy": hands_on_ron_burgundy
+      }
+    }
+  }
 }
 
 module.exports = data
