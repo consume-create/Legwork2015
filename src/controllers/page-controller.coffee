@@ -231,6 +231,7 @@ class PageController
     slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
     $new_slide = @slide_c[slide].model.getE()
     @active_index = $new_slide.index()
+    @page_nav_c.updatePageNav(slide) if @page_nav_c?
 
     if @active_c is null
       if route.key.split(':')[2]?
@@ -249,9 +250,7 @@ class PageController
       else
         @hideDetails()
     else
-      # Clean up
-      @hideDetails(true)
-      @page_nav_c.updatePageNav(slide) if @page_nav_c?
+      @hideDetails()
 
       # Go to slide
       @$slide.removeClass('active')
@@ -433,10 +432,6 @@ class PageController
   hideDetails: ->
     # header
     LW.$body.trigger('hide_details')
-
-    # suspend
-    for work_detail of @work_detail_c
-      @work_detail_c[work_detail].suspend()
 
     # transition
     @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
