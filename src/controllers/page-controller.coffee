@@ -114,6 +114,7 @@ class PageController
             'callouts': slide.callouts,
             'launch_url': slide.launch_url,
             'watch_video_id': slide.watch_video_id,
+            'details_url': if slide.details? then'/' + @model.getId() + '/' + id + '/details' else ''
             'picture_src': slide.picture_src,
             'clients': slide.clients,
             'mediums': slide.mediums,
@@ -144,13 +145,11 @@ class PageController
     @$mask_wrapper = $('.mask-wrapper', @model.getV())
     @$slides_wrapper = $('.slides-wrapper', @model.getV())
     @$slide = $('.slide', @model.getV())
-    @$about_btn = $('.title-zone .about', @model.getV())
 
     @total_slides = @$slide.length
     @active_c = null
     @active_index = 0
-    @old_index = 0
-    
+
     # Mousewheel vars
     @threshold_hit = false
 
@@ -190,7 +189,7 @@ class PageController
     links = _.map(@model.getSlideData(), (el, key) =>
       url = ''
 
-      if key is 'landing'
+      if key is LW.LANDING_SLIDE
         url = if @model.getId() is 'home' then '/' else '/' + @model.getId()
       else
         url = '/' + @model.getId() + '/' + key
@@ -229,29 +228,55 @@ class PageController
   *----------------------------------------###
   goToSlide: (route) =>
     slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
+    $new_slide = @slide_c[slide].model.getE()
+    @active_index = $new_slide.index()
 
-    @page_nav_c.updatePageNav(slide) if @page_nav_c?
+    if @active_c is null
+      if route.key.split(':')[2]?
+        @$slides_wrapper.hide()
+        @showDetails(true)
 
-    @$slide.removeClass('active').filter('[data-id="' + slide + '"]').addClass('active')
-    @active_index = $('.slide.active', @model.getV()).index()
-    direction = if @active_index >= @old_index then 'bottom' else 'top'
+      @setActive(slide, 'bottom')
+      @setBackgroundColor($new_slide.attr('data-rgb'))
 
-    if @active_c isnt null
-      @active_c.transitionOut(direction, =>
-        s.suspend() for id, s of @slide_c
-        @slide_c[slide].activate()
-        @slide_c[slide].transitionIn(direction)
-        @active_c = @slide_c[slide]
-      )
+      _.delay(=>
+        @$slides_wrapper.show()
+      , 13)
+    else if @slide_c[slide] is @active_c
+      if route.key.split(':')[2]?
+        @showDetails()
+      else
+        @hideDetails()
     else
-      s.suspend() for id, s of @slide_c
-      @slide_c[slide].activate()
-      @slide_c[slide].transitionIn(direction)
-      @active_c = @slide_c[slide]
-    
-    @setBackgroundColor(@$slide.eq(@active_index).attr('data-rgb'))
-    @old_index = @active_index
-    @hideDetails()
+      # Clean up
+      @hideDetails(true)
+      @page_nav_c.updatePageNav(slide) if @page_nav_c?
+
+      # Go to slide
+      @$slide.removeClass('active')
+      $new_slide.addClass('active')
+
+      direction = if @active_index >= @active_c.model.getE().index() then 'bottom' else 'top'
+      @active_c.transitionOut(direction, =>
+        @setActive(slide, direction)
+      )
+
+      @setBackgroundColor($new_slide.attr('data-rgb'))
+
+  ###
+  *------------------------------------------*
+  | setActive:void (-)
+  |
+  | slide:string - slide id
+  | direction:string - transition direction
+  |
+  | Set active slide.
+  *----------------------------------------###
+  setActive: (slide, direction) ->
+    s.suspend() for id, s of @slide_c
+    @slide_c[slide].activate()
+    @slide_c[slide].transitionIn(direction)
+    @active_c = @slide_c[slide]
 
   ###
   *------------------------------------------*
@@ -362,9 +387,7 @@ class PageController
   | Mouse Up.
   *----------------------------------------###
   onMouseUp: =>
-    obj = {}
-    obj[LW.utils.transform] = LW.utils.translate(0,0 + 'px')
-    @$slides_wrapper.css(obj)
+    @$slides_wrapper.css(LW.utils.transform, LW.utils.translate('0px', 0 + 'px'))
     @dragging = false
 
     if @$slides_wrapper.hasClass('dragging')
@@ -402,34 +425,50 @@ class PageController
 
   ###
   *------------------------------------------*
-  | hideDetails:void (=)
+  | hideDetails:void (-)
   |
   | Hide details.
   *----------------------------------------###
-  hideDetails: =>
-    if @$mask_wrapper.hasClass('unmask')
-      @$mask_wrapper.removeClass('unmask')
+  hideDetails: ->
+    # header
+    LW.$body.trigger('hide_details')
 
-  ###
-  *------------------------------------------*
-  | showDetails:void (=)
-  |
-  | Show details.
-  *----------------------------------------###
-  showDetails: =>
-    detail_id = @$slide.eq(@active_index).attr('id').replace("#{@model._id}-", '')
-    @$mask_wrapper[0].offsetHeight # Reflow like a a defer
-    @$mask_wrapper.addClass('unmask')
-
-    # TODO: refactor this temp solution with routes?
-    LW.close_project = true
-    LW.instance.header_c.navTransition()
-
+    # suspend
     for work_detail of @work_detail_c
       @work_detail_c[work_detail].suspend()
 
+    # transition
+    @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
+    _.defer(=> @$mask_wrapper.removeClass('unmask'))
+
+  ###
+  *------------------------------------------*
+  | showDetails:void (-)
+  |
+  | no_trans:boolean - transition?
+  |
+  | Show details.
+  *----------------------------------------###
+  showDetails: (no_trans = false) ->
+    detail_id = LW.router.getState().key.split(':')[1]
+
+    # header
+    LW.$body.trigger('show_details')
+
+    # suspend
+    for work_detail of @work_detail_c
+      @work_detail_c[work_detail].suspend()
+
+    # activate
     @work_detail_c[detail_id].activate()
     @work_detail_c[detail_id].loadDetailTransition()
+
+    # transition
+    if no_trans is true
+      @$mask_wrapper.addClass('no-trans')
+
+    @$mask_wrapper[0].offsetHeight # clear CSS cache
+    _.defer(=> @$mask_wrapper.addClass('unmask'))
 
   ###
   *------------------------------------------*
@@ -468,10 +507,6 @@ class PageController
         .on(@mousedown, @onMouseDown)
         .on(@mousemove, @onMouseMove)
 
-      @$about_btn
-        .off('click')
-        .on('click', @showDetails)
-
       # Check if cookie is set
       if $.cookie('cookie_monster') is 'stuffed'
         LW.virgin = false
@@ -502,7 +537,6 @@ class PageController
     if @total_slides > 1
       LW.$doc.off("keyup.#{@model._id}")
       @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
-      @$about_btn.off('click')
       @hideDetails()
 
 module.exports = PageController

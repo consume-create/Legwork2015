@@ -4,22 +4,15 @@
 	</div>
 	<!-- Title zone -->
 	<div class="title-zone">
-		<div class="title-holder about">
-			<h2><%- @title[0] %></h2>
-			<h2><%- @title[1] %></h2>
+		<div class="title-holder">
+			<a class="ajaxy" href="<%= @details_url %>">
+				<h2><%- @title[0] %></h2>
+				<h2><%- @title[1] %></h2>
+			</a>
 		</div>
 		<div class="callouts cf">
 			<% for c in @callouts: %>
-				<% if c != 'launch': %>
-					<div class="callout <%= c %>"<% if c == 'watch': %> data-id="<%= @watch_video_id %>"<% end %>>
-						<div class="copy"><%= c %></div>
-						<div class="icon">
-							<span class="rect"></span>
-							<span class="rect"></span>
-							<span class="tri"></span>
-						</div>
-					</div>
-				<% else: %>
+				<% if c is 'launch': %>
 					<a class="callout <%= c %>" href="<%= @launch_url %>" target="_new">
 						<div class="copy"><%= c %></div>
 						<div class="icon">
@@ -28,6 +21,24 @@
 							<span class="tri"></span>
 						</div>
 					</a>
+				<% else if c is 'about': %>
+					<a class="callout <%= c %> ajaxy" href="<%= @details_url %>">
+						<div class="copy"><%= c %></div>
+						<div class="icon">
+							<span class="rect"></span>
+							<span class="rect"></span>
+							<span class="tri"></span>
+						</div>
+					</a>
+				<% else: %>
+					<div class="callout <%= c %>"<% if c == 'watch': %> data-id="<%= @watch_video_id %>"<% end %>>
+						<div class="copy"><%= c %></div>
+						<div class="icon">
+							<span class="rect"></span>
+							<span class="rect"></span>
+							<span class="tri"></span>
+						</div>
+					</div>
 				<% end %>
 			<% end %>
 		</div>
