@@ -32,6 +32,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'callouts': @model.getCallouts(),
       'launch_url': @model.getLaunchUrl(),
       'watch_video_id': @model.getWatchVideoId(),
+      'details_url': @model.getDetailsUrl(),
       'picture_src': @model.getPictureSrc(),
       'clients': @model.getClients(),
       'mediums': @model.getMediums(),

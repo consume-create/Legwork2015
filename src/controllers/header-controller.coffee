@@ -44,7 +44,11 @@ class HeaderController
   *----------------------------------------###
   observeSomeSweetEvents: ->
     @$primary_nav_items.on('click', '.nav-item', @onClickNavItem)
-    @$close_btn.on('click', @onClickCloseBtn)
+
+    # details mode
+    LW.$body
+      .on('show_details', (e) => @turnDetailsClose('on'))
+      .on('hide_details', (e) => @turnDetailsClose('off'))
 
   ###
   *------------------------------------------*
@@ -56,17 +60,6 @@ class HeaderController
   onClickNavItem: (e) ->
     if $(e.currentTarget).hasClass('active')
       return false
-
-  ###
-  *------------------------------------------*
-  | onClickCloseBtn:void (=)
-  |
-  | Click close btn.
-  *----------------------------------------###
-  onClickCloseBtn: (e) =>
-    LW.close_project = false
-    LW.$body.trigger('rip_hide_details')
-    @navTransition()
 
   ###
   *------------------------------------------*
@@ -82,15 +75,22 @@ class HeaderController
 
   ###
   *------------------------------------------*
-  | navTransition:String (-)
+  | turnDetailsClose:String (-)
   |
-  | Nav transition.
+  | s:string - on / off
+  |
+  | Details close on / off.
   *----------------------------------------###
-  navTransition: ->
-    y = if LW.close_project is false then 0 else 40
-    obj = {}
-    obj[LW.utils.transform] = LW.utils.translate(0,-y + 'px')
-    @$primary_nav_inner.css(obj)
+  turnDetailsClose: (s) ->
+    if s is 'on'
+      y = -40
+      href = LW.router.getState().url.replace(/\/details/i, '')
+    else
+      y = 0
+      href = 'javascript:void(0);'
+
+    @$primary_nav_inner.css(LW.utils.transform, LW.utils.translate('0px', y + 'px'))
+    @$close_btn.attr('href', href)
 
   ###
   *------------------------------------------*
@@ -101,10 +101,6 @@ class HeaderController
   | Set nav state.
   *----------------------------------------###
   setState: (state) ->
-    LW.close_project = false
-    
-    @navTransition()
     @$nav_items.removeClass('active').filter('[data-id="' + state + '"]').addClass('active')
-    
 
 module.exports = HeaderController

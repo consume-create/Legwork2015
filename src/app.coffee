@@ -44,7 +44,6 @@ class Application
       '$el': LW.$body
     })
     LW.virgin = true
-    LW.close_project = false
 
     # Class vars
     @$pages_inner = $('#pages-inner')
@@ -90,6 +89,10 @@ class Application
 
         # Add it
         LW.router.add(r, 'Legwork Studio / ' + slide.browser_title)
+
+        # Add details if they exist
+        if slide.details?
+          LW.router.add('/' + page_url + '/' + slide_url + '/details', 'Legwork Studio / ' + slide.browser_title + ' Details')
 
   ###
   *------------------------------------------*
@@ -147,12 +150,6 @@ class Application
       .on('blur', @stageFiveClingerMode)
       .on('focus', @backToNormalMode)
       .on('resize', @onWindowResize)
-
-    # Custom events
-    LW.$body
-      .on('rip_hide_details', =>
-        @active_c.hideDetails() if @active_c.hideDetails?
-      )
 
   ###
   *------------------------------------------*
