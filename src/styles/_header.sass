@@ -53,6 +53,7 @@ header
       height: 20px
       font-size: 0
       line-height: 0
+      white-space: nowrap
       overflow: hidden
 
       transform: translate(-50%,-50%)
@@ -79,7 +80,7 @@ header
             #close-project-btn
               position: relative
               height: 14px
-              padding: 0 10px 6px
+              padding: 0 6px 6px
               color: $black
               font-size: 12px
               line-height: 14px
@@ -89,6 +90,7 @@ header
 
               @include respond-above($media_480)
                 @include respond-above-ht($media_ht_480)
+                  padding: 0 10px 6px
                   font-size: 14px
 
               @include respond-above($media_768)
@@ -98,12 +100,17 @@ header
               span
                 position: absolute
                 bottom: 0px
-                left: 10px
-                right: 10px
+                left: 6px
+                right: 6px
                 height: 3px
                 background-color: $light_gray
 
                 transition: background-color $speed $ease_out
+
+                @include respond-above($media_480)
+                  @include respond-above-ht($media_ht_480)
+                    left: 10px
+                    right: 10px
 
               &.active
                 cursor: default
