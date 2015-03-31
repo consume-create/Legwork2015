@@ -95,6 +95,9 @@
           margin: 0 0 0 12px
           overflow: hidden
 
+          transform: translate3d(0px,0,0)
+          transition: transform 200ms $ease_out
+
           .rect
             position: absolute
             top: 50%
@@ -140,21 +143,21 @@
 
         &:hover
           .icon
-            animation: bounce $speed $evil_ease
+            transform: translate3d(6px,0,0)
 
         &.close:hover
           .icon
-            animation: bounce 0ms linear
+            transform: translate3d(6px,0,0)
 
     .title-holder:hover + .callouts
       .callout
         &.about
           .icon
-            animation: bounce $speed $evil_ease
+            transform: translate3d(6px,0,0)
 
         &.close
           .icon
-            animation: bounce 0ms linear
+            transform: translate3d(0px,0,0)
 
 
   // ---------------------------------------------

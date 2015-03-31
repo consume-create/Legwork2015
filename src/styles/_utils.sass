@@ -14,13 +14,17 @@
   100%
     transform: rotate(360deg)
 
-@keyframes bounce
+@keyframes spinner
   0%
-    transform: translate3d(0px,0,0)
-  50%
-    transform: translate3d(6px,0,0)
+    transform: rotate(0deg)
   100%
-    transform: translate3d(0px,0,0)
+    transform: rotate(360deg)
+
+@keyframes sequencer
+  0%
+    background-position: 0px center
+  100%
+    background-position: -1360px center
 
 // Clearfixers
 .cf:before,
