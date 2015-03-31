@@ -35,6 +35,45 @@ class WorkDetailController
     })))
     @model.getE().append(@model.getV())
 
+    # Cache selectors
+    @$loader = $('.detail-loader', @model.getV())
+    @$content = $('.content', @model.getV())
+    @$black_box = $('.black-box', @model.getV())
+    @$bg = $('.bg', @model.getV())
+    @src = @$bg.attr('data-src')
+
+  ###
+  *------------------------------------------*
+  | loadDetailTransition:void (=)
+  |
+  | Load detail and transition black box.
+  *----------------------------------------###
+  loadDetailTransition: =>
+    @$black_box.removeClass('slide-up')
+    @$content.scrollTop(0)
+    @model.getE()[0].offsetHeight # Reflow like a a defer
+
+    if @$loader.length > 0
+      @$loader.addClass('loading')
+      $current = $('<img />').attr
+        'src': @src
+      .one 'load', (e) =>
+        @$bg.attr('style': "background-image: url(#{@src})")
+        @$loader
+          .addClass('loaded')
+          .off()
+          .one(LW.utils.transition_end, =>
+            @$black_box.addClass('slide-up')
+            @$loader.removeClass('loading').remove()
+          )
+
+      if $current[0].complete is true
+        $current.trigger('load')
+
+      return $current[0]
+    else
+      @$black_box.addClass('slide-up')
+
   ###
   *------------------------------------------*
   | activate:void (-)
@@ -42,6 +81,7 @@ class WorkDetailController
   | Activate.
   *----------------------------------------###
   activate: ->
+    @model.getE().addClass('active')
 
   ###
   *------------------------------------------*
@@ -50,5 +90,6 @@ class WorkDetailController
   | Activate.
   *----------------------------------------###
   suspend: ->
+    @model.getE().removeClass('active')
 
 module.exports = WorkDetailController
