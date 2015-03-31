@@ -20,4 +20,30 @@ class HomeSlideModel extends BaseSlideModel
   constructor: (data) ->
     super(data)
 
+    @_instructions = null
+    @setInstructions(data.instructions)
+
+  ###
+  *------------------------------------------*
+  | getInstructions:string (-)
+  |
+  | Get instructions.
+  *----------------------------------------###
+  getInstructions: ->
+    return @_instructions
+
+  ###
+  *------------------------------------------*
+  | setInstructions:void (-)
+  |
+  | instructions:string - instructions
+  |
+  | Set instructions.
+  *----------------------------------------###
+  setInstructions: (instructions) ->
+    if _.isString(instructions) is false
+      throw 'ERROR: instructions must be a string'
+    else
+      @_instructions = instructions
+
 module.exports = HomeSlideModel

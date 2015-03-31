@@ -27,7 +27,9 @@ class HomeSlideController extends BaseSlideController
   *----------------------------------------###
   build: ->
     super()
-    @model.setV($(JST['home-slide-view']()))
+    @model.setV($(JST['home-slide-view']({
+      'instructions': @model.getInstructions()
+    })))
     @model.getE().append(@model.getV())
     # @$video_wrap = $('#home-video-wrap')
     # @$videos = $('video', @$video_wrap)

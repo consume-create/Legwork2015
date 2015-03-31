@@ -72,7 +72,8 @@ class PageController
       switch slide.slide_type
         when LW.slide_types.HOME
           @slide_m[id] = new HomeSlideModel({
-            '$el': $el
+            '$el': $el,
+            'instructions': slide.instructions
           })
           @slide_c[id] = new HomeSlideController({
             'model': @slide_m[id]
