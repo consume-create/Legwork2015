@@ -398,7 +398,7 @@ class PageController
   | Show details.
   *----------------------------------------###
   showDetails: =>
-    detail_id = @$slide.eq(@active_index).attr('id').replace('work-', '')
+    detail_id = @$slide.eq(@active_index).attr('id').replace("#{@model._id}-", '')
     @$mask_wrapper[0].offsetHeight # Reflow like a a defer
     @$mask_wrapper.addClass('unmask')
 
