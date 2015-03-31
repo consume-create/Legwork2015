@@ -29,14 +29,16 @@ class HomeSlideController extends BaseSlideController
     super()
     @model.setV($(JST['home-slide-view']()))
     @model.getE().append(@model.getV())
+    # @$video_wrap = $('#home-video-wrap')
+    # @$videos = $('video', @$video_wrap)
+    # @alpha_v = @$videos.eq(0).get(0)
+    # @zone_w = Math.ceil(@$video_wrap.outerWidth() / 7)
+    # @reported = 0
 
-    @$video_wrap = $('#home-video-wrap')
-    @$videos = $('video', @$video_wrap)
-    @zone_w = Math.ceil(@$video_wrap.outerWidth() / 7)
-    @reported = 0
-    @playing = false
+    # @cnv = $('#stereoscope', @$video_wrap).get(0)
+    # @ctx = @cnv.getContext('2d')
 
-    @observe()
+    # @observe()
 
   ###
   *------------------------------------------*
@@ -46,9 +48,7 @@ class HomeSlideController extends BaseSlideController
   *----------------------------------------###
   observe: ->
     @$videos.on('canplay', @onCanPlay)
-    @$video_wrap
-      .on('mousemove', @onWrapMove)
-      .on('canplayall', @onCanPlayAll)
+    @$video_wrap.on('mousemove', @onWrapMove)
 
   ###
   *------------------------------------------*
@@ -62,7 +62,6 @@ class HomeSlideController extends BaseSlideController
     @reported++
     @$video_wrap.trigger('canplayall') if @reported is (@$videos.length - 1)
 
-
   ###
   *------------------------------------------*
   | onCanPlayAll:void (=)
@@ -72,10 +71,10 @@ class HomeSlideController extends BaseSlideController
   | Handle can play all.
   *----------------------------------------###
   onCanPlayAll: (e) =>
-    @alpha_v = @$videos.eq(0).get(0)
-    @$videos.each((id, el) => el.play())
+    cancelAnimationFrame(@frame)
+    @frame = requestAnimationFrame(@render)
 
-    @playing = true
+    @alpha_v.play()
 
   ###
   *------------------------------------------*
@@ -87,9 +86,7 @@ class HomeSlideController extends BaseSlideController
   *----------------------------------------###
   onWrapMove: (e) =>
     normal_x = (e.pageX - (@$video_wrap.offset().left + (@$video_wrap.outerWidth() * 0.25)))
-    zone = Math.max(Math.min(Math.floor(normal_x / @zone_w), (@$videos.length - 1)), 0)
-
-    @$videos.hide().eq(zone).show()
+    @zone = Math.max(Math.min(Math.floor(normal_x / @zone_w), (@$videos.length - 1)), 0)
 
   ###
   *------------------------------------------*
@@ -98,7 +95,25 @@ class HomeSlideController extends BaseSlideController
   | Resize.
   *----------------------------------------###
   resize: ->
-    @zone_w = Math.ceil((@$video_wrap.outerWidth() * 0.5) / 7)
+    #@zone_w = Math.ceil((@$video_wrap.outerWidth() * 0.5) / 7)
+
+  ###
+  *------------------------------------------*
+  | render:void (=)
+  |
+  | Render.
+  *----------------------------------------###
+  render: =>
+    vid = @$videos.eq(@zone).get(0)
+
+    if vid isnt @alpha_v
+      vid.currentTime = @alpha_v.currentTime
+
+    _.defer(=>
+      @ctx.drawImage(vid, 0, 0, 960, 540)
+    )
+
+    @frame = requestAnimationFrame(@render)
 
   ###
   *------------------------------------------*
@@ -110,6 +125,7 @@ class HomeSlideController extends BaseSlideController
     super()
     @resize()
     @model.getE().show()
+    #@$video_wrap.off('canplayall').one('canplayall', @onCanPlayAll)
 
   ###
   *------------------------------------------*
@@ -119,5 +135,7 @@ class HomeSlideController extends BaseSlideController
   *----------------------------------------###
   suspend: ->
     super()
+    #@$video_wrap.off('canplayall')
+    #cancelAnimationFrame(@frame)
 
 module.exports = HomeSlideController
