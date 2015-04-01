@@ -102,7 +102,9 @@ class PageController
         when LW.slide_types.WORK
           @slide_m[id] = new WorkSlideModel({
             '$el': $el,
+            'id': slide.id,
             'title': slide.title,
+            'reel_video_id': slide.reel_video_id,
             'instructions': slide.instructions
           })
           @slide_c[id] = new WorkSlideController({

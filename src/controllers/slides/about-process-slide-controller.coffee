@@ -28,8 +28,8 @@ class AboutProcessSlideController extends BaseSlideController
   build: ->
     super()
     @model.setV($(JST['about-process-slide-view']({
-      'title': @model.getTitle(),
       'id': @model.getId(),
+      'title': @model.getTitle(),
       'picture_src': @model.getPictureSrc(),
       'copy': @model.getCopy(),
       'lists': @model.getLists()

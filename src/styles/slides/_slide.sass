@@ -78,6 +78,7 @@
       position: relative
       overflow: hidden
       display: inline-block
+      cursor: pointer
 
       h2
         position: relative
@@ -190,6 +191,127 @@
           &.trans-out.bottom h2
             transform: translate3d(0,-90px,0)
 
+    .callouts
+      position: relative
+      width: 100%
+      height: 50px
+      overflow: hidden
+
+      @include respond-above($media_1024)
+        @include respond-above-ht($media_ht_560)
+          height: 76px
+
+      .callout
+        float: left
+        position: relative
+        height: 100%
+        padding: 0 10px
+        cursor: pointer
+        font-family: $inconsolata
+        font-size: 12px
+        line-height: 50px
+        font-weight: $bold
+        text-transform: capitalize
+
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_480)
+            font-size: 14px
+
+        @include respond-above($media_1024)
+          @include respond-above-ht($media_ht_560)
+            line-height: 76px
+
+        &:last-child
+          padding: 0 0 0 10px
+
+        &:nth-child(1)
+          padding: 0 10px 0 0
+
+        @include respond-above($media_480)
+          padding: 0 20px
+
+          &:last-child
+            padding: 0 0 0 20px
+
+          &:nth-child(1)
+            padding: 0 20px 0 0
+
+        .copy
+          float: left
+          position: relative
+
+        .icon
+          float: left
+          position: relative
+          width: 25px
+          height: 100%
+          margin: 0 0 0 12px
+          overflow: hidden
+
+          transform: translate3d(0px,0,0)
+          transition: transform 150ms $ease_out
+
+          .rect
+            position: absolute
+            top: 50%
+            left: 0px
+            width: 14px
+            height: 2px
+            margin: -1px 0 0
+            background-color: $white
+
+            transform: rotate(0deg)
+            transition: transform 100ms $ease_out
+
+          .tri
+            position: absolute
+            top: 50%
+            left: 12px
+            width: 0
+            height: 0
+            margin: -4px 0 0
+            border-top: 4px solid transparent
+            border-bottom: 4px solid transparent
+            border-left: 6px solid $white
+            visibility: visible
+            opacity: 1
+
+            transition: opacity 100ms $ease_out, visibility 0ms linear
+
+        &.close
+          transform: translate3d(0px,0,0)
+
+          .icon
+            .rect
+              transform: rotate(-45deg)
+
+            .rect:nth-of-type(2)
+              transform: rotate(45deg)
+
+            .tri
+              visibility: hidden
+              opacity: 0
+
+              transition: opacity 100ms $ease_out, visibility 0ms linear 100ms
+
+        &:hover
+          .icon
+            transform: translate3d(8px,0,0)
+
+        &.close:hover
+          .icon
+            transform: translate3d(8px,0,0)
+
+    .title-holder:hover + .callouts
+      .callout
+        &.about,
+        &.reel
+          .icon
+            transform: translate3d(8px,0,0)
+
+        &.close
+          .icon
+            transform: translate3d(0px,0,0)
 
   // ---------------------------------------------
   // Shared styles: Meta zone
