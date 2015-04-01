@@ -4,12 +4,10 @@
 	</div>
 	<!-- Title zone -->
 	<div class="title-zone">
-		<div class="title-holder">
-			<a class="ajaxy" href="<%= @details_url %>">
-				<h2><%- @title[0] %></h2>
-				<h2><%- @title[1] %></h2>
-			</a>
-		</div>
+		<a class="title-holder ajaxy" href="<%= @details_url %>">
+			<h2><%- @title[0] %></h2>
+			<h2><%- @title[1] %></h2>
+		</a>
 		<div class="callouts cf">
 			<% for c in @callouts: %>
 				<% if c is 'launch': %>
