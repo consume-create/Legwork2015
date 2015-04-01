@@ -29,7 +29,9 @@ class WorkSlideController extends BaseSlideController
     super()
 
     @model.setV($(JST['work-slide-view']({
+      'id': @model.getId(),
       'title': @model.getTitle(),
+      'reel_video_id': @model.getReelVideoId(),
       'instructions': @model.getInstructions()
     })))
     @model.getE().append(@model.getV())

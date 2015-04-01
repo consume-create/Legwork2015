@@ -20,11 +20,40 @@ class WorkSlideModel extends BaseSlideModel
   constructor: (data) ->
     super(data)
 
+    @_id = null
+    @setId(data.id)
+
     @_title = null
     @setTitle(data.title)
 
+    @_reel_video_id = null
+    @setReelVideoId(data.reel_video_id)
+
     @_instructions = null
     @setInstructions(data.instructions)
+
+  ###
+  *------------------------------------------*
+  | getId:string (-)
+  |
+  | Get id.
+  *----------------------------------------###
+  getId: ->
+    return @_id
+
+  ###
+  *------------------------------------------*
+  | setId:void (-)
+  |
+  | id:string - id
+  |
+  | Set id.
+  *----------------------------------------###
+  setId: (id) ->
+    if _.isString(id) is false
+      throw 'ERROR: id must be a string'
+    else
+      @_id = id
 
   ###
   *------------------------------------------*
@@ -52,6 +81,29 @@ class WorkSlideModel extends BaseSlideModel
       throw 'ERROR: title parts must be ' + max + ' characters or less'
     else
       @_title = title
+
+  ###
+  *------------------------------------------*
+  | getReelVideoId:string (-)
+  |
+  | Get reel video id.
+  *----------------------------------------###
+  getReelVideoId: ->
+    return @_reel_video_id
+
+  ###
+  *------------------------------------------*
+  | setReelVideoId:void (-)
+  |
+  | reel_video_id:string - vimeo id
+  |
+  | Set reel video id.
+  *----------------------------------------###
+  setReelVideoId: (reel_video_id) ->
+    if reel_video_id isnt null and _.isString(reel_video_id) is false
+      throw 'ERROR: reel_video_id must be a string'
+    else
+      @_reel_video_id = reel_video_id
 
   ###
   *------------------------------------------*
