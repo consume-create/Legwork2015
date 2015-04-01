@@ -37,6 +37,7 @@ class AboutProcessSlideController extends BaseSlideController
     @model.getE().append(@model.getV())
 
     @$title_holder = $('.title-holder', @model.getV())
+    @$picture_zone = $('.picture-zone', @model.getV())
 
   ###
   *------------------------------------------*
@@ -53,6 +54,8 @@ class AboutProcessSlideController extends BaseSlideController
       @$title_holder
         .addClass('trans-in')
         .removeClass(direction)
+      @$picture_zone
+        .addClass('show')
 
   ###
   *------------------------------------------*
@@ -69,5 +72,7 @@ class AboutProcessSlideController extends BaseSlideController
       .one(LW.utils.transition_end, =>
         cb()
       )
+    @$picture_zone
+      .removeClass('show')
 
 module.exports = AboutProcessSlideController

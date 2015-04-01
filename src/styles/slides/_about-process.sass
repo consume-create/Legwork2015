@@ -13,11 +13,22 @@
     background-repeat: no-repeat
     background-position: right bottom
     background-size: 100% auto
+    overflow: hidden
+    opacity: 0
+
+    transition: opacity $speed $ease_in
+
+    &.show
+      opacity: 1
+
+      transition: opacity $speed $ease_out
 
     @media all and (max-aspect-ratio: 5/4)
       background-position: 66% bottom
       background-size: auto 90%
-      opacity: 0.33
+      
+      &.show
+        opacity: 0.33
   
   // ---------------------------------------------
   // Title zone
