@@ -458,7 +458,6 @@ class PageController
 
     # activate
     @work_detail_c[detail_id].activate()
-    @work_detail_c[detail_id].loadDetailTransition()
 
     # transition
     if no_trans is true
