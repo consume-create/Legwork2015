@@ -322,7 +322,7 @@ class PageController
     e.preventDefault()
     delta = e.originalEvent.wheelDelta / 120 or -e.originalEvent.detail / 3
     
-    if Math.abs(delta) >= 1.5 and @threshold_hit is false
+    if Math.abs(delta) >= 0.3 and @threshold_hit is false
       @threshold_hit = true
       if delta > 0
         @previous()
@@ -331,7 +331,7 @@ class PageController
 
       setTimeout =>
         @threshold_hit = false
-      , 666
+      , 1000
 
   ###
   *------------------------------------------*
