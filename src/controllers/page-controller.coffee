@@ -148,7 +148,8 @@ class PageController
               'overview': slide.details.overview,
               'services': slide.details.services,
               'accolades': slide.details.accolades,
-              'launch_url': slide.launch_url
+              'launch_url': slide.launch_url,
+              'media': slide.details.media
             })
             @work_detail_c[id] = new WorkDetailController({
               'model': @work_detail_m[id]

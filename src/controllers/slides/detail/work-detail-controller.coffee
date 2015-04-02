@@ -31,7 +31,8 @@ class WorkDetailController
       'overview': @model.getOverview(),
       'services': @model.getServices(),
       'accolades': @model.getAccolades(),
-      'launch_url': @model.getLaunchUrl()
+      'launch_url': @model.getLaunchUrl(),
+      'media': @model.getMedia()
     })))
     @model.getE().append(@model.getV())
 

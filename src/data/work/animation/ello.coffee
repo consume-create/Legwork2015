@@ -26,7 +26,26 @@ data = {
       "And Other",
       "Services"
     ],
-    "accolades": null
+    "accolades": null,
+    "media": [
+      {
+        "type": LW.media.IMAGE,
+        "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+      },
+      {
+        "type": LW.media.SLIDESHOW,
+        "images": [
+          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
+          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
+          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
+          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+        ]
+      },
+      {
+        "type": LW.media.VIDEO,
+        "video_id": "1234"
+      }
+    ]
   }
 }
 

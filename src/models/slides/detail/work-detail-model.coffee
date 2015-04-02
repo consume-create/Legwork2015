@@ -38,6 +38,9 @@ class WorkDetailModel extends BaseModel
     @_launch_url = null
     @setLaunchUrl(data.launch_url)
 
+    @_media = null
+    @setMedia(data.media)
+
   ###
   *------------------------------------------*
   | getBgSrc:string (-)
@@ -198,5 +201,38 @@ class WorkDetailModel extends BaseModel
       throw 'ERROR: launch_url must be a string'
     else
       @_launch_url = launch_url
+
+  ###
+  *------------------------------------------*
+  | getMedia:array (-)
+  |
+  | Get media.
+  *----------------------------------------###
+  getMedia: ->
+    return @_media
+
+  ###
+  *------------------------------------------*
+  | setMedia:void (-)
+  |
+  | media:array - media array
+  |
+  | Set media.
+  *----------------------------------------###
+  setMedia: (media) ->
+    passed = true
+    
+    if _.isArray(media) is false
+      passed = false
+      throw 'ERROR: media must be an array of media objects'
+    
+    for m in media
+      if _.contains(_.values(LW.media), m.type) is false
+        passed = false
+        throw 'ERROR: each media obeject type needs to match one of the defined LW.media listed in ./src/env.coffee'
+        break
+
+    if passed is true
+      @_media = media
 
 module.exports = WorkDetailModel

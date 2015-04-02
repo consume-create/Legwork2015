@@ -28,8 +28,6 @@ class WatchVideoController
     @model.setV($(JST['watch-video-view']()))
     @model.getE().append(@model.getV())
 
-    console.log @model
-
   ###
   *------------------------------------------*
   | activate:void (-)
