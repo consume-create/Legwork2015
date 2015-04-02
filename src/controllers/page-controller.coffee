@@ -438,6 +438,9 @@ class PageController
     @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
     _.defer(=> @$mask_wrapper.removeClass('unmask'))
 
+    # Turn on event handlers
+    @turnOnEventHandlers()
+
   ###
   *------------------------------------------*
   | showDetails:void (-)
@@ -448,6 +451,10 @@ class PageController
   *----------------------------------------###
   showDetails: (no_trans = false) ->
     detail_id = LW.router.getState().key.split(':')[1]
+    console.log 'show detail:', detail_id
+    
+    # Turn off event handlers
+    @turnOffEventHandlers()
 
     # header
     LW.$body.trigger('show_details')
@@ -465,6 +472,33 @@ class PageController
 
     @$mask_wrapper[0].offsetHeight # clear CSS cache
     _.defer(=> @$mask_wrapper.addClass('unmask'))
+
+  ###
+  *------------------------------------------*
+  | turnOnEventHandlers:void (-)
+  |
+  | Turn on event handlers.
+  *----------------------------------------###
+  turnOnEventHandlers: ->
+    LW.$doc
+      .off("keyup.#{@model._id}")
+      .on("keyup.#{@model._id}", @onKeyup)
+
+    @$slides_wrapper
+      .off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
+      .on("mousewheel DOMMouseScroll", @onMousewheel)
+      .on(@mousedown, @onMouseDown)
+      .on(@mousemove, @onMouseMove)
+
+  ###
+  *------------------------------------------*
+  | turnOffEventHandlers:void (-)
+  |
+  | Turn off event handlers.
+  *----------------------------------------###
+  turnOffEventHandlers: ->
+    LW.$doc.off("keyup.#{@model._id}")
+    @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
 
   ###
   *------------------------------------------*
@@ -493,15 +527,8 @@ class PageController
     # If there is more than one slide,
     # we have events to listen to...
     if @total_slides > 1
-      LW.$doc
-        .off("keyup.#{@model._id}")
-        .on("keyup.#{@model._id}", @onKeyup)
-
-      @$slides_wrapper
-        .off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
-        .on("mousewheel DOMMouseScroll", @onMousewheel)
-        .on(@mousedown, @onMouseDown)
-        .on(@mousemove, @onMouseMove)
+      # Turn on event handlers
+      @turnOnEventHandlers()
 
       # Check if cookie is set
       if $.cookie('cookie_monster') is 'stuffed'
@@ -531,8 +558,7 @@ class PageController
     # If there was more than one slide,
     # we have events to listen to turn off...
     if @total_slides > 1
-      LW.$doc.off("keyup.#{@model._id}")
-      @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
+      @turnOffEventHandlers()
       @hideDetails()
 
 module.exports = PageController
