@@ -35,6 +35,9 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @_details_url = null
     @setDetailsUrl(data.details_url)
 
+    @_watch_url = null
+    @setWatchUrl(data.watch_url)
+
     @_picture_src = null
     @setPictureSrc(data.picture_src)
 
@@ -173,6 +176,29 @@ class FeaturedWorkSlideModel extends BaseSlideModel
       throw 'ERROR: details_url must be a string'
     else
       @_details_url = details_url
+
+  ###
+  *------------------------------------------*
+  | getWatchUrl:string (-)
+  |
+  | Get watch url.
+  *----------------------------------------###
+  getWatchUrl: ->
+    return @_watch_url
+
+  ###
+  *------------------------------------------*
+  | setWatchUrl:void (-)
+  |
+  | watch_url:string - watch url
+  |
+  | Set watch url.
+  *----------------------------------------###
+  setWatchUrl: (watch_url) ->
+    if watch_url isnt null and _.isString(watch_url) is false
+      throw 'ERROR: watch_url must be a string'
+    else
+      @_watch_url = watch_url
 
   ###
   *------------------------------------------*

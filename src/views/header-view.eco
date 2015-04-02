@@ -3,7 +3,7 @@
 	<nav id="primary-nav">
 		<div id="primary-nav-inner">
 			<ul></ul>
-			<ul><li><a id="close-project-btn" class="ajaxy" href="javascript:void(0);">Close Project<span></span></a></li></ul>
+			<ul><li><a id="close-project-btn" class="ajaxy" href="javascript:void(0);">Close<span></span></a></li></ul>
 		</div>
 	</nav>
 	<nav id="secondary-nav">

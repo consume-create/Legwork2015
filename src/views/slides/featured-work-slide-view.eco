@@ -29,14 +29,14 @@
 						</div>
 					</a>
 				<% else: %>
-					<div class="callout <%= c %>"<% if c == 'watch': %> data-id="<%= @watch_video_id %>"<% end %>>
+					<a class="callout <%= c %> ajaxy" href="<%= @watch_url %>">
 						<div class="copy"><%= c %></div>
 						<div class="icon">
 							<span class="rect"></span>
 							<span class="rect"></span>
 							<span class="tri"></span>
 						</div>
-					</div>
+					</a>
 				<% end %>
 			<% end %>
 		</div>

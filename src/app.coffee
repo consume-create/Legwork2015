@@ -90,9 +90,13 @@ class Application
         # Add it
         LW.router.add(r, 'Legwork Studio / ' + slide.browser_title)
 
-        # Add details if they exist
+        # Add details route if they exist
         if slide.details?
           LW.router.add('/' + page_url + '/' + slide_url + '/details', 'Legwork Studio / ' + slide.browser_title + ' Details')
+
+        # Add watch route if it exists
+        if slide.watch_video_id
+          LW.router.add('/' + page_url + '/' + slide_url + '/watch', 'Legwork Studio / Watch ' + slide.browser_title)
 
   ###
   *------------------------------------------*

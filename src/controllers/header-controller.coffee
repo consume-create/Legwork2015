@@ -47,8 +47,8 @@ class HeaderController
 
     # details mode
     LW.$body
-      .on('show_details', (e) => @turnDetailsClose('on'))
-      .on('hide_details', (e) => @turnDetailsClose('off'))
+      .on('gear_up_and_get_after_it', (e) => @turnDetailsClose('on'))
+      .on('back_out_and_gear_down', (e) => @turnDetailsClose('off'))
 
   ###
   *------------------------------------------*
@@ -84,7 +84,7 @@ class HeaderController
   turnDetailsClose: (s) ->
     if s is 'on'
       y = -40
-      href = LW.router.getState().url.replace(/\/details/i, '')
+      href = LW.router.getState().url.replace(/\/details|\/watch/i, '')
     else
       y = 0
       href = 'javascript:void(0);'
