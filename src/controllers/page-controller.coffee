@@ -451,7 +451,6 @@ class PageController
   *----------------------------------------###
   showDetails: (no_trans = false) ->
     detail_id = LW.router.getState().key.split(':')[1]
-    console.log 'show detail:', detail_id
     
     # Turn off event handlers
     @turnOffEventHandlers()
