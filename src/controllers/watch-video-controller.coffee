@@ -35,6 +35,7 @@ class WatchVideoController
   | Activate.
   *----------------------------------------###
   activate: ->
+    console.log(@model.getWatchVideoId())
 
   ###
   *------------------------------------------*

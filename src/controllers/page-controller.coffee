@@ -29,7 +29,7 @@ WorkDetailModel = require '../models/slides/detail/work-detail-model'
 WorkDetailController = require './slides/detail/work-detail-controller'
 
 # Watch Video
-WatchVideoModel = require '../models/base-model'
+WatchVideoModel = require '../models/watch-video-model'
 WatchVideoController = require './watch-video-controller'
 
 class PageController
@@ -247,12 +247,13 @@ class PageController
     slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
     $new_slide = @slide_c[slide].model.getE()
     @active_index = $new_slide.index()
+    sub_type = if route.key.split(':')[2]? then route.key.split(':')[2] else ''
     @page_nav_c.updatePageNav(slide) if @page_nav_c?
 
     if @active_c is null
-      if route.key.split(':')[2]?
+      if sub_type isnt ''
         @$slides_wrapper.hide()
-        @showDetails(true)
+        @showSub(sub_type, true)
 
       @setActive(slide, 'bottom')
       @setBackgroundColor($new_slide.attr('data-rgb'))
@@ -261,12 +262,12 @@ class PageController
         @$slides_wrapper.show()
       , 13)
     else if @slide_c[slide] is @active_c
-      if route.key.split(':')[2]?
-        @showDetails()
+      if sub_type isnt ''
+        @showSub(sub_type)
       else
-        @hideDetails()
+        @hideSub()
     else
-      @hideDetails()
+      @hideSub()
 
       # Go to slide
       @$slide.removeClass('active')
@@ -296,13 +297,14 @@ class PageController
 
   ###
   *------------------------------------------*
-  | showDetails:void (-)
+  | showSub:void (-)
   |
+  | sub:string - details / watch
   | no_trans:boolean - transition?
   |
   | Show details.
   *----------------------------------------###
-  showDetails: (no_trans = false) ->
+  showSub: (sub, no_trans = false) ->
     detail_id = LW.router.getState().key.split(':')[1]
     
     # Turn off event handlers
@@ -312,11 +314,17 @@ class PageController
     LW.$body.trigger('gear_up_and_get_after_it')
 
     # suspend
+    @watch_video_c.suspend()
     for work_detail of @work_detail_c
       @work_detail_c[work_detail].suspend()
 
     # activate
-    @work_detail_c[detail_id].activate()
+    if sub is 'details'
+      @work_detail_c[detail_id].activate()
+
+    if sub is 'watch'
+      @watch_video_m.setWatchVideoId(@active_c.model.getWatchVideoId())
+      @watch_video_c.activate()
 
     # transition
     if no_trans is true
@@ -327,11 +335,11 @@ class PageController
 
   ###
   *------------------------------------------*
-  | hideDetails:void (-)
+  | hideSub:void (-)
   |
   | Hide details.
   *----------------------------------------###
-  hideDetails: ->
+  hideSub: ->
     # header
     LW.$body.trigger('back_out_and_gear_down')
 
@@ -566,6 +574,6 @@ class PageController
     # we have events to listen to turn off...
     if @total_slides > 1
       @turnHandlers('off')
-      @hideDetails()
+      @hideSub()
 
 module.exports = PageController
