@@ -106,7 +106,7 @@ class TransitionController
 
       _.delay(=>
         a.gotoAndPlay(0)
-      , 250)
+      , 100)
 
       @model.getE()
         .addClass('in-' + direction)
@@ -121,7 +121,7 @@ class TransitionController
                 cb2()
                 @running_hot = false
               )
-          , 1000)
+          , 100)
           cb1()
         )
     , 50)
