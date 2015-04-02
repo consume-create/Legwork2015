@@ -452,7 +452,7 @@ class PageController
     _.defer(=> @$mask_wrapper.removeClass('unmask'))
 
     # Turn on event handlers
-    @turnOnEventHandlers()
+    @turnHandlers('on')
 
   ###
   *------------------------------------------*
@@ -466,7 +466,7 @@ class PageController
     detail_id = LW.router.getState().key.split(':')[1]
     
     # Turn off event handlers
-    @turnOffEventHandlers()
+    @turnHandlers('off')
 
     # header
     LW.$body.trigger('show_details')
@@ -487,30 +487,24 @@ class PageController
 
   ###
   *------------------------------------------*
-  | turnOnEventHandlers:void (-)
+  | turnHandlers:void (-)
   |
-  | Turn on event handlers.
-  *----------------------------------------###
-  turnOnEventHandlers: ->
-    LW.$doc
-      .off("keyup.#{@model._id}")
-      .on("keyup.#{@model._id}", @onKeyup)
-
-    @$slides_wrapper
-      .off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
-      .on("mousewheel DOMMouseScroll", @onMousewheel)
-      .on(@mousedown, @onMouseDown)
-      .on(@mousemove, @onMouseMove)
-
-  ###
-  *------------------------------------------*
-  | turnOffEventHandlers:void (-)
+  | s:string - on / off
   |
-  | Turn off event handlers.
+  | Turn event handlers on / off.
   *----------------------------------------###
-  turnOffEventHandlers: ->
+  turnHandlers: (s) ->
     LW.$doc.off("keyup.#{@model._id}")
     @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
+
+    if s is 'on'
+      LW.$doc
+        .on("keyup.#{@model._id}", @onKeyup)
+
+      @$slides_wrapper
+        .on("mousewheel DOMMouseScroll", @onMousewheel)
+        .on(@mousedown, @onMouseDown)
+        .on(@mousemove, @onMouseMove)
 
   ###
   *------------------------------------------*
@@ -540,7 +534,7 @@ class PageController
     # we have events to listen to...
     if @total_slides > 1
       # Turn on event handlers
-      @turnOnEventHandlers()
+      @turnHandlers('on')
 
       # Check if cookie is set
       if $.cookie('cookie_monster') is 'stuffed'
@@ -570,7 +564,7 @@ class PageController
     # If there was more than one slide,
     # we have events to listen to turn off...
     if @total_slides > 1
-      @turnOffEventHandlers()
+      @turnHandlers('off')
       @hideDetails()
 
 module.exports = PageController
