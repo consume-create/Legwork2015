@@ -28,6 +28,10 @@ PageNavController = require './page-nav-controller'
 WorkDetailModel = require '../models/slides/detail/work-detail-model'
 WorkDetailController = require './slides/detail/work-detail-controller'
 
+# Watch Video
+WatchVideoModel = require '../models/base-model'
+WatchVideoController = require './watch-video-controller'
+
 class PageController
 
   ###
@@ -56,6 +60,14 @@ class PageController
   build: ->
     @model.setV($(JST['page-view']({'id': @model.getId(), 'slides': @model.getSlideData()})))
     @model.getE().append(@model.getV())
+
+    # Build watch video
+    @watch_video_m = new WatchVideoModel({
+      '$el': $('.watch-video-wrapper', @model.getV())
+    })
+    @watch_video_c = new WatchVideoController({
+      'model': @watch_video_m
+    })
 
     # Loop and create page slides
 
