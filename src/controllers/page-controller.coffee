@@ -130,6 +130,7 @@ class PageController
             'launch_url': slide.launch_url,
             'watch_video_id': slide.watch_video_id,
             'details_url': if slide.details? then'/' + @model.getId() + '/' + id + '/details' else ''
+            'watch_url': if slide.watch_video_id? then'/' + @model.getId() + '/' + id + '/watch' else ''
             'picture_src': slide.picture_src,
             'clients': slide.clients,
             'mediums': slide.mediums,
@@ -294,6 +295,54 @@ class PageController
 
   ###
   *------------------------------------------*
+  | showDetails:void (-)
+  |
+  | no_trans:boolean - transition?
+  |
+  | Show details.
+  *----------------------------------------###
+  showDetails: (no_trans = false) ->
+    detail_id = LW.router.getState().key.split(':')[1]
+    
+    # Turn off event handlers
+    @turnHandlers('off')
+
+    # header
+    LW.$body.trigger('gear_up_and_get_after_it')
+
+    # suspend
+    for work_detail of @work_detail_c
+      @work_detail_c[work_detail].suspend()
+
+    # activate
+    @work_detail_c[detail_id].activate()
+
+    # transition
+    if no_trans is true
+      @$mask_wrapper.addClass('no-trans')
+
+    @$mask_wrapper[0].offsetHeight # clear CSS cache
+    _.defer(=> @$mask_wrapper.addClass('unmask'))
+
+  ###
+  *------------------------------------------*
+  | hideDetails:void (-)
+  |
+  | Hide details.
+  *----------------------------------------###
+  hideDetails: ->
+    # header
+    LW.$body.trigger('back_out_and_gear_down')
+
+    # transition
+    @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
+    _.defer(=> @$mask_wrapper.removeClass('unmask'))
+
+    # Turn on event handlers
+    @turnHandlers('on')
+
+  ###
+  *------------------------------------------*
   | setBackgroundColor:void (-)
   |
   | Set background color.
@@ -435,54 +484,6 @@ class PageController
   next: ->
     if @active_index < (@total_slides - 1)
       @page_nav_c.next(@active_index)
-
-  ###
-  *------------------------------------------*
-  | hideDetails:void (-)
-  |
-  | Hide details.
-  *----------------------------------------###
-  hideDetails: ->
-    # header
-    LW.$body.trigger('hide_details')
-
-    # transition
-    @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
-    _.defer(=> @$mask_wrapper.removeClass('unmask'))
-
-    # Turn on event handlers
-    @turnHandlers('on')
-
-  ###
-  *------------------------------------------*
-  | showDetails:void (-)
-  |
-  | no_trans:boolean - transition?
-  |
-  | Show details.
-  *----------------------------------------###
-  showDetails: (no_trans = false) ->
-    detail_id = LW.router.getState().key.split(':')[1]
-    
-    # Turn off event handlers
-    @turnHandlers('off')
-
-    # header
-    LW.$body.trigger('show_details')
-
-    # suspend
-    for work_detail of @work_detail_c
-      @work_detail_c[work_detail].suspend()
-
-    # activate
-    @work_detail_c[detail_id].activate()
-
-    # transition
-    if no_trans is true
-      @$mask_wrapper.addClass('no-trans')
-
-    @$mask_wrapper[0].offsetHeight # clear CSS cache
-    _.defer(=> @$mask_wrapper.addClass('unmask'))
 
   ###
   *------------------------------------------*
