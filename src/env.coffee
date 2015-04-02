@@ -62,3 +62,10 @@ LW.colors = [
 	[104,167,184],
 	[129,116,165]
 ]
+
+# Slide detail media constants
+
+LW.media = []
+LW.media.IMAGE = "media-image"
+LW.media.VIDEO = "media-video"
+LW.media.SLIDESHOW = "media-slideshow"
