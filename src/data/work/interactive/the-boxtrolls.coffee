@@ -34,10 +34,22 @@ data = {
     "media": [
       {
         "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Some Title",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
         "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
       },
       {
         "type": LW.media.SLIDESHOW,
+        "copy": {
+          "title": "Some Title",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
         "images": [
           "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
           "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
@@ -47,6 +59,12 @@ data = {
       },
       {
         "type": LW.media.VIDEO,
+        "copy": {
+          "title": "Some Title",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
         "video_id": "1234"
       }
     ]
