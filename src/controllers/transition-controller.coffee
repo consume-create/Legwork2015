@@ -30,7 +30,7 @@ class TransitionController
   *----------------------------------------###
   build: ->
     @stage = new PIXI.Stage(0x000000)
-    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 2})
+    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 1})
     @model.getE().html(@renderer.view)
 
     @$canvas = $(@renderer.view)
@@ -39,6 +39,7 @@ class TransitionController
       'height': LW.size.app[1] + 'px'
     })
 
+    @animationQueue = []
     @loadAnimationQueue()
 
   ###
@@ -49,10 +50,7 @@ class TransitionController
   | the scenes.
   *----------------------------------------###
   loadAnimationQueue: ->
-    @animationQueue = []
-
-    # TODO: random sample of available animations
-    loader = new PIXI.AssetLoader(['/animations/ben-test-2.json'])
+    loader = new PIXI.AssetLoader(['/animations/transition-1.json', '/animations/transition-2.json'])
     loader.onProgress = @animationQueueProgress
     loader.load()
 
@@ -60,11 +58,18 @@ class TransitionController
   *------------------------------------------*
   | animationQueueProgress:void (-)
   |
+  | loader:object - pixi loader
+  |
   | Animation queue progress.
   *----------------------------------------###
-  animationQueueProgress: =>
-    # TODO: how to get id, frames?
-    mc = new PIXI.MovieClip(@mapTextures('Transition4_Test1_', 38, true))
+  animationQueueProgress: (loader) =>
+    frames = loader.json.frames
+    name = _.keys(frames)[0]
+    texture_id = name.substr(0, (name.length - 6))
+    texture_ln = (_.size(frames) - 1)
+
+    mc = new PIXI.MovieClip(@mapTextures(texture_id, texture_ln, true))
+    mc.visible = false
     mc.animationSpeed = 24 / 60
     mc.loop = false
     mc.position = new PIXI.Point(0, 0)
@@ -85,7 +90,7 @@ class TransitionController
       'width': LW.size.app[0] + 'px',
       'height': LW.size.app[1] + 'px'
     })
-    @scale = [(LW.size.app[0] / 1920), (LW.size.app[0] / 1920)]
+    @scale = [(LW.size.app[0] / 960), (LW.size.app[0] / 960)]
 
   ###
   *------------------------------------------*
@@ -107,6 +112,7 @@ class TransitionController
         a.position.x -= a.width
 
       # Sequence
+      a.visible = true
       a.gotoAndPlay(0)
 
       # Layer
@@ -157,6 +163,7 @@ class TransitionController
   *----------------------------------------###
   suspendAllAnimations: ->
     for a in @animationQueue
+      a.visible = false
       a.scale = new PIXI.Point(@scale[0], @scale[1])
       a.position.x = 0
       a.gotoAndStop(0)
