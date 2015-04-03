@@ -58,7 +58,7 @@ class Application
     }
 
     @cling_to = -1
-    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s.', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'I got a mangina.']
+    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s.', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'Love games?']
     @$fallback = $('#fallback')
     @active_c = null
 
@@ -95,7 +95,9 @@ class Application
           LW.router.add('/' + page_url + '/' + slide_url + '/details', 'Legwork Studio / ' + slide.browser_title + ' Details')
 
         # Add watch route if it exists
-        if slide.watch_video_id
+        if slide.reel_video_id
+          LW.router.add('/' + page_url + '/reel', 'Legwork Studio / Watch ' + slide.browser_title + ' Reel')
+        else if slide.watch_video_id
           LW.router.add('/' + page_url + '/' + slide_url + '/watch', 'Legwork Studio / Watch ' + slide.browser_title)
 
   ###

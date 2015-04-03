@@ -117,7 +117,8 @@ class PageController
             'id': slide.id,
             'title': slide.title,
             'reel_video_id': slide.reel_video_id,
-            'instructions': slide.instructions
+            'instructions': slide.instructions,
+            'watch_url': '/' + @model.getId() + '/reel'
           })
           @slide_c[id] = new WorkSlideController({
             'model': @slide_m[id]
@@ -129,8 +130,8 @@ class PageController
             'callouts': slide.callouts,
             'launch_url': slide.launch_url,
             'watch_video_id': slide.watch_video_id,
-            'details_url': if slide.details? then'/' + @model.getId() + '/' + id + '/details' else ''
-            'watch_url': if slide.watch_video_id? then'/' + @model.getId() + '/' + id + '/watch' else ''
+            'details_url': if slide.details? then '/' + @model.getId() + '/' + id + '/details' else ''
+            'watch_url': if slide.watch_video_id? then '/' + @model.getId() + '/' + id + '/watch' else ''
             'picture_src': slide.picture_src,
             'clients': slide.clients,
             'mediums': slide.mediums,
@@ -245,18 +246,25 @@ class PageController
   *----------------------------------------###
   goToSlide: (route) =>
     slide = route.key.split(':')[1] || _.keys(@model.getSlideData())[0]
+    sub_type = if route.key.split(':')[2]? then route.key.split(':')[2] else ''
+
+    # Reel exception
+    if slide is 'reel'
+      slide = _.keys(@model.getSlideData())[0]
+      sub_type = 'reel'
+
     $new_slide = @slide_c[slide].model.getE()
     @active_index = $new_slide.index()
-    sub_type = if route.key.split(':')[2]? then route.key.split(':')[2] else ''
+
+    # Page nav
     @page_nav_c.updatePageNav(slide) if @page_nav_c?
 
+    # Active
     if @active_c is null
-      if sub_type isnt ''
-        @$slides_wrapper.hide()
-        @showSub(sub_type, true)
-
+      @$slides_wrapper.hide() if sub_type isnt ''
       @setActive(slide, 'bottom')
       @setBackgroundColor($new_slide.attr('data-rgb'))
+      @showSub(sub_type, true) if sub_type isnt ''
 
       _.delay(=>
         @$slides_wrapper.show()
@@ -319,6 +327,10 @@ class PageController
       @work_detail_c[work_detail].suspend()
 
     # activate
+    if sub is 'reel'
+      @watch_video_m.setWatchVideoId(@active_c.model.getReelVideoId())
+      @watch_video_c.activate()
+
     if sub is 'details'
       @work_detail_c[detail_id].activate()
 

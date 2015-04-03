@@ -16,6 +16,7 @@ class TransitionController
   *----------------------------------------###
   constructor: (init) ->
     @model = init.model
+    @scale = [(LW.size.app[0] / 960), (LW.size.app[0] / 960)]
     @running_hot = false
     @animation_to = -1
 
@@ -51,7 +52,7 @@ class TransitionController
     @animationQueue = []
 
     # TODO: random sample of available animations
-    loader = new PIXI.AssetLoader(['/animations/ben-test.json'])
+    loader = new PIXI.AssetLoader(['/animations/ben-test-2.json'])
     loader.onProgress = @animationQueueProgress
     loader.load()
 
@@ -63,11 +64,11 @@ class TransitionController
   *----------------------------------------###
   animationQueueProgress: =>
     # TODO: how to get id, frames?
-    mc = new PIXI.MovieClip(@mapTextures('ben-test-', 50, true))
+    mc = new PIXI.MovieClip(@mapTextures('Transition4_Test1_', 38, true))
     mc.animationSpeed = 24 / 60
     mc.loop = false
-    mc.position = new PIXI.Point(-200, 0)
-    mc.scale = new PIXI.Point(2, 2)
+    mc.position = new PIXI.Point(0, 0)
+    mc.scale = new PIXI.Point(@scale[0], @scale[1])
     @stage.addChild(mc)
     mc.gotoAndStop(0)
     @animationQueue.push(mc)
@@ -84,6 +85,7 @@ class TransitionController
       'width': LW.size.app[0] + 'px',
       'height': LW.size.app[1] + 'px'
     })
+    @scale = [(LW.size.app[0] / 1920), (LW.size.app[0] / 1920)]
 
   ###
   *------------------------------------------*
@@ -98,16 +100,16 @@ class TransitionController
   go: (direction, cb1, cb2) ->
     @running_hot = true
 
-    _.delay(=>
+    _.defer(=>
       a = _.sample(@animationQueue)
       if direction is 'right'
-        a.scale = new PIXI.Point(-2, 2)
+        a.scale = new PIXI.Point(-@scale[0], @scale[1])
         a.position.x -= a.width
 
-      _.delay(=>
-        a.gotoAndPlay(0)
-      , 100)
+      # Sequence
+      a.gotoAndPlay(0)
 
+      # Layer
       @model.getE()
         .addClass('in-' + direction)
         .off(LW.utils.transition_end)
@@ -121,10 +123,10 @@ class TransitionController
                 cb2()
                 @running_hot = false
               )
-          , 100)
+          , 200)
           cb1()
         )
-    , 50)
+    )
 
   ###
   *------------------------------------------*
@@ -155,8 +157,8 @@ class TransitionController
   *----------------------------------------###
   suspendAllAnimations: ->
     for a in @animationQueue
-      a.scale = new PIXI.Point(2, 2)
-      a.position.x = -200
+      a.scale = new PIXI.Point(@scale[0], @scale[1])
+      a.position.x = 0
       a.gotoAndStop(0)
 
   ###
@@ -177,7 +179,7 @@ class TransitionController
   *----------------------------------------###
   activate: ->
     @frame = requestAnimationFrame(@render)
-    @model.getE().show()
+    @model.getE().show()[0].offsetHeight
 
   ###
   *------------------------------------------*

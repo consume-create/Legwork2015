@@ -32,6 +32,9 @@ class WorkSlideModel extends BaseSlideModel
     @_instructions = null
     @setInstructions(data.instructions)
 
+    @_watch_url = null
+    @setWatchUrl(data.watch_url)
+
   ###
   *------------------------------------------*
   | getId:string (-)
@@ -127,5 +130,28 @@ class WorkSlideModel extends BaseSlideModel
       throw 'ERROR: instructions must be a string'
     else
       @_instructions = instructions
+
+  ###
+  *------------------------------------------*
+  | getWatchUrl:string (-)
+  |
+  | Get watch url.
+  *----------------------------------------###
+  getWatchUrl: ->
+    return @_watch_url
+
+  ###
+  *------------------------------------------*
+  | setWatchUrl:void (-)
+  |
+  | watch_url:string - watch url
+  |
+  | Set watch url.
+  *----------------------------------------###
+  setWatchUrl: (watch_url) ->
+    if watch_url isnt null and _.isString(watch_url) is false
+      throw 'ERROR: watch_url must be a string'
+    else
+      @_watch_url = watch_url
 
 module.exports = WorkSlideModel

@@ -84,7 +84,7 @@ class HeaderController
   turnDetailsClose: (s) ->
     if s is 'on'
       y = -40
-      href = LW.router.getState().url.replace(/\/details|\/watch/i, '')
+      href = LW.router.getState().url.replace(/\/reel|\/details|\/watch/i, '')
     else
       y = 0
       href = 'javascript:void(0);'
