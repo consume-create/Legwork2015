@@ -221,11 +221,12 @@ class WorkDetailModel extends BaseModel
   *----------------------------------------###
   setMedia: (media) ->
     passed = true
-    
+    slideshow_count = 0
+
     if _.isArray(media) is false
       passed = false
       throw 'ERROR: media must be an array of media objects'
-    
+
     for m in media
       if _.contains(_.values(LW.media), m.type) is false
         passed = false
@@ -245,6 +246,12 @@ class WorkDetailModel extends BaseModel
             passed = false
             throw 'ERROR: each media copy text must be a string'
             break
+      if m.type is LW.media.SLIDESHOW
+        slideshow_count++
+
+    if slideshow_count > 1
+      passed = false
+      throw 'ERROR: no more than one slideshow per detail page'
 
     if passed is true
       @_media = media
