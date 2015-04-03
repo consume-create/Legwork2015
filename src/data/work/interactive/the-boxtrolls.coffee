@@ -35,9 +35,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "Some Image Title",
           "text": [
-            "Some copy goes here."
+            "Some copy goes here about this image."
           ]
         },
         "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
@@ -45,9 +45,9 @@ data = {
       {
         "type": LW.media.SLIDESHOW,
         "copy": {
-          "title": "Some Title",
+          "title": "Some Slideshow Title",
           "text": [
-            "Some copy goes here."
+            "Some copy goes here about this slideshow."
           ]
         },
         "images": [
@@ -60,9 +60,9 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "Some Title",
+          "title": "Some Video Title",
           "text": [
-            "Some copy goes here."
+            "Some copy goes here about this video."
           ]
         },
         "video_id": "1234"

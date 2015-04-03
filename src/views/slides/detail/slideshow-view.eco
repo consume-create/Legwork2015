@@ -1,0 +1,9 @@
+<div class="slideshow-holder">
+	<div class="slider">
+		<% for img in @images: %>
+			<div class="slide" style="background-image: url('<%= img %>')"></div>
+		<% end %>
+	</div>
+	<div class="arrow prev"></div>
+	<div class="arrow next"></div>
+</div>
