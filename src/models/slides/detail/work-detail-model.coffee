@@ -248,6 +248,9 @@ class WorkDetailModel extends BaseModel
             break
       if m.type is LW.media.SLIDESHOW
         slideshow_count++
+      if m.type is LW.media.VIDEO and _.isString(m.video_id) is false
+        passed = false
+        throw 'ERROR: video_id must be a string'
 
     if slideshow_count > 1
       passed = false
