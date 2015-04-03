@@ -49,9 +49,12 @@ class WorkDetailController
     @$bg = $('.bg', @model.getV())
     @src = @$bg.attr('data-src')
     @$slideshow = $('.media-slideshow', @model.getV())
+    @slideshow_exists = false
 
     # Build media components
     if @$slideshow.length > 0
+      @slideshow_exists = true
+
       @slideshow_m = new SlideshowModel({
         '$el': $('.inner', @$slideshow),
         'images': _.findWhere(@model.getMedia(), {type: LW.media.SLIDESHOW}).images
@@ -103,13 +106,18 @@ class WorkDetailController
     @model.getE().addClass('active')
     @loadDetailTransition()
 
+    if @slideshow_exists is true
+      @slideshow_c.activate()
+
   ###
   *------------------------------------------*
   | suspend:void (-)
   |
-  | Activate.
+  | Suspend.
   *----------------------------------------###
   suspend: ->
     @model.getE().removeClass('active')
+    if @slideshow_exists is true
+      @slideshow_c.suspend()
 
 module.exports = WorkDetailController

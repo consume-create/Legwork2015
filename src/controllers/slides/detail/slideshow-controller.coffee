@@ -30,4 +30,20 @@ class SlideshowController
     })))
     @model.getE().append(@model.getV())
 
+  ###
+  *------------------------------------------*
+  | activate:void (-)
+  |
+  | Activate.
+  *----------------------------------------###
+  activate: ->
+
+  ###
+  *------------------------------------------*
+  | suspend:void (-)
+  |
+  | Suspend.
+  *----------------------------------------###
+  suspend: ->
+
 module.exports = SlideshowController
