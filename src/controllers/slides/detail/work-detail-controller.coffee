@@ -4,6 +4,10 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 ###
 
+# Slideshow
+SlideshowModel = require '../../../models/slides/detail/slideshow-model'
+SlideshowController = require './slideshow-controller'
+
 class WorkDetailController
 
   ###
@@ -16,6 +20,9 @@ class WorkDetailController
   *----------------------------------------###
   constructor: (init) ->
     @model = init.model
+    @slideshow_m = null
+    @slideshow_c = null
+
     @build()
 
   ###
@@ -41,6 +48,16 @@ class WorkDetailController
     @$black_box = $('.black-box', @model.getV())
     @$bg = $('.bg', @model.getV())
     @src = @$bg.attr('data-src')
+    @$slideshow = $('.media-slideshow')
+
+    # Build media components
+    if @$slideshow.length > 0
+      @slideshow_m = new SlideshowModel({
+        '$el': @$slideshow
+      })
+      @slideshow_c = new SlideshowController({
+        'model': @slideshow_m
+      })
 
   ###
   *------------------------------------------*

@@ -229,8 +229,22 @@ class WorkDetailModel extends BaseModel
     for m in media
       if _.contains(_.values(LW.media), m.type) is false
         passed = false
-        throw 'ERROR: each media obeject type needs to match one of the defined LW.media listed in ./src/env.coffee'
+        throw 'ERROR: each media type needs to match one of the defined LW.media listed in ./src/env.coffee'
         break
+      if m.copy isnt null
+        if _.isString(m.copy.title) is false
+          passed = false
+          throw 'ERROR: media copy title must be a string'
+          break
+        if _.isArray(m.copy.text) is false
+          passed = false
+          throw 'ERROR: media copy text must be an array of strings'
+          break
+        for t in m.copy.text
+          if _.isString(t) is false
+            passed = false
+            throw 'ERROR: each media copy text must be a string'
+            break
 
     if passed is true
       @_media = media

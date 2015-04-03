@@ -30,10 +30,17 @@ data = {
     "media": [
       {
         "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Some Title",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
         "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
       },
       {
         "type": LW.media.SLIDESHOW,
+        "copy": null,
         "images": [
           "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
           "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
@@ -43,6 +50,7 @@ data = {
       },
       {
         "type": LW.media.VIDEO,
+        "copy": null,
         "video_id": "1234"
       }
     ]
