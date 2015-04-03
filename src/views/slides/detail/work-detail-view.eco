@@ -28,7 +28,7 @@
 			</div>
 		</section>
 		<% for m in @media: %>
-			<section class="media-section <%= m.type %>">
+			<section class="<%= m.type %>">
 				<div class="inner">
 					<% if m.copy?: %>
 						<h4><%= m.copy.title %></h4>
@@ -37,10 +37,10 @@
 						<% end %>
 					<% end %>
 					<% if m.type is LW.media.IMAGE: %>
-						<div class="placeholder ph-img"></div>
+						<img src="<%= m.img_src %>" alt="" />
 					<% end %>
 					<% if m.type is LW.media.VIDEO: %>
-						<div class="placeholder ph-vid"></div>
+						<div class="video-holder" data-id="<%= m.video_id %>"></div>
 					<% end %>
 				</div>
 			</section>

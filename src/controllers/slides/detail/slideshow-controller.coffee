@@ -25,5 +25,9 @@ class SlideshowController
   | Build.
   *----------------------------------------###
   build: ->
+    @model.setV($(JST['slideshow-view']({
+      'images': @model.getImages()
+    })))
+    @model.getE().append(@model.getV())
 
 module.exports = SlideshowController
