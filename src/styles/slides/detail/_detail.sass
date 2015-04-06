@@ -165,7 +165,9 @@
               transform: translate3d(0,0,0)
               transition: transform $speed_metal $evil_ease
 
-              &.dragging,
+              &.swiped
+                transition: transform ($speed * 1.5) $ease_out
+
               &.no-trans
                 transition: none
 

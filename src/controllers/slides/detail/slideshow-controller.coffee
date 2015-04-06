@@ -36,7 +36,6 @@ class SlideshowController
     @$arrow = $('.arrow', @model.getV())
 
     # Draggable vars
-    @resistance = 1
     @dragging = false
     @drag_time = 666
     @trans_x = 0
@@ -46,7 +45,8 @@ class SlideshowController
     @range = 30
     @current_range = 0
     @now = 0
-    @drag_obj = {}
+    @inmotion = false
+    @swiped = false
 
     @mousedown = if Modernizr.touch then "touchstart" else "mousedown"
     @mousemove = if Modernizr.touch then "touchmove" else "mousemove"
@@ -68,6 +68,16 @@ class SlideshowController
   | Mouse down.
   *----------------------------------------###
   onMouseDown: (e) =>
+    if @inmotion is false
+      @dragging = true
+      @slider_width = @$slider.width()
+      @trans_x = -(@active_index * 100)
+
+      @start_time = (new Date()).getTime()
+      @start_x = if Modernizr.touch then e.originalEvent.pageX else e.pageX
+
+      LW.$doc.off(@mouseup)
+        .one(@mouseup, @onMouseUp)
 
   ###
   *------------------------------------------*
@@ -76,6 +86,20 @@ class SlideshowController
   | Mouse move.
   *----------------------------------------###
   onMouseMove: (e) =>
+    if @dragging is true
+      e.preventDefault()
+
+      @current_x = if Modernizr.touch then e.originalEvent.pageX else e.pageX
+      @direction_x = @current_x - @start_x
+      @current_range = if @start_x is 0 then 0 else Math.abs(@direction_x)
+      @now = (new Date()).getTime()
+      drag_x = -(@active_index * @slider_width) + @direction_x
+
+      @$slider
+        .addClass('no-trans')
+        .css(LW.utils.transform, LW.utils.translate(drag_x + 'px', 0))
+
+      return false
 
   ###
   *------------------------------------------*
@@ -84,6 +108,27 @@ class SlideshowController
   | Mouse Up.
   *----------------------------------------###
   onMouseUp: =>
+    if @$slider.hasClass('no-trans')
+      @$slider.removeClass('no-trans')
+
+      if @now - @start_time < @drag_time and @current_range > @range or @current_range > (@slider_width / 2)
+        @swiped = true
+        if @current_x > @start_x
+          @previous()
+        else
+          @next()
+      else
+        @inmotion = true
+        @$slider
+          .css(LW.utils.transform, LW.utils.translate(-(@active_index * @slider_width) + 'px', 0))
+          .off(LW.utils.transition_end)
+          .one(LW.utils.transition_end, =>
+            @inmotion = false
+          )
+
+    @dragging = false
+    @swiped = false
+    return false
 
   ###
   *------------------------------------------*
@@ -94,7 +139,29 @@ class SlideshowController
   | Click arrow.
   *----------------------------------------###
   onClickArrow: (e) =>
-    @active_index = if $(e.currentTarget).hasClass('prev') then @active_index - 1 else @active_index + 1
+    if @inmotion is true
+      return false
+
+    if $(e.currentTarget).hasClass('prev') then @previous() else @next()
+
+  ###
+  *------------------------------------------*
+  | previous:void (=)
+  |
+  | Previous slide.
+  *----------------------------------------###
+  previous: =>
+    @active_index = @active_index - 1
+    @updateSlider()
+
+  ###
+  *------------------------------------------*
+  | next:void (=)
+  |
+  | Next slide.
+  *----------------------------------------###
+  next: =>
+    @active_index = @active_index + 1
     @updateSlider()
 
   ###
@@ -104,8 +171,12 @@ class SlideshowController
   | Update shoe.
   *----------------------------------------###
   updateSlider: =>
+    @inmotion = true
     @trans_x = -(@active_index * 100)
     translate = LW.utils.translate("#{@trans_x + '%'}", 0)
+
+    if @swiped is true
+      @$slider.addClass('swiped')
 
     @$slider
       .css(LW.utils.transform, translate)
@@ -134,7 +205,10 @@ class SlideshowController
         @updateSlider()
 
         @$slider[0].offsetHeight # clear CSS cache
-        @$slider.removeClass('no-trans')
+        @$slider.removeClass('no-trans swiped')
+        @inmotion = false
+    else
+      @inmotion = false
 
   ###
   *------------------------------------------*
@@ -144,8 +218,10 @@ class SlideshowController
   *----------------------------------------###
   reset: ->
     @$slider.removeClass('no-trans')
-    @active_index = 1
     @trans_x = 0
+    @active_index = 1
+    @inmotion = false
+    @swiped = false
     @updateSlider()
 
   ###
