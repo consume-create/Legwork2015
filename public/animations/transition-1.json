@@ -354,10 +354,10 @@
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "ben-test-2.png",
+	"image": "transition-1.png",
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":4096},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:ab33819bca1df3793809bf4d4489511a:25f4a734efa19f6dd62fdd5e678045ea:bcfb34229c9d65c7bdef9af179c8bd49$"
+	"smartupdate": "$TexturePacker:SmartUpdate:a60f9dda10a7fbf14afc69b8ee02ad75:25f4a734efa19f6dd62fdd5e678045ea:cdc675ae282c43e9044e81120d2109d5$"
 }
 }
