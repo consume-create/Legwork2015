@@ -150,6 +150,8 @@
             background-color: $black
             overflow: hidden
 
+            user-select: none
+
             .slider
               position: absolute
               top: 0px
@@ -163,6 +165,10 @@
               transform: translate3d(0,0,0)
               transition: transform $speed_metal $evil_ease
 
+              &.dragging,
+              &.no-trans
+                transition: none
+
               .slide
                 position: relative
                 width: 100%
@@ -174,6 +180,17 @@
                 overflow: hidden
                 display: inline-block
 
+                span
+                  position: absolute
+                  top: 50%
+                  left: 50%
+                  color: $white
+                  font-size: 54px
+                  line-height: 54px
+                  font-weight: $bold
+
+                  transform: translate(-50%,-50%)
+
             .arrow
               position: absolute
               top: 50%
@@ -183,18 +200,11 @@
               margin: -38px 0 0
               background-color: $almost_white
 
-              transform: translate3d(0%,0,0)
-              transition: transform $speed_metal $evil_ease
+              transform: translate3d(0,0,0)
 
               &.next
                 left: auto
                 right: 0px
-
-              &.disabled.prev
-                transform: translate3d(-100%,0,0)
-
-              &.disabled.next
-                transform: translate3d(100%,0,0)
 
     .detail-loader
       position: absolute

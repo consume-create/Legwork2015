@@ -1,7 +1,9 @@
 <div class="slideshow-holder">
 	<div class="slider">
+		<% n = 0 %>
 		<% for img in @images: %>
-			<div class="slide" style="background-image: url('<%= img %>')"></div>
+			<% n++ %>
+			<div class="slide" style="background-image: url('<%= img %>')"><span>0<%= n %></span></div>
 		<% end %>
 	</div>
 	<div class="arrow prev"></div>
