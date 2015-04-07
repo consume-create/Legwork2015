@@ -40,7 +40,10 @@
 						<img src="<%= m.img_src %>" alt="" />
 					<% end %>
 					<% if m.type is LW.media.VIDEO: %>
-						<div class="video-holder" data-id="<%= m.video_id %>"></div>
+						<div class="video-holder">
+							<div class="video-poster" data-id="<%= m.video_id %>"></div>
+							<div class="video-player"></div>
+						</div>
 					<% end %>
 				</div>
 			</section>
