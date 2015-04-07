@@ -20,6 +20,10 @@ PageController = require './controllers/page-controller'
 TransitionModel = require './models/transition-model'
 TransitionController = require './controllers/transition-controller'
 
+# Error
+ErrorModel = require './models/error-model'
+ErrorController = require './controllers/error-controller'
+
 class Application
 
   ###
@@ -135,6 +139,13 @@ class Application
       'model': @transition_m
     })
 
+    # Error
+    $error_e = $('<div id="error" class="page" />').appendTo(@$pages_inner)
+    @error_m = new ErrorModel({'$el': $error_e})
+    @error_c = new ErrorController({
+      'model': @error_m
+    })
+
     @observeSomeSweetEvents()
 
   ###
@@ -145,6 +156,7 @@ class Application
   *----------------------------------------###
   observeSomeSweetEvents: ->
     # Add callbacks for routes
+    LW.router.on('ERROR:404', @on404)
     LW.router.on('/', @goToPage)
     for page_url, page of LW.data.pages
       LW.router.on('/' + page_url + '/*', @goToPage)
@@ -153,7 +165,10 @@ class Application
     LW.router.onAppStateChange()
 
     LW.$win
-      .on('blur', @stageFiveClingerMode)
+      .on('blur', (e) =>
+        @unclung_title = document.title
+        @stageFiveClingerMode()
+      )
       .on('focus', @backToNormalMode)
       .on('resize', @onWindowResize)
 
@@ -176,7 +191,7 @@ class Application
   *----------------------------------------###
   backToNormalMode: =>
     clearTimeout(@cling_to)
-    document.title = LW.router.routes[LW.router.getState().key].title
+    document.title = @unclung_title
     @cling_to = -1
 
   ###
@@ -235,7 +250,21 @@ class Application
 
   ###
   *------------------------------------------*
-  | suspend:void (=)
+  | on404:void (=)
+  |
+  | route:object - current route
+  |
+  | 404.
+  *----------------------------------------###
+  on404: (route) =>
+    @suspend()
+    @error_m.setMsg('404: This page got lost in Joey\'s slutty butt.')
+    @error_c.activate()
+    @active_c = @error_c
+
+  ###
+  *------------------------------------------*
+  | suspend:void (-)
   |
   | Suspend all.
   *----------------------------------------###
