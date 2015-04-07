@@ -65,7 +65,17 @@ data = {
             "Some copy goes here about this video."
           ]
         },
-        "video_id": "1234"
+        "video_id": "118837949"
+      },
+      {
+        "type": LW.media.VIDEO,
+        "copy": {
+          "title": "Some Video Title",
+          "text": [
+            "Some copy goes here about this video."
+          ]
+        },
+        "video_id": "67414298"
       }
     ]
   }

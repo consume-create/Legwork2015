@@ -165,8 +165,9 @@ class PageController
     @$slide = $('.slide', @model.getV())
 
     @total_slides = @$slide.length
-    @active_c = null
     @active_index = 0
+    @active_c = null
+    @active_work_detail_c = null
 
     # Mousewheel vars
     @threshold_hit = false
@@ -313,8 +314,8 @@ class PageController
   | Show details.
   *----------------------------------------###
   showSub: (sub, no_trans = false) ->
-    detail_id = LW.router.getState().key.split(':')[1]
-    
+    @active_work_detail_c = null
+
     # Turn off event handlers
     @turnHandlers('off')
 
@@ -332,7 +333,8 @@ class PageController
       @watch_video_c.activate()
 
     if sub is 'details'
-      @work_detail_c[detail_id].activate()
+      @active_work_detail_c = @work_detail_c[LW.router.getState().key.split(':')[1]]
+      @active_work_detail_c.activate()
 
     if sub is 'watch'
       @watch_video_m.setWatchVideoId(@active_c.model.getWatchVideoId())
@@ -352,6 +354,11 @@ class PageController
   | Hide details.
   *----------------------------------------###
   hideSub: ->
+    # If active work detail isnt null, turn off stuff
+    if @active_work_detail_c isnt null
+      @active_work_detail_c.turnDetailHandlers('off')
+      @active_work_detail_c = null
+
     # header
     LW.$body.trigger('back_out_and_gear_down')
 
