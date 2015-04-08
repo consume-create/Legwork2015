@@ -195,8 +195,9 @@ class WorkDetailController
   *----------------------------------------###
   activate: ->
     @model.getE().addClass('active')
+    
+    @model.getE()[0].offsetHeight
     @loadDetailTransition()
-
     @turnDetailHandlers('on')
 
   ###

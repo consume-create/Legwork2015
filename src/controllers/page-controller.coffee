@@ -357,26 +357,23 @@ class PageController
   | Hide details.
   *----------------------------------------###
   hideSub: ->
-    # If active work detail isnt null, turn off stuff
-    if @active_work_detail_c isnt null
-      @active_work_detail_c.turnDetailHandlers('off')
-      @active_work_detail_c = null
-
     # header
     LW.$body.trigger('back_out_and_gear_down')
 
     # transition
     @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
     _.defer(=>
-      # If active work detail isnt null, turn off stuff
-      if @active_watch_c isnt null
-        console.log 'leaving watch, back to slide'
+      if @active_watch_c isnt null or @active_work_detail_c isnt null
         @$mask_wrapper
           .removeClass('unmask')
           .off(LW.utils.transition_end)
           .one(LW.utils.transition_end, =>
-            @active_watch_c.reset()
-            @active_watch_c = null
+            if @active_work_detail_c isnt null
+              @active_work_detail_c.turnDetailHandlers('off')
+              @active_work_detail_c = null
+            if @active_watch_c isnt null
+              @active_watch_c.reset()
+              @active_watch_c = null
           )
       else
         @$mask_wrapper.removeClass('unmask')

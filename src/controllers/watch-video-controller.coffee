@@ -66,8 +66,13 @@ class WatchVideoController
     $v = "<iframe src='//player.vimeo.com/video/#{id}?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
     @$video_player.append($v).addClass('playing')
 
+  ###
+  *------------------------------------------*
+  | reset:void (-)
+  |
+  | Reset.
+  *----------------------------------------###
   reset: ->
-    console.log 'reset'
     @$video_player.empty()
     @$loader.removeClass('loading loaded')
 
