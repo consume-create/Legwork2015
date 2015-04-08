@@ -180,12 +180,16 @@ class WorkDetailController
       @$video_poster.off('click')
 
     if s is 'on'
-      if @slideshow_exists is true
-        @slideshow_c.activate()
+      # Temp: try aggresive clear cache/defer to turn on events
+      # The slidehsow didn't always turn back on...
+      @model.getE()[0].offsetHeight
+      _.defer =>
+        if @slideshow_exists is true
+          @slideshow_c.activate()
 
-      if @videos_exist is true
-        @buildVideos()
-        @$video_poster.on('click', @onClickPoster)
+        if @videos_exist is true
+          @buildVideos()
+          @$video_poster.on('click', @onClickPoster)
 
   ###
   *------------------------------------------*
@@ -195,8 +199,6 @@ class WorkDetailController
   *----------------------------------------###
   activate: ->
     @model.getE().addClass('active')
-    
-    @model.getE()[0].offsetHeight
     @loadDetailTransition()
     @turnDetailHandlers('on')
 
