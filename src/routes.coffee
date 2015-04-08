@@ -21,6 +21,12 @@ class Routes
     @prev_state = History.getState()
     @state = History.getState()
     @routes = {}
+    @errors = {
+      'ERROR:404': {
+        'callbacks': []
+        'title': 'Legwork Studio / 404 Not Found'
+      }
+    }
     @observeSomeSweetEvents()
 
   ###
@@ -119,7 +125,10 @@ class Routes
 
       document.title = @routes[key].title
     else
-      console.log('404')
+      for cb in @errors['ERROR:404'].callbacks
+        cb(@format(@state.hash))
+
+      document.title = @errors['ERROR:404'].title
 
   ###
   *------------------------------------------*
@@ -131,23 +140,26 @@ class Routes
   | Fire a callback.
   *----------------------------------------###
   on: (route, cb) ->
-    state = @format(route)
-
-    # Handle wildcards
-    if state.key.indexOf('*') isnt -1
-      part = state.key.split(':')[0]
-
-      for key in _.keys(@routes)
-        if key.indexOf(part) isnt -1
-          @on(key, cb)
-
-      return false
-
-    # Add callback
-    if @routes[state.key]? is false
-      throw('Error: The route needs to be defined in routes.coffee!')
+    if @errors[route]?
+      @errors[route].callbacks.unshift(cb)
     else
-      @routes[state.key].callbacks.unshift(cb)
+      state = @format(route)
+
+      # Handle wildcards
+      if state.key.indexOf('*') isnt -1
+        part = state.key.split(':')[0]
+
+        for key in _.keys(@routes)
+          if key.indexOf(part) isnt -1
+            @on(key, cb)
+
+        return false
+
+      # Add callback
+      if @routes[state.key]? is false
+        throw('Error: The route needs to be defined in routes.coffee!')
+      else
+        @routes[state.key].callbacks.unshift(cb)
 
   ###
   *------------------------------------------*

@@ -1,0 +1,3 @@
+<div id="error-page-inner" class="page-inner">
+	<p id="error-msg"></p>
+</div>
