@@ -112,7 +112,7 @@ class Application
   | Build.
   *----------------------------------------###
   build: ->
-    # Specify if not desktop
+    # Hey desktop, party on
     if LW.utils.is_mobile.any() is false
       LW.$body.addClass('party-on')
 
