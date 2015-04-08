@@ -216,13 +216,15 @@ class SlideshowController
   |
   | Reset.
   *----------------------------------------###
-  reset: ->
+  reset: =>
     @$slider.removeClass('no-trans')
     @trans_x = 0
     @active_index = 1
-    @inmotion = false
-    @swiped = false
     @updateSlider()
+
+    # reset these after update slider to ensure these have reset
+    @swiped = false
+    @inmotion = false
 
   ###
   *------------------------------------------*
@@ -232,7 +234,6 @@ class SlideshowController
   *----------------------------------------###
   activate: ->
     @reset()
-
     @$slider
       .off("#{@mousedown} #{@mousemove}")
       .on(@mousedown, @onMouseDown)
