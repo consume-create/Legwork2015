@@ -1,1 +1,8 @@
-<div class="watch-video-inner"></div>
+<div class="watch-video-inner">
+	<div class="video-holder">
+		<div class="video-player"></div>
+	</div>
+	<div class="watch-video-loader">
+		<div class="spinner"><span></span></div>
+	</div>
+</div>

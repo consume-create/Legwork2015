@@ -168,6 +168,7 @@ class PageController
     @active_index = 0
     @active_c = null
     @active_work_detail_c = null
+    @active_watch_c = null
 
     # Mousewheel vars
     @threshold_hit = false
@@ -315,6 +316,7 @@ class PageController
   *----------------------------------------###
   showSub: (sub, no_trans = false) ->
     @active_work_detail_c = null
+    @active_watch_c = null
 
     # Turn off event handlers
     @turnHandlers('off')
@@ -337,8 +339,9 @@ class PageController
       @active_work_detail_c.activate()
 
     if sub is 'watch'
+      @active_watch_c = @watch_video_c
       @watch_video_m.setWatchVideoId(@active_c.model.getWatchVideoId())
-      @watch_video_c.activate()
+      @active_watch_c.activate()
 
     # transition
     if no_trans is true
@@ -364,7 +367,20 @@ class PageController
 
     # transition
     @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
-    _.defer(=> @$mask_wrapper.removeClass('unmask'))
+    _.defer(=>
+      # If active work detail isnt null, turn off stuff
+      if @active_watch_c isnt null
+        console.log 'leaving watch, back to slide'
+        @$mask_wrapper
+          .removeClass('unmask')
+          .off(LW.utils.transition_end)
+          .one(LW.utils.transition_end, =>
+            @active_watch_c.reset()
+            @active_watch_c = null
+          )
+      else
+        @$mask_wrapper.removeClass('unmask')
+    )
 
     # Turn on event handlers
     @turnHandlers('on')

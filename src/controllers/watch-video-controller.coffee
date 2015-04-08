@@ -28,6 +28,49 @@ class WatchVideoController
     @model.setV($(JST['watch-video-view']()))
     @model.getE().append(@model.getV())
 
+    @$video_holder = $('.video-holder', @model.getV())
+    @$video_player = $('.video-player', @model.getV())
+    @$loader = $('.watch-video-loader', @model.getV())
+
+  ###
+  *------------------------------------------*
+  | loadVideo:void (=)
+  |
+  | Load video.
+  *----------------------------------------###
+  loadVideo: =>
+    @$loader.addClass('loading')
+
+    @$loader[0].offsetHeight
+    @$loader
+      .addClass('loaded')
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        @setVideo()
+        @$loader.removeClass('loading')
+      )
+
+  ###
+  *------------------------------------------*
+  | setVideo:void (-)
+  |
+  | Set video.
+  *----------------------------------------###
+  setVideo: ->
+    id = @model.getWatchVideoId()
+    $.getJSON("https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/#{id}", (data) =>
+      r = (data.height / data.width) * 100
+      @$video_player.css('padding-bottom', r + '%')
+    )
+
+    $v = "<iframe src='//player.vimeo.com/video/#{id}?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+    @$video_player.append($v).addClass('playing')
+
+  reset: ->
+    console.log 'reset'
+    @$video_player.empty()
+    @$loader.removeClass('loading loaded')
+
   ###
   *------------------------------------------*
   | activate:void (-)
@@ -35,7 +78,8 @@ class WatchVideoController
   | Activate.
   *----------------------------------------###
   activate: ->
-    console.log(@model.getWatchVideoId())
+    @model.getE().show()
+    @loadVideo()
 
   ###
   *------------------------------------------*
@@ -44,5 +88,6 @@ class WatchVideoController
   | Activate.
   *----------------------------------------###
   suspend: ->
+    @model.getE().hide()
 
 module.exports = WatchVideoController

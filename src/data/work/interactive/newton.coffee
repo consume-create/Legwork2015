@@ -8,7 +8,7 @@ data = {
     LW.callouts.WATCH
   ],
   "launch_url": "http://runbetter.newtonrunning.com",
-  "watch_video_id": "1234",
+  "watch_video_id": "118837949",
   "picture_src": "/images/work/newton/newton.png",
   "clients": [
     "/images/client-logos/nike.png"
@@ -54,7 +54,7 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": null,
-        "video_id": "1234"
+        "video_id": "118837949"
       }
     ]
   }

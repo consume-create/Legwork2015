@@ -116,7 +116,6 @@ class WorkDetailController
       $poster = $('.video-poster', $t)
       id = $poster.attr('data-id')
 
-      # $.getJSON("https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/#{$t.attr('data-id')}")
       $.getJSON("https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/#{id}", (data) =>
         r = (data.height / data.width) * 100
         $t.css('padding-bottom', r + '%')
@@ -163,16 +162,6 @@ class WorkDetailController
   resetVideos: =>
     @$video_holder.removeClass('playing')
     @$video_player.empty()
-
-  ###
-  *------------------------------------------*
-  | turnOffDetails:void (=)
-  |
-  | Turn off details slideshow, videos, etc.
-  *----------------------------------------###
-  turnOffDetails: =>
-    console.log 'turn work detail components off'
-    
 
   ###
   *------------------------------------------*

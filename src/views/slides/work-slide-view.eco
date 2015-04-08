@@ -1,12 +1,10 @@
 <div class="slide-inner">
 	<!-- Title zone -->
 	<div class="title-zone">
-		<div class="title-holder">
-			<a class="ajaxy" href="<%= @watch_url %>">
-				<h2><%- @title[0] %></h2>
-				<h2><%- @title[1] %></h2>
-			</a>
-		</div>
+		<a class="title-holder ajaxy" href="<%= @watch_url %>">
+			<h2><%- @title[0] %></h2>
+			<h2><%- @title[1] %></h2>
+		</a>
 		<div class="callouts cf">
 			<a class="callout reel watch ajaxy" href="<%= @watch_url %>">
 				<div class="copy"><%= @id %> Reel</div>
