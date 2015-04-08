@@ -38,6 +38,7 @@ class Application
     LW.$win = $(window)
     LW.$html = $('html')
     LW.$body = $('body')
+    LW.$wrapper = $('#wrapper')
     LW.$app = $('#wrapper-inner')
 
     LW.data = require './data/index'
