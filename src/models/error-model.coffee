@@ -40,6 +40,9 @@ class ErrorModel extends BaseModel
   | Set message.
   *----------------------------------------###
   setMsg: (msg) ->
-    @_msg = msg
+    if _.isString(msg) is false
+      throw 'ERROR: message must be a string'
+    else
+      @_msg = msg
 
 module.exports = ErrorModel
