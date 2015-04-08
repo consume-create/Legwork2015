@@ -55,8 +55,8 @@ class SlideshowController
     # Clone to initial slides and store these selecotrs/vars
     @$initial_slide.eq(-1).clone().prependTo(@$slider)
     @$initial_slide.eq(0).clone().appendTo(@$slider)
-    @$slide = $('.slide', @model.getV())
-    @total_slides = @$slide.length
+    @$slide_img = $('.slide-img', @model.getV())
+    @total_slides = @$slide_img.length
 
     # Offset to account for first slide clone
     @active_index = 1
