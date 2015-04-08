@@ -118,6 +118,12 @@ header
                 span
                   background-color: $black
 
+            #close-project-btn
+              color: $white
+
+              span
+                background-color: $evil_gray
+
     #secondary-nav
       position: absolute
       top: 50%
@@ -153,6 +159,18 @@ header
             background-position: center -40px
 
 // ---------------------------------------------
+// Hide secondary nav in inverse view
+// ---------------------------------------------
+
+#wrapper.inverse
+  header
+    #header-inner
+      #secondary-nav
+        visibility: hidden
+
+        transition: visibility 0ms linear $speed_metal
+
+// ---------------------------------------------
 // Party mode
 // ---------------------------------------------
 
@@ -163,10 +181,13 @@ header
         #primary-nav-inner
           ul
             li
-              .nav-item:hover,
-              #close-project-btn:hover
+              .nav-item:hover
                 span
                   background-color: $black
+
+              #close-project-btn:hover
+                span
+                  background-color: $white
 
       #secondary-nav
         a
