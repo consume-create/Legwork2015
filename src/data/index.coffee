@@ -8,19 +8,22 @@ recognition = require './about/recognition'
 contact = require './about/contact'
 careers = require './about/careers'
 
+# Animation
+animation = require './work/animation/landing'
+nissan_zero_gravity = require './work/animation/nissan-zero-gravity'
+bc4u_what_if = require './work/animation/bc4u-what-if'
+leinenkugel_social_shandy = require './work/animation/leinenkugel-social-shandy'
+clifford_still_museum = require './work/animation/clifford-still-museum'
+ny_times_debt_deal = require './work/animation/ny-times-debt-deal'
+climate_reality_pledge = require './work/animation/climate-reality-pledge'
+alameda_new_leaf = require './work/animation/alameda-new-leaf'
+
 # Interactive
 interactive = require './work/interactive/landing'
 the_boxtrolls = require './work/interactive/the-boxtrolls'
 newton = require './work/interactive/newton'
 cokes_building_of_memories = require './work/interactive/cokes-building-of-memories'
 hands_on_ron_burgundy = require './work/interactive/hands-on-ron-burgundy'
-
-# Animation
-animation = require './work/animation/landing'
-birth_control_myths = require './work/animation/birth-control-myths'
-climate_reality = require './work/animation/climate-reality'
-ello = require './work/animation/ello'
-nissan_leaf = require './work/animation/nissan-leaf'
 
 # Describe the structure of the site
 
@@ -45,10 +48,13 @@ data = {
     "animation": {
       "slides": {
         "landing": animation,
-        "birth-control-myths": birth_control_myths,
-        "climate-reality": climate_reality,
-        "ello": ello,
-        "nissan-leaf": nissan_leaf
+        "nissan-zero-gravity": nissan_zero_gravity,
+        "bc4u-what-if": bc4u_what_if,
+        "leinenkugel-social-shandy": leinenkugel_social_shandy,
+        "clifford-still-museum": clifford_still_museum,
+        "ny-times-debt-deal": ny_times_debt_deal,
+        "climate-reality-pledge": climate_reality_pledge,
+        "alameda-new-leaf": alameda_new_leaf
       }
     },
     "interactive": {
