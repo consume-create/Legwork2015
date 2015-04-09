@@ -42,6 +42,7 @@ class Application
     LW.$app = $('#wrapper-inner')
 
     LW.data = require './data/index'
+    # LW.error = require './data/error'
     LW.utils = require './utils'
     LW.url_regex = /[^a-z0-9*:_\-~]+/gi
     LW.router = new Routes({
@@ -147,7 +148,10 @@ class Application
 
     # Error
     $error_e = $('<div id="error" class="page" />').appendTo(@$pages_inner)
-    @error_m = new ErrorModel({'$el': $error_e})
+    @error_m = new ErrorModel({
+      '$el': $error_e,
+      'messages': LW.data.error.messages
+    })
     @error_c = new ErrorController({
       'model': @error_m
     })
@@ -237,7 +241,7 @@ class Application
       @active_c.goToSlide(route)
     else
       direction = if @page_c[id].model.getE().index() < @active_c.model.getE().index() then 'right' else 'left'
-      @active_c.turnHandlers('off')
+      @active_c.turnHandlers('off') unless @active_c is @error_c
 
       if @transition_c.running_hot is true
         @transition_c.suspend()
@@ -265,7 +269,6 @@ class Application
   *----------------------------------------###
   on404: (route) =>
     @suspend()
-    @error_m.setMsg('404: This page got lost in Joey\'s slutty butt.')
     @error_c.activate()
     @active_c = @error_c
 

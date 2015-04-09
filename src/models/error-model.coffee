@@ -20,29 +20,40 @@ class ErrorModel extends BaseModel
   constructor: (data) ->
     super(data)
 
-    @_msg = ''
+    @_messages = null
+    @setMessages(data.messages)
 
   ###
   *------------------------------------------*
-  | getMsg:String (-)
+  | getMessages:array (-)
   |
-  | Get message.
+  | Get messages.
   *----------------------------------------###
-  getMsg: ->
-    return @_msg
+  getMessages: ->
+    return @_messages
 
   ###
   *------------------------------------------*
-  | setMsg:void (-)
+  | setMessages:void (-)
   |
-  | msg:string - message
+  | messages:array - messages array
   |
-  | Set message.
+  | Set messages.
   *----------------------------------------###
-  setMsg: (msg) ->
-    if _.isString(msg) is false
-      throw 'ERROR: message must be a string'
-    else
-      @_msg = msg
+  setMessages: (messages) ->
+    passed = true
+
+    if _.isArray(messages) is false
+      passed = false
+      throw 'ERROR: messages must be an array of strings'
+
+    for m in messages
+      if _.isString(m) is false
+        passed = false
+        throw 'ERROR: each message needs to be a string'
+        break
+
+    if passed is true
+      @_messages = messages
 
 module.exports = ErrorModel

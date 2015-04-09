@@ -1,3 +1,18 @@
 <div id="error-page-inner" class="page-inner">
-	<p id="error-msg"></p>
+	<!-- Title zone -->
+	<div class="title-zone">
+		<div class="title-holder">
+			<h2>Page</h2>
+			<h2>Not Found!</h2>
+		</div>
+		<div class="callouts cf">
+			<div class="callout">
+				<div id="error-msg" class="copy"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Meta zone -->
+	<div class="meta-zone">
+		<h4><a class="ajaxy" data-id="home" href="/">Start over from the home page</a></h4>
+	</div>
 </div>
