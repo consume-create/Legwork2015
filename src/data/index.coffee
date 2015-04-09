@@ -20,10 +20,13 @@ alameda_new_leaf = require './work/animation/alameda-new-leaf'
 
 # Interactive
 interactive = require './work/interactive/landing'
-the_boxtrolls = require './work/interactive/the-boxtrolls'
-newton = require './work/interactive/newton'
-cokes_building_of_memories = require './work/interactive/cokes-building-of-memories'
-hands_on_ron_burgundy = require './work/interactive/hands-on-ron-burgundy'
+laika_the_boxtrolls = require './work/interactive/laika-the-boxtrolls'
+hakkasan_wet_republic = require './work/interactive/hakkasan-wet-republic'
+coke_building_of_memories = require './work/interactive/coke-building-of-memories'
+newton_run_better = require './work/interactive/newton-run-better'
+coke_ahh_effect = require './work/interactive/coke-ahh-effect'
+google_roll_it = require './work/interactive/google-roll-it'
+chrysler_hands_on_ron_burgundy = require './work/interactive/chrysler-hands-on-ron-burgundy'
 
 # Describe the structure of the site
 
@@ -60,10 +63,13 @@ data = {
     "interactive": {
       "slides": {
         "landing": interactive,
-        "the-boxtrolls": the_boxtrolls,
-        "newton": newton,
-        "cokes-building-of-memories": cokes_building_of_memories,
-        "hands-on-ron-burgundy": hands_on_ron_burgundy
+        "laika-the-boxtrolls": laika_the_boxtrolls,
+        "hakassan-wet-republic": hakkasan_wet_republic,
+        "coke-building-of-memories": coke_building_of_memories,
+        "newton-run-better": newton_run_better,
+        "coke-ahh-effect": coke_ahh_effect,
+        "google-roll-it": google_roll_it,
+        "chrysler-hands-on-ron-burgundy": chrysler_hands_on_ron_burgundy
       }
     }
   }
