@@ -1,7 +1,7 @@
 data = {
-  "browser_title": "Clifford Still's First Light",
+  "browser_title": "Clifford Still First Light",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "title": ["Clifford Still's", "First Light"],
+  "title": ["Clifford Still", "First Light"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
@@ -18,7 +18,7 @@ data = {
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
     "title": "\"Behind all my work lays the figure\" - Clifford Still",
-    "overview": "This project was unique both in terms of content and environmental factors. We wanted to celebrate the building's form as much as the art within it. Through visual manipulation, we emphasized the subtle features of the architecture and building materials, at times defying physics to make the building appear to float and dissolve.",
+    "overview": "This project was unique both in terms of content and environmental factors. We wanted to celebrate the building form as much as the art within it. Through visual manipulation, we emphasized the subtle features of the architecture and building materials, at times defying physics to make the building appear to float and dissolve.",
     "services": [
       "Story Boards",
       "Design",
