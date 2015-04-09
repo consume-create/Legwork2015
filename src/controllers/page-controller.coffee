@@ -48,7 +48,7 @@ class PageController
     @slide_c = []
     @work_detail_m = []
     @work_detail_c = []
-    @onThrottledMousewheel = _.throttle(@onMousewheel, 50)
+    @onThrottledMousewheel = _.throttle(@onMousewheel, 150)
 
     @build()
 
@@ -435,7 +435,7 @@ class PageController
 
         setTimeout =>
           @threshold_hit = false
-        , 1000
+        , 666
 
   ###
   *------------------------------------------*
