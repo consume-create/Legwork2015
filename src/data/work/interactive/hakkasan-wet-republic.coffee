@@ -18,7 +18,7 @@ data = {
     LW.mediums.MOBILE
   ],
   "details": {
-    "bg_src": "/images/work/coke/details/coke-bg.jpg",
+    "bg_src": "/images/work/wet-republic/details/main.jpg",
     "title": "It’s 5 O’Clock Somewhere",
     "overview": "The premiere day party on the strip had a serious image issue. Their site was antiquated and in need of a face-lift. It didn’t even work on the phone. We worked directly with Hakkasan and the MGM to concept and execute a contemporary site that will serve as a solid platform for years to come.",
     "services": [
@@ -37,12 +37,12 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "We Built This Site On Rock 'N Roll",
           "text": [
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+        "img_src": "/images/work/wet-republic/details/desktop.jpg"
       },
       {
         "type": LW.media.SLIDESHOW,
@@ -55,9 +55,14 @@ data = {
         ]
       },
       {
-        "type": LW.media.VIDEO,
-        "copy": null,
-        "video_id": "1234"
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "12 Unique Templates and A Custom Icon Set",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
+        "img_src": "/images/work/wet-republic/details/templates-icons.jpg"
       }
     ]
   }

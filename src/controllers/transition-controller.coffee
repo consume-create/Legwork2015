@@ -80,7 +80,7 @@ class TransitionController
 
     mc = new PIXI.MovieClip(@mapTextures(texture_id, texture_ln, true))
     mc.visible = false
-    mc.animationSpeed = 24 / 60
+    mc.animationSpeed = 30 / 60
     mc.loop = false
     mc.position = new PIXI.Point(0, 0)
     mc.scale = new PIXI.Point(@scale[0], @scale[1])
