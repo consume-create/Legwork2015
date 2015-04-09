@@ -7,7 +7,7 @@ data = {
     LW.callouts.WATCH
   ],
   "launch_url": null,
-  "watch_video_id": "1234",
+  "watch_video_id": "105804907",
   "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
     "/images/client-logos/nissan.png"
@@ -15,16 +15,15 @@ data = {
   "mediums": [
     LW.mediums.ANIMATION
   ],
-  "tagline": "Animated commercial for Nissan.",
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
-    "title": "Some Lorem Ipsum Title",
-    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "title": "Seats from space",
+    "overview": "When TBWA\CHIAT\DAY\LA approached us about a video to demonstrate the technology behind the new Nissan Zero Gravity seats, we decided to focus on the human aspects of the story. Our journey starts on a stylized drive through the country and quickly takes the viewer on a brief journey into outer space to explore the engineering principles behind the ride. Taking cues from sci-fi films and graphic novels, the visual design came to life through a combination of full 3D animation and 2D styling. With limited assets provided, Legwork took the lead on creating photo-real 3D models of the Zero Gravity Seat, in addition to all of the stylized 3D elements in the spot.",
     "services": [
-      "Lorem Ipsum",
-      "Dummy Words",
-      "And Other",
-      "Services"
+      "Story Boards",
+      "Design",
+      "Modeling",
+      "Animation"
     ],
     "accolades": null,
     "media": [
@@ -36,22 +35,22 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+        "img_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg"
       },
       {
         "type": LW.media.SLIDESHOW,
         "copy": null,
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg"
         ]
       },
       {
         "type": LW.media.VIDEO,
         "copy": null,
-        "video_id": "1234"
+        "video_id": "105804907"
       }
     ]
   }

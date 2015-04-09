@@ -107,8 +107,8 @@ class WorkDetailModel extends BaseModel
   | Set overview.
   *----------------------------------------###
   setOverview: (overview) ->
-    if _.isString(overview) is false or overview.length > 250
-      throw 'ERROR: overview must be a string and no more than 250 characters'
+    if _.isString(overview) is false
+      throw 'ERROR: overview must be a string'
     else
       @_overview = overview
 

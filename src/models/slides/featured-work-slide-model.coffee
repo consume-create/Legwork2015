@@ -47,9 +47,6 @@ class FeaturedWorkSlideModel extends BaseSlideModel
     @_mediums = null
     @setMediums(data.mediums)
 
-    @_tagline = null
-    @setTagline(data.tagline)
-
   ###
   *------------------------------------------*
   | getTitle:array (-)
@@ -290,26 +287,5 @@ class FeaturedWorkSlideModel extends BaseSlideModel
 
     if passed is true
       @_mediums = mediums
-
-  ###
-  *------------------------------------------*
-  | getTagline:string (-)
-  |
-  | Get tagline.
-  *----------------------------------------###
-  getTagline: ->
-    return @_tagline
- 
-  ###
-  *------------------------------------------*
-  | setTagline:void (-)
-  |
-  | tagline:string - tagline
-  |
-  | Set tagline.
-  *----------------------------------------###
-  setTagline: (tagline) ->
-    if _.isString(tagline) is false
-      throw 'ERROR: tagline must be a string'
 
 module.exports = FeaturedWorkSlideModel

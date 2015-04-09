@@ -35,8 +35,7 @@ class FeaturedWorkSlideController extends BaseSlideController
       'watch_url': @model.getWatchUrl(),
       'picture_src': @model.getPictureSrc(),
       'clients': @model.getClients(),
-      'mediums': @model.getMediums(),
-      'tagline': @model.getTagline()
+      'mediums': @model.getMediums()
     })))
     @model.getE().append(@model.getV())
 

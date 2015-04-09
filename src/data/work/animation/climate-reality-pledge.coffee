@@ -1,5 +1,5 @@
 data = {
-  "browser_title": "Climate Reality",
+  "browser_title": "Climate Reality Pledge",
   "slide_type": LW.slide_types.FEATURED_WORK,
   "title": ["Climate Reality", "Pledge"],
   "callouts": [
@@ -7,7 +7,7 @@ data = {
     LW.callouts.WATCH
   ],
   "launch_url": null,
-  "watch_video_id": "1234",
+  "watch_video_id": "53487338",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
     "/images/client-logos/nike.png"
@@ -15,16 +15,16 @@ data = {
   "mediums": [
     LW.mediums.ANIMATION
   ],
-  "tagline": "Video for the Climate Reality Project.",
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
-    "title": "Some Lorem Ipsum Title",
-    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "title": "24 hours of Climate Reality",
+    "overview": "\"24 Hours of Climate Reality\" is an event where experts and celebrities conduct Dirty Weather Reports from across the globe. During the event, viewers are asked to join the global movement and demand action from their governments. This piece is an anthemic and informational call-to-action. We employ a combination of smooth motion and textural cel animation to contrast and visualize the battle between good and evil.",
     "services": [
-      "Lorem Ipsum",
-      "Dummy Words",
-      "And Other",
-      "Services"
+      "Story Boards",
+      "Design",
+      "Illustration",
+      "Cel Animation",
+      "3D Animation"
     ],
     "accolades": null,
     "media": [
@@ -51,7 +51,7 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": null,
-        "video_id": "1234"
+        "video_id": "53487338"
       }
     ]
   }

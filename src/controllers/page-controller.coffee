@@ -135,8 +135,7 @@ class PageController
             'watch_url': if slide.watch_video_id? then '/' + @model.getId() + '/' + id + '/watch' else ''
             'picture_src': slide.picture_src,
             'clients': slide.clients,
-            'mediums': slide.mediums,
-            'tagline': slide.tagline
+            'mediums': slide.mediums
           })
           @slide_c[id] = new FeaturedWorkSlideController({
             'model': @slide_m[id]

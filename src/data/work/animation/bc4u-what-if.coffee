@@ -1,13 +1,13 @@
 data = {
-  "browser_title": "Birth Control Myths",
+  "browser_title": "BC4U What If I Had A Baby?",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "title": ["Birth Control", "Myths"],
+  "title": ["What If I", "Had A Baby?"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
   ],
   "launch_url": null,
-  "watch_video_id": "1234",
+  "watch_video_id": "118837949",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
     "/images/client-logos/tbwa.png"
@@ -15,16 +15,15 @@ data = {
   "mediums": [
     LW.mediums.ANIMATION
   ],
-  "tagline": "PSA video for BC4U.",
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
-    "title": "Some Lorem Ipsum Title",
-    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "title": "How different would life be with a baby?",
+    "overview": "BC4U provides safe, anonymous birth control to at risk teens. This is a notoriously difficult audience to reach. So for the last few years we have been making animations that can be shared and consumed all over the web. This iteration examines the same set of life experiences, with and without a baby.",
     "services": [
-      "Lorem Ipsum",
-      "Dummy Words",
-      "And Other",
-      "Services"
+      "Story Boarding",
+      "Design",
+      "Modeling",
+      "Animation"
     ],
     "accolades": null,
     "media": [
@@ -36,22 +35,22 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+        "img_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg"
       },
       {
         "type": LW.media.SLIDESHOW,
         "copy": null,
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg"
         ]
       },
       {
         "type": LW.media.VIDEO,
         "copy": null,
-        "video_id": "1234"
+        "video_id": "118837949"
       }
     ]
   }
