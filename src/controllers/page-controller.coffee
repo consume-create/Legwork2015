@@ -191,7 +191,7 @@ class PageController
 
     # Loop and assign colors to each slide in order
     c = 0
-    for n in [0...@$slide.length]
+    for n in [0...@total_slides]
       @$slide.eq(n).attr('data-rgb', "#{LW.colors[c]}")
       c = if (c is LW.colors.length - 1) then 0 else c + 1
 
@@ -261,11 +261,13 @@ class PageController
     # Page nav
     @page_nav_c.updatePageNav(slide) if @page_nav_c?
 
+    # Color
+    @setBackgroundColor($new_slide.attr('data-rgb'))
+
     # Active
     if @active_c is null
       @$slides_wrapper.hide() if sub_type isnt ''
       @setActive(slide, 'bottom')
-      @setBackgroundColor($new_slide.attr('data-rgb'))
       @showSub(sub_type, true) if sub_type isnt ''
 
       _.delay(=>
@@ -287,8 +289,6 @@ class PageController
       @active_c.transitionOut(direction, =>
         @setActive(slide, direction)
       )
-
-      @setBackgroundColor($new_slide.attr('data-rgb'))
 
   ###
   *------------------------------------------*

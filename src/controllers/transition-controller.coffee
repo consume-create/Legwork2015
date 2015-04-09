@@ -29,8 +29,9 @@ class TransitionController
   | Build.
   *----------------------------------------###
   build: ->
+    # Stage
     @stage = new PIXI.Stage(0x000000)
-    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 1})
+    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 1, 'transparent': true})
     @model.getE().html(@renderer.view)
 
     @$canvas = $(@renderer.view)
@@ -39,6 +40,15 @@ class TransitionController
       'height': LW.size.app[1] + 'px'
     })
 
+    # Wipe
+    @wipe = new PIXI.Graphics()
+    @wipe.position = new PIXI.Point(LW.size.app[0], 0)
+    @wipe.beginFill(0x000000, 1)
+    @wipe.drawRect(0, 0, LW.size.app[0], LW.size.app[1])
+    @wipe.endFill()
+    @stage.addChild(@wipe)
+
+    # Animations
     @animationQueue = []
     @loadAnimationQueue()
 
@@ -106,32 +116,42 @@ class TransitionController
     @running_hot = true
 
     _.defer(=>
-      a = _.sample(@animationQueue)
+      a = _.sample(@animationQueue) # TODO: if none have loaded ...
+      x1 = 0
+      x2 = -LW.size.app[0]
+
       if direction is 'right'
         a.scale = new PIXI.Point(-@scale[0], @scale[1])
-        a.position.x -= a.width
+        a.position.x = -a.width
+
+        @wipe.position.x = -LW.size.app[0]
+        x2 *= -1
 
       # Sequence
       a.visible = true
       a.gotoAndPlay(0)
 
-      # Layer
-      @model.getE()
-        .addClass('in-' + direction)
-        .off(LW.utils.transition_end)
-        .one(LW.utils.transition_end, =>
-          clearTimeout(@animation_to)
-          @animation_to = setTimeout(=>
-            @model.getE()
-              .addClass('out-' + direction)
-              .off(LW.utils.transition_end)
-              .one(LW.utils.transition_end, =>
-                cb2()
-                @running_hot = false
-              )
-          , 200)
-          cb1()
-        )
+      _.delay(=>
+        TweenLite.to(@wipe.position, 0.666, {
+          'x': x1,
+          'ease': Expo.easeIn,
+          'overwrite': true,
+          'onComplete': =>
+            cb1()
+
+            _.delay(=>
+              a.visible = false
+
+              TweenLite.to(@wipe.position, 0.666, {
+                'x': x2,
+                'ease': Expo.easeOut,
+                'overwrite': true,
+                'onComplete': =>
+                  cb2()
+              })
+            , 333)
+        })
+      , 100)
     )
 
   ###
@@ -167,6 +187,9 @@ class TransitionController
       a.scale = new PIXI.Point(@scale[0], @scale[1])
       a.position.x = 0
       a.gotoAndStop(0)
+
+    @wipe.visible = true
+    @wipe.position = new PIXI.Point(LW.size.app[0], 0)
 
   ###
   *------------------------------------------*
