@@ -294,25 +294,6 @@
 
               transition: opacity 100ms $ease_out, visibility 0ms linear 100ms
 
-        &:hover
-          .icon
-            transform: translate3d(8px,0,0)
-
-        &.close:hover
-          .icon
-            transform: translate3d(8px,0,0)
-
-    .title-holder:hover + .callouts
-      .callout
-        &.about,
-        &.reel
-          .icon
-            transform: translate3d(8px,0,0)
-
-        &.close
-          .icon
-            transform: translate3d(0px,0,0)
-
   // ---------------------------------------------
   // Shared styles: Meta zone
   // ---------------------------------------------
@@ -519,3 +500,31 @@
             left: 0px
             width: 100%
             height: 100%
+
+// ---------------------------------------------
+// Party mode
+// ---------------------------------------------
+
+.party-on
+  .slide
+    .title-zone
+      .callouts
+        .callout
+          &:hover
+            .icon
+              transform: translate3d(8px,0,0)
+
+          &.close:hover
+            .icon
+              transform: translate3d(8px,0,0)
+
+      .title-holder:hover + .callouts
+        .callout
+          &.about,
+          &.reel
+            .icon
+              transform: translate3d(8px,0,0)
+
+          &.close
+            .icon
+              transform: translate3d(0px,0,0)
