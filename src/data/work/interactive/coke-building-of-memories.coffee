@@ -1,34 +1,39 @@
 data = {
-  "browser_title": "Hands On Ron Burgundy",
+  "browser_title": "Coke's Building Of Memories",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "title": ["Hands On", "Ron Burgundy"],
+  "title": ["Coke's Building", "Of Memories"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.LAUNCH
   ],
-  "launch_url": "http://i.imgur.com/5FLULzr.gif",
+  "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
   "watch_video_id": null,
-  "picture_src": "/images/work/ron/ron.png",
+  "picture_src": "/images/work/coke/coke.png",
   "clients": [
-    "/images/client-logos/chrysler.png",
+    "/images/client-logos/coca-cola.png",
     "/images/client-logos/w-k.png"
   ],
   "mediums": [
     LW.mediums.DESKTOP,
     LW.mediums.MOBILE
   ],
-  "tagline": "Online contest for Dodge.",
   "details": {
-    "bg_src": "/images/work/ron/details/ron-bg.jpg",
-    "title": "Some Lorem Ipsum Title",
-    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "bg_src": "/images/work/coke/details/coke-bg.jpg",
+    "title": "Slow Your Scroll",
+    "overview": "This is our interactive riff on Coca-Cola's stop motion \"Building\" commercial that aired during the 2014 World Cup. By the very nature of the spot, we knew that the site would travel vertically up the side of the building, but we wanted to avoid the obvious and come up with a different interaction than the scroll. Users tap their Facebook images to populate the Building with their own memories and fly by as it comes to life.",
     "services": [
-      "Lorem Ipsum",
-      "Dummy Words",
-      "And Other",
-      "Services"
+      "Illustration",
+      "Animation",
+      "UX",
+      "Design",
+      "Development"
     ],
-    "accolades": null,
+    "accolades": [
+      "Accolades",
+      "FWA",
+      "Awwwards",
+      "Communication Arts"
+    ],
     "media": [
       {
         "type": LW.media.IMAGE,

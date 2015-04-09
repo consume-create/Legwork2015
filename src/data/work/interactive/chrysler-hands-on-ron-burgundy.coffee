@@ -1,40 +1,34 @@
 data = {
-  "browser_title": "Coke's Building Of Memories",
+  "browser_title": "Hands On Ron Burgundy",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "title": ["Coke's Building", "Of Memories"],
+  "title": ["Hands On", "Ron Burgundy"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.LAUNCH
   ],
-  "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
+  "launch_url": "http://i.imgur.com/5FLULzr.gif",
   "watch_video_id": null,
-  "picture_src": "/images/work/coke/coke.png",
+  "picture_src": "/images/work/ron/ron.png",
   "clients": [
-    "/images/client-logos/coca-cola.png",
+    "/images/client-logos/chrysler.png",
     "/images/client-logos/w-k.png"
   ],
   "mediums": [
     LW.mediums.DESKTOP,
     LW.mediums.MOBILE
   ],
-  "tagline": "Facebook application for Coca-cola.",
   "details": {
-    "bg_src": "/images/work/coke/details/coke-bg.jpg",
-    "title": "Some Lorem Ipsum Title",
-    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "bg_src": "/images/work/ron/details/ron-bg.jpg",
+    "title": "Well, That Escalated Quickly",
+    "overview": "Taking its cues from the great 1997 documentary Hands on a Hardbody, we worked with Wieden+Kennedy to launch a week long contest called Hands on Ron Burgundy–an online test of endurance that featured daily giveaways and a grand prize of a new Dodge Durango to the person who had the longest cumulative streak of touching Ron.",
     "services": [
-      "Services Provided",
-      "Lorem Ipsum",
-      "Dummy Words",
-      "And Other",
-      "Services"
+      "Strategy",
+      "Design",
+      "Development",
+      "Development",
+      "Animation"
     ],
-    "accolades": [
-      "Accolades",
-      "FWA",
-      "Awwwards",
-      "Communication Arts"
-    ],
+    "accolades": null,
     "media": [
       {
         "type": LW.media.IMAGE,
