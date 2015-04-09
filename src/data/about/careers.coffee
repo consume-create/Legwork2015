@@ -2,9 +2,9 @@ data = {
   "browser_title": "Careers",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "id": "careers",
-  "title": "Careers",
+  "title": "Join the Team",
   "picture_src": "/images/about/careers.png",
-  "copy": "<h4>No Current Openings</h4><p>We are a small team of world class designers, engineers, and animators located in Denver Colorado. We don't hire often, but will post any openings here and on our <a href='https://twitter.com/legwork' target='_new'>Twitter</a> and <a href='https://www.facebook.com/legwork' target='_new'>Facebook</a> pages.</p>",
+  "copy": "<p>If you've got powerful skills, we need you out there. We’re living proof that you don’t have to live on a coast to do world class work. We're looking for people with sharp ideas, a strong attention to detail and a solid book of work.<p><br><h4>Design Intern</h4><p>You won’t have to fetch coffee or feed the meter. You will get your hands dirty working on all aspects of our projects. We promise it won’t be boring. <a target=\"_new\" href=\"http://jobs.legworkstudio.com/interactive-design-intern\">Details</a>.</p>",
   "lists": []
 }
 

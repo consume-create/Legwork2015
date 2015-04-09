@@ -1,20 +1,11 @@
 data = {
-  "browser_title": "Summary",
+  "browser_title": "Greetings Internet Voyager",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "id": "summary",
-  "title": "Summary",
+  "title": "Greetings Internet Voyager",
   "picture_src": "/images/about/summary.png",
-  "copy": "<p>We are an integrated production company from Denver, CO. We specialize in progressive animation and interactive experiences for the advertising industry, entertainment industry, and consumer brands across all digital mediums.</p>",
-  "lists": [
-    {
-      "type": "motion"
-      "copy": "Motion Graphics Reel"
-    },
-    {
-      "type": "interactive"
-      "copy": "Interactive Reel"
-    }
-  ]
+  "copy": "<p>Legwork is a creative studio based in Denver, CO. We specialize in progressive animation and interactive experiences for the advertising and entertainment industries. Our aim is to deliver great work for like minded people and have fun doing it.</p>",
+  "lists": []
 }
 
 module.exports = data

@@ -48,6 +48,7 @@ class PageController
     @slide_c = []
     @work_detail_m = []
     @work_detail_c = []
+    @onThrottledMousewheel = _.throttle(@onMousewheel, 50)
 
     @build()
 
@@ -425,7 +426,7 @@ class PageController
 
     if @threshold_hit is false
       delta = e.originalEvent.wheelDelta / 120 or -e.originalEvent.detail / 3
-      
+
       if Math.abs(delta) >= 0.3
         @threshold_hit = true
         if delta > 0
@@ -545,7 +546,7 @@ class PageController
         .on("keyup.#{@model._id}", @onKeyup)
 
       @$slides_wrapper
-        .on("mousewheel DOMMouseScroll", @onMousewheel)
+        .on("mousewheel DOMMouseScroll", @onThrottledMousewheel)
         .on(@mousedown, @onMouseDown)
         .on(@mousemove, @onMouseMove)
 

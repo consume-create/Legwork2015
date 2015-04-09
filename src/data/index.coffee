@@ -4,7 +4,7 @@
 home = require './home/landing'
 summary = require './about/summary'
 services = require './about/services'
-accolades = require './about/accolades'
+recognition = require './about/recognition'
 contact = require './about/contact'
 careers = require './about/careers'
 
@@ -37,7 +37,7 @@ data = {
         "landing": home
         "summary": summary,
         "services": services,
-        "accolades": accolades,
+        "recognition": recognition,
         "contact": contact,
         "careers": careers
       }

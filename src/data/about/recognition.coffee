@@ -1,8 +1,8 @@
 data = {
-  "browser_title": "Accolades",
+  "browser_title": "Recognition",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
-  "id": "accolades",
-  "title": "Accolades",
+  "id": "recognition",
+  "title": "Recognition",
   "picture_src": "/images/about/accolades.png",
   "copy": '',
   "lists": [
