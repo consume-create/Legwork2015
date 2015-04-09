@@ -35,7 +35,9 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg"
+        "images": [
+          "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg"
+        ]
       },
       {
         "type": LW.media.SLIDESHOW,

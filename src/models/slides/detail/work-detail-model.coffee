@@ -246,6 +246,16 @@ class WorkDetailModel extends BaseModel
             passed = false
             throw 'ERROR: each media copy text must be a string'
             break
+      if m.type is LW.media.IMAGE
+        if _.isArray(m.images) is false
+          passed = false
+          throw 'ERROR: images must be an array of image paths as strings'
+          break
+        for img in m.images
+          if _.isString(img) is false or (/^\/images\//).test(img) is false
+            passed = false
+            throw 'ERROR: each img in the images array must be a local reference from the root (e.g. /images/path/to/image.jpg) as a string'
+            break
       if m.type is LW.media.SLIDESHOW
         slideshow_count++
       if m.type is LW.media.VIDEO and _.isString(m.video_id) is false

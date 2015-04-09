@@ -37,7 +37,11 @@
 						<% end %>
 					<% end %>
 					<% if m.type is LW.media.IMAGE: %>
-						<img src="<%= m.img_src %>" alt="" />
+						<div class="images">
+							<% for img in m.images: %>
+								<img src="<%= img %>" alt="" />
+							<% end %>
+						</div>
 					<% end %>
 					<% if m.type is LW.media.VIDEO: %>
 						<div class="video-holder">

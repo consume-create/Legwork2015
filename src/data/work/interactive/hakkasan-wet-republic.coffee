@@ -42,7 +42,9 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/wet-republic/details/desktop.jpg"
+        "images": [
+          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+        ]
       },
       {
         "type": LW.media.SLIDESHOW,
@@ -62,7 +64,9 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/wet-republic/details/templates-icons.jpg"
+        "images": [
+          "/images/work/wet-republic/details/desktop.jpg"
+        ]
       }
     ]
   }
