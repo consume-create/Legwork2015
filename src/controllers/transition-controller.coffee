@@ -102,6 +102,11 @@ class TransitionController
     })
     @scale = [(LW.size.app[0] / 960), (LW.size.app[0] / 960)]
 
+    @wipe.clear()
+    @wipe.beginFill(0x000000, 1)
+    @wipe.drawRect(0, 0, LW.size.app[0], LW.size.app[1])
+    @wipe.endFill()
+
   ###
   *------------------------------------------*
   | go:void (-)
