@@ -85,9 +85,11 @@ class HeaderController
     if s is 'on'
       y = -40
       href = LW.router.getState().url.replace(/\/reel|\/details|\/watch/i, '')
+      LW.$wrapper.addClass('inverse')
     else
       y = 0
       href = 'javascript:void(0);'
+      LW.$wrapper.removeClass('inverse')
 
     @$primary_nav_inner.css(LW.utils.transform, LW.utils.translate('0px', y + 'px'))
     @$close_btn.attr('href', href)

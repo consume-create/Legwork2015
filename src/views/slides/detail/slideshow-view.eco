@@ -3,7 +3,7 @@
 		<% n = 0 %>
 		<% for img in @images: %>
 			<% n++ %>
-			<div class="slide" style="background-image: url('<%= img %>')"><span>0<%= n %></span></div>
+			<div class="slide-img" style="background-image: url('<%= img %>')"><span>0<%= n %></span></div>
 		<% end %>
 	</div>
 	<div class="arrow prev"></div>

@@ -422,18 +422,20 @@ class PageController
   *----------------------------------------###
   onMousewheel: (e) =>
     e.preventDefault()
-    delta = e.originalEvent.wheelDelta / 120 or -e.originalEvent.detail / 3
-    
-    if Math.abs(delta) >= 0.3 and @threshold_hit is false
-      @threshold_hit = true
-      if delta > 0
-        @previous()
-      else
-        @next()
 
-      setTimeout =>
-        @threshold_hit = false
-      , 1000
+    if @threshold_hit is false
+      delta = e.originalEvent.wheelDelta / 120 or -e.originalEvent.detail / 3
+      
+      if Math.abs(delta) >= 0.3
+        @threshold_hit = true
+        if delta > 0
+          @previous()
+        else
+          @next()
+
+        setTimeout =>
+          @threshold_hit = false
+        , 1000
 
   ###
   *------------------------------------------*

@@ -38,6 +38,7 @@ class Application
     LW.$win = $(window)
     LW.$html = $('html')
     LW.$body = $('body')
+    LW.$wrapper = $('#wrapper')
     LW.$app = $('#wrapper-inner')
 
     LW.data = require './data/index'
@@ -111,7 +112,7 @@ class Application
   | Build.
   *----------------------------------------###
   build: ->
-    # Specify if not desktop
+    # Hey desktop, party on
     if LW.utils.is_mobile.any() is false
       LW.$body.addClass('party-on')
 

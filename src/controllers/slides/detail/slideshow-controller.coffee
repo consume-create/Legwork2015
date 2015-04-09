@@ -55,8 +55,8 @@ class SlideshowController
     # Clone to initial slides and store these selecotrs/vars
     @$initial_slide.eq(-1).clone().prependTo(@$slider)
     @$initial_slide.eq(0).clone().appendTo(@$slider)
-    @$slide = $('.slide', @model.getV())
-    @total_slides = @$slide.length
+    @$slide_img = $('.slide-img', @model.getV())
+    @total_slides = @$slide_img.length
 
     # Offset to account for first slide clone
     @active_index = 1
@@ -216,13 +216,15 @@ class SlideshowController
   |
   | Reset.
   *----------------------------------------###
-  reset: ->
+  reset: =>
     @$slider.removeClass('no-trans')
     @trans_x = 0
     @active_index = 1
-    @inmotion = false
-    @swiped = false
     @updateSlider()
+
+    # reset these after update slider to ensure these have reset
+    @swiped = false
+    @inmotion = false
 
   ###
   *------------------------------------------*
@@ -232,7 +234,6 @@ class SlideshowController
   *----------------------------------------###
   activate: ->
     @reset()
-
     @$slider
       .off("#{@mousedown} #{@mousemove}")
       .on(@mousedown, @onMouseDown)
