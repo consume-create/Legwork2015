@@ -173,6 +173,7 @@ class PageController
     @active_c = null
     @active_work_detail_c = null
     @active_watch_c = null
+    @active_reel_c = null
 
     # Mousewheel vars
     @threshold_hit = false
@@ -335,8 +336,9 @@ class PageController
 
     # activate
     if sub is 'reel'
+      @active_reel_c = @watch_video_c
       @watch_video_m.setWatchVideoId(@active_c.model.getReelVideoId())
-      @watch_video_c.activate()
+      @active_reel_c.activate()
 
     if sub is 'details'
       @active_work_detail_c = @work_detail_c[LW.router.getState().key.split(':')[1]]
@@ -367,7 +369,7 @@ class PageController
     # transition
     @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
     _.defer(=>
-      if @active_watch_c isnt null or @active_work_detail_c isnt null
+      if @active_watch_c isnt null or @active_work_detail_c isnt null or @active_reel_c isnt null
         @$mask_wrapper
           .removeClass('unmask')
           .off(LW.utils.transition_end)
@@ -378,6 +380,9 @@ class PageController
             if @active_watch_c isnt null
               @active_watch_c.reset()
               @active_watch_c = null
+            if @active_reel_c isnt null
+              @active_reel_c.reset()
+              @active_reel_c = null
           )
       else
         @$mask_wrapper.removeClass('unmask')
