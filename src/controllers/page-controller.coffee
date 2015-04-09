@@ -59,7 +59,11 @@ class PageController
   | Build.
   *----------------------------------------###
   build: ->
-    @model.setV($(JST['page-view']({'id': @model.getId(), 'slides': @model.getSlideData()})))
+    @model.setV($(JST['page-view']({
+      'id': @model.getId(),
+      'slides': @model.getSlideData(),
+      'color_index': @model.getColorIndex()
+    })))
     @model.getE().append(@model.getV())
 
     # Build watch video
@@ -169,6 +173,7 @@ class PageController
     @active_c = null
     @active_work_detail_c = null
     @active_watch_c = null
+    @active_reel_c = null
 
     # Mousewheel vars
     @threshold_hit = false
@@ -190,7 +195,7 @@ class PageController
     @mouseup = if Modernizr.touch then "touchend" else "mouseup"
 
     # Loop and assign colors to each slide in order
-    c = 0
+    c = @model.getColorIndex()
     for n in [0...@total_slides]
       @$slide.eq(n).attr('data-rgb', "#{LW.colors[c]}")
       c = if (c is LW.colors.length - 1) then 0 else c + 1
@@ -331,8 +336,9 @@ class PageController
 
     # activate
     if sub is 'reel'
+      @active_reel_c = @watch_video_c
       @watch_video_m.setWatchVideoId(@active_c.model.getReelVideoId())
-      @watch_video_c.activate()
+      @active_reel_c.activate()
 
     if sub is 'details'
       @active_work_detail_c = @work_detail_c[LW.router.getState().key.split(':')[1]]
@@ -363,7 +369,7 @@ class PageController
     # transition
     @$mask_wrapper.removeClass('no-trans')[0].offsetHeight # clear CSS cache
     _.defer(=>
-      if @active_watch_c isnt null or @active_work_detail_c isnt null
+      if @active_watch_c isnt null or @active_work_detail_c isnt null or @active_reel_c isnt null
         @$mask_wrapper
           .removeClass('unmask')
           .off(LW.utils.transition_end)
@@ -374,6 +380,9 @@ class PageController
             if @active_watch_c isnt null
               @active_watch_c.reset()
               @active_watch_c = null
+            if @active_reel_c isnt null
+              @active_reel_c.reset()
+              @active_reel_c = null
           )
       else
         @$mask_wrapper.removeClass('unmask')

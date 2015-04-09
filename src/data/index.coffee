@@ -46,7 +46,8 @@ data = {
         "recognition": recognition,
         "contact": contact,
         "careers": careers
-      }
+      },
+      "color_index": 0
     },
     "animation": {
       "slides": {
@@ -58,7 +59,8 @@ data = {
         "ny-times-debt-deal": ny_times_debt_deal,
         "climate-reality-pledge": climate_reality_pledge,
         "alameda-new-leaf": alameda_new_leaf
-      }
+      },
+      "color_index": 3
     },
     "interactive": {
       "slides": {
@@ -70,7 +72,8 @@ data = {
         "coke-ahh-effect": coke_ahh_effect,
         "google-roll-it": google_roll_it,
         "chrysler-hands-on-ron-burgundy": chrysler_hands_on_ron_burgundy
-      }
+      },
+      "color_index": 5
     }
   }
 }

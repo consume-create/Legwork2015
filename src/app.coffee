@@ -125,7 +125,12 @@ class Application
     # Build page models / controllers
     for id, page of LW.data.pages
       $el = $('<div id="' + id + '" class="page" />').appendTo(@$pages_inner)
-      @page_m[id] = new PageModel({'id': id, 'slides': page.slides, '$el': $el})
+      @page_m[id] = new PageModel({
+        'id': id,
+        'slides': page.slides,
+        '$el': $el,
+        'color_index': page.color_index
+      })
       @page_c[id] = new PageController({
         'model': @page_m[id]
       })
@@ -232,6 +237,7 @@ class Application
       @active_c.goToSlide(route)
     else
       direction = if @page_c[id].model.getE().index() < @active_c.model.getE().index() then 'right' else 'left'
+      @active_c.turnHandlers('off')
 
       if @transition_c.running_hot is true
         @transition_c.suspend()
