@@ -537,12 +537,12 @@ class PageController
   | Turn event handlers on / off.
   *----------------------------------------###
   turnHandlers: (s) ->
-    LW.$doc.off("keyup.#{@model._id}")
+    LW.$doc.off("keyup.#{@model.getId()}")
     @$slides_wrapper.off("mousewheel DOMMouseScroll #{@mousedown} #{@mousemove}")
 
     if s is 'on'
       LW.$doc
-        .on("keyup.#{@model._id}", @onKeyup)
+        .on("keyup.#{@model.getId()}", @onKeyup)
 
       @$slides_wrapper
         .on("mousewheel DOMMouseScroll", @onThrottledMousewheel)
@@ -607,7 +607,7 @@ class PageController
     # If there was more than one slide,
     # we have events to listen to turn off...
     if @total_slides > 1
-      @turnHandlers('off')
       @hideSub()
+      @turnHandlers('off')
 
 module.exports = PageController
