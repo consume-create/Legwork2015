@@ -25,8 +25,7 @@
     height: 100%
     background-repeat: no-repeat
     background-position: right bottom
-    background-size: 100% auto
-    overflow: hidden
+    background-size: contain
     opacity: 0
 
     transition: opacity $speed $ease_in
@@ -36,12 +35,12 @@
 
       transition: opacity $speed $ease_out
 
-    @media all and (max-aspect-ratio: 5/4)
-      background-position: 66% bottom
-      background-size: auto 90%
+    @media all and (max-aspect-ratio: 1/1)
+      background-position: 90% bottom
+      background-size: cover
       
       &.show
-        opacity: 0.33
+        opacity: 0.2
 
   // ---------------------------------------------
   // Shared styles: Title zone
@@ -52,7 +51,7 @@
     top: 50%
     left: 20px
     right: 20px
-    margin: -12px 0 0
+    margin: 8px 0 0
     font-size: 0
     line-height: 0
 
@@ -61,6 +60,7 @@
     @include respond-above($media_480)
       left: 40px
       right: 40px
+      margin: 10px 0 0
 
     @include respond-above($media_768)
       left: 60px
@@ -71,7 +71,7 @@
       right: 100px
 
     @include respond-above($media_1024)
-      @include respond-above-ht($media_ht_560)
+      @include respond-above-ht($media_ht_666)
         margin: 16px 0 0
 
     .title-holder
@@ -161,7 +161,7 @@
           transform: translate3d(0,-40px,0)
 
       @include respond-above($media_1024)
-        @include respond-above-ht($media_ht_560)
+        @include respond-above-ht($media_ht_666)
           h2
             height: 60px
             padding: 0 0 30px
@@ -198,7 +198,7 @@
       overflow: hidden
 
       @include respond-above($media_1024)
-        @include respond-above-ht($media_ht_560)
+        @include respond-above-ht($media_ht_666)
           height: 76px
 
       .callout
@@ -218,7 +218,7 @@
             font-size: 14px
 
         @include respond-above($media_1024)
-          @include respond-above-ht($media_ht_560)
+          @include respond-above-ht($media_ht_666)
             line-height: 76px
 
         &:last-child

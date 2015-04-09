@@ -31,7 +31,6 @@ class PageNavController
     @model.getE().append(@model.getV())
 
     @$page_btns = $('.page-nav li a', @model.getV())
-    @$menu_btn = $('.menu-btn', @model.getV())
 
   ###
   *------------------------------------------*
@@ -40,12 +39,13 @@ class PageNavController
   | Preview.
   *----------------------------------------###
   preview: ->
-    @showPageNav() 
+    if LW.utils.is_mobile.any() is false
+      @showPageNav() 
 
-    setTimeout =>
-      if @model.getE().is(':hover') is false
-        @hidePageNav()
-    , 2000
+      setTimeout =>
+        if @model.getE().is(':hover') is false
+          @hidePageNav()
+      , 2000
 
   ###
   *------------------------------------------*
@@ -54,8 +54,7 @@ class PageNavController
   | Mouse enter nav.
   *----------------------------------------###
   onMouseEnterNav: =>
-    if @$menu_btn.is(':hidden')
-      @showPageNav()
+    @showPageNav()
 
   ###
   *------------------------------------------*
@@ -64,8 +63,7 @@ class PageNavController
   | Mouse leave nav.
   *----------------------------------------###
   onMouseLeaveNav: =>
-    if @$menu_btn.is(':hidden')
-      @hidePageNav()
+    @hidePageNav()
 
   ###
   *------------------------------------------*
@@ -75,7 +73,6 @@ class PageNavController
   *----------------------------------------###
   hidePageNav: =>
     @model.getE().removeClass('show')
-    @$menu_btn.removeClass('close')
 
   ###
   *------------------------------------------*
@@ -85,19 +82,6 @@ class PageNavController
   *----------------------------------------###
   showPageNav: =>
     @model.getE().addClass('show')
-    @$menu_btn.addClass('close')
-
-  ###
-  *------------------------------------------*
-  | onClickMenuBtn:void (=)
-  |
-  | Click menu btn.
-  *----------------------------------------###
-  onClickMenuBtn: =>
-    if @$menu_btn.hasClass('close')
-      @hidePageNav()
-    else
-      @showPageNav()
 
   ###
   *------------------------------------------*
@@ -135,17 +119,14 @@ class PageNavController
   | Activate.
   *----------------------------------------###
   activate: ->
-    @model.getE()
-      .off('mouseenter')
-      .on('mouseenter', @onMouseEnterNav)
+    if LW.utils.is_mobile.any() is false
+      @model.getE()
+        .off('mouseenter')
+        .on('mouseenter', @onMouseEnterNav)
 
-    @model.getE()
-      .off('mouseleave')
-      .on('mouseleave', @onMouseLeaveNav)
-
-    @$menu_btn
-      .off('click')
-      .on('click', @onClickMenuBtn)
+      @model.getE()
+        .off('mouseleave')
+        .on('mouseleave', @onMouseLeaveNav)
 
   ###
   *------------------------------------------*
@@ -154,7 +135,7 @@ class PageNavController
   | Suspend.
   *----------------------------------------###
   suspend: ->
-    @model.getE().off('mouseenter mouseleave')
-    @$menu_btn.off('click')
+    if LW.utils.is_mobile.any() is false
+      @model.getE().off('mouseenter mouseleave')
 
 module.exports = PageNavController

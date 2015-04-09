@@ -5,6 +5,11 @@
   // ---------------------------------------------
 
   .meta-zone
+    display: none
+
+    @include respond-above-ht($media_ht_360)
+      display: block
+
     ul
       &:before
         content: 'Client(s)'
@@ -13,7 +18,7 @@
         left: 10px
         height: 10px
         color: $black
-        display: block        
+        display: block
         @include type-mono-small
 
         transform: rotate(-90deg) translate3d(0,0,0)

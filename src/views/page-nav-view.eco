@@ -1,5 +1,5 @@
 <div class="page-nav-wrapper">
-	<div class="page-nav" >
+	<div class="page-nav">
 		<ul>
 			<% for i, link of @links: %>
 				<li>
@@ -11,10 +11,5 @@
 				</li>
 			<% end %>
 		</ul>
-	</div>
-	<div class="menu-btn">
-		<span></span>
-		<span></span>
-		<span></span>
 	</div>
 </div>
