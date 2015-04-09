@@ -1,35 +1,38 @@
 data = {
-  "browser_title": "Newton Running",
+  "browser_title": "Wet Republic",
   "slide_type": LW.slide_types.FEATURED_WORK,
-  "title": ["Newton Running", "Run Better"],
+  "title": ["Wet", "Republic"],
   "callouts": [
     LW.callouts.ABOUT,
-    LW.callouts.LAUNCH,
-    LW.callouts.WATCH
+    LW.callouts.LAUNCH
   ],
-  "launch_url": "http://runbetter.newtonrunning.com",
-  "watch_video_id": "118837949",
-  "picture_src": "/images/work/newton/newton.png",
+  "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
+  "watch_video_id": null,
+  "picture_src": "/images/work/coke/coke.png",
   "clients": [
-    "/images/client-logos/nike.png"
+    "/images/client-logos/coca-cola.png",
+    "/images/client-logos/w-k.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION,
     LW.mediums.DESKTOP,
     LW.mediums.MOBILE
   ],
-  "tagline": "A really cool shoe site.",
   "details": {
-    "bg_src": "/images/work/newton/details/newton-bg.jpg",
-    "title": "Some Lorem Ipsum Title",
-    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "bg_src": "/images/work/coke/details/coke-bg.jpg",
+    "title": "It’s 5 O’Clock Somewhere",
+    "overview": "The premiere day party on the strip had a serious image issue. Their site was antiquated and in need of a face-lift. It didn’t even work on the phone. We worked directly with Hakkasan and the MGM to concept and execute a contemporary site that will serve as a solid platform for years to come.",
     "services": [
-      "Lorem Ipsum",
-      "Dummy Words",
-      "And Other",
-      "Services"
+      "Strategy",
+      "UX",
+      "Design",
+      "Development"
     ],
-    "accolades": null,
+    "accolades": [
+      "Accolades",
+      "FWA",
+      "Awwwards",
+      "Communication Arts"
+    ],
     "media": [
       {
         "type": LW.media.IMAGE,
@@ -54,7 +57,7 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": null,
-        "video_id": "118837949"
+        "video_id": "1234"
       }
     ]
   }
