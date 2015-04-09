@@ -32,7 +32,7 @@ class SlideshowController
 
     # Cache selectors
     @$slider = $('.slider', @model.getV())
-    @$initial_slide = $('.slide', @model.getV())
+    @$initial_slide = $('.slide-img', @model.getV())
     @$arrow = $('.arrow', @model.getV())
 
     # Draggable vars
