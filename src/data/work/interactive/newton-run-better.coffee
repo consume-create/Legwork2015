@@ -4,8 +4,7 @@ data = {
   "title": ["Newton Running", "Run Better"],
   "callouts": [
     LW.callouts.ABOUT,
-    LW.callouts.LAUNCH,
-    LW.callouts.WATCH
+    LW.callouts.LAUNCH
   ],
   "launch_url": "http://runbetter.newtonrunning.com",
   "watch_video_id": "118837949",
@@ -20,9 +19,9 @@ data = {
   ],
   "tagline": "A really cool shoe site.",
   "details": {
-    "bg_src": "/images/work/newton/details/newton-bg.jpg",
+    "bg_src": "/images/work/newton/details/main-alt.jpg",
     "title": "You’re Doing It Wrong",
-    "overview": "The team at Newton are on to something big. Instead of teaching people to run differently, they correct compensate for flaws in the shoe itself. The end result is less fatigue, better results, and you look better while you’re doing it.",
+    "overview": "The team at Newton are on to something big. Instead of teaching people to run differently, they compensate for common flaws in runnering style with the shoe itself. The end result is less fatigue, better results, and you look better while you’re doing it.",
     "services": [
       "Strategy",
       "UX",
@@ -35,29 +34,38 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "It's a Sneaker Peeker",
           "text": [
             "Some copy goes here."
           ]
         },
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/newton/details/newton-1-product-showcase.jpg"
         ]
       },
       {
-        "type": LW.media.SLIDESHOW,
-        "copy": null,
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Fully Responsive",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/newton/details/newton-2-responsive.jpg"
         ]
       },
       {
-        "type": LW.media.VIDEO,
-        "copy": null,
-        "video_id": "118837949"
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Motion + Interactive = <3",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
+        "images": [
+          "/images/work/newton/details/newton-3-3d-and-photo.jpg"
+        ]
       }
     ]
   }
