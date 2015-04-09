@@ -14,11 +14,11 @@
       top: 92px
 
     .title-holder
-      height: 40px
+      height: auto
 
       h2
         float: none
-        height: 40px
+        height: auto
         padding: 0
         color: $black
         font-size: 22px
@@ -35,10 +35,10 @@
           display: none
 
       &.top h2
-        transform: translate3d(0,-40px,0)
+        transform: translate3d(0,-24px,0)
 
       &.bottom h2
-        transform: translate3d(0,40px,0)
+        transform: translate3d(0,24px,0)
 
       &.trans-in h2
         opacity: 1
@@ -52,10 +52,10 @@
         transition: transform $speed $ease_in, opacity $speed $ease_in
 
       &.trans-out.top h2
-        transform: translate3d(0,40px,0)
+        transform: translate3d(0,24px,0)
 
       &.trans-out.bottom h2
-        transform: translate3d(0,-40px,0)
+        transform: translate3d(0,-24px,0)
 
   // ---------------------------------------------
   // Info zone
