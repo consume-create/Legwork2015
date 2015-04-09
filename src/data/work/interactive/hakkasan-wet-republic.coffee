@@ -43,17 +43,21 @@ data = {
           ]
         },
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/wet-republic/details/desktop.jpg"
         ]
       },
       {
         "type": LW.media.SLIDESHOW,
-        "copy": null,
+        "copy": {
+          "title": "A Complete Rebuild",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/wet-republic/details/ux-1.jpg",
+          "/images/work/wet-republic/details/ux-2.jpg",
+          "/images/work/wet-republic/details/ux-3.jpg"
         ]
       },
       {
@@ -65,7 +69,26 @@ data = {
           ]
         },
         "images": [
-          "/images/work/wet-republic/details/desktop.jpg"
+          "/images/work/wet-republic/details/templates.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": null,
+        "images": [
+          "/images/work/wet-republic/details/icons.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Fully Responsive",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
+        "images": [
+          "/images/work/wet-republic/details/responsive.jpg"
         ]
       }
     ]
