@@ -25,18 +25,24 @@ class ErrorController
   | Build.
   *----------------------------------------###
   build: ->
-    @model.setV($(JST['error-view']()))
+    @model.setV($(JST['error-view']({
+      "messages": @model.getMessages()
+    })))
     @model.getE().append(@model.getV())
 
     @$msg = $('#error-msg', @model.getV())
 
   ###
   *------------------------------------------*
-  | resize:void (-)
+  | randomMessage:void (-)
   |
-  | Resize.
+  | Random message.
   *----------------------------------------###
-  resize: ->
+  randomMessage: ->
+    msgs = @model.getMessages().length - 1
+    n = _.random(0, msgs)
+    
+    @$msg.text(@model.getMessages()[n])
 
   ###
   *------------------------------------------*
@@ -45,7 +51,7 @@ class ErrorController
   | Activate.
   *----------------------------------------###
   activate: ->
-    @$msg.text(@model.getMsg())
+    @randomMessage()
     @model.getE().show()
 
   ###

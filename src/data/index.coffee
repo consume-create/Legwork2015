@@ -28,6 +28,9 @@ coke_ahh_effect = require './work/interactive/coke-ahh-effect'
 google_roll_it = require './work/interactive/google-roll-it'
 chrysler_hands_on_ron_burgundy = require './work/interactive/chrysler-hands-on-ron-burgundy'
 
+# Error
+error = require './error'
+
 # Describe the structure of the site
 
 # NOTE:
@@ -75,7 +78,8 @@ data = {
       },
       "color_index": 5
     }
-  }
+  },
+  "error": error
 }
 
 module.exports = data
