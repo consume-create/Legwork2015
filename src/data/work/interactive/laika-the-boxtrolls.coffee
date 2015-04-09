@@ -39,7 +39,9 @@ data = {
             "Some copy goes here about this image."
           ]
         },
-        "img_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+        "images": [
+          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+        ]
       },
       {
         "type": LW.media.SLIDESHOW,

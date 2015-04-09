@@ -42,7 +42,9 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/wet-republic/details/desktop.jpg"
+        "images": [
+          "/images/work/wet-republic/details/desktop.jpg"
+        ]
       },
       {
         "type": LW.media.SLIDESHOW,
@@ -66,12 +68,16 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/wet-republic/details/templates.jpg"
+        "images": [
+          "/images/work/wet-republic/details/templates.jpg"
+        ]
       },
       {
         "type": LW.media.IMAGE,
         "copy": null,
-        "img_src": "/images/work/wet-republic/details/icons.jpg"
+        "images": [
+          "/images/work/wet-republic/details/icons.jpg"
+        ]
       },
       {
         "type": LW.media.IMAGE,
@@ -81,7 +87,9 @@ data = {
             "Some copy goes here."
           ]
         },
-        "img_src": "/images/work/wet-republic/details/responsive.jpg"
+        "images": [
+          "/images/work/wet-republic/details/responsive.jpg"
+        ]
       }
     ]
   }

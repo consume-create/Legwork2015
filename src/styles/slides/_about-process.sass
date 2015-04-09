@@ -170,10 +170,6 @@
               border-bottom: 4px solid transparent
               border-left: 6px solid $white
 
-          &:hover
-            .icon
-              animation: bounce $speed $evil_ease
-
       ul.socials
         font-size: 0
         line-height: 0
@@ -196,12 +192,9 @@
             background-repeat: no-repeat
             background-size: 20px 80px
             overflow: hidden
-            opacity: 0.3
+            opacity: 1
 
             transition: opacity $speed $ease_out
-
-            &:hover
-              opacity: 1
 
           &:nth-child(1)
             padding-left: 0px
@@ -258,3 +251,24 @@
 
         @include respond-above-ht($media_ht_480)
           margin: 0 0 20px
+
+// ---------------------------------------------
+// Party mode
+// ---------------------------------------------
+
+.party-on
+  .slide.about-process
+    .info-zone
+      .content
+        ul.callouts
+          li.callout:hover
+            .icon
+              animation: bounce $speed $evil_ease
+
+        ul.socials
+          li.social
+            a
+              opacity: 0.3
+              
+              &:hover
+                opacity: 1
