@@ -59,7 +59,11 @@ class PageController
   | Build.
   *----------------------------------------###
   build: ->
-    @model.setV($(JST['page-view']({'id': @model.getId(), 'slides': @model.getSlideData()})))
+    @model.setV($(JST['page-view']({
+      'id': @model.getId(),
+      'slides': @model.getSlideData(),
+      'color_index': @model.getColorIndex()
+    })))
     @model.getE().append(@model.getV())
 
     # Build watch video
@@ -190,7 +194,7 @@ class PageController
     @mouseup = if Modernizr.touch then "touchend" else "mouseup"
 
     # Loop and assign colors to each slide in order
-    c = 0
+    c = @model.getColorIndex()
     for n in [0...@total_slides]
       @$slide.eq(n).attr('data-rgb', "#{LW.colors[c]}")
       c = if (c is LW.colors.length - 1) then 0 else c + 1

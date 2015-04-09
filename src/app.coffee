@@ -125,7 +125,12 @@ class Application
     # Build page models / controllers
     for id, page of LW.data.pages
       $el = $('<div id="' + id + '" class="page" />').appendTo(@$pages_inner)
-      @page_m[id] = new PageModel({'id': id, 'slides': page.slides, '$el': $el})
+      @page_m[id] = new PageModel({
+        'id': id,
+        'slides': page.slides,
+        '$el': $el,
+        'color_index': page.color_index
+      })
       @page_c[id] = new PageController({
         'model': @page_m[id]
       })
