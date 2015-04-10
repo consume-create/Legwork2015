@@ -39,7 +39,7 @@ data = {
         "copy": {
           "title": "We Built This Site On Rock 'N Roll",
           "text": [
-            "Some copy goes here."
+            "Summarize taking a straight ahead approach, but still making it feel unique."
           ]
         },
         "images": [
@@ -51,7 +51,7 @@ data = {
         "copy": {
           "title": "A Complete Rebuild",
           "text": [
-            "Some copy goes here."
+            "We started from square one. Strategy phase = luxury. UX phase we not only created structure but identified content needs. Collab'd on design, mobile first on template at a time. Staggered with dev."
           ]
         },
         "images": [
@@ -65,7 +65,7 @@ data = {
         "copy": {
           "title": "12 Unique Templates and A Custom Icon Set",
           "text": [
-            "Some copy goes here."
+            "Instead of going with generic templates, we created 12 completely unique templates for the main pages of the site. Also, for this project we really wanted to experiment with SVG. We made a completely custom SVG icon set for the info boxes throughout the site and created custom SVG animations for the main menu."
           ]
         },
         "images": [
@@ -84,7 +84,7 @@ data = {
         "copy": {
           "title": "Fully Responsive",
           "text": [
-            "Some copy goes here."
+            "The site was built with a mobile first, progressive enhancement approach and is completely responsive from desktop and laptop to tablet and phone."
           ]
         },
         "images": [

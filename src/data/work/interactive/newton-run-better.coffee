@@ -36,7 +36,7 @@ data = {
         "copy": {
           "title": "It's a Sneaker Peeker",
           "text": [
-            "Some copy goes here."
+            "The shoes are the most important part of the site and the client wanted a very easy, unintrusive way to look at them. We came up with a simple hero area that showed different angles of the shoe when the user rolls into several horizontal sections. Other major brands copied this approach after we launched."
           ]
         },
         "images": [
@@ -48,7 +48,7 @@ data = {
         "copy": {
           "title": "Fully Responsive",
           "text": [
-            "Some copy goes here."
+            "The site was built with a mobile first, progressive enhancement approach and is completely responsive from desktop and laptop to tablet and phone."
           ]
         },
         "images": [
@@ -60,7 +60,7 @@ data = {
         "copy": {
           "title": "Motion + Interactive = <3",
           "text": [
-            "Some copy goes here."
+            "Any time we get the opportunity to join forces between the two sections of our company, good stuff happens. The motion team created and animated 3D shoe models for all of the video content in the site."
           ]
         },
         "images": [
