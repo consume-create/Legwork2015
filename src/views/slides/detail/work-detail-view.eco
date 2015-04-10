@@ -37,14 +37,14 @@
 						<% end %>
 					<% end %>
 					<% if m.type is LW.media.IMAGE: %>
-						<div class="images">
+						<div class="media-content images">
 							<% for img in m.images: %>
 								<img src="<%= img %>" alt="" />
 							<% end %>
 						</div>
 					<% end %>
 					<% if m.type is LW.media.VIDEO: %>
-						<div class="video-holder">
+						<div class="media-content video-holder">
 							<div class="video-poster" data-id="<%= m.video_id %>"></div>
 							<div class="video-player"></div>
 						</div>

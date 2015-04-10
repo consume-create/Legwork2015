@@ -49,7 +49,7 @@
 
         .inner
           position: relative
-          padding: 80px 100px 0
+          padding: 20px 20px 0
 
           h4
             max-width: 460px
@@ -61,17 +61,25 @@
             color: $gray
             @include type-mono
 
+          .media-content
+            margin: 20px 0 0
+
+            transform: translate3d(0,0,0)
+
         &:first-child
           height: 100%
           background-color: transparent
 
         &:last-child
           .inner
-            padding-bottom: 80px
+            padding-bottom: 20px
+
+        &:nth-of-type(3)
+          margin: -100px 0 0
 
         &.overview
-          background-color: transparent
           height: auto
+          background-color: $black
 
           .overview-inner
             position: relative
@@ -79,15 +87,16 @@
 
             .black-box
               width: 100%
-              max-width: 466px
+              max-width: 666px
               margin: 0 auto
-              padding: 100px
+              padding: 40px 20px
               background-color: $almost_black
+              box-sizing: border-box
 
               transform: translate3d(0,0px,0)
 
               &.slide-up
-                transform: translate3d(0,-40%,0)
+                transform: translate3d(0,-100px,0)
                 transition: transform $speed_metal $evil_ease
 
               h4
@@ -98,7 +107,7 @@
                 @include type-mono
 
               .lists
-                margin: 80px 0
+                margin: 20px 0
 
                 ul
                   float: left
@@ -117,10 +126,9 @@
 
         &.media-image
           .images
-            margin: 80px 0 0
             font-size: 0
             line-height: 0
-            
+
             img
               width: 100%
               height: auto
@@ -131,7 +139,6 @@
             position: relative
             width: 100%
             height: 0
-            margin: 80px 0 0
             padding: 0 0 56.25%
             background-color: $black
             overflow: hidden
@@ -150,17 +157,18 @@
               opacity: 1
 
               transition: visibility 0ms linear, opacity $speed_metal $ease_out
+              transform: translate3d(0,0,0)
 
               &:after
                 content: ''
                 position: absolute
                 top: 50%
                 left: 50%
-                width: 76px
-                height: 76px
+                width: 38px
+                height: 38px
                 background-color: $almost_white
 
-                transform: translate(-50%,-50%)
+                transform: translate3d(-50%,-50%,0)
 
             .video-player
               position: absolute
@@ -198,11 +206,9 @@
             position: relative
             width: 100%
             height: 0
-            margin: 80px 0 0
             padding: 0 0 56.25%
             background-color: $black
             overflow: hidden
-
             user-select: none
 
             .slider
@@ -228,31 +234,21 @@
                 position: relative
                 width: 100%
                 height: 100%
-                background-color: $evil_gray
                 background-repeat: no-repeat
                 background-position: center center
                 background-size: contain
                 overflow: hidden
                 display: inline-block
 
-                span
-                  position: absolute
-                  top: 50%
-                  left: 50%
-                  color: $white
-                  font-size: 54px
-                  line-height: 54px
-                  font-weight: $bold
-
-                  transform: translate(-50%,-50%)
+                transform: translate3d(0,0,0)
 
             .arrow
               position: absolute
               top: 50%
               left: 0px
-              width: 76px
-              height: 76px
-              margin: -38px 0 0
+              width: 38px
+              height: 38px
+              margin: -19px 0 0
               background-color: $almost_white
 
               transform: translate3d(0,0,0)
@@ -260,6 +256,75 @@
               &.next
                 left: auto
                 right: 0px
+
+        @include respond-above($media_480)
+          .inner
+            padding: 40px 40px 0
+
+            .media-content
+              margin: 40px 0 0
+
+          &:last-child
+            .inner
+              padding-bottom: 40px
+            
+          &.overview
+            .overview-inner
+              .black-box
+                padding: 40px
+
+                .lists
+                  margin: 40px 0
+
+        @include respond-above($media_768)
+          .inner
+            padding: 40px 60px 0
+
+          &:last-child
+            .inner
+              padding-bottom: 60px
+
+          &.overview
+            background-color: transparent
+
+            .overview-inner
+              .black-box
+                padding: 60px
+
+                .lists
+                  margin: 60px 0
+
+          &.media-video
+            .video-holder
+              .video-poster:after
+                width: 76px
+                height: 76px
+
+          &.media-slideshow
+            .slideshow-holder
+              .arrow
+                width: 76px
+                height: 76px
+                margin: -38px 0 0
+
+        @include respond-above($media_1180)
+          .inner
+            padding: 80px 100px 0
+
+            .media-content
+              margin: 80px 0 0
+
+          &:last-child
+            .inner
+              padding-bottom: 80px
+              
+          &.overview
+            .overview-inner
+              .black-box
+                padding: 100px
+
+                .lists
+                  margin: 80px 0
 
     .detail-loader
       position: absolute
