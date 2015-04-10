@@ -20,8 +20,18 @@
       position: relative
       width: 100%
       height: 100%
-      max-width: 960px
+      max-width: 320px
       margin: 0 auto
+
+      @include respond-above($media_480)
+        @include respond-above-ht($media_ht_480)
+          max-width: 480px
+
+      @include respond-above-ht($media_ht_560)
+        max-width: 720px
+
+      @include respond-above-ht($media_ht_666)
+        max-width: 960px
 
       .video-player
         position: absolute
