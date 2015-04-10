@@ -24,7 +24,7 @@ class Routes
     @errors = {
       'ERROR:404': {
         'callbacks': []
-        'title': 'Legwork Studio / 404 Not Found'
+        'title': 'Legwork Studio / Page Not Found!'
       }
     }
     @observeSomeSweetEvents()

@@ -37,11 +37,14 @@ class SlideshowController
 
     # Draggable vars
     @dragging = false
+    @y_axis = false
     @drag_time = 666
     @trans_x = 0
     @start_time = 0
     @start_x = 0
     @current_x = 0
+    @start_y = 0
+    @current_y = 0
     @range = 30
     @current_range = 0
     @now = 0
@@ -75,6 +78,7 @@ class SlideshowController
 
       @start_time = (new Date()).getTime()
       @start_x = if Modernizr.touch then e.originalEvent.pageX else e.pageX
+      @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
 
       LW.$doc.off(@mouseup)
         .one(@mouseup, @onMouseUp)
@@ -86,20 +90,24 @@ class SlideshowController
   | Mouse move.
   *----------------------------------------###
   onMouseMove: (e) =>
-    if @dragging is true
-      e.preventDefault()
-
+    if @dragging is true and @y_axis is false
       @current_x = if Modernizr.touch then e.originalEvent.pageX else e.pageX
+      @current_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
       @direction_x = @current_x - @start_x
       @current_range = if @start_x is 0 then 0 else Math.abs(@direction_x)
-      @now = (new Date()).getTime()
-      drag_x = -(@active_index * @slider_width) + @direction_x
+      current_range_y = if @start_y is 0 then 0 else Math.abs(@current_y - @start_y)
 
-      @$slider
-        .addClass('no-trans')
-        .css(LW.utils.transform, LW.utils.translate(drag_x + 'px', 0))
+      if @current_range < current_range_y
+        @y_axis = true
+      else
+        @now = (new Date()).getTime()
+        drag_x = -(@active_index * @slider_width) + @direction_x
 
-      return false
+        @$slider
+          .addClass('no-trans')
+          .css(LW.utils.transform, LW.utils.translate(drag_x + 'px', 0))
+
+        return false
 
   ###
   *------------------------------------------*
@@ -128,6 +136,7 @@ class SlideshowController
 
     @dragging = false
     @swiped = false
+    @y_axis = false
     return false
 
   ###
@@ -223,6 +232,7 @@ class SlideshowController
     @updateSlider()
 
     # reset these after update slider to ensure these have reset
+    @y_axis = false
     @swiped = false
     @inmotion = false
 

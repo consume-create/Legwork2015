@@ -218,7 +218,7 @@ class Application
       'app': [@$pages_inner.outerWidth(), @$pages_inner.outerHeight()]
     }
 
-    @active_c.resize()
+    @active_c.resize() if @active_c.resize?
     @transition_c.resize()
 
   ###

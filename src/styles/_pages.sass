@@ -137,7 +137,33 @@
 
       .callouts
         .callout
+          font-size: 0
+          line-height: 0
           cursor: default
+
+          .copy
+            max-width: 480px
+            margin: 18px 0 0
+            font-size: 12px
+            line-height: 15px
+            text-transform: none
+
+          @include respond-above($media_768)
+            @include respond-above-ht($media_ht_480)
+              .copy
+                margin: 30px 0 0
+                font-size: 14px
+
+    .meta-zone
+      h4
+        padding: 0
+
+        &:before,
+        &:after
+          display: none
+
+        a
+          color: $black
 
 // -----------------------------------------------
 // Transish
