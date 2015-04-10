@@ -63,7 +63,7 @@ data = {
         "climate-reality-pledge": climate_reality_pledge,
         "alameda-new-leaf": alameda_new_leaf
       },
-      "color_index": 3
+      "color_index": 1
     },
     "interactive": {
       "slides": {
@@ -76,7 +76,7 @@ data = {
         "google-roll-it": google_roll_it,
         "chrysler-hands-on-ron-burgundy": chrysler_hands_on_ron_burgundy
       },
-      "color_index": 5
+      "color_index": 2
     }
   },
   "error": error
