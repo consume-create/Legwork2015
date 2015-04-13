@@ -58,12 +58,19 @@
 
         p
           max-width: 460px
-          margin: 20px 0 0
+          margin: 10px 0 0
           color: $gray
           @include type-mono
 
           &:nth-of-type(1)
             margin: 0
+
+          @include respond-above($media_768)
+            @include respond-above-ht($media_ht_480)
+              margin: 20px 0 0
+
+              &:nth-of-type(1)
+                margin: 0
 
         a
           position: relative
