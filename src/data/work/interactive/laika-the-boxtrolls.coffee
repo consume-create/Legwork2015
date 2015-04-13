@@ -33,12 +33,7 @@ data = {
     "media": [
       {
         "type": LW.media.VIDEO,
-        "copy": {
-          "title": "Making Of",
-          "text": [
-            "Some copy goes here about this video."
-          ]
-        },
+        "copy": null,
         "video_id": "124862150"
       },
       {
