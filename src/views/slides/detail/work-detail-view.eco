@@ -5,18 +5,18 @@
 		<section class="overview">
 			<div class="overview-inner">
 				<div class="black-box">
-					<h4><%= @title %></h4>
-					<p><%= @overview %></p>
+					<h4><%- @title %></h4>
+					<p><%- @overview %></p>
 					<div class="lists cf">
 						<ul>
 							<% for service in @services: %>
-								<li><%= service %></li>
+								<li><%- service %></li>
 							<% end %>
 						</ul>
 						<% if @accolades: %>
 							<ul>
 								<% for accolade in @accolades: %>
-									<li><%= accolade %></li>
+									<li><%- accolade %></li>
 								<% end %>
 							</ul>
 						<% end %>
@@ -31,9 +31,9 @@
 			<section class="<%= m.type %>" <% if m.type is LW.media.SLIDESHOW: %> data-slideshow="<%= i %>"<% end %>>
 				<div class="inner">
 					<% if m.copy?: %>
-						<h4><%= m.copy.title %></h4>
+						<h4><%- m.copy.title %></h4>
 						<% for t in m.copy.text: %>
-							<p><%= t %></p>
+							<p><%- t %></p>
 						<% end %>
 					<% end %>
 					<% if m.type is LW.media.IMAGE: %>
