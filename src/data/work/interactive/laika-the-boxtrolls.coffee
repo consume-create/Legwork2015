@@ -19,7 +19,7 @@ data = {
     LW.mediums.MOBILE
   ],
   "details": {
-    "bg_src": "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
+    "bg_src": "/images/work/boxtrolls/details/main.jpg",
     "title": "Dare To Be Square",
     "overview": "For Laika's latest movie, \"The Boxtrolls,\" they stuck with the same team (us and Wieden+Kennedy) that produced all of the digital work for \"ParaNorman.\" Being able to leverage what we had done for them in the past was a huge advantage. This experience surpasses both what we could have done otherwise and what we had done before. The site lets you explore the movie and the trailer, stopping at points of interest along the way to check out games, behind the scenes and more.",
     "services": [
@@ -34,12 +34,12 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "The Making Of",
+          "title": "Making Of",
           "text": [
             "Some copy goes here about this video."
           ]
         },
-        "video_id": "118837949"
+        "video_id": "124862150"
       },
       {
         "type": LW.media.SLIDESHOW,
