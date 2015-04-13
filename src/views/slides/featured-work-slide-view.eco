@@ -13,29 +13,17 @@
 				<% if c is 'launch': %>
 					<a class="callout <%= c %>" href="<%= @launch_url %>" target="_new">
 						<div class="copy"><%= c %></div>
-						<div class="icon">
-							<span class="rect"></span>
-							<span class="rect"></span>
-							<span class="tri"></span>
-						</div>
+						<div class="icon"></div>
 					</a>
 				<% else if c is 'about': %>
 					<a class="callout <%= c %> ajaxy" href="<%= @details_url %>">
 						<div class="copy"><%= c %></div>
-						<div class="icon">
-							<span class="rect"></span>
-							<span class="rect"></span>
-							<span class="tri"></span>
-						</div>
+						<div class="icon"></div>
 					</a>
 				<% else: %>
 					<a class="callout <%= c %> ajaxy" href="<%= @watch_url %>">
 						<div class="copy"><%= c %></div>
-						<div class="icon">
-							<span class="rect"></span>
-							<span class="rect"></span>
-							<span class="tri"></span>
-						</div>
+						<div class="icon"></div>
 					</a>
 				<% end %>
 			<% end %>

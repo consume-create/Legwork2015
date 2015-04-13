@@ -34,6 +34,7 @@ class SlideshowController
     @$slider = $('.slider', @model.getV())
     @$initial_slide = $('.slide-img', @model.getV())
     @$arrow = $('.arrow', @model.getV())
+    @$counter = $('.slideshow-counter', @model.getV())
 
     # Draggable vars
     @dragging = false
@@ -192,6 +193,8 @@ class SlideshowController
       .off(LW.utils.transition_end)
       .one(LW.utils.transition_end, @loopPosition)
 
+    # @updateCounter()
+
   ###
   *------------------------------------------*
   | loopPosition:void (=)
@@ -200,7 +203,6 @@ class SlideshowController
   *----------------------------------------###
   loopPosition: (e) =>
     oc = @active_index
-
     if @active_index is 0
       # Minus two to account for last slide clone
       @active_index = @total_slides - 2
@@ -218,6 +220,18 @@ class SlideshowController
         @inmotion = false
     else
       @inmotion = false
+
+    # update counter
+    @updateCounter()
+
+  ###
+  *------------------------------------------*
+  | updateCounter:void (-)
+  |
+  | Update counter.
+  *----------------------------------------###
+  updateCounter: ->
+    @$counter.text(('0' + (@active_index)).slice(-2) + ' / ' + ('0' + (@total_slides - 2)).slice(-2))
 
   ###
   *------------------------------------------*
