@@ -53,18 +53,23 @@ class WorkDetailController
     @$video_poster = $('.video-poster', @model.getV())
     @$video_player = $('.video-player', @model.getV())
 
+    @slideshow_m = []
+    @slideshow_c = []
+
     # Build slideshow
     @slideshow_exists = false
     if @$media_slideshow.length > 0
       @slideshow_exists = true
 
-      @slideshow_m = new SlideshowModel({
-        '$el': $('.inner', @$media_slideshow),
-        'images': _.findWhere(@model.getMedia(), {type: LW.media.SLIDESHOW}).images
-      })
-      @slideshow_c = new SlideshowController({
-        'model': @slideshow_m
-      })
+      @$media_slideshow.each((id, el) =>
+        @slideshow_m[id] = new SlideshowModel({
+          '$el': $('.inner', $(el)),
+          'images': _.findWhere(@model.getMedia(), {type: LW.media.SLIDESHOW}).images
+        })
+        @slideshow_c[id] = new SlideshowController({
+          'model': @slideshow_m[id]
+        })
+      )
 
     # Build videos
     @videos_exist = false
@@ -173,7 +178,7 @@ class WorkDetailController
   *----------------------------------------###
   turnDetailHandlers: (s) =>
     if @slideshow_exists is true
-      @slideshow_c.suspend()
+      ss_c.suspend() for ss_c in @slideshow_c
 
     if @videos_exist is true
       @resetVideos()
@@ -181,7 +186,7 @@ class WorkDetailController
 
     if s is 'on'
       if @slideshow_exists is true
-        @slideshow_c.activate()
+        ss_c.activate() for ss_c in @slideshow_c
 
       if @videos_exist is true
         @buildVideos()

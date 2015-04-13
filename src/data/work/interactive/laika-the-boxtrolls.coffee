@@ -32,36 +32,9 @@ data = {
     "accolades": null,
     "media": [
       {
-        "type": LW.media.IMAGE,
-        "copy": {
-          "title": "Some Image Title",
-          "text": [
-            "Some copy goes here about this image."
-          ]
-        },
-        "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
-        ]
-      },
-      {
-        "type": LW.media.SLIDESHOW,
-        "copy": {
-          "title": "Some Slideshow Title",
-          "text": [
-            "Some copy goes here about this slideshow."
-          ]
-        },
-        "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
-        ]
-      },
-      {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "Some Video Title",
+          "title": "The Making Of",
           "text": [
             "Some copy goes here about this video."
           ]
@@ -69,14 +42,61 @@ data = {
         "video_id": "118837949"
       },
       {
-        "type": LW.media.VIDEO,
+        "type": LW.media.SLIDESHOW,
         "copy": {
-          "title": "Some Video Title",
+          "title": "A Journey Through Cheesebridge",
           "text": [
-            "Some copy goes here about this video."
+            "Some copy goes here about this slideshow."
           ]
         },
-        "video_id": "67414298"
+        "images": [
+          "/images/work/boxtrolls/details/journey-1.jpg",
+          "/images/work/boxtrolls/details/journey-2.jpg",
+          "/images/work/boxtrolls/details/journey-3.jpg",
+          "/images/work/boxtrolls/details/journey-4.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "An Attempt To Mimic True Craft",
+          "text": [
+            "Some copy goes here about this image."
+          ]
+        },
+        "images": [
+          "/images/work/boxtrolls/details/craft-1.jpg",
+          "/images/work/boxtrolls/details/craft-2.jpg"
+        ]
+      },
+      {
+        "type": LW.media.SLIDESHOW,
+        "copy": {
+          "title": "The Boxtroll Builder Contest",
+          "text": [
+            "Some copy goes here about this slideshow."
+          ]
+        },
+        "images": [
+          "/images/work/boxtrolls/details/journey-1.jpg",
+          "/images/work/boxtrolls/details/journey-2.jpg",
+          "/images/work/boxtrolls/details/journey-3.jpg",
+          "/images/work/boxtrolls/details/journey-4.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Boxtroll Shoes",
+          "text": [
+            "Some copy goes here about this image."
+          ]
+        },
+        "images": [
+          "/images/work/boxtrolls/details/trollstrikes-1.jpg",
+          "/images/work/boxtrolls/details/trollstrikes-2.jpg",
+          "/images/work/boxtrolls/details/trollstrikes-3.jpg"
+        ]
       }
     ]
   }

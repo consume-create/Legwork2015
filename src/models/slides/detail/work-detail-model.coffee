@@ -221,7 +221,6 @@ class WorkDetailModel extends BaseModel
   *----------------------------------------###
   setMedia: (media) ->
     passed = true
-    slideshow_count = 0
 
     if _.isArray(media) is false
       passed = false
@@ -256,15 +255,9 @@ class WorkDetailModel extends BaseModel
             passed = false
             throw 'ERROR: each img in the images array must be a local reference from the root (e.g. /images/path/to/image.jpg) as a string'
             break
-      if m.type is LW.media.SLIDESHOW
-        slideshow_count++
       if m.type is LW.media.VIDEO and _.isString(m.video_id) is false
         passed = false
         throw 'ERROR: video_id must be a string'
-
-    if slideshow_count > 1
-      passed = false
-      throw 'ERROR: no more than one slideshow per detail page'
 
     if passed is true
       @_media = media
