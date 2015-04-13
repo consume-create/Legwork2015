@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
   "watch_video_id": null,
-  "picture_src": "/images/work/coke/coke.png",
+  "picture_src": "/images/work/roll-it/roll-it.png",
   "clients": [
     "/images/client-logos/coca-cola.png",
     "/images/client-logos/w-k.png"

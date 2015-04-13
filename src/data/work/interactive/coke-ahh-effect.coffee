@@ -46,6 +46,57 @@ data = {
         "images": [
           "/images/work/coke-ahh-effect/details/maniac-kernels-1.jpg"
         ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Ice Toss",
+          "text": [
+            "Talk about gestures and aiming.",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+          ]
+        },
+        "images": [
+          "/images/work/coke-ahh-effect/details/ice-toss-1.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Guide The Bubble",
+          "text": [
+            "Talk about straw sucking and using the gyroscope to control the bubble.",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+          ]
+        },
+        "images": [
+          "/images/work/coke-ahh-effect/details/guide-the-bubble-1.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Cupcake Unicorn",
+          "text": [
+            "???",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+          ]
+        },
+        "images": [
+          "/images/work/coke-ahh-effect/details/cupcake-unicorn-1.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "And A Bunch More!",
+          "text": [
+            "Talk about success metrics or something?"
+          ]
+        },
+        "images": [
+          "/images/work/coke-ahh-effect/details/more-ahhs-1.jpg"
+        ]
       }
     ]
   }
