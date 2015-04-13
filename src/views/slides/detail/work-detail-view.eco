@@ -27,8 +27,8 @@
 				</div>
 			</div>
 		</section>
-		<% for m in @media: %>
-			<section class="<%= m.type %>">
+		<% for m, i in @media: %>
+			<section class="<%= m.type %>" <% if m.type is LW.media.SLIDESHOW: %> data-slideshow="<%= i %>"<% end %>>
 				<div class="inner">
 					<% if m.copy?: %>
 						<h4><%= m.copy.title %></h4>

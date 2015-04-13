@@ -62,9 +62,10 @@ class WorkDetailController
       @slideshow_exists = true
 
       @$media_slideshow.each((id, el) =>
+        $e = $(el)
         @slideshow_m[id] = new SlideshowModel({
-          '$el': $('.inner', $(el)),
-          'images': _.findWhere(@model.getMedia(), {type: LW.media.SLIDESHOW}).images
+          '$el': $('.inner', $e),
+          'images': @model.getMedia()[$e.data('slideshow')].images
         })
         @slideshow_c[id] = new SlideshowController({
           'model': @slideshow_m[id]

@@ -78,10 +78,12 @@ data = {
           ]
         },
         "images": [
-          "/images/work/boxtrolls/details/journey-1.jpg",
-          "/images/work/boxtrolls/details/journey-2.jpg",
-          "/images/work/boxtrolls/details/journey-3.jpg",
-          "/images/work/boxtrolls/details/journey-4.jpg"
+          "/images/work/boxtrolls/details/builder-1.jpg",
+          "/images/work/boxtrolls/details/builder-2.jpg",
+          "/images/work/boxtrolls/details/builder-3.jpg",
+          "/images/work/boxtrolls/details/builder-4.jpg",
+          "/images/work/boxtrolls/details/builder-5.jpg",
+          "/images/work/boxtrolls/details/builder-6.jpg"
         ]
       },
       {
