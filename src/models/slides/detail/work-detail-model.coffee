@@ -232,19 +232,20 @@ class WorkDetailModel extends BaseModel
         throw 'ERROR: each media type needs to match one of the defined LW.media listed in ./src/env.coffee'
         break
       if m.copy isnt null
-        if _.isString(m.copy.title) is false
+        if m.copy.title isnt null and _.isString(m.copy.title) is false
           passed = false
           throw 'ERROR: media copy title must be a string'
           break
-        if _.isArray(m.copy.text) is false
+        if m.copy.text isnt null and _.isArray(m.copy.text) is false
           passed = false
           throw 'ERROR: media copy text must be an array of strings'
           break
-        for t in m.copy.text
-          if _.isString(t) is false
-            passed = false
-            throw 'ERROR: each media copy text must be a string'
-            break
+        if m.copy.text isnt null 
+          for t in m.copy.text
+            if _.isString(t) is false
+              passed = false
+              throw 'ERROR: each media copy text must be a string'
+              break
       if m.type is LW.media.IMAGE
         if _.isArray(m.images) is false
           passed = false

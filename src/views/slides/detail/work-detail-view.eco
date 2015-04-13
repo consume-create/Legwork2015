@@ -22,7 +22,7 @@
 						<% end %>
 					</div>
 					<% if @launch_url: %>
-						<a href="<%= @launch_url %>" target="_new">Launch</a>
+						<a class="launch-link" href="<%= @launch_url %>" target="_new">Launch<span class='icon'></span></a>
 					<% end %>
 				</div>
 			</div>
@@ -31,9 +31,13 @@
 			<section class="<%= m.type %>" <% if m.type is LW.media.SLIDESHOW: %> data-slideshow="<%= i %>"<% end %>>
 				<div class="inner">
 					<% if m.copy?: %>
-						<h4><%- m.copy.title %></h4>
-						<% for t in m.copy.text: %>
-							<p><%- t %></p>
+						<% if m.copy.title?: %>
+							<h4><%- m.copy.title %></h4>
+						<% end %>
+						<% if m.copy.text?: %>
+							<% for t in m.copy.text: %>
+								<p><%- t %></p>
+							<% end %>
 						<% end %>
 					<% end %>
 					<% if m.type is LW.media.IMAGE: %>

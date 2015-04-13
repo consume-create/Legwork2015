@@ -6,9 +6,9 @@ data = {
     LW.callouts.ABOUT,
     LW.callouts.LAUNCH
   ],
-  "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
+  "launch_url": null,
   "watch_video_id": null,
-  "picture_src": "/images/work/coke/coke.png",
+  "picture_src": "/images/work/coke-ahh-effect/coke-ahh.png",
   "clients": [
     "/images/client-logos/coca-cola.png",
     "/images/client-logos/w-k.png"
@@ -18,49 +18,34 @@ data = {
     LW.mediums.MOBILE
   ],
   "details": {
-    "bg_src": "/images/work/coke/details/coke-bg.jpg",
+    "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",
     "title": "Bitesized Brand Experiences",
     "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coke. This collection of 64 games, quizzes, and content plays that all tie loosely tie back to the brand in unexpected and sometimes irreverent ways. While each experience is meant to stand on its own, its even more impressive when all of them are viewed as a collection.",
     "services": [
-      "Services Provided",
-      "Lorem Ipsum",
-      "Dummy Words",
-      "And Other",
-      "Services"
+      "User Experience",
+      "Art Direction",
+      "Design",
+      "Development"
     ],
     "accolades": [
-      "Accolades",
+      "Webby Awards",
+      "Pixel Awards",
       "FWA",
-      "Awwwards",
-      "Communication Arts"
+      "AWWWARDS"
     ],
     "media": [
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "Maniac Kernels From Outer Space",
           "text": [
-            "Some copy goes here."
+            "Talk about levels, bonuses and most importantly using the gyroscope to control the ship.",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
           ]
         },
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/coke-ahh-effect/details/maniac-kernels-1.jpg"
         ]
-      },
-      {
-        "type": LW.media.SLIDESHOW,
-        "copy": null,
-        "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
-        ]
-      },
-      {
-        "type": LW.media.VIDEO,
-        "copy": null,
-        "video_id": "1234"
       }
     ]
   }
