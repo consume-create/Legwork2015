@@ -45,7 +45,9 @@
 					<% end %>
 					<% if m.type is LW.media.VIDEO: %>
 						<div class="media-content video-holder">
-							<div class="video-poster" data-id="<%= m.video_id %>"></div>
+							<div class="video-poster" data-id="<%= m.video_id %>">
+							<span class="play-btn"></span>
+							</div>
 							<div class="video-player"></div>
 						</div>
 					<% end %>

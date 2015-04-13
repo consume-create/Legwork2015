@@ -37,7 +37,9 @@ LW.mediums.DESKTOP = "desktop"
 LW.mediums.MOBILE = "mobile"
 LW.mediums.ANIMATION = "animation"
 LW.mediums.THREE_DIMENSIONAL = "three-dimensional"
-LW.mediums.EXPERIMENTAL = "experimental"
+LW.mediums.EXPERIENTIAL = "experiential"
+LW.mediums.ILLUSTRATION = "illustration"
+LW.mediums.GAME = "game"
 
 LW.callouts = []
 LW.callouts.ABOUT = "about"
