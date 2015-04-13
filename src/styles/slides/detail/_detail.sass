@@ -316,6 +316,16 @@
                 height: 76px
                 margin: -38px 0 0
 
+        @include respond-above($media_1024)
+          &.overview
+            .overview-inner
+              .black-box
+                max-width: 666px
+                padding: 100px
+
+                .lists
+                  margin: 80px 0
+
         @include respond-above($media_1180)
           .inner
             padding: 80px 100px 0
@@ -326,15 +336,6 @@
           &:last-child
             .inner
               padding-bottom: 80px
-              
-          &.overview
-            .overview-inner
-              .black-box
-                max-width: 768px
-                padding: 100px
-
-                .lists
-                  margin: 80px 0
 
     .detail-loader
       position: absolute
