@@ -19,8 +19,10 @@ var gulp = require('gulp'),
 gulp.task('usemin', function() {
   gulp.src('public/*.html')
     .pipe(usemin({
-      js: [uglify(), rev()],
-      css: [minifycss(), rev()]
+      'js1': [uglify(), rev()],
+      'js2': [uglify(), rev()],
+      'js3': [uglify(), rev()],
+      'css': [minifycss(), rev()]
     }))
     .pipe(gulp.dest('dist/'));
 });
