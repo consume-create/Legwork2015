@@ -12,6 +12,15 @@
 		<meta name="author" content="Legwork Studio (http://www.legworkstudio.com)">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+		<script>
+			var rxaosp = window.navigator.userAgent.match(/Android.*AppleWebKit\/([\d.]+)/);
+			var isaosp = (rxaosp && rxaosp[1] < 537)
+			if (isaosp) {
+				var html = document.documentElement;
+				html.className += " weak";
+			}
+		</script>
+
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700">
 
