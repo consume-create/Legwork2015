@@ -73,8 +73,7 @@ data = {
         "coke-building-of-memories": coke_building_of_memories,
         "newton-run-better": newton_run_better,
         "coke-ahh-effect": coke_ahh_effect,
-        "google-roll-it": google_roll_it,
-        "chrysler-hands-on-ron-burgundy": chrysler_hands_on_ron_burgundy
+        "google-roll-it": google_roll_it
       },
       "color_index": 2
     }

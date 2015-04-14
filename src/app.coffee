@@ -52,6 +52,7 @@ class Application
     LW.virgin = true
 
     # Class vars
+    @unclung_title = document.title
     @$pages_inner = $('#pages-inner')
     @$pages_trans = $('#pages-transition')
     @page_m = []
@@ -64,7 +65,7 @@ class Application
     }
 
     @cling_to = -1
-    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'What about the boat times?', 'I got Bailey\'s.', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'Love games?']
+    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'I want to show you something.', 'What about the boat times?', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'Love games?']
     @$fallback = $('#fallback')
     @active_c = null
 
