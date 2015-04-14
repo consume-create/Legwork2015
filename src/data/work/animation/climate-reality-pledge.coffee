@@ -16,7 +16,7 @@ data = {
     LW.mediums.ANIMATION
   ],
   "details": {
-    "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",
+    "bg_src": "/images/work/climate-reality/details/main.jpg",
     "title": "24 hours of Climate Reality",
     "overview": "\"24 Hours of Climate Reality\" is an event where experts and celebrities conduct Dirty Weather Reports from across the globe. During the event, viewers are asked to join the global movement and demand action from their governments. This piece is an anthemic and informational call-to-action. We employ a combination of smooth motion and textural cel animation to contrast and visualize the battle between good and evil.",
     "services": [
@@ -31,28 +31,45 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "Initial Sketches",
           "text": [
             "Some copy goes here."
           ]
         },
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/climate-reality/details/sketches.jpg"
         ]
       },
       {
-        "type": LW.media.SLIDESHOW,
-        "copy": null,
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Story Boards / Initial Design",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
         "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
+          "/images/work/climate-reality/details/narrowed.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Final Options",
+          "text": [
+            "Some copy goes here."
+          ]
+        },
+        "images": [
+          "/images/work/climate-reality/details/options.jpg"
         ]
       },
       {
         "type": LW.media.VIDEO,
-        "copy": null,
+        "copy": {
+          "title": "Final Spot",
+          "text": null
+        },
         "video_id": "53487338"
       }
     ]
