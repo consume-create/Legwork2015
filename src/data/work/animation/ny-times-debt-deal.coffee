@@ -10,10 +10,11 @@ data = {
   "watch_video_id": "39365605",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
-    "/images/client-logos/nike.png"
+    "/images/client-logos/ny-times.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION
+    LW.mediums.ANIMATION,
+    LW.mediums.ILLUSTRATION
   ],
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",

@@ -1,10 +1,10 @@
 data = {
-  "browser_title": "Greetings Internet Voyager",
+  "browser_title": "About Us",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "id": "summary",
-  "title": "Greetings Internet Voyager",
+  "title": "Hungry for a challenge,<br>thirsty for a beer.",
   "picture_src": "/images/about/summary.png",
-  "copy": "<p>Legwork is a creative studio based in Denver, CO. We specialize in animation and interactive experiences for every screen. We are independently owned. The partners in our company work along side the team on every engagement. Since 2007, we have consistently delivered successful projects through our unique structure and our strong passion for getting the job done right.</p>",
+  "copy": "<p>Legwork is a creative studio that specializes in animation & interactive experiences. Founded in 2007 on the principles of creativity, innovation and DIY ethic, we remain independently owned and operated to this day. Through collaboration with both ad agencies and directly with brands across the globe, we create some of the most compelling projects in our industry. We love what we do and we hope that you do too.</p>",
   "lists": []
 }
 

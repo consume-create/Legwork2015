@@ -10,10 +10,12 @@ data = {
   "watch_video_id": "105804907",
   "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
-    "/images/client-logos/nissan.png"
+    "/images/client-logos/nissan.png",
+    "/images/client-logos/tbwa.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION
+    LW.mediums.ANIMATION,
+    LW.mediums.THREE_DIMENSIONAL
   ],
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/main.jpg",

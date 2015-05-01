@@ -10,10 +10,11 @@ data = {
   "watch_video_id": "53487338",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
-    "/images/client-logos/nike.png"
+    "/images/client-logos/climate-reality-project.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION
+    LW.mediums.ANIMATION,
+    LW.mediums.ILLUSTRATION
   ],
   "details": {
     "bg_src": "/images/work/climate-reality/details/main.jpg",

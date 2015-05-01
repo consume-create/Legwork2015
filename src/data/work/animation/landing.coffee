@@ -7,7 +7,7 @@ data = {
     "Get your lotion!"
   ],
   "reel_video_id": "124884949",
-  "instructions": "Ok, time to start scrolling down."
+  "instructions": "Ok, time to swipe down."
 }
 
 module.exports = data

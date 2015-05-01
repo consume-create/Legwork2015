@@ -10,12 +10,11 @@ data = {
   "watch_video_id": null,
   "picture_src": "/images/work/roll-it/roll-it.png",
   "clients": [
-    "/images/client-logos/coca-cola.png",
-    "/images/client-logos/w-k.png"
+    "/images/client-logos/google.png"
   ],
   "mediums": [
-    LW.mediums.DESKTOP,
-    LW.mediums.MOBILE
+    LW.mediums.GAME,
+    LW.mediums.THREE_DIMENSIONAL
   ],
   "details": {
     "bg_src": "/images/work/roll-it/details/main.jpg",

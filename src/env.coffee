@@ -40,6 +40,7 @@ LW.mediums.THREE_DIMENSIONAL = "three-dimensional"
 LW.mediums.EXPERIENTIAL = "experiential"
 LW.mediums.ILLUSTRATION = "illustration"
 LW.mediums.GAME = "game"
+LW.mediums.LIVE_ACTION = "live-action"
 
 LW.callouts = []
 LW.callouts.ABOUT = "about"

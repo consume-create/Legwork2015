@@ -2,7 +2,7 @@ data = {
   "browser_title": "Services",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "id": "services",
-  "title": "Services",
+  "title": "Great ideas originate<br>in the muscles.",
   "picture_src": "/images/about/services.png",
   "copy": "",
   "lists": [

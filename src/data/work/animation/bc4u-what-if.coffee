@@ -10,10 +10,13 @@ data = {
   "watch_video_id": "118837949",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
-    "/images/client-logos/tbwa.png"
+    "/images/client-logos/bc4u.png",
+    "/images/client-logos/sprocket.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION
+    LW.mediums.ANIMATION,
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.ILLUSTRATION
   ],
   "details": {
     "bg_src": "/images/work/bc4u-what-if/details/main.jpg",

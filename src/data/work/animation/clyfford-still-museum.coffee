@@ -10,10 +10,12 @@ data = {
   "watch_video_id": "33671603",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
-    "/images/client-logos/nike.png"
+    "/images/client-logos/clyfford-still.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION
+    LW.mediums.EXPERIENTIAL,
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.ILLUSTRATION
   ],
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/nissan-zero-gravity-bg.jpg",

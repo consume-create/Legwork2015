@@ -10,12 +10,13 @@ data = {
   "watch_video_id": null,
   "picture_src": "/images/work/coke/coke.png",
   "clients": [
-    "/images/client-logos/coca-cola.png",
-    "/images/client-logos/w-k.png"
+    "/images/client-logos/mgm-grand.png",
+    "/images/client-logos/hakkasan.png"
   ],
   "mediums": [
     LW.mediums.DESKTOP,
-    LW.mediums.MOBILE
+    LW.mediums.MOBILE,
+    LW.mediums.THREE_DIMENSIONAL
   ],
   "details": {
     "bg_src": "/images/work/wet-republic/details/main.jpg",

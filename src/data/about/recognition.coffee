@@ -2,7 +2,7 @@ data = {
   "browser_title": "Recognition",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "id": "recognition",
-  "title": "Recognition",
+  "title": "Who you are will show<br>in what you do.",
   "picture_src": "/images/about/accolades.png",
   "copy": '',
   "lists": [
@@ -12,14 +12,17 @@ data = {
           "name": "Awards"
         },
         {
-          "name": "FWA x32"
+          "name": "Webby Awards x16"
         },
         {
-          "name": "Webby Awards x16"
+          "name": "FWA x32"
         },
         {
           "name": "Google Creative Sandbox x4",
           "alt_name": "Creative Sandbox x4"
+        },
+        {
+          "name": "Vimeo Staff Pick x2"
         },
         {
           "name": "SXSW x4"
@@ -40,9 +43,6 @@ data = {
         },
         {
           "name": "Awwwards x16"
-        },
-        {
-          "name": "Vimeo Staff Pick x2"
         },
         {
           "name": "VOTD x3"

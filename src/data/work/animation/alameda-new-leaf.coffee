@@ -13,7 +13,9 @@ data = {
     "/images/client-logos/alameda.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION
+    LW.mediums.ANIMATION,
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.ILLUSTRATION
   ],
   "details": {
     "bg_src": "/images/work/new-leaf/details/main.jpg",

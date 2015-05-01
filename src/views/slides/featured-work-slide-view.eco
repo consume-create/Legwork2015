@@ -38,7 +38,9 @@
 		</ul>
 		<ul class="mediums">
 			<% for m in @mediums: %>
-				<li class="<%= m %>"><span><%= m %></span></li>
+				<li class="<%= m %>">
+					<span><%= if m is LW.mediums.THREE_DIMENSIONAL then '3D' else m.replace(/\-/g, ' ') %></span>
+				</li>
 			<% end %>
 		</ul>
 	</div>

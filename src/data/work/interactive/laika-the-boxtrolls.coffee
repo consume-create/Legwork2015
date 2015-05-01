@@ -16,7 +16,8 @@ data = {
   ],
   "mediums": [
     LW.mediums.DESKTOP,
-    LW.mediums.MOBILE
+    LW.mediums.MOBILE,
+    LW.mediums.GAME
   ],
   "details": {
     "bg_src": "/images/work/boxtrolls/details/main.jpg",

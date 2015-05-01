@@ -2,14 +2,14 @@ data = {
   "browser_title": "Contact",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "id": "contact",
-  "title": "Contact",
+  "title": "Give us a shout,<br>we'll make you a believer.",
   "picture_src": "/images/about/contact.png",
   "copy": null,
   "lists": [
     {
       "items": [
         "New Business",
-        "Matt FaJohn",
+        "Reach out to Matt FaJohn at",
         "<a href='mailto:hotleads@legworkstudio.com' target='_new'>hotleads@legworkstudio.com</a>"
       ]
     },

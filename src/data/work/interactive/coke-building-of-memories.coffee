@@ -15,7 +15,8 @@ data = {
   ],
   "mediums": [
     LW.mediums.DESKTOP,
-    LW.mediums.MOBILE
+    LW.mediums.MOBILE,
+    LW.mediums.ILLUSTRATION
   ],
   "details": {
     "bg_src": "/images/work/coke-building/details/main.jpg",
