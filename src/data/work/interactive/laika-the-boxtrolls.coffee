@@ -22,15 +22,21 @@ data = {
   "details": {
     "bg_src": "/images/work/boxtrolls/details/main.jpg",
     "title": "Dare To Be Square",
-    "overview": "For Laika's latest movie, \"The Boxtrolls,\" they stuck with the same team (us and Wieden+Kennedy) that produced all of the digital work for \"ParaNorman.\" Being able to leverage what we had done for them in the past was a huge advantage. This experience surpasses both what we could have done otherwise and what we had done before. The site lets you explore the movie and the trailer, stopping at points of interest along the way to check out games, behind the scenes and more.",
+    "overview": "Following the success of the digital marketing efforts for \"ParaNorman,\" Laika tapped the same team (W+K and us) for thier 2014 movie, \"The Boxtrolls.\" Laika's craft is an inspiration and working with them again was nothing short of a dream come true. The site lets you explore the movie and the trailer, stopping at points of interest along the way to check out games, behind the scenes and more.",
     "services": [
-      "UX",
-      "Art Direction",
-      "Design",
+      "Services",
+      "Concepting",
+      "Design / UX",
       "Development",
       "Animation"
     ],
-    "accolades": null,
+    "accolades": [
+      "Recognition",
+      "Webby Honoree",
+      "FWA MOTD, SOTD, TCEA",
+      "Awwwards SOTD",
+      "Pixel Award Nominee"
+    ],
     "media": [
       {
         "type": LW.media.VIDEO,
@@ -42,7 +48,7 @@ data = {
         "copy": {
           "title": "A Journey Through Cheesebridge",
           "text": [
-            "Some copy goes here about this slideshow."
+            "The entire site was built from sets that were used for the movie, creating a world the user could explore."
           ]
         },
         "images": [
@@ -57,7 +63,7 @@ data = {
         "copy": {
           "title": "An Attempt To Mimic True Craft",
           "text": [
-            "Some copy goes here about this image."
+            "Each of the interface elements were hand crafted in Illustrator / Photoshop. Where it was possible, we recreated actual elements from the movie."
           ]
         },
         "images": [
@@ -70,7 +76,7 @@ data = {
         "copy": {
           "title": "The Boxtroll Builder Contest",
           "text": [
-            "Some copy goes here about this slideshow."
+            "Prior to launching the main site, we built a configurator that allowed you to \"Build your Own Boxtroll\" and submit it to an online contest. The winner recieved a hand-made version of their online creation from Laika."
           ]
         },
         "images": [
@@ -85,9 +91,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Boxtroll Shoes",
+          "title": "Nike TrollStrikes",
           "text": [
-            "Some copy goes here about this image."
+            "When the movie came out, Laika partnered with Nike to promote the movie by giving away custom, limited edition shoes they named \"The Trollstrikes.\" We built the main hub for the contest that facilitated entries and detailed the shoes."
           ]
         },
         "images": [

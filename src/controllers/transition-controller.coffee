@@ -60,7 +60,7 @@ class TransitionController
   | the scenes.
   *----------------------------------------###
   loadAnimationQueue: ->
-    loader = new PIXI.AssetLoader(['/animations/transition-1.json'])
+    loader = new PIXI.AssetLoader(['/animations/transition-1.json', '/animations/transition-2.json', '/animations/transition-3.json'])
     loader.onProgress = @animationQueueProgress
     loader.load()
 

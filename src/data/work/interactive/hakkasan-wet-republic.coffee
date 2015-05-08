@@ -20,27 +20,27 @@ data = {
   ],
   "details": {
     "bg_src": "/images/work/wet-republic/details/main.jpg",
-    "title": "It’s 5 O’Clock Somewhere",
+    "title": "It’s 10:00AM Somewhere",
     "overview": "The premiere day party on the strip had a serious image issue. Their site was antiquated and in need of a face-lift. It didn’t even work on the phone. We worked directly with Hakkasan and the MGM to concept and execute a contemporary site that will serve as a solid platform for years to come.",
     "services": [
-      "Strategy",
-      "UX",
-      "Design",
-      "Development"
+      "Services",
+      "Concepting",
+      "Design / UX",
+      "Development",
+      "Animation"
     ],
     "accolades": [
-      "Accolades",
-      "FWA",
-      "Awwwards",
-      "Communication Arts"
+      "Recognition",
+      "Awwwards SOTD",
+      "FWA MOTD"
     ],
     "media": [
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "We Built This Site On Rock 'N Roll",
+          "title": "A Site for Everybody",
           "text": [
-            "Summarize taking a straight ahead approach, but still making it feel unique."
+            "Our client wanted something that felt both luxurious and unique. But, with an such an expansive target audience, we didn't want to reinvent responsive design. So, we struck the balance between straight-ahead features and several custom layouts."
           ]
         },
         "images": [
@@ -52,7 +52,7 @@ data = {
         "copy": {
           "title": "A Complete Rebuild",
           "text": [
-            "We started from square one. Strategy phase = luxury. UX phase we not only created structure but identified content needs. Collab'd on design, mobile first on template at a time. Staggered with dev."
+            "In concepting, we landed on an illustrative approach that would load fast but meet the requirement of promoting Wet Republic as a luxury brand. In the the UX phase, we not only created the site structure, but also identified content needs so Hakkasan and MGM had plenty of time to collect what was needed."
           ]
         },
         "images": [
@@ -66,7 +66,7 @@ data = {
         "copy": {
           "title": "12 Unique Templates and A Custom Icon Set",
           "text": [
-            "Instead of going with generic templates, we created 12 completely unique templates for the main pages of the site. Also, for this project we really wanted to experiment with SVG. We made a completely custom SVG icon set for the info boxes throughout the site and created custom SVG animations for the main menu."
+            "Instead of going generic, we created 12 completely unique templates for the main pages of the site. Also, for this project we really wanted to experiment with SVG. We made a completely custom SVG icon set for the info boxes throughout the site and created custom SVG animations for the main menu."
           ]
         },
         "images": [
@@ -85,7 +85,7 @@ data = {
         "copy": {
           "title": "Fully Responsive",
           "text": [
-            "The site was built with a mobile first, progressive enhancement approach and is completely responsive from desktop and laptop to tablet and phone."
+            "The site was built with a mobile first, progressive enhancement approach and is completely responsive from phone to desktop."
           ]
         },
         "images": [

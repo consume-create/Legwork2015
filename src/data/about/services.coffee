@@ -2,7 +2,7 @@ data = {
   "browser_title": "Services",
   "slide_type": LW.slide_types.ABOUT_PROCESS,
   "id": "services",
-  "title": "Great ideas originate<br>in the muscles.",
+  "title": "A hot list of stuff we do<br>so you don't have to.",
   "picture_src": "/images/about/services.png",
   "copy": "",
   "lists": [
@@ -57,7 +57,7 @@ data = {
           "alt_name": "Interactive Env"
         },
         {
-          "name": "Digital Retail"
+          "name": "Virtual Reality"
         }
       ]
     },
