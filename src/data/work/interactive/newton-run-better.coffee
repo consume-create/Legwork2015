@@ -20,16 +20,22 @@ data = {
   "tagline": "A really cool shoe site.",
   "details": {
     "bg_src": "/images/work/newton/details/main-alt.jpg",
-    "title": "You’re Doing It Wrong",
-    "overview": "The team at Newton are on to something big. Instead of teaching people to run differently, they compensate for common flaws in runnering style with the shoe itself. The end result is less fatigue, better results, and you look better while you’re doing it.",
+    "title": "Creating a Better Way",
+    "overview": "The team at Newton are on to something big. They solve common running problems with features that are unique to their shoes. To share this with the world, our idea was to build a site that would stand up with the big, global brands that dominate the space. Not only did we achieve that goal, the bigger brands took note and imitated our approach.",
     "services": [
-      "Strategy",
-      "UX",
-      "Design",
+      "Services"
+      "Concepting",
+      "Design / UX",
       "Development",
       "Animation"
     ],
-    "accolades": null,
+    "accolades": [
+      "Recognition"
+      "Webby Awards Nominee",
+      "Pixel Award Winner",
+      "FWA SOTD, MOTD, TCEA",
+      "Awwwards SOTD"
+    ],
     "media": [
       {
         "type": LW.media.IMAGE,
