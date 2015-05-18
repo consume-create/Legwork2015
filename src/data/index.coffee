@@ -10,10 +10,10 @@ careers = require './about/careers'
 
 # Animation
 animation = require './work/animation/landing'
+ello_control = require './work/animation/ello-control'
 nissan_zero_gravity = require './work/animation/nissan-zero-gravity'
 bc4u_what_if = require './work/animation/bc4u-what-if'
 leinenkugel_social_shandy = require './work/animation/leinenkugel-social-shandy'
-clyfford_still_museum = require './work/animation/clyfford-still-museum'
 ny_times_debt_deal = require './work/animation/ny-times-debt-deal'
 climate_reality_pledge = require './work/animation/climate-reality-pledge'
 alameda_new_leaf = require './work/animation/alameda-new-leaf'
@@ -55,10 +55,10 @@ data = {
     "animation": {
       "slides": {
         "landing": animation,
+        "ello-control": ello_control,
         "nissan-zero-gravity": nissan_zero_gravity,
         "bc4u-what-if": bc4u_what_if,
         "leinenkugel-social-shandy": leinenkugel_social_shandy,
-        "clyfford-still-museum": clyfford_still_museum,
         "ny-times-debt-deal": ny_times_debt_deal,
         "climate-reality-pledge": climate_reality_pledge,
         "alameda-new-leaf": alameda_new_leaf
