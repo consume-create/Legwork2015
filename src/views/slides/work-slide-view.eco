@@ -16,8 +16,4 @@
 			</a>
 		</div>
 	</div>
-	<!-- Meta zone -->
-	<div class="meta-zone">
-		<h4><%- @instructions %></h4>
-	</div>
 </div>

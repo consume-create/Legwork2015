@@ -30,7 +30,7 @@ class TransitionController
   *----------------------------------------###
   build: ->
     # Stage
-    @stage = new PIXI.Stage(0x000000)
+    @stage = new PIXI.Container(0x000000)
     @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 1, 'transparent': true})
     @model.getE().html(@renderer.view)
 
@@ -60,33 +60,42 @@ class TransitionController
   | the scenes.
   *----------------------------------------###
   loadAnimationQueue: ->
-    loader = new PIXI.AssetLoader(['/animations/transition-1.json', '/animations/transition-2.json', '/animations/transition-3.json'])
-    loader.onProgress = @animationQueueProgress
-    loader.load()
+    PIXI.loader
+      .add([
+        '/animations/transition-1.json',
+        '/animations/transition-2.json',
+        '/animations/transition-3.json'
+      ])
+      .on('load', @animationQueueProgress)
+      .load()
 
   ###
   *------------------------------------------*
   | animationQueueProgress:void (-)
   |
-  | loader:object - pixi loader
+  | loader:object - PIXI Loader
+  | resource:object - current resource
   |
   | Animation queue progress.
   *----------------------------------------###
-  animationQueueProgress: (loader) =>
-    frames = loader.json.frames
-    name = _.keys(frames)[0]
-    texture_id = name.substr(0, (name.length - 6))
-    texture_ln = (_.size(frames) - 1)
+  animationQueueProgress: (loader, resource) =>
+    if resource.isJson
+      resource.on('afterMiddleware', (r) =>
+        frames = r.data.frames
+        name = _.keys(frames)[0]
+        texture_id = name.substr(0, (name.length - 6))
+        texture_ln = (_.size(frames) - 1)
 
-    mc = new PIXI.MovieClip(@mapTextures(texture_id, texture_ln, true))
-    mc.visible = false
-    mc.animationSpeed = 30 / 60
-    mc.loop = false
-    mc.position = new PIXI.Point(0, 0)
-    mc.scale = new PIXI.Point(@scale[0], @scale[1])
-    @stage.addChild(mc)
-    mc.gotoAndStop(0)
-    @animationQueue.push(mc)
+        mc = new PIXI.extras.MovieClip(@mapTextures(texture_id, texture_ln, true))
+        mc.visible = false
+        mc.animationSpeed = 30 / 60
+        mc.loop = false
+        mc.position = new PIXI.Point(0, 0)
+        mc.scale = new PIXI.Point(@scale[0], @scale[1])
+        @stage.addChild(mc)
+        mc.gotoAndStop(0)
+        @animationQueue.push(mc)
+      )
 
   ###
   *------------------------------------------*
@@ -121,7 +130,7 @@ class TransitionController
     @running_hot = true
 
     _.defer(=>
-      a = _.sample(@animationQueue) # TODO: if none have loaded ...
+      a = _.sample(@animationQueue) || new PIXI.Container() # TODO: if none have loaded ...
       x1 = 0
       x2 = -LW.size.app[0]
 
@@ -134,7 +143,7 @@ class TransitionController
 
       # Sequence
       a.visible = true
-      a.gotoAndPlay(0)
+      a.gotoAndPlay(0) if a.gotoAndPlay?
 
       _.delay(=>
         TweenLite.to(@wipe.position, 0.666, {

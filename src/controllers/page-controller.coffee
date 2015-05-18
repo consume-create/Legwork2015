@@ -122,7 +122,6 @@ class PageController
             'id': slide.id,
             'title': slide.title,
             'reel_video_id': slide.reel_video_id,
-            'instructions': slide.instructions,
             'watch_url': '/' + @model.getId() + '/reel'
           })
           @slide_c[id] = new WorkSlideController({

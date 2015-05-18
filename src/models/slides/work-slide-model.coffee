@@ -29,9 +29,6 @@ class WorkSlideModel extends BaseSlideModel
     @_reel_video_id = null
     @setReelVideoId(data.reel_video_id)
 
-    @_instructions = null
-    @setInstructions(data.instructions)
-
     @_watch_url = null
     @setWatchUrl(data.watch_url)
 
@@ -107,29 +104,6 @@ class WorkSlideModel extends BaseSlideModel
       throw 'ERROR: reel_video_id must be a string'
     else
       @_reel_video_id = reel_video_id
-
-  ###
-  *------------------------------------------*
-  | getInstructions:string (-)
-  |
-  | Get instructions.
-  *----------------------------------------###
-  getInstructions: ->
-    return @_instructions
-
-  ###
-  *------------------------------------------*
-  | setInstructions:void (-)
-  |
-  | instructions:string - instructions
-  |
-  | Set instructions.
-  *----------------------------------------###
-  setInstructions: (instructions) ->
-    if _.isString(instructions) is false
-      throw 'ERROR: instructions must be a string'
-    else
-      @_instructions = instructions
 
   ###
   *------------------------------------------*

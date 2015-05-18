@@ -6,8 +6,7 @@ data = {
     "Surf our tasty",
     "cyber waves!"
   ],
-  "reel_video_id": "124884771",
-  "instructions": "Ok, time to swipe down."
+  "reel_video_id": "124884771"
 }
 
 module.exports = data

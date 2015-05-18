@@ -32,7 +32,6 @@ class WorkSlideController extends BaseSlideController
       'id': @model.getId(),
       'title': @model.getTitle(),
       'reel_video_id': @model.getReelVideoId(),
-      'instructions': @model.getInstructions(),
       'watch_url': @model.getWatchUrl()
     })))
     @model.getE().append(@model.getV())
