@@ -10,7 +10,7 @@ data = {
   "watch_video_id": "33671603",
   "picture_src": "/images/work/boxtrolls.jpg",
   "clients": [
-    "/images/client-logos/clyfford-still.png"
+    "/images/client-logos/ello.png"
   ],
   "mediums": [
     LW.mediums.LIVE_ACTION,

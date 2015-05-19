@@ -65,9 +65,12 @@ class HomeSlideController extends BaseSlideController
 
     # Base video layer / sprite
     @layers[0] = new PIXI.Container()
-    @base = new PIXI.Sprite(PIXI.Texture.fromCanvas(@output))
+    @texture = if LW.utils.is_mobile.any() then PIXI.Texture.fromImage('/images/home-fallback@2x.jpg') else PIXI.Texture.fromCanvas(@output)
+    @base = new PIXI.Sprite(@texture)
     @layers[0].addChild(@base)
     @stage.addChild(@layers[0])
+
+    console.log(@base)
 
   ###
   *------------------------------------------*
@@ -76,15 +79,6 @@ class HomeSlideController extends BaseSlideController
   | Observe.
   *----------------------------------------###
   observe: ->
-
-  ###
-  *------------------------------------------*
-  | resize:void (-)
-  |
-  | Resize.
-  *----------------------------------------###
-  resize: ->
-    #@zone_w = Math.ceil((@$video_wrap.outerWidth() * 0.5) / 7)
 
   ###
   *------------------------------------------*
@@ -119,7 +113,7 @@ class HomeSlideController extends BaseSlideController
   | Render.
   *----------------------------------------###
   render: =>
-    @drawCurrentBaseFrame()
+    @drawCurrentBaseFrame() if LW.utils.is_mobile.any() is false
     @renderer.render(@stage)
     @frame = requestAnimationFrame(@render)
 
@@ -131,7 +125,7 @@ class HomeSlideController extends BaseSlideController
   *----------------------------------------###
   activate: ->
     super()
-    @resize()
+    @player.play()
     cancelAnimationFrame(@frame)
     @frame = requestAnimationFrame(@render)
     @model.getE().show()
@@ -145,5 +139,6 @@ class HomeSlideController extends BaseSlideController
   suspend: ->
     super()
     cancelAnimationFrame(@frame)
+    @player.pause()
 
 module.exports = HomeSlideController

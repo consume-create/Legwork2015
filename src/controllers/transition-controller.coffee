@@ -16,7 +16,7 @@ class TransitionController
   *----------------------------------------###
   constructor: (init) ->
     @model = init.model
-    @scale = [(LW.size.app[0] / 960), (LW.size.app[0] / 960)]
+    @scale = [1, 1]
     @running_hot = false
     @animation_to = -1
 
@@ -43,10 +43,10 @@ class TransitionController
     # Wipe
     @wipe = new PIXI.Graphics()
     @wipe.position = new PIXI.Point(LW.size.app[0], 0)
-    @wipe.beginFill(0x000000, 1)
-    @wipe.drawRect(0, 0, LW.size.app[0], LW.size.app[1])
-    @wipe.endFill()
     @stage.addChild(@wipe)
+
+    # Resize
+    @resize()
 
     # Animations
     @animationQueue = []
@@ -109,7 +109,9 @@ class TransitionController
       'width': LW.size.app[0] + 'px',
       'height': LW.size.app[1] + 'px'
     })
-    @scale = [(LW.size.app[0] / 960), (LW.size.app[0] / 960)]
+
+    scale_factor = if LW.size.app[0] > LW.size.app[1] then (LW.size.app[0] / 960) else (LW.size.app[1] / 540)
+    @scale = [scale_factor, scale_factor]
 
     @wipe.clear()
     @wipe.beginFill(0x000000, 1)
@@ -130,7 +132,7 @@ class TransitionController
     @running_hot = true
 
     _.defer(=>
-      a = _.sample(@animationQueue) || new PIXI.Container() # TODO: if none have loaded ...
+      a = _.sample(@animationQueue) || new PIXI.Container()
       x1 = 0
       x2 = -LW.size.app[0]
 
@@ -142,6 +144,8 @@ class TransitionController
         x2 *= -1
 
       # Sequence
+      a.position.x -= (((960 * @scale[0]) - LW.size.app[0]) / 2)
+      a.position.y -= (((540 * @scale[1]) - LW.size.app[1]) / 2)
       a.visible = true
       a.gotoAndPlay(0) if a.gotoAndPlay?
 
