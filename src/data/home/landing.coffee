@@ -3,6 +3,7 @@ data = {
   "slide_type": LW.slide_types.HOME_COVER,
   "id": "home",
   "base_video_path": "/video/home-alpha.mp4",
+  "fallback_path": "/images/home-fallback@2x.png",
   "reel_video_id": null
 }
 

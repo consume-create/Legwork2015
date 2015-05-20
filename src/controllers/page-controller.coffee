@@ -90,8 +90,9 @@ class PageController
             '$el': $el,
             'id': slide.id,
             'base_video_path': slide.base_video_path,
+            'fallback_path': slide.fallback_path,
             'reel_video_id': slide.reel_video_id,
-            'watch_url': if slide.reel_video_id? then '/' + @model.getId() + '/watch' else ''
+            'watch_url': if slide.reel_video_id? then '/' + @model.getId() + '/reel' else ''
           })
 
           switch slide.slide_type

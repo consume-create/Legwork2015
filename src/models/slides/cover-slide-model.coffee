@@ -26,6 +26,9 @@ class CoverSlideModel extends BaseSlideModel
     @_base_video_path = null
     @setBaseVideoPath(data.base_video_path)
 
+    @_fallback_path = null
+    @setFallbackPath(data.fallback_path)
+
     @_reel_video_id = null
     @setReelVideoId(data.reel_video_id)
 
@@ -77,6 +80,29 @@ class CoverSlideModel extends BaseSlideModel
       throw 'ERROR: path must be a string'
     else
       @_base_video_path = path
+
+  ###
+  *------------------------------------------*
+  | getFallbackPath:string (-)
+  |
+  | Get bfallback path.
+  *----------------------------------------###
+  getFallbackPath: ->
+    return @_fallback_path
+
+  ###
+  *------------------------------------------*
+  | setFallbackPath:void (-)
+  |
+  | path:string - path
+  |
+  | Set fallback path.
+  *----------------------------------------###
+  setFallbackPath: (path) ->
+    if _.isString(path) is false
+      throw 'ERROR: path must be a string'
+    else
+      @_fallback_path = path
 
   ###
   *------------------------------------------*

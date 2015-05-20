@@ -36,6 +36,8 @@ class InteractiveCoverSlideController extends BaseCoverSlideController
   | Observe.
   *----------------------------------------###
   observe: ->
-    console.log(@model.getWatchUrl())
+    @model.getV().on('click', (e) =>
+      History.pushState(null, null, @model.getWatchUrl())
+    )
 
 module.exports = InteractiveCoverSlideController

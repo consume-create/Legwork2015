@@ -66,7 +66,7 @@ class BaseCoverSlideController extends BaseSlideController
 
     # Base video layer / sprite
     @layers[0] = new PIXI.Container()
-    @texture = if LW.utils.is_mobile.any() then PIXI.Texture.fromImage('/images/home-fallback@2x.jpg') else PIXI.Texture.fromCanvas(@output)
+    @texture = if LW.utils.is_mobile.any() then PIXI.Texture.fromImage(@model.getFallbackPath()) else PIXI.Texture.fromCanvas(@output)
     @base = new PIXI.Sprite(@texture)
     @layers[0].addChild(@base)
     @stage.addChild(@layers[0])
