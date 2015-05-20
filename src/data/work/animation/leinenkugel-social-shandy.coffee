@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Leinenkugel Social Shandy",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Leinenkugel", "Social Shandy"],
   "callouts": [
     LW.callouts.ABOUT,

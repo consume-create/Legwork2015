@@ -1,6 +1,6 @@
 data = {
   "browser_title": "The Boxtrolls",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["The", "Boxtrolls"],
   "callouts": [
     LW.callouts.ABOUT,

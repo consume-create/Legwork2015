@@ -1,6 +1,6 @@
 data = {
   "browser_title": "New Leaf By Alameda",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["New Leaf", "By Alameda"],
   "callouts": [
     LW.callouts.ABOUT,

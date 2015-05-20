@@ -4,21 +4,19 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 ###
 
-# Home Slides
-HomeSlideModel = require '../models/slides/home-slide-model'
-HomeSlideController = require './slides/home-slide-controller'
+# Covers
+CoverSlideModel = require '../models/slides/cover-slide-model'
+HomeCoverSlideController = require './slides/home-cover-slide-controller'
+AnimationCoverSlideController = require './slides/animation-cover-slide-controller'
+InteractiveCoverSlideController = require './slides/interactive-cover-slide-controller'
 
-# About Slides
-AboutSlideModel = require '../models/slides/about-slide-model'
-AboutSlideController = require './slides/about-slide-controller'
-AboutProcessSlideModel = require '../models/slides/about-process-slide-model'
-AboutProcessSlideController = require './slides/about-process-slide-controller'
+# Home Slides
+HomeFeatureSlideModel = require '../models/slides/home-feature-slide-model'
+HomeFeatureSlideController = require './slides/home-feature-slide-controller'
 
 # Work Slides
-WorkSlideModel = require '../models/slides/work-slide-model'
-WorkSlideController = require './slides/work-slide-controller'
-FeaturedWorkSlideModel = require '../models/slides/featured-work-slide-model'
-FeaturedWorkSlideController = require './slides/featured-work-slide-controller'
+WorkFeatureSlideModel = require '../models/slides/work-feature-slide-model'
+WorkFeatureSlideController = require './slides/work-feature-slide-controller'
 
 # Page Nav
 PageNavModel = require '../models/page-nav-model'
@@ -87,25 +85,30 @@ class PageController
       $el = $('#' + @model.getId() + '-' + id)
 
       switch slide.slide_type
-        when LW.slide_types.HOME
-          @slide_m[id] = new HomeSlideModel({
+        when LW.slide_types.HOME_COVER, LW.slide_types.ANIMATION_COVER, LW.slide_types.INTERACTIVE_COVER
+          @slide_m[id] = new CoverSlideModel({
             '$el': $el,
-            'instructions': slide.instructions
+            'id': slide.id,
+            'base_video_path': slide.base_video_path,
+            'reel_video_id': slide.reel_video_id,
+            'watch_url': if slide.reel_video_id? then '/' + @model.getId() + '/watch' else ''
           })
-          @slide_c[id] = new HomeSlideController({
-            'model': @slide_m[id]
-          })
-        when LW.slide_types.ABOUT
-          @slide_m[id] = new AboutSlideModel({
-            '$el': $el,
-            'title': slide.title,
-            'instructions': slide.instructions
-          })
-          @slide_c[id] = new AboutSlideController({
-            'model': @slide_m[id]
-          })
-        when LW.slide_types.ABOUT_PROCESS
-          @slide_m[id] = new AboutProcessSlideModel({
+
+          switch slide.slide_type
+            when LW.slide_types.HOME_COVER
+              @slide_c[id] = new HomeCoverSlideController({
+                'model': @slide_m[id]
+              })
+            when LW.slide_types.ANIMATION_COVER
+              @slide_c[id] = new AnimationCoverSlideController({
+                'model': @slide_m[id]
+              })
+            when LW.slide_types.INTERACTIVE_COVER
+              @slide_c[id] = new InteractiveCoverSlideController({
+                'model': @slide_m[id]
+              })
+        when LW.slide_types.HOME_FEATURE
+          @slide_m[id] = new HomeFeatureSlideModel({
             '$el': $el,
             'id': slide.id,
             'title': slide.title,
@@ -113,22 +116,11 @@ class PageController
             'copy': slide.copy,
             'lists': slide.lists
           })
-          @slide_c[id] = new AboutProcessSlideController({
+          @slide_c[id] = new HomeFeatureSlideController({
             'model': @slide_m[id]
           })
-        when LW.slide_types.WORK
-          @slide_m[id] = new WorkSlideModel({
-            '$el': $el,
-            'id': slide.id,
-            'title': slide.title,
-            'reel_video_id': slide.reel_video_id,
-            'watch_url': '/' + @model.getId() + '/reel'
-          })
-          @slide_c[id] = new WorkSlideController({
-            'model': @slide_m[id]
-          })
-        when LW.slide_types.FEATURED_WORK
-          @slide_m[id] = new FeaturedWorkSlideModel({
+        when LW.slide_types.WORK_FEATURE
+          @slide_m[id] = new WorkFeatureSlideModel({
             '$el': $el,
             'title': slide.title,
             'callouts': slide.callouts,
@@ -140,7 +132,7 @@ class PageController
             'clients': slide.clients,
             'mediums': slide.mediums
           })
-          @slide_c[id] = new FeaturedWorkSlideController({
+          @slide_c[id] = new WorkFeatureSlideController({
             'model': @slide_m[id]
           })
 

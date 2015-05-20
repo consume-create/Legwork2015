@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Careers",
-  "slide_type": LW.slide_types.ABOUT_PROCESS,
+  "slide_type": LW.slide_types.HOME_FEATURE,
   "id": "careers",
   "title": "If you've got powerful skills,<br>we'll pay your bills.",
   "picture_src": "/images/about/careers.png",

@@ -6,7 +6,7 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 BaseSlideController = require './base-slide-controller'
 
-class HomeSlideController extends BaseSlideController
+class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
@@ -27,30 +27,31 @@ class HomeSlideController extends BaseSlideController
   *----------------------------------------###
   build: ->
     super()
-    @model.setV($(JST['home-slide-view']({
-      'instructions': @model.getInstructions()
+    @model.setV($(JST['cover-slide-view']({
+      'id': @model.getId(),
+      'base_video_path': @model.getBaseVideoPath()
     })))
     @model.getE().append(@model.getV())
 
     # Class vars
-    @$vid_wrap = $('#home-video-wrap', @model.getV())
+    @$vid_wrap = $('.cover-wrap', @model.getV())
     @layers = []
 
     # Scene size
     @scene_size = {'w': 1000, 'h': 1000}
 
     # Player for base vid
-    @player = $('#home-player', @model.getV()).get(0)
+    @player = $('#' + @model.getId() + '-player', @model.getV()).get(0)
 
     # Buffer to get alpha channel data
     @buffer = document.createElement('canvas')
-    @buffer.id = 'home-buffer'
+    @buffer.id = @model.getId() + '-buffer'
     @buffer.width = @scene_size.w
     @buffer.height = (@scene_size.h * 2)
 
     # Output for alpha base video
     @output = document.createElement('canvas')
-    @output.id = 'home-output'
+    @output.id = @model.getId() + '-output'
     @output.width = @scene_size.w
     @output.height = @scene_size.h
 
@@ -69,8 +70,6 @@ class HomeSlideController extends BaseSlideController
     @base = new PIXI.Sprite(@texture)
     @layers[0].addChild(@base)
     @stage.addChild(@layers[0])
-
-    console.log(@base)
 
   ###
   *------------------------------------------*
@@ -141,4 +140,4 @@ class HomeSlideController extends BaseSlideController
     cancelAnimationFrame(@frame)
     @player.pause()
 
-module.exports = HomeSlideController
+module.exports = BaseCoverSlideController

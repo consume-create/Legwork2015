@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Hands On Ron Burgundy",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Hands On", "Ron Burgundy"],
   "callouts": [
     LW.callouts.ABOUT,

@@ -2,11 +2,11 @@
 
 # Home
 home = require './home/landing'
-summary = require './about/summary'
-services = require './about/services'
-recognition = require './about/recognition'
-contact = require './about/contact'
-careers = require './about/careers'
+summary = require './home/summary'
+services = require './home/services'
+recognition = require './home/recognition'
+contact = require './home/contact'
+careers = require './home/careers'
 
 # Animation
 animation = require './work/animation/landing'

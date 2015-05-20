@@ -1,7 +1,9 @@
 data = {
   "browser_title": "Creativity. Innovation. DIY Ethic.",
-  "slide_type": LW.slide_types.HOME,
-  "instructions": "Who do we think we are!"
+  "slide_type": LW.slide_types.HOME_COVER,
+  "id": "home",
+  "base_video_path": "/video/home-alpha.mp4",
+  "reel_video_id": null
 }
 
 module.exports = data

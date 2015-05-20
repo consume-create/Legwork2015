@@ -1,13 +1,13 @@
 data = {
   "browser_title": "Coke's Building Of Memories",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Coke's Building", "Of Memories"],
   "callouts": [
     LW.callouts.ABOUT
   ],
   "launch_url": null,
   "watch_video_id": null,
-  "picture_src": "/images/work/coke-building/coke.png",
+  "picture_src": "/images/work/coke-building/coke-building.png",
   "clients": [
     "/images/client-logos/coca-cola.png",
     "/images/client-logos/w-k.png"

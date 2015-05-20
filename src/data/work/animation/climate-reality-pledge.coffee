@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Climate Reality Pledge",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Climate Reality", "Pledge"],
   "callouts": [
     LW.callouts.ABOUT,

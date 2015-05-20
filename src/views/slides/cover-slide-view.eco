@@ -1,0 +1,7 @@
+<div class="slide-inner">
+	<div class="cover-wrap">
+		<video id="<%= @id %>-player" autoplay loop>
+			<source src="<%= @base_video_path %>" type="video/mp4">
+		</video>
+	</div>
+</div>

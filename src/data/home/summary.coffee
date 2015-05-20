@@ -1,6 +1,6 @@
 data = {
   "browser_title": "About Us",
-  "slide_type": LW.slide_types.ABOUT_PROCESS,
+  "slide_type": LW.slide_types.HOME_FEATURE,
   "id": "summary",
   "title": "We crush deadlines (and beer).",
   "picture_src": "/images/about/summary.png",

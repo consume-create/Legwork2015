@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Recognition",
-  "slide_type": LW.slide_types.ABOUT_PROCESS,
+  "slide_type": LW.slide_types.HOME_FEATURE,
   "id": "recognition",
   "title": "You win, one to nothing.",
   "picture_src": "/images/about/accolades.png",

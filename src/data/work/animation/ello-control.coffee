@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Ello Who's In Control",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Who's", "In Control"],
   "callouts": [
     LW.callouts.ABOUT,

@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Wet Republic",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Wet", "Republic"],
   "callouts": [
     LW.callouts.ABOUT,

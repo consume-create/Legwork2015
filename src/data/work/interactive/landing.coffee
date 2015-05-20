@@ -1,11 +1,8 @@
 data = {
   "browser_title": "Interactive",
-  "slide_type": LW.slide_types.WORK,
+  "slide_type": LW.slide_types.INTERACTIVE_COVER,
   "id": "interactive",
-  "title": [
-    "Surf our tasty",
-    "cyber waves!"
-  ],
+  "base_video_path": "/video/home-alpha.mp4",
   "reel_video_id": "124884771"
 }
 

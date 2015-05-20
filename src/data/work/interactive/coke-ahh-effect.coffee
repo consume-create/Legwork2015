@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Coke Ahh Effect",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["The Ahh", "Effect"],
   "callouts": [
     LW.callouts.ABOUT,
@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": "http://www.ahh.com/",
   "watch_video_id": null,
-  "picture_src": "/images/work/coke-ahh-effect/coke-ahh.png",
+  "picture_src": "/images/work/coke-ahh-effect/coke-ahh-2.png",
   "clients": [
     "/images/client-logos/coca-cola.png",
     "/images/client-logos/w-k.png"

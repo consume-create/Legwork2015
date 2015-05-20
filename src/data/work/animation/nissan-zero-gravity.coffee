@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Nissan Zero Gravity",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Nissan", "Zero Gravity"],
   "callouts": [
     LW.callouts.ABOUT,

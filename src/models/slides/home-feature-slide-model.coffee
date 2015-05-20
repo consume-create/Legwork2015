@@ -5,9 +5,9 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 ###
 
 # Dependencies
-BaseSlideModel = require './base-slide-model'
+BaseFeatureSlideModel = require './base-feature-slide-model'
 
-class AboutProcessSlideModel extends BaseSlideModel
+class HomeFeatureSlideModel extends BaseFeatureSlideModel
 
   ###
   *------------------------------------------*
@@ -152,4 +152,4 @@ class AboutProcessSlideModel extends BaseSlideModel
     else
       @_lists = lists
 
-module.exports = AboutProcessSlideModel
+module.exports = HomeFeatureSlideModel

@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Clyfford Still First Light",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Clyfford Still", "First Light"],
   "callouts": [
     LW.callouts.ABOUT,

@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Services",
-  "slide_type": LW.slide_types.ABOUT_PROCESS,
+  "slide_type": LW.slide_types.HOME_FEATURE,
   "id": "services",
   "title": "A hot list of stuff we do<br>so you don't have to.",
   "picture_src": "/images/about/services.png",

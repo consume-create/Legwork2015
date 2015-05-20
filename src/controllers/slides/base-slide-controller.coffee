@@ -32,23 +32,27 @@ class BaseSlideController
   | Build.
   *----------------------------------------###
   build: ->
-    # TODO
 
   ###
   *------------------------------------------*
   | transitionIn:void (-)
   |
+  | direction:string - top or bottom
+  |
   | Transition in.
   *----------------------------------------###
-  transitionIn: (pos_in) ->
+  transitionIn: (direction) ->
 
   ###
   *------------------------------------------*
   | transitionOut:void (-)
   |
+  | direction:string - top or bottom
+  | cb:function - callback
+  |
   | Transition out.
   *----------------------------------------###
-  transitionOut: (pos_out, cb) ->
+  transitionOut: (direction, cb) ->
     cb()
 
   ###

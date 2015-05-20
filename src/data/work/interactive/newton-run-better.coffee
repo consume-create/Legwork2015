@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Newton Running",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Newton Running", "Run Better"],
   "callouts": [
     LW.callouts.ABOUT,

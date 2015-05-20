@@ -7,18 +7,26 @@
   background: $black
   color: $yellow
 
-// Animations
-@keyframes spinner
-  0%
-    transform: rotate(0deg)
-  100%
-    transform: rotate(360deg)
+// Spinner
+.spinner
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 50px
+  height: 50px
+  overflow: hidden
+  transform: translate(-50%,-50%)
 
-@keyframes spinner
-  0%
-    transform: rotate(0deg)
-  100%
-    transform: rotate(360deg)
+  span
+    position: absolute
+    top: 0px
+    left: 0px
+    right: 0px
+    bottom: 0px
+    background-image: url(../images/loading@2x.gif)
+    background-repeat: no-repeat
+    background-position: 50% 50%
+    background-size: cover
 
 // Clearfixers
 .cf:before,

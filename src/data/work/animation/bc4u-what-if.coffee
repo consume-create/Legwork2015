@@ -1,6 +1,6 @@
 data = {
   "browser_title": "BC4U What If I Had A Baby?",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["What If I", "Had A Baby?"],
   "callouts": [
     LW.callouts.ABOUT,

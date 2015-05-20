@@ -6,7 +6,7 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 BaseSlideController = require './base-slide-controller'
 
-class AboutProcessSlideController extends BaseSlideController
+class BaseFeatureSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
@@ -26,45 +26,43 @@ class AboutProcessSlideController extends BaseSlideController
   | Build.
   *----------------------------------------###
   build: ->
-    super()
-    @model.setV($(JST['about-process-slide-view']({
-      'id': @model.getId(),
-      'title': @model.getTitle(),
-      'picture_src': @model.getPictureSrc(),
-      'copy': @model.getCopy(),
-      'lists': @model.getLists()
-    })))
     @model.getE().append(@model.getV())
-
-    @$title_holder = $('.title-holder', @model.getV())
-    @$picture_zone = $('.picture-zone', @model.getV())
+    @model.set$title($('.title-holder', @model.getV()))
+    @model.set$photo($('.picture-zone', @model.getV()))
 
   ###
   *------------------------------------------*
   | transitionIn:void (-)
   |
+  | direction:string - top or bottom
+  |
   | Transition in.
   *----------------------------------------###
   transitionIn: (direction) ->
-    @$title_holder
+    @model.get$title()
       .removeClass('trans-in trans-out top bottom')
       .addClass(direction)
 
-    _.defer =>
-      @$title_holder
+    _.defer(=>
+      @model.get$title()
         .addClass('trans-in')
         .removeClass(direction)
-      @$picture_zone
+
+      @model.get$photo()
         .addClass('show')
+    )
 
   ###
   *------------------------------------------*
   | transitionOut:void (-)
   |
+  | direction:string - top or bottom
+  | cb:function - callback
+  |
   | Transition out.
   *----------------------------------------###
   transitionOut: (direction, cb) ->
-    @$title_holder
+    @model.get$title()
       .removeClass('trans-in trans-out top bottom')
       .addClass("#{direction} trans-out")
       .eq(0)
@@ -72,7 +70,8 @@ class AboutProcessSlideController extends BaseSlideController
       .one(LW.utils.transition_end, =>
         cb()
       )
-    @$picture_zone
+
+    @model.get$photo()
       .removeClass('show')
 
-module.exports = AboutProcessSlideController
+module.exports = BaseFeatureSlideController

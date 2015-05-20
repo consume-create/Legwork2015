@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Contact",
-  "slide_type": LW.slide_types.ABOUT_PROCESS,
+  "slide_type": LW.slide_types.HOME_FEATURE,
   "id": "contact",
   "title": "Give us a shout,<br>we'll make you a believer.",
   "picture_src": "/images/about/contact.png",

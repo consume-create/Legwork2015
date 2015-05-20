@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Google Roll It",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Google", "Roll It"],
   "callouts": [
     LW.callouts.ABOUT,

@@ -1,6 +1,6 @@
 data = {
   "browser_title": "NY Times Debt Deal",
-  "slide_type": LW.slide_types.FEATURED_WORK,
+  "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["NY Times", "Debt Deal"],
   "callouts": [
     LW.callouts.ABOUT,

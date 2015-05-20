@@ -17,15 +17,15 @@ LW.LANDING_SLIDE = 'landing'
 # 4. Require the model and controller in the page controller and add a condition to the build method
 
 LW.slide_types = {}
+
 # Home Slides
-LW.slide_types.HOME = 'home'
-# About Slides
-LW.slide_types.ABOUT = 'about'
-LW.slide_types.ABOUT_PROCESS = 'about-process'
-LW.slide_types.ABOUT_VIDEO = 'about-video'
+LW.slide_types.HOME_COVER = 'home-cover'
+LW.slide_types.HOME_FEATURE = 'home-feature'
+
 # Work Slides
-LW.slide_types.WORK = 'work'
-LW.slide_types.FEATURED_WORK = 'featured-work'
+LW.slide_types.ANIMATION_COVER = 'animation-cover'
+LW.slide_types.INTERACTIVE_COVER = 'interactive-cover'
+LW.slide_types.WORK_FEATURE = 'work-feature'
 
 # Medium constants
 
@@ -51,7 +51,7 @@ LW.callouts.WATCH = "watch"
 
 # NOTE:
 # These are the 9 colors from the color palette
-# The loop in order by every other one and repeat
+# They loop in order by every other one and repeat
 # Make sense? Of course not. Just trust this. It works.
 
 LW.colors = [

@@ -239,6 +239,6 @@ class TransitionController
     clearTimeout(@animation_to)
     @suspendAllAnimations()
     cancelAnimationFrame(@frame)
-    @model.getE().off(LW.utils.transition_end).hide().removeClass('in-left in-right out-left out-right')
+    @model.getE().hide()
 
 module.exports = TransitionController
