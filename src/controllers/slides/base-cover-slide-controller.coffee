@@ -18,6 +18,7 @@ class BaseCoverSlideController extends BaseSlideController
   *----------------------------------------###
   constructor: (init) ->
     super(init)
+    @interval = 0
 
   ###
   *------------------------------------------*
@@ -41,7 +42,8 @@ class BaseCoverSlideController extends BaseSlideController
     @scene_size = {'w': 1000, 'h': 1000}
 
     # Player for base vid
-    @player = $('#' + @model.getId() + '-player', @model.getV()).get(0)
+    @$player = $('#' + @model.getId() + '-player', @model.getV())
+    @player = @$player.get(0)
 
     # Buffer to get alpha channel data
     @buffer = document.createElement('canvas')
@@ -81,12 +83,12 @@ class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
-  | drawCurrentBaseFrame:void (-)
+  | drawCurrentBaseFrame:void (=)
   |
   | Draw the current frame from
   | the base animation.
   *----------------------------------------###
-  drawCurrentBaseFrame: ->
+  drawCurrentBaseFrame: =>
     # Get video frame
     @buffer_ctx.drawImage(@player, 0, 0)
 
@@ -112,7 +114,6 @@ class BaseCoverSlideController extends BaseSlideController
   | Render.
   *----------------------------------------###
   render: =>
-    @drawCurrentBaseFrame() if LW.utils.is_mobile.any() is false
     @renderer.render(@stage)
     @frame = requestAnimationFrame(@render)
 
@@ -123,11 +124,17 @@ class BaseCoverSlideController extends BaseSlideController
   | Activate.
   *----------------------------------------###
   activate: ->
-    super()
+    # Base video player
+    clearInterval(@interval)
+    @interval = setInterval(@drawCurrentBaseFrame, 40) if LW.utils.is_mobile.any() is false
     @player.play()
+
+    # PIXI renderer
     cancelAnimationFrame(@frame)
     @frame = requestAnimationFrame(@render)
-    @model.getE().show()
+
+    # Show
+    super()
 
   ###
   *------------------------------------------*
@@ -136,8 +143,14 @@ class BaseCoverSlideController extends BaseSlideController
   | Suspend.
   *----------------------------------------###
   suspend: ->
+    # Hide
     super()
+
+    # PIXI renderer
     cancelAnimationFrame(@frame)
+
+    # Base video player
     @player.pause()
+    clearInterval(@interval)
 
 module.exports = BaseCoverSlideController

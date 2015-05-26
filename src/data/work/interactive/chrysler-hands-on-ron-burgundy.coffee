@@ -14,8 +14,7 @@ data = {
     "/images/client-logos/w-k.png"
   ],
   "mediums": [
-    LW.mediums.DESKTOP,
-    LW.mediums.MOBILE
+    LW.mediums.WEB
   ],
   "details": {
     "bg_src": "/images/work/ron/details/ron-bg.jpg",

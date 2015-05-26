@@ -14,7 +14,8 @@ data = {
   ],
   "mediums": [
     LW.mediums.GAME,
-    LW.mediums.THREE_DIMENSIONAL
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.SOUND
   ],
   "details": {
     "bg_src": "/images/work/roll-it/details/main.jpg",

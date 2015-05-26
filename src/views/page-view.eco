@@ -7,7 +7,7 @@
 		<% end %>
 	</div>
 	<div class="watch-video-wrapper"></div>
-	<div class="mask-wrapper">
+	<div class="mask-wrapper no-trans">
 		<div class="mask-wrapper-inner">
 			<div id="<%= @id %>-page-slides" class="slides-wrapper">
 				<% for slide_id, slide of @slides: %>

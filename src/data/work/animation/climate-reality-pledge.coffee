@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": "53487338",
-  "picture_src": "/images/work/boxtrolls.jpg",
+  "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
     "/images/client-logos/climate-reality-project.png"
   ],

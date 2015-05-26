@@ -15,9 +15,9 @@ data = {
     "/images/client-logos/w-k.png"
   ],
   "mediums": [
-    LW.mediums.DESKTOP,
-    LW.mediums.MOBILE,
-    LW.mediums.GAME
+    LW.mediums.WEB,
+    LW.mediums.GAME,
+    LW.mediums.ANIMATION
   ],
   "details": {
     "bg_src": "/images/work/boxtrolls/details/main.jpg",

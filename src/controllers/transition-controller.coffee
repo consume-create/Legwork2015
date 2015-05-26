@@ -60,11 +60,12 @@ class TransitionController
   | the scenes.
   *----------------------------------------###
   loadAnimationQueue: ->
-    PIXI.loader
+    @loader = new PIXI.loaders.Loader('/animations/', 1)
+    @loader
       .add([
-        '/animations/transition-1.json',
-        '/animations/transition-2.json',
-        '/animations/transition-3.json'
+        'transition-1.json',
+        'transition-2.json',
+        'transition-3.json'
       ])
       .on('load', @animationQueueProgress)
       .load()
@@ -227,7 +228,7 @@ class TransitionController
   *----------------------------------------###
   activate: ->
     @frame = requestAnimationFrame(@render)
-    @model.getE().show()[0].offsetHeight
+    @model.getE().show()
 
   ###
   *------------------------------------------*

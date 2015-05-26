@@ -14,9 +14,9 @@ data = {
     "/images/client-logos/w-k.png"
   ],
   "mediums": [
-    LW.mediums.DESKTOP,
-    LW.mediums.MOBILE,
-    LW.mediums.GAME
+    LW.mediums.GAME,
+    LW.mediums.ILLUSTRATION,
+    LW.mediums.SOUND
   ],
   "details": {
     "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",

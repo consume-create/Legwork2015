@@ -13,9 +13,9 @@ data = {
     "/images/client-logos/w-k.png"
   ],
   "mediums": [
-    LW.mediums.DESKTOP,
-    LW.mediums.MOBILE,
-    LW.mediums.ILLUSTRATION
+    LW.mediums.WEB,
+    LW.mediums.ILLUSTRATION,
+    LW.mediums.ANIMATION
   ],
   "details": {
     "bg_src": "/images/work/coke-building/details/main.jpg",

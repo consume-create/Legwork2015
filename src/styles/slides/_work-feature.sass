@@ -44,29 +44,39 @@
           content: 'Medium(s)'
         
         li
-          width: 25px
           background-image: url('/images/mediums@2x.png')
-          background-size: 25px 300px
+          background-size: 30px 300px
 
-          &.mobile
-            background-position: center -40px
+          &.web
+            width: 25px
+            background-position: center 0px
 
           &.animation
-            background-position: center -80px
+            width: 16px
+            background-position: center -40px
 
           &.three-dimensional
-            background-position: center -120px
+            width: 18px
+            background-position: center -80px
           
           &.experiential
-            background-position: center -160px
+            width: 18px
+            background-position: center -120px
 
           &.illustration
+            width: 18px
+            background-position: center -160px
+
+          &.live-action
+            width: 18px
             background-position: center -200px
 
           &.game
+            width: 29px
             background-position: center -240px
 
-          &.live-action
+          &.sound
+            width: 14px
             background-position: center -280px
 
           span
@@ -103,7 +113,7 @@
 // ---------------------------------------------
 
 .party-on
-  .slide.featured-work
+  .slide.work-feature
     .meta-zone
       ul.mediums
         li:hover

@@ -13,9 +13,9 @@ data = {
     "/images/client-logos/newton.png"
   ],
   "mediums": [
-    LW.mediums.ANIMATION,
-    LW.mediums.DESKTOP,
-    LW.mediums.MOBILE
+    LW.mediums.WEB,
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.ANIMATION
   ],
   "tagline": "A really cool shoe site.",
   "details": {

@@ -282,7 +282,7 @@ class WorkFeatureSlideModel extends BaseFeatureSlideModel
     for m in mediums
       if _.contains(_.values(LW.mediums), m) is false
         passed = false
-        throw 'ERROR: each medium needs to match one of the defined LW.mediums listed in ./src/env.coffee'
+        throw 'ERROR: each medium needs to match one of the defined LW.mediums listed in ./src/env.coffee' + mediums
         break
 
     if passed is true

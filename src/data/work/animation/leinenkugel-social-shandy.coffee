@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": "123",
-  "picture_src": "/images/work/boxtrolls.jpg",
+  "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
     "/images/client-logos/leinenkugel.png",
     "/images/client-logos/social-deviant.png"
@@ -30,28 +30,6 @@ data = {
     ],
     "accolades": null,
     "media": [
-      {
-        "type": LW.media.IMAGE,
-        "copy": {
-          "title": "Some Title",
-          "text": [
-            "Some copy goes here."
-          ]
-        },
-        "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
-        ]
-      },
-      {
-        "type": LW.media.SLIDESHOW,
-        "copy": null,
-        "images": [
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg",
-          "/images/work/boxtrolls/details/boxtrolls-bg.jpg"
-        ]
-      },
       {
         "type": LW.media.VIDEO,
         "copy": null,

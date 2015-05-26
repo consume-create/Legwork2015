@@ -33,14 +33,14 @@ LW.slide_types.WORK_FEATURE = 'work-feature'
 # To add a new medium, add it to ./styles/_featured-work.sass and ./public/images/mediums@2x.png
 
 LW.mediums = []
-LW.mediums.DESKTOP = "desktop"
-LW.mediums.MOBILE = "mobile"
+LW.mediums.WEB = "web"
 LW.mediums.ANIMATION = "animation"
 LW.mediums.THREE_DIMENSIONAL = "three-dimensional"
 LW.mediums.EXPERIENTIAL = "experiential"
 LW.mediums.ILLUSTRATION = "illustration"
 LW.mediums.GAME = "game"
 LW.mediums.LIVE_ACTION = "live-action"
+LW.mediums.SOUND = "sound"
 
 LW.callouts = []
 LW.callouts.ABOUT = "about"

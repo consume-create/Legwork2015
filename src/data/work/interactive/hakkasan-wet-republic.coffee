@@ -8,15 +8,15 @@ data = {
   ],
   "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
   "watch_video_id": null,
-  "picture_src": "/images/work/coke/coke.png",
+  "picture_src": "/images/work/boxtrolls/boxtrolls.png",
   "clients": [
     "/images/client-logos/mgm-grand.png",
     "/images/client-logos/hakkasan.png"
   ],
   "mediums": [
-    LW.mediums.DESKTOP,
-    LW.mediums.MOBILE,
-    LW.mediums.THREE_DIMENSIONAL
+    LW.mediums.WEB,
+    LW.mediums.ILLUSTRATION,
+    LW.mediums.ANIMATION
   ],
   "details": {
     "bg_src": "/images/work/wet-republic/details/main.jpg",
