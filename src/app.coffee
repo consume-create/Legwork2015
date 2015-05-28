@@ -49,6 +49,7 @@ class Application
       'regex': LW.url_regex,
       '$el': LW.$body
     })
+    LW.covers = [LW.slide_types.HOME_COVER, LW.slide_types.ANIMATION_COVER, LW.slide_types.INTERACTIVE_COVER]
     LW.virgin = true
 
     # Class vars
@@ -240,12 +241,13 @@ class Application
       @page_c[id].activate()
       @active_c = @page_c[id]
       @active_c.goToSlide(route)
+      @active_c.active_c.turnRenderer('on') if @active_c.active_c.model.getType() in LW.covers
     else
       direction = if @page_c[id].model.getE().index() < @active_c.model.getE().index() then 'right' else 'left'
-      @active_c.turnHandlers('off') unless @active_c is @error_c
 
-      if @transition_c.running_hot is true
-        @transition_c.suspend()
+      @active_c.turnHandlers('off') unless @active_c is @error_c
+      @transition_c.suspend() if @transition_c.running_hot is true
+      @active_c.active_c.turnRenderer('off') if @active_c.active_c.model.getType() in LW.covers
 
       @transition_c.activate()
       @transition_c.go(
@@ -258,6 +260,7 @@ class Application
         ,
         =>
           @transition_c.suspend()
+          @active_c.active_c.turnRenderer('on') if @active_c.active_c.model.getType() in LW.covers
       )
 
   ###

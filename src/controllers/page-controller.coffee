@@ -87,6 +87,7 @@ class PageController
       switch slide.slide_type
         when LW.slide_types.HOME_COVER, LW.slide_types.ANIMATION_COVER, LW.slide_types.INTERACTIVE_COVER
           @slide_m[id] = new CoverSlideModel({
+            'type': slide.slide_type,
             '$el': $el,
             'id': slide.id,
             'base_video_path': slide.base_video_path,
@@ -110,6 +111,7 @@ class PageController
               })
         when LW.slide_types.HOME_FEATURE
           @slide_m[id] = new HomeFeatureSlideModel({
+            'type': slide.slide_type,
             '$el': $el,
             'id': slide.id,
             'title': slide.title,
@@ -122,6 +124,7 @@ class PageController
           })
         when LW.slide_types.WORK_FEATURE
           @slide_m[id] = new WorkFeatureSlideModel({
+            'type': slide.slide_type,
             '$el': $el,
             'title': slide.title,
             'callouts': slide.callouts,
@@ -275,6 +278,10 @@ class PageController
         @showSub(sub_type)
       else
         @hideSub()
+
+        # Turn on event handlers / renderer
+        @turnHandlers('on')
+        @active_c.turnRenderer('on') if @active_c.model.getType() in LW.covers
     else
       @hideSub()
 
@@ -285,6 +292,7 @@ class PageController
       direction = if @active_index >= @active_c.model.getE().index() then 'bottom' else 'top'
       @active_c.transitionOut(direction, =>
         @setActive(slide, direction)
+        @active_c.turnRenderer('on') if @active_c.model.getType() in LW.covers
       )
 
   ###
@@ -315,8 +323,9 @@ class PageController
     @active_work_detail_c = null
     @active_watch_c = null
 
-    # Turn off event handlers
+    # Turn off event handlers / renderer
     @turnHandlers('off')
+    @active_c.turnRenderer('off') if @active_c.model.getType() in LW.covers
 
     # header
     LW.$body.trigger('gear_up_and_get_after_it')
@@ -379,9 +388,6 @@ class PageController
       else
         @$mask_wrapper.removeClass('unmask')
     )
-
-    # Turn on event handlers
-    @turnHandlers('on')
 
   ###
   *------------------------------------------*

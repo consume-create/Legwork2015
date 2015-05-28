@@ -27,4 +27,30 @@ class BaseSlideModel extends BaseModel
   constructor: (data) ->
     super(data)
 
+    @_type = null
+    @setType(data.type)
+
+  ###
+  *------------------------------------------*
+  | getType:string (-)
+  |
+  | Get type.
+  *----------------------------------------###
+  getType: ->
+    return @_type
+
+  ###
+  *------------------------------------------*
+  | setType:void (-)
+  |
+  | type:string - type
+  |
+  | Set type.
+  *----------------------------------------###
+  setType: (type) ->
+    if _.isString(type) is false
+      throw 'ERROR: type must be a string'
+    else
+      @_type = type
+
 module.exports = BaseSlideModel

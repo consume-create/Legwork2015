@@ -36,6 +36,5 @@ class HomeCoverSlideController extends BaseCoverSlideController
   | Observe.
   *----------------------------------------###
   observe: ->
-    console.log(@model.getWatchUrl())
 
 module.exports = HomeCoverSlideController

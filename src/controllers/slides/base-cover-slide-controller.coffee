@@ -96,10 +96,11 @@ class BaseCoverSlideController extends BaseSlideController
     image = @buffer_ctx.getImageData(0, 0, @scene_size.w, @scene_size.h)
     image_data = image.data
     alpha_data = @buffer_ctx.getImageData(0, @scene_size.h, @scene_size.w, @scene_size.h).data
+    pixels = (image_data.length - 1)
 
     # Loop frame data and create alpha version
-    for i in [3..image_data.length] by 4
-      image_data[i] = alpha_data[i - 1]
+    while (pixels -= 4) > 0
+      image_data[pixels] = alpha_data[pixels - 1]
 
     # Put frame data on render canvas
     @output_ctx.putImageData(image, 0, 0, 0, 0, @scene_size.w, @scene_size.h)
@@ -119,21 +120,32 @@ class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
+  | pauseRenderer:void (-)
+  |
+  | s:string - on/off
+  |
+  | Pause the renderer.
+  *----------------------------------------###
+  turnRenderer: (s) ->
+    cancelAnimationFrame(@frame)
+    clearInterval(@interval)
+    @player.pause()
+
+    if s is 'on'
+      @player.play()
+      @interval = setInterval(@drawCurrentBaseFrame, 40) if LW.utils.is_mobile.any() is false
+      @frame = requestAnimationFrame(@render)
+
+  ###
+  *------------------------------------------*
   | activate:void (-)
   |
   | Activate.
   *----------------------------------------###
   activate: ->
-    # Base video player
-    clearInterval(@interval)
-    @interval = setInterval(@drawCurrentBaseFrame, 40) if LW.utils.is_mobile.any() is false
-    @player.play()
+    @drawCurrentBaseFrame()
+    @renderer.render(@stage)
 
-    # PIXI renderer
-    cancelAnimationFrame(@frame)
-    @frame = requestAnimationFrame(@render)
-
-    # Show
     super()
 
   ###
@@ -143,14 +155,9 @@ class BaseCoverSlideController extends BaseSlideController
   | Suspend.
   *----------------------------------------###
   suspend: ->
-    # Hide
     super()
 
-    # PIXI renderer
-    cancelAnimationFrame(@frame)
-
-    # Base video player
-    @player.pause()
-    clearInterval(@interval)
+    @turnRenderer('off')
+    @player.currentTime = 0
 
 module.exports = BaseCoverSlideController
