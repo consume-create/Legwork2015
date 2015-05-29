@@ -15,7 +15,7 @@ var http = require('http');
 if( process.env.NODE_ENV != "production" ){
   var port = normalizePort(process.env.PORT || '3000');
 } else {
-  var port = normalizePort(process.env.PORT || '80');
+  var port = normalizePort(process.env.PORT || '666');
 }
 
 app.set('port', port);
