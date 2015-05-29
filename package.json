@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "forever ./www/server",
-    "restart": "forever restart"
+    "restart": "forever restartall"
   },
   "browser": {
     "plugin": "./src/javascript/vendor/jquery-plugin.js"
