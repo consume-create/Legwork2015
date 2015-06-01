@@ -39,39 +39,25 @@ class BaseCoverSlideController extends BaseSlideController
     @layers = []
 
     # Scene size
-    @scene_size = {'w': 1000, 'h': 1000}
-
-    # Player for base vid
-    @$player = $('#' + @model.getId() + '-player', @model.getV())
-    @player = @$player.get(0)
-
-    # Buffer to get alpha channel data
-    @buffer = document.createElement('canvas')
-    @buffer.id = @model.getId() + '-buffer'
-    @buffer.width = @scene_size.w
-    @buffer.height = (@scene_size.h * 2)
-
-    # Output for alpha base video
-    @output = document.createElement('canvas')
-    @output.id = @model.getId() + '-output'
-    @output.width = @scene_size.w
-    @output.height = @scene_size.h
-
-    # Contexts
-    @buffer_ctx = @buffer.getContext('2d')
-    @output_ctx = @output.getContext('2d')
+    @scene_size = {'w': 1920, 'h': 1080}
 
     # PIXI Stage
     @stage = new PIXI.Container()
-    @renderer = PIXI.autoDetectRenderer(1000, 1000, {'resolution': 1, 'transparent': true})
+    @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': false})
     @$vid_wrap.append(@renderer.view)
 
     # Base video layer / sprite
     @layers[0] = new PIXI.Container()
-    @texture = if LW.utils.is_mobile.any() then PIXI.Texture.fromImage(@model.getFallbackPath()) else PIXI.Texture.fromCanvas(@output)
-    @base = new PIXI.Sprite(@texture)
+    @base_vid = if LW.utils.is_mobile.any() then PIXI.Texture.fromImage(@model.getFallbackPath()) else PIXI.Texture.fromVideo(@model.getBaseVideoPath())
+    @base_vid.baseTexture.source.loop = true
+    @base = new PIXI.Sprite(@base_vid)
+    @base.width = @renderer.width
+    @base.height = @renderer.height
+
     @layers[0].addChild(@base)
     @stage.addChild(@layers[0])
+
+    $(@base_vid.baseTexture.source).one('playing', @resetBaseVideo())
 
   ###
   *------------------------------------------*
@@ -83,30 +69,14 @@ class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
-  | drawCurrentBaseFrame:void (=)
+  | resetBaseVideo:void (=)
   |
-  | Draw the current frame from
-  | the base animation.
+  | Reset base video.
   *----------------------------------------###
-  drawCurrentBaseFrame: =>
-    # Get video frame
-    @buffer_ctx.drawImage(@player, 0, 0)
-
-    # Get frame data
-    image = @buffer_ctx.getImageData(0, 0, @scene_size.w, @scene_size.h)
-    image_data = image.data
-    alpha_data = @buffer_ctx.getImageData(0, @scene_size.h, @scene_size.w, @scene_size.h).data
-    pixels = (image_data.length - 1)
-
-    # Loop frame data and create alpha version
-    while (pixels -= 4) > 0
-      image_data[pixels] = alpha_data[pixels - 1]
-
-    # Put frame data on render canvas
-    @output_ctx.putImageData(image, 0, 0, 0, 0, @scene_size.w, @scene_size.h)
-
-    # Base video texture needs update
-    @base.texture.update()
+  resetBaseVideo: =>
+    if @model.getE().is(':visible') is false
+      @base_vid.baseTexture.source.pause()
+      @base_vid.currentTime = 0
 
   ###
   *------------------------------------------*
@@ -128,12 +98,10 @@ class BaseCoverSlideController extends BaseSlideController
   *----------------------------------------###
   turnRenderer: (s) ->
     cancelAnimationFrame(@frame)
-    clearInterval(@interval)
-    @player.pause()
+    @resetBaseVideo() if LW.utils.is_mobile.any() is false
 
     if s is 'on'
-      @player.play()
-      @interval = setInterval(@drawCurrentBaseFrame, 40) if LW.utils.is_mobile.any() is false
+      @base_vid.baseTexture.source.play() if LW.utils.is_mobile.any() is false
       @frame = requestAnimationFrame(@render)
 
   ###
@@ -143,10 +111,8 @@ class BaseCoverSlideController extends BaseSlideController
   | Activate.
   *----------------------------------------###
   activate: ->
-    @drawCurrentBaseFrame()
-    @renderer.render(@stage)
-
     super()
+    @turnRenderer('on')
 
   ###
   *------------------------------------------*
@@ -156,8 +122,7 @@ class BaseCoverSlideController extends BaseSlideController
   *----------------------------------------###
   suspend: ->
     super()
-
     @turnRenderer('off')
-    @player.currentTime = 0
+
 
 module.exports = BaseCoverSlideController

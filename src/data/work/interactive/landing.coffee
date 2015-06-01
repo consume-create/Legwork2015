@@ -2,7 +2,7 @@ data = {
   "browser_title": "Interactive",
   "slide_type": LW.slide_types.INTERACTIVE_COVER,
   "id": "interactive",
-  "base_video_path": "/video/interactive-alpha.mp4",
+  "base_video_path": "/video/interactive.mp4",
   "fallback_path": "/images/interactive-fallback@2x.png",
   "reel_video_id": "124884771"
 }

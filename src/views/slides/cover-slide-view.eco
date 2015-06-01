@@ -1,7 +1,4 @@
 <div class="slide-inner">
 	<div class="cover-wrap">
-		<video id="<%= @id %>-player" preload="auto" loop="true">
-			<source src="<%= @base_video_path %>" type="video/mp4">
-		</video>
 	</div>
 </div>

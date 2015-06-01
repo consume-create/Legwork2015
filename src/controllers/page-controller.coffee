@@ -292,7 +292,6 @@ class PageController
       direction = if @active_index >= @active_c.model.getE().index() then 'bottom' else 'top'
       @active_c.transitionOut(direction, =>
         @setActive(slide, direction)
-        @active_c.turnRenderer('on') if @active_c.model.getType() in LW.covers
       )
 
   ###
