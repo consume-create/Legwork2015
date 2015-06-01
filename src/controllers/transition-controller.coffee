@@ -17,6 +17,7 @@ class TransitionController
   constructor: (init) ->
     @model = init.model
     @scale = [1, 1]
+    @frame_size = [960, 540]
     @running_hot = false
     @animation_to = -1
 
@@ -31,7 +32,7 @@ class TransitionController
   build: ->
     # Stage
     @stage = new PIXI.Container(0x000000)
-    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 1, 'transparent': true})
+    @renderer = PIXI.autoDetectRenderer(LW.size.app[0], LW.size.app[1], {'resolution': 1, 'transparent': true, 'antialias': false})
     @model.getE().html(@renderer.view)
 
     @$canvas = $(@renderer.view)
@@ -65,7 +66,8 @@ class TransitionController
       .add([
         'transition-1.json',
         'transition-2.json',
-        'transition-3.json'
+        'transition-3.json',
+        'transition-4.json'
       ])
       .on('load', @animationQueueProgress)
       .load()
@@ -111,13 +113,17 @@ class TransitionController
       'height': LW.size.app[1] + 'px'
     })
 
-    scale_factor = if LW.size.app[0] > LW.size.app[1] then (LW.size.app[0] / 960) else (LW.size.app[1] / 540)
+    scale_factor = if LW.size.app[0] > LW.size.app[1] then (LW.size.app[0] / @frame_size[0]) else (LW.size.app[1] / @frame_size[1])
     @scale = [scale_factor, scale_factor]
 
     @wipe.clear()
     @wipe.beginFill(0x000000, 1)
     @wipe.drawRect(0, 0, LW.size.app[0], LW.size.app[1])
     @wipe.endFill()
+
+    if @animationQueue?
+      for a in @animationQueue
+        a.position.y = (((LW.size.app[1]) - (@frame_size[1] * @scale[1])) / 2)
 
   ###
   *------------------------------------------*
@@ -145,8 +151,7 @@ class TransitionController
         x2 *= -1
 
       # Sequence
-      a.position.x -= (((960 * @scale[0]) - LW.size.app[0]) / 2)
-      a.position.y -= (((540 * @scale[1]) - LW.size.app[1]) / 2)
+      a.position.x -= (((@frame_size[0] * @scale[0]) - LW.size.app[0]) / 2)
       a.visible = true
       a.gotoAndPlay(0) if a.gotoAndPlay?
 
