@@ -39,6 +39,7 @@
 		<ul class="mediums">
 			<% for m in @mediums: %>
 				<li class="<%= m %>">
+					<svg><use xlink:href="/svg/svgdefs.svg#icon-<%= m %>"></use></svg>
 					<span><%= if m is LW.mediums.THREE_DIMENSIONAL then '3D' else m.replace(/\-/g, ' ') %></span>
 				</li>
 			<% end %>
