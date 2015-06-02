@@ -34,10 +34,10 @@
 						</ul>
 					<% end %>
 					<ul class="socials">
-						<li><a href='https://twitter.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-twitter"></use></svg></a></li>
-						<li><a href='https://facebook.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-facebook"></use></svg></a></li>
-						<li><a href='https://vimeo.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-vimeo"></use></svg></a></li>
-						<li><a href='https://github.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-github"></use></svg></a></li>
+						<li><a id="social-twitter" href='https://twitter.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-twitter"></use></svg></a></li>
+						<li><a id="social-facebook" href='https://facebook.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-facebook"></use></svg></a></li>
+						<li><a id="social-vimeo" href='https://vimeo.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-vimeo"></use></svg></a></li>
+						<li><a id="social-github" href='https://github.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-github"></use></svg></a></li>
 					</ul>
 				<% else: %>
 					<% for list in @lists: %>
