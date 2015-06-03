@@ -10,9 +10,9 @@ data = {
   "watch_video_id": null,
   "picture_src": "/images/work/boxtrolls/boxtrolls.png",
   "clients": [
-    "/images/client-logos/laika.png",
-    "/images/client-logos/nike.png",
-    "/images/client-logos/w-k.png"
+    "icon-laika",
+    "icon-nike",
+    "icon-wieden"
   ],
   "mediums": [
     LW.mediums.WEB,

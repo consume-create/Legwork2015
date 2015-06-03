@@ -10,7 +10,7 @@ data = {
   "watch_video_id": "39365605",
   "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
-    "/images/client-logos/ny-times.png"
+    "icon-ny-times"
   ],
   "mediums": [
     LW.mediums.ANIMATION,

@@ -10,8 +10,9 @@ data = {
   "watch_video_id": null,
   "picture_src": "/images/work/boxtrolls/boxtrolls.png",
   "clients": [
-    "/images/client-logos/mgm-grand.png",
-    "/images/client-logos/hakkasan.png"
+    "icon-coke",
+    "icon-coke",
+    "icon-coke"
   ],
   "mediums": [
     LW.mediums.WEB,

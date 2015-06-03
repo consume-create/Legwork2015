@@ -33,7 +33,9 @@
 	<div class="meta-zone cf">
 		<ul class="clients">
 			<% for c in @clients: %>
-				<li><img src="<%= c %>" alt="" /></li>
+				<li class="<%= c %>">
+					<svg><use xlink:href="/svg/svgdefs.svg#<%= c %>"></use></svg>
+				</li>
 			<% end %>
 		</ul>
 		<ul class="mediums">

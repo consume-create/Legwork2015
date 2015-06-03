@@ -10,7 +10,7 @@ data = {
   "watch_video_id": null,
   "picture_src": "/images/work/roll-it/roll-it.png",
   "clients": [
-    "/images/client-logos/google.png"
+    "icon-google"
   ],
   "mediums": [
     LW.mediums.GAME,

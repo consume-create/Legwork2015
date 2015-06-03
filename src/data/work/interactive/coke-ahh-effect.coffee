@@ -10,8 +10,8 @@ data = {
   "watch_video_id": null,
   "picture_src": "/images/work/coke-ahh-effect/coke-ahh-2.png",
   "clients": [
-    "/images/client-logos/coca-cola.png",
-    "/images/client-logos/w-k.png"
+    "icon-coke",
+    "icon-wieden"
   ],
   "mediums": [
     LW.mediums.GAME,
