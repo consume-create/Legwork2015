@@ -57,22 +57,36 @@ class BaseCoverSlideController extends BaseSlideController
     @layers[0].addChild(@base)
     @stage.addChild(@layers[0])
 
-    # PIXI autoplays the video, so ...
     $(@base_vid.baseTexture.source).one('playing', (e) =>
 
       # Sample the color of the video
       # and use it as the slide bg color
       # to match the h264 color wash
       c = document.createElement('canvas').getContext('2d')
-      c.drawImage(@base_vid.baseTexture.source, 8, 8, 1, 1, 0, 0, 1, 1)
-      p = c.getImageData(0, 0, 1, 1).data
+      c.drawImage(@base_vid.baseTexture.source, 10, 10, 20, 20, 0, 0, 20, 20)
+      p = c.getImageData(0, 0, 20, 20).data
+      l = p.length - 1
+      r = g = b = 0
 
-      @model.getE().attr('data-rgb', p[0] + ',' + p[1] + ',' + p[2])
+      # Average color of 400 pixels
+      while l > 0
+        r += p[l - 3]
+        g += p[l - 2]
+        b += p[l - 1]
+        l -= 4
+
+      ar = Math.round(r / 400)
+      ag = Math.round(g / 400)
+      ab = Math.round(b / 400)
+
+      # Set it
+      @model.getE().attr('data-rgb', ar + ',' + ag + ',' + ab)
 
       @$vid_wrap
-        .css('background-color', 'rgb(' + p[0] + ',' + p[1] + ',' + p[2] + ')')
+        .css('background-color', 'rgb(' + ar + ',' + ag + ',' + ab + ')')
         .show()
 
+      # PIXI autoplays the video, so ...
       @resetBaseVideo()
     )
 
