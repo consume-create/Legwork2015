@@ -10,8 +10,8 @@ data = {
   "watch_video_id": "123",
   "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
   "clients": [
-    "/images/client-logos/leinenkugel.png",
-    "/images/client-logos/social-deviant.png"
+    "icon-leinenkugel",
+    "icon-social-deviant"
   ],
   "mediums": [
     LW.mediums.LIVE_ACTION,

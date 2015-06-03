@@ -10,7 +10,7 @@ data = {
   "watch_video_id": "81630401",
   "picture_src": "/images/work/new-leaf/new-leaf.png",
   "clients": [
-    "/images/client-logos/alameda.png"
+    "icon-alameda"
   ],
   "mediums": [
     LW.mediums.ANIMATION,

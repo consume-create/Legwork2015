@@ -247,9 +247,13 @@ class WorkFeatureSlideModel extends BaseFeatureSlideModel
       throw 'ERROR: clients must be an array of at least 1 string, but no more than 3'
 
     for c in clients
-      if (/^\/images\/client\-logos\//).test(c) is false
+      if _.isString(c) is false
         passed = false
-        throw 'ERROR: clients must be referenced from the root at /images/client-logos/...'
+        throw 'ERROR: clients must be a string'
+        break
+      if (/^icon-/).test(c) is false
+        passed = false
+        throw 'ERROR: clients must start with "icon-" (their symbol id to match is in /svg/svgdefs.svg)'
         break
 
     if passed is true

@@ -72,7 +72,8 @@ class SlideshowController
   | Mouse down.
   *----------------------------------------###
   onMouseDown: (e) =>
-    if @inmotion is false
+    # Only start this if user is useing 'left click'
+    if e.which is 1 and @inmotion is false
       @dragging = true
       @slider_width = @$slider.width()
       @trans_x = -(@active_index * 100)

@@ -10,7 +10,7 @@ data = {
   "watch_video_id": "118837949",
   "picture_src": "/images/work/newton/newton.png",
   "clients": [
-    "/images/client-logos/newton.png"
+    "icon-newton"
   ],
   "mediums": [
     LW.mediums.WEB,
