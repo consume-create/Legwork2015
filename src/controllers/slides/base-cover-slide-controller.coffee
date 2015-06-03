@@ -68,7 +68,10 @@ class BaseCoverSlideController extends BaseSlideController
       p = c.getImageData(0, 0, 1, 1).data
 
       @model.getE().attr('data-rgb', p[0] + ',' + p[1] + ',' + p[2])
-      @model.getE().data('rgb')
+
+      @$vid_wrap
+        .css('background-color', 'rgb(' + p[0] + ',' + p[1] + ',' + p[2] + ')')
+        .show()
 
       @resetBaseVideo()
     )
