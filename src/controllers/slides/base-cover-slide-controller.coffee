@@ -43,7 +43,7 @@ class BaseCoverSlideController extends BaseSlideController
 
     # PIXI Stage
     @stage = new PIXI.Container()
-    @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': false})
+    @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': true})
     @$vid_wrap.append(@renderer.view)
 
     # Base video layer / sprite
@@ -57,7 +57,21 @@ class BaseCoverSlideController extends BaseSlideController
     @layers[0].addChild(@base)
     @stage.addChild(@layers[0])
 
-    $(@base_vid.baseTexture.source).one('playing', @resetBaseVideo())
+    # PIXI autoplays the video, so ...
+    $(@base_vid.baseTexture.source).one('playing', (e) =>
+
+      # Sample the color of the video
+      # and use it as the slide bg color
+      # to match the h264 color wash
+      c = document.createElement('canvas').getContext('2d')
+      c.drawImage(@base_vid.baseTexture.source, 8, 8, 1, 1, 0, 0, 1, 1)
+      p = c.getImageData(0, 0, 1, 1).data
+
+      @model.getE().attr('data-rgb', p[0] + ',' + p[1] + ',' + p[2])
+      @model.getE().data('rgb')
+
+      @resetBaseVideo()
+    )
 
   ###
   *------------------------------------------*
