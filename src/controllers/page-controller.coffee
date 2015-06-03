@@ -450,13 +450,15 @@ class PageController
   | Mouse down.
   *----------------------------------------###
   onMouseDown: (e) =>
-    @dragging = true
+    # Only start this if user is useing 'left click'
+    if e.which is 1
+      @dragging = true
+      @start_time = (new Date()).getTime()
+      @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
 
-    @start_time = (new Date()).getTime()
-    @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
-
-    LW.$doc.off(@mouseup)
-      .one(@mouseup, @onMouseUp)
+      LW.$doc
+        .off(@mouseup)
+        .one(@mouseup, @onMouseUp)
 
   ###
   *------------------------------------------*
@@ -498,11 +500,11 @@ class PageController
   | Mouse Up.
   *----------------------------------------###
   onMouseUp: =>
-    @$slides_wrapper.css(LW.utils.transform, LW.utils.translate('0px', 0 + 'px'))
     @dragging = false
 
     if @$slides_wrapper.hasClass('dragging')
       @$slides_wrapper.removeClass('dragging')
+      @$slides_wrapper.css(LW.utils.transform, LW.utils.translate('0px', 0 + 'px'))
 
       if @now - @start_time < @drag_time and @current_range > @range or @current_range > (@$slides_wrapper.height() / 2)
         if @current_y < @start_y
