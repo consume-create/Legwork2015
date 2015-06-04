@@ -450,8 +450,8 @@ class PageController
   | Mouse down.
   *----------------------------------------###
   onMouseDown: (e) =>
-    # Only start this if user is useing 'left click'
-    if e.which is 1
+    # Only start this if user is using 'left click' on desktop, or touch devices carry on
+    if LW.utils.is_mobile.any() is false and e.which is 1 or LW.utils.is_mobile.any() is true
       @dragging = true
       @start_time = (new Date()).getTime()
       @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
