@@ -21,9 +21,8 @@
         height: auto
         padding: 0
         color: $black
-        font-size: 22px
-        line-height: 24px
-        font-weight: $bold
+        font-size: 32px
+        line-height: 40px
 
         transform: translate3d(0,0px,0)
 
@@ -92,13 +91,8 @@
       width: 100%
       max-width: 420px
 
-      h4
-        color: $black
-        @include type-mono
-
       p
         margin: 0 20px 0 0
-        @include type-mono
 
         a
           position: relative
@@ -216,10 +210,11 @@
 
         li
           margin: 0 10px 0 0
-          @include type-mono
 
           &:first-child
+            @include type-mono
             color: $black
+            text-transform: uppercase
 
           span.full
             display: none
@@ -243,10 +238,10 @@
         margin: 0 0 10px
 
         li
-          @include type-mono
-
           &:first-child
+            @include type-mono
             color: $black
+            text-transform: uppercase
 
         @include respond-above-ht($media_ht_480)
           margin: 0 0 20px

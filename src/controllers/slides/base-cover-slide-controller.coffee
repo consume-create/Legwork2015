@@ -36,7 +36,9 @@ class BaseCoverSlideController extends BaseSlideController
 
     # Class vars
     @$vid_wrap = $('.cover-wrap', @model.getV())
+    @loader = new PIXI.loaders.Loader('/animations/', 1)
     @layers = []
+    @mcs = {}
 
     # Scene size
     @scene_size = {'w': 1920, 'h': 1080}
@@ -89,6 +91,56 @@ class BaseCoverSlideController extends BaseSlideController
       # PIXI autoplays the video, so ...
       @resetBaseVideo()
     )
+
+  ###
+  *------------------------------------------*
+  | loadAnimation:void (-)
+  |
+  | item:string - item to load
+  | cb:function - callback
+  |
+  | Load an animation.
+  *----------------------------------------###
+  loadAnimation: (item, cb) ->
+    @loader
+      .add(item)
+      .on('load', (loader, resource) =>
+        if resource.isJson
+          resource.on('afterMiddleware', (r) =>
+            frames = r.data.frames
+            name = _.keys(frames)[0]
+            texture_id = name.substr(0, (name.length - 6))
+            texture_ln = (_.size(frames) - 1)
+
+            mc = new PIXI.extras.MovieClip(@mapTextures(texture_id, texture_ln, true))
+            mc.animationSpeed = 28 / 60
+            mc.gotoAndStop(0)
+
+            cb(mc)
+          )
+      )
+      .load()
+
+  ###
+  *------------------------------------------*
+  | mapTextures:void (-)
+  |
+  | id:string - texture id
+  | n:number - number of frames
+  | leading_zero:boolean - leading zero?
+  |
+  | Map texures for a movie clip.
+  *----------------------------------------###
+  mapTextures: (id, n, leading_zero = false) ->
+    textures = []
+
+    for i in [0..n]
+      if leading_zero is true and i < 10
+        i = '0' + i
+
+      textures.push(PIXI.Texture.fromFrame(id + i + '.png'))
+
+    return textures
 
   ###
   *------------------------------------------*

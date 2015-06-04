@@ -27,14 +27,30 @@ class HomeCoverSlideController extends BaseCoverSlideController
   *----------------------------------------###
   build: ->
     super()
-    @observe()
+
+    # Load cover specific animations
+    @loadAnimation('about-cta.json', @onAboutCTALoaded)
 
   ###
   *------------------------------------------*
-  | observe:void (-)
+  | onAboutCTALoaded:void (=)
   |
-  | Observe.
+  | mc:pixi - the loaded mc
+  |
+  | About CTA has loaded.
   *----------------------------------------###
-  observe: ->
+  onAboutCTALoaded: (mc) =>
+    @about_cta = mc
+    @about_cta.position = new PIXI.Point(1200, 700)
+    @about_cta.buttonMode = true
+    @about_cta.interactive = true
+    @stage.addChild(@about_cta)
+    @about_cta.gotoAndStop(0)
+
+    # Events
+    @about_cta.on('mouseover', (e) => @about_cta.gotoAndPlay(0))
+    @about_cta.on('mouseout', (e) => @about_cta.gotoAndStop(0))
+    @about_cta.on('mousedown', (e) => History.pushState(null, null, '/home/summary'))
+    @about_cta.on('touchstart', (e) => History.pushState(null, null, '/home/summary'))
 
 module.exports = HomeCoverSlideController

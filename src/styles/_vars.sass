@@ -1,6 +1,8 @@
 // Fonts
-$montserrat: 'Montserrat', 'helvetica neue', helvetica, sans-serif
-$inconsolata: 'Inconsolata', 'courier new', courier, serif
+$avenir_regular: 'AvenirNextLTPro-Medium', 'helvetica neue', helvetica, sans-serif
+$avenir_bold: 'AvenirNextLTPro-Bold', 'helvetica neue', helvetica, sans-serif
+$inconsolata_regular: 'inconsolataregular', 'courier new', courier, serif
+$inconsolata_bold: 'inconsolatabold', 'courier new', courier, serif
 
 // Weights
 $regular: 400
@@ -46,7 +48,20 @@ $media_ht_666: 666px
 
 // Typography mixins
 @mixin type
-  font-family: $montserrat
+  font-family: $avenir_regular
+  font-size: 12px
+  line-height: 16px
+
+  @include respond-above-ht($media_ht_480)
+    line-height: 20px
+
+  @include respond-above($media_768)
+    @include respond-above-ht($media_ht_480)
+      font-size: 14px
+      line-height: 24px
+
+@mixin type-bold
+  font-family: $avenir_bold
   font-size: 12px
   line-height: 16px
 
@@ -59,7 +74,7 @@ $media_ht_666: 666px
       line-height: 24px
 
 @mixin type-mono
-  font-family: $inconsolata
+  font-family: $inconsolata_regular
   font-size: 12px
   line-height: 16px
 
@@ -72,9 +87,8 @@ $media_ht_666: 666px
       line-height: 24px
 
 @mixin type-mono-small
-  font-family: $inconsolata
+  font-family: $inconsolata_bold
   font-size: 9px
   line-height: 12px
   letter-spacing: 1px
-  font-weight: $bold
   text-transform: uppercase
