@@ -13,6 +13,8 @@ InteractiveCoverSlideController = require './slides/interactive-cover-slide-cont
 # Home Slides
 HomeFeatureSlideModel = require '../models/slides/home-feature-slide-model'
 HomeFeatureSlideController = require './slides/home-feature-slide-controller'
+RecognitionFeatureSlideModel = require '../models/slides/recognition-feature-slide-model'
+RecognitionFeatureSlideController = require './slides/recognition-feature-slide-controller'
 
 # Work Slides
 WorkFeatureSlideModel = require '../models/slides/work-feature-slide-model'
@@ -109,19 +111,35 @@ class PageController
                 'model': @slide_m[id]
               })
         when LW.slide_types.HOME_FEATURE
-          @slide_m[id] = new HomeFeatureSlideModel({
-            'type': slide.slide_type,
-            '$el': $el,
-            'id': slide.id,
-            'subtitle': slide.browser_title,
-            'title': slide.title,
-            'picture_src': slide.picture_src,
-            'copy': slide.copy,
-            'lists': slide.lists
-          })
-          @slide_c[id] = new HomeFeatureSlideController({
-            'model': @slide_m[id]
-          })
+          if slide.id is 'recognition'
+            @slide_m[id] = new RecognitionFeatureSlideModel({
+              'type': slide.slide_type,
+              '$el': $el,
+              'id': slide.id,
+              'subtitle': slide.browser_title,
+              'title': slide.title,
+              'picture_src': slide.picture_src,
+              'copy': slide.copy,
+              'lists': slide.lists
+              'awards': slide.awards
+            })
+            @slide_c[id] = new RecognitionFeatureSlideController({
+              'model': @slide_m[id]
+            })
+          else
+            @slide_m[id] = new HomeFeatureSlideModel({
+              'type': slide.slide_type,
+              '$el': $el,
+              'id': slide.id,
+              'subtitle': slide.browser_title,
+              'title': slide.title,
+              'picture_src': slide.picture_src,
+              'copy': slide.copy,
+              'lists': slide.lists
+            })
+            @slide_c[id] = new HomeFeatureSlideController({
+              'model': @slide_m[id]
+            })
         when LW.slide_types.WORK_FEATURE
           @slide_m[id] = new WorkFeatureSlideModel({
             'type': slide.slide_type,
