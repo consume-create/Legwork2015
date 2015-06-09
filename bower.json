@@ -24,6 +24,7 @@
     "greensock": null,
     "pixi": "~3.0",
     "froogaloop": "~0.1.0",
-    "jquery.cookie": "~1.4.1"
+    "jquery.cookie": "~1.4.1",
+    "jquery-mousewheel": "~3.1.12"
   }
 }
