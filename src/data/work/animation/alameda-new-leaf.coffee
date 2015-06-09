@@ -20,7 +20,7 @@ data = {
   "details": {
     "bg_src": "/images/work/new-leaf/details/main.jpg",
     "title": "Painting frames for days",
-    "overview": "Alameda&rsquo;s video for the track New Leaf has truly been a labor of love for us. The project took over 2 years and was used as a way to explore new animation techniques, specifically digital rotoscoping over 3D animation. The goal was to combine the hand-made feel of painting with the perfection of 3D camera movement and environments.",
+    "overview": "Alameda&rsquo;s video for the track New Leaf has truly been a labor of love for us. We chipped away at it during our downtime and used it as a way to explore new animation techniques, specifically rotoscoping over 3D animation. The goal was to combine the hand-made feel of painting with the perfection of 3D camera movement and environments.",
     "services": [
       "Story Boards",
       "Design",
@@ -29,16 +29,18 @@ data = {
       "3D Animation"
     ],
     "accolades": [
-      "Vimeo...",
-      "Webby?"
+      "Vimeo Staff Pick",
+      "SXSW Vimeo Showcase",
+      "VOTD",
+      "ADCD"
     ],
     "media": [
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "How We Made The Damn Thing",
+          "title": "A Brief Process Overview",
           "text": [
-            "It was the most tedious process of all time."
+            "Get some insight into the production techniques we used, from 3D build to frame-by-frame Photoshop painting."
           ]
         },
         "video_id": "81233020"
@@ -46,13 +48,13 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Storyboards",
+          "title": "The Look Development",
           "text": [
-            "Blurb about the concept."
+            "It wasn’t until after creating our initial concept art that we decided on the animation technique. The original sketches combined depth with a hand drawn feel that we knew could be accomplished by rotoscoping our 3D renders."
           ]
         },
         "images": [
-          "/images/work/new-leaf/details/storyboards-1.jpg"
+          "/images/work/new-leaf/details/storyboards.jpg"
         ]
       },
       {
@@ -60,7 +62,7 @@ data = {
         "copy": {
           "title": "Building The Scenes",
           "text": [
-            "A blurb about all the layers involved."
+            "The final compositing consisted of layering a series of render passes. Starting with each separated rotoscoped character layer, we’d then add in backgrounds, shadow passes, depth, 2D effects, and final beauty adjustments."
           ]
         },
         "images": [
@@ -72,23 +74,13 @@ data = {
         ]
       },
       {
-        "type": LW.media.IMAGE,
+        "type": LW.media.VIDEO,
         "copy": {
-          "title": "The Final Look",
+          "title": "The Final Video",
           "text": [
-            "Glamour shots from the video."
+            "See the finished piece below."
           ]
         },
-        "images": [
-          "/images/work/new-leaf/details/final-look-1.jpg",
-          "/images/work/new-leaf/details/final-look-2.jpg",
-          "/images/work/new-leaf/details/final-look-3.jpg",
-          "/images/work/new-leaf/details/final-look-4.jpg"
-        ]
-      },
-      {
-        "type": LW.media.VIDEO,
-        "copy": null,
         "video_id": "81630401"
       }
     ]
