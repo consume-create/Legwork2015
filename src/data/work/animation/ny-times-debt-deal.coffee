@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": "39365605",
-  "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
+  "picture_src": "/images/work/ny-times-debt-deal/ny-times-debt-deal.png",
   "clients": [
     "icon-ny-times"
   ],

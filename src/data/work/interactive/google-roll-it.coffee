@@ -3,12 +3,11 @@ data = {
   "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Google", "Roll It"],
   "callouts": [
-    LW.callouts.ABOUT,
-    LW.callouts.LAUNCH
+    LW.callouts.ABOUT
   ],
-  "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
+  "launch_url": null,
   "watch_video_id": null,
-  "picture_src": "/images/work/roll-it/roll-it.png",
+  "picture_src": "/images/work/roll-it/google-roll-it.png",
   "clients": [
     "icon-google"
   ],

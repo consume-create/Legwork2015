@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": "http://www.ahh.com/",
   "watch_video_id": null,
-  "picture_src": "/images/work/coke-ahh-effect/coke-ahh-2.png",
+  "picture_src": "/images/work/coke-ahh-effect/coke-ahh-effect.png",
   "clients": [
     "icon-coke",
     "icon-wieden"

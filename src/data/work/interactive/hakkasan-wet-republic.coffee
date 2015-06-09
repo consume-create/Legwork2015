@@ -1,18 +1,17 @@
 data = {
   "browser_title": "Wet Republic",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["Wet", "Republic"],
+  "title": ["Kentucky", "Fried Chicken"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.LAUNCH
   ],
   "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
   "watch_video_id": null,
-  "picture_src": "/images/work/boxtrolls/boxtrolls.png",
+  "picture_src": "/images/work/kentucky-fried-chicken/kentucky-fried-chicken.png",
   "clients": [
-    "icon-coke",
-    "icon-coke",
-    "icon-coke"
+    "icon-kfc",
+    "icon-wieden"
   ],
   "mediums": [
     LW.mediums.WEB,

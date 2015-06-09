@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": "118837949",
-  "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
+  "picture_src": "/images/work/bc4u-what-if/bc4u-what-if.png",
   "clients": [
     "icon-bc4u",
     "icon-sprocket"

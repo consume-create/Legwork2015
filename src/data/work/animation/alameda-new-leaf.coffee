@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": "81630401",
-  "picture_src": "/images/work/new-leaf/new-leaf.png",
+  "picture_src": "/images/work/new-leaf/alameda-new-leaf.png",
   "clients": [
     "icon-alameda"
   ],

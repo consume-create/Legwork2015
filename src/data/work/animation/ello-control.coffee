@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": "33671603",
-  "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
+  "picture_src": "/images/work/ello-control/ello-control.png",
   "clients": [
     "icon-ello"
   ],

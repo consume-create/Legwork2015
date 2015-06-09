@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": "http://www.theboxtrolls.com",
   "watch_video_id": null,
-  "picture_src": "/images/work/boxtrolls/boxtrolls.png",
+  "picture_src": "/images/work/boxtrolls/laika-the-boxtrolls.png",
   "clients": [
     "icon-laika",
     "icon-nike",

@@ -7,7 +7,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": null,
-  "picture_src": "/images/work/coke-building/coke-building.png",
+  "picture_src": "/images/work/coke-building/coke-building-of-memories.png",
   "clients": [
     "icon-coke",
     "icon-wieden"

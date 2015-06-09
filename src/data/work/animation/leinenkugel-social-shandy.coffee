@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": null,
   "watch_video_id": "123",
-  "picture_src": "/images/work/nissan-zero-gravity/nissan-zero-gravity.png",
+  "picture_src": "/images/work/leinenkugel-social-shandy/leinenkugel-social-shandy.png",
   "clients": [
     "icon-leinenkugel",
     "icon-social-deviant"

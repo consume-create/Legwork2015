@@ -8,7 +8,7 @@ data = {
   ],
   "launch_url": "http://runbetter.newtonrunning.com",
   "watch_video_id": "118837949",
-  "picture_src": "/images/work/newton/newton.png",
+  "picture_src": "/images/work/newton/newton-run-better.png",
   "clients": [
     "icon-newton"
   ],
