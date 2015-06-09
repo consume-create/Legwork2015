@@ -75,7 +75,7 @@ data = {
         "coke-ahh-effect": coke_ahh_effect,
         "google-roll-it": google_roll_it
       },
-      "color_index": 2
+      "color_index": 3
     }
   },
   "error": error
