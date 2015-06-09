@@ -455,7 +455,7 @@ class PageController
     if e.which is 1 or LW.utils.is_mobile.any()
       @dragging = true
       @start_time = (new Date()).getTime()
-      @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+      @start_y = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageY else e.pageY
 
       LW.$doc
         .off(@mouseup)
@@ -471,7 +471,7 @@ class PageController
     if @dragging is true
       e.preventDefault()
 
-      @current_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+      @current_y = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageY else e.pageY
       @direction_y = @current_y - @start_y
       @current_range = if @start_y is 0 then 0 else Math.abs(@direction_y)
       @now = (new Date()).getTime()
