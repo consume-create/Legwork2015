@@ -114,6 +114,7 @@ class PageController
             'type': slide.slide_type,
             '$el': $el,
             'id': slide.id,
+            'subtitle': slide.browser_title,
             'title': slide.title,
             'picture_src': slide.picture_src,
             'copy': slide.copy,

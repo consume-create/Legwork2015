@@ -16,23 +16,27 @@
     margin: 0 auto
 
   .content-inner
-    margin: 0 16px
-    padding: 10px 0
     text-align: center
 
   p
-    margin: 0 30px 50px
+    font: normal normal normal 18px/25px $avenir_regular
     color: $white
-    font-size: 16px
-    line-height: 20px
     display: none
 
     a
-      margin: 6px 0 0
-      color: $yellow
-      font-size: 11px
-      font-weight: $bold
+      position: relative
       display: inline-block
+      margin: 24px 0 0
+      font: normal normal normal 14px/14px $avenir_regular
+
+      &:after
+        content: ""
+        position: absolute
+        bottom: -2px
+        left: 0px
+        width: 100%
+        height: 1px
+        background-color: $gray
 
 html.no-js,
 html.weak,

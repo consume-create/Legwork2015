@@ -27,7 +27,6 @@ class BaseFeatureSlideController extends BaseSlideController
   *----------------------------------------###
   build: ->
     @model.getE().append(@model.getV())
-    @model.set$title($('.title-holder', @model.getV()))
     @model.set$photo($('.picture-zone', @model.getV()))
 
   ###
@@ -39,12 +38,12 @@ class BaseFeatureSlideController extends BaseSlideController
   | Transition in.
   *----------------------------------------###
   transitionIn: (direction) ->
-    @model.get$title()
+    @model.get$trans()
       .removeClass('trans-in trans-out top bottom')
       .addClass(direction)
 
     _.defer(=>
-      @model.get$title()
+      @model.get$trans()
         .addClass('trans-in')
         .removeClass(direction)
 
@@ -62,7 +61,7 @@ class BaseFeatureSlideController extends BaseSlideController
   | Transition out.
   *----------------------------------------###
   transitionOut: (direction, cb) ->
-    @model.get$title()
+    @model.get$trans()
       .removeClass('trans-in trans-out top bottom')
       .addClass("#{direction} trans-out")
       .eq(0)

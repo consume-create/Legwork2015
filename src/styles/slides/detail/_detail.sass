@@ -53,17 +53,24 @@
 
         h4
           max-width: 460px
+          font: normal normal normal 11px/16px $avenir_regular
           color: $white
+
+          @include respond-above($media_768)
+            font: normal normal normal 16px/25px $avenir_regular
 
         p
           max-width: 460px
           margin: 10px 0 0
+          font: normal normal normal 11px/16px $avenir_regular
           color: $gray
 
           &:nth-of-type(1)
             margin: 0
 
           @include respond-above($media_768)
+            font: normal normal normal 16px/25px $avenir_regular
+
             @include respond-above-ht($media_ht_480)
               margin: 20px 0 0
 
@@ -90,18 +97,23 @@
               bottom: 4px
 
           &.launch-link
+            font: normal normal normal 11px/11px $avenir_regular
             color: $white
             padding: 0 42px 0 0
 
             &:after
               display: none
 
+            @include respond-above($media_768)
+              font: normal normal normal 16px/16px $avenir_regular
+
+
             @include respond-above($media_480)
               padding: 0 52px 0 0
 
             .icon
               position: absolute
-              top: 0px
+              top: -1px
               right: 12px
               width: 25px
               height: 100%
@@ -180,10 +192,14 @@
                   width: 50%
 
                   li
+                    font: normal normal normal 11px/16px $avenir_regular
                     color: $gray
 
                     &:first-child
                       color: $white
+
+                    @include respond-above($media_768)
+                      font: normal normal normal 16px/25px $avenir_regular
 
               a.launch-link
                 margin: 20px 0 0
@@ -339,10 +355,7 @@
                 height: 100%
                 padding: 0 10px
                 cursor: pointer
-                font-family: $inconsolata_regular
-                font-size: 12px
-                line-height: 50px
-                font-weight: $bold
+                font: normal normal normal 11px/50px $inconsolata_bold
 
                 @include respond-above($media_768)
                   @include respond-above-ht($media_ht_480)

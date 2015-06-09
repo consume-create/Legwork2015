@@ -23,6 +23,9 @@ class HomeFeatureSlideModel extends BaseFeatureSlideModel
     @_id = null
     @setId(data.id)
 
+    @_subtitle = null
+    @setSubTitle(data.subtitle)
+
     @_title = null
     @setTitle(data.title)
 
@@ -57,6 +60,29 @@ class HomeFeatureSlideModel extends BaseFeatureSlideModel
       throw 'ERROR: id must be a string'
     else
       @_id = id
+
+  ###
+  *------------------------------------------*
+  | getSubTitle:string (-)
+  |
+  | Get subtitle.
+  *----------------------------------------###
+  getSubTitle: ->
+    return @_subtitle
+
+  ###
+  *------------------------------------------*
+  | setSubTitle:void (-)
+  |
+  | subtitle:string - subtitle
+  |
+  | Set subtitle.
+  *----------------------------------------###
+  setSubTitle: (subtitle) ->
+    if _.isString(subtitle) is false
+      throw 'ERROR: subtitle must be a string'
+    else
+      @_subtitle = subtitle
 
   ###
   *------------------------------------------*

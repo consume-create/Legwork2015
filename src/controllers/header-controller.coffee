@@ -83,7 +83,7 @@ class HeaderController
   *----------------------------------------###
   turnDetailsClose: (s) ->
     if s is 'on'
-      y = -40
+      y = -48
       href = LW.router.getState().url.replace(/\/reel|\/details|\/watch/i, '')
       LW.$wrapper.addClass('inverse')
     else

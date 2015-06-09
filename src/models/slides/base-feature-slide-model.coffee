@@ -20,31 +20,31 @@ class BaseFeatureSlideModel extends BaseSlideModel
   constructor: (data) ->
     super(data)
 
-    @_$title = null
+    @_$trans = null
     @_$photo = null
 
   ###
   *------------------------------------------*
-  | getTitleEl:jQuery (-)
+  | get$trans:jQuery (-)
   |
-  | Get title el.
+  | Get trans el.
   *----------------------------------------###
-  get$title: ->
-    return @_$title
+  get$trans: ->
+    return @_$trans
 
   ###
   *------------------------------------------*
-  | setTitleEl:jQuery (-)
+  | set$trans:jQuery (-)
   |
-  | $title:jQuery - title el
+  | $trans:jQuery - trans el
   |
-  | Set title el.
+  | Set trans el.
   *----------------------------------------###
-  set$title: ($title) ->
-    if $title.length > 0
-      @_$title = $title
+  set$trans: ($trans) ->
+    if $trans.length > 0
+      @_$trans = $trans
     else
-      throw 'ERROR: $title does not exist'
+      throw 'ERROR: $trans does not exist'
 
   ###
   *------------------------------------------*

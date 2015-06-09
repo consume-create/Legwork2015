@@ -28,6 +28,7 @@ class HomeFeatureSlideController extends BaseFeatureSlideController
   build: ->
     @model.setV($(JST['home-feature-slide-view']({
       'id': @model.getId(),
+      'subtitle': @model.getSubTitle(),
       'title': @model.getTitle(),
       'picture_src': @model.getPictureSrc(),
       'copy': @model.getCopy(),
@@ -35,5 +36,6 @@ class HomeFeatureSlideController extends BaseFeatureSlideController
     })))
 
     super()
+    @model.set$trans($('.info-holder', @model.getV()))
 
 module.exports = HomeFeatureSlideController

@@ -38,5 +38,6 @@ class WorkFeatureSlideController extends BaseFeatureSlideController
     })))
 
     super()
+    @model.set$trans($('.title-holder', @model.getV()))
 
 module.exports = WorkFeatureSlideController

@@ -14,360 +14,94 @@
     overflow: hidden
     cursor: default
 
-// ---------------------------------------------
-// Shared styles: Cover
-// ---------------------------------------------
-
-.cover-wrap
-  position: absolute
-  top: 50%
-  left: 50%
-  width: auto
-  height: auto
-  min-width: 100%
-  min-height: 100%
-  transform: translate(-50%, -50%)
-  display: none
-
-  canvas
-    position: absolute
-    top: 0px
-    left: 50%
-    width: auto
-    height: 100%
-
-    transform: translate(-50%, 0)
-
-// ---------------------------------------------
-// Shared styles: Picture zone
-// ---------------------------------------------
-
-.picture-zone
-  position: absolute
-  top: 0px
-  left: 0px
-  width: 100%
-  height: 100%
-  background-repeat: no-repeat
-  background-position: right bottom
-  background-size: contain
-  opacity: 0
-
-  transition: opacity $speed $ease_in
-
-  &.show
-    opacity: 1
-
-    transition: opacity $speed $ease_out
-
-  @media all and (max-aspect-ratio: 1/1)
-    background-position: 90% bottom
-    background-size: cover
-    
-    &.show
-      opacity: 0.2
-
-// ---------------------------------------------
-// Shared styles: Title zone
-// ---------------------------------------------
-
-.title-zone
-  position: absolute
-  top: 50%
-  left: 20px
-  right: 20px
-  margin: 8px 0 0
-  font-size: 0
-  line-height: 0
-
-  transform: translate(0,-50%)
-
-  @include respond-above($media_480)
-    left: 40px
-    right: 40px
-    margin: 10px 0 0
-
-  @include respond-above($media_768)
-    left: 60px
-    right: 60px
-
-  @include respond-above($media_1180)
-    left: 100px
-    right: 100px
-
-  @include respond-above($media_1024)
-    @include respond-above-ht($media_ht_666)
-      margin: 16px 0 0
-
-  .title-holder
-    position: relative
-    overflow: hidden
-    display: inline-block
-    cursor: pointer
-
-    h2
-      position: relative
-      float: left
-      height: 24px
-      padding: 0 0 12px
-      font-family: $avenir_bold
-      font-weight: normal
-      font-size: 22px
-      line-height: 24px
-      display: inline-block
-      overflow: hidden
-      opacity: 0
-
-      transform: translate3d(0,0px,0)
-
-      &:last-child
-        margin: 7px 0 0
-        clear: both
-
-      &:after
-        content: ''
-        position: absolute
-        bottom: 0px
-        left: 0px
-        width: 100%
-        height: 4px
-        background-color: $black
-
-    &.top h2
-      transform: translate3d(0,-24px,0)
-
-    &.bottom h2
-      transform: translate3d(0,24px,0)
-
-    &.trans-in h2
-      opacity: 1
-
-      transform: translate3d(0,0px,0)
-      transition: transform $speed $ease_out, opacity $speed $ease_out
-
-    &.trans-out h2
-      opacity: 0
-      
-      transition: transform $speed $ease_in, opacity $speed $ease_in
-
-    &.trans-out.top h2
-      transform: translate3d(0,24px,0)
-
-    &.trans-out.bottom h2
-      transform: translate3d(0,-24px,0)
-
-    @include respond-above($media_480)
-      h2
-        height: 30px
-        padding: 0 0 15px
-        font-size: 30px
-        line-height: 23px
-
-        transform: translate3d(0,0px,0)
-
-        &:last-child
-          margin: 15px 0 0
-
-        &:after
-          height: 5px
-
-      &.top h2
-        transform: translate3d(0,-40px,0)
-
-      &.bottom h2
-        transform: translate3d(0,40px,0)
-
-      &.trans-in h2
-        transform: translate3d(0,0px,0)
-
-      &.trans-out.top h2
-        transform: translate3d(0,40px,0)
-
-      &.trans-out.bottom h2
-        transform: translate3d(0,-40px,0)
-
-    @include respond-above($media_1024)
-      @include respond-above-ht($media_ht_666)
-        h2
-          height: 66px
-          padding: 0 0 30px
-          font-size: 66px
-          line-height: 66px
-
-          transform: translate3d(0,0px,0)
-
-          &:last-child
-            margin: 30px 0 0
-
-          &:after
-            height: 10px
-
-        &.top h2
-          transform: translate3d(0,-90px,0)
-
-        &.bottom h2
-          transform: translate3d(0,90px,0)
-
-        &.trans-in h2
-          transform: translate3d(0,0px,0)
-
-        &.trans-out.top h2
-          transform: translate3d(0,90px,0)
-
-        &.trans-out.bottom h2
-          transform: translate3d(0,-90px,0)
-
-  .callouts
-    position: relative
-    width: 100%
-    height: 50px
-    overflow: hidden
-
-    @include respond-above($media_1024)
-      @include respond-above-ht($media_ht_666)
-        height: 76px
-
-    .callout
-      float: left
-      position: relative
-      height: 100%
-      padding: 0 10px
-      cursor: pointer
-      font-family: $inconsolata_regular
-      font-size: 12px
-      line-height: 50px
-      font-weight: $bold
-      text-transform: capitalize
-
-      @include respond-above($media_768)
-        @include respond-above-ht($media_ht_480)
-          font-size: 14px
-
-      @include respond-above($media_1024)
-        @include respond-above-ht($media_ht_666)
-          line-height: 76px
-
-      &:last-child
-        padding: 0 0 0 10px
-
-      &:nth-child(1)
-        padding: 0 10px 0 0
-
-      @include respond-above($media_480)
-        padding: 0 20px
-
-        &:last-child
-          padding: 0 0 0 20px
-
-        &:nth-child(1)
-          padding: 0 20px 0 0
-
-      .copy
-        float: left
-        position: relative
-
-      .icon
-        float: left
-        position: relative
-        width: 25px
-        height: 100%
-        margin: 0 0 0 12px
-        overflow: hidden
-
-        transform: translate3d(0px,0,0)
-        transition: transform 150ms $ease_out
-
-        &:before,
-        &:after
-          content: ''
-          position: absolute
-          top: 50%
-          left: 0px
-          width: 14px
-          height: 2px
-          margin: -1px 0 0
-          background-color: $white
-
-        &:after
-          left: 12px
-          width: 0
-          height: 0
-          margin: -4px 0 0
-          border-top: 4px solid transparent
-          border-bottom: 4px solid transparent
-          border-left: 6px solid $white
-          background-color: transparent
-
-// ---------------------------------------------
-// Shared styles: Meta zone
-// ---------------------------------------------
-
-.meta-zone
-  position: absolute
-  bottom: 20px
-  left: 20px
-  right: 20px
-
-  h4
-    position: relative
-    height: 14px
-    padding: 0 0 0 25px
-    color: $black
-    font-family: $inconsolata_regular
-    font-size: 12px
-    line-height: 14px
-
-    &:before
-      content: ''
+    // ---------------------------------------------
+    // Shared styles: Cover
+    // ---------------------------------------------
+
+    .cover-wrap
       position: absolute
-      top: 0px
-      left: 3px
-      width: 2px
-      height: 12px
-      margin: -1px 0 0
-      background-color: $black
-
-    &:after
-      content: ''
-      position: absolute
-      bottom: 0px
-      left: 0px
-      width: 0
-      height: 0
-      border-left: 4px solid transparent
-      border-right: 4px solid transparent
-      border-top: 6px solid $black
-
-    @include respond-above($media_768)
-      @include respond-above-ht($media_ht_480)
-        height: 14px
-        font-size: 14px
-
-  ul
-    float: left
-    position: relative
-    width: 234px
-
-    &:last-child
+      top: 50%
+      left: 50%
+      width: auto
+      height: auto
+      min-width: 100%
+      min-height: 100%
+      transform: translate(-50%, -50%)
       display: none
 
-  @include respond-above-ht($media_ht_480)
-    bottom: 40px
+      canvas
+        position: absolute
+        top: 0px
+        left: 50%
+        width: auto
+        height: 100%
 
-  @include respond-above($media_480)
-    left: 40px
-    right: 40px
+        transform: translate(-50%, 0)
 
-  @include respond-above($media_768)
-    left: 60px
-    right: 60px
+    // ---------------------------------------------
+    // Shared styles: Picture zone
+    // ---------------------------------------------
 
-    ul:last-child
-      display: block
+    .picture-zone
+      position: absolute
+      top: 0px
+      left: 0px
+      width: 100%
+      height: 100%
+      background-repeat: no-repeat
+      background-position: right bottom
+      background-size: contain
+      opacity: 0
 
-  @include respond-above($media_1180)
-    left: 100px
-    right: 100px
+      transition: opacity $speed $ease_in
+
+      &.show
+        opacity: 1
+
+        transition: opacity $speed $ease_out
+
+      @media all and (max-aspect-ratio: 1/1)
+        background-position: 90% bottom
+        background-size: cover
+        
+        &.show
+          opacity: 0.1
+
+    // ---------------------------------------------
+    // Shared styles: Meta zone
+    // ---------------------------------------------
+
+    .meta-zone
+      position: absolute
+      bottom: 20px
+      left: 20px
+      right: 20px
+
+      ul
+        float: left
+        position: relative
+        width: 234px
+
+        &:last-child
+          display: none
+
+      @include respond-above-ht($media_ht_480)
+        bottom: 40px
+
+      @include respond-above($media_480)
+        left: 40px
+        right: 40px
+
+      @include respond-above($media_768)
+        left: 60px
+        right: 60px
+
+        ul:last-child
+          display: block
+
+      @include respond-above($media_1180)
+        left: 100px
+        right: 100px
 
 // ---------------------------------------------
 // Party mode
