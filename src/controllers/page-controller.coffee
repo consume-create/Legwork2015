@@ -13,6 +13,8 @@ InteractiveCoverSlideController = require './slides/interactive-cover-slide-cont
 # Home Slides
 HomeFeatureSlideModel = require '../models/slides/home-feature-slide-model'
 HomeFeatureSlideController = require './slides/home-feature-slide-controller'
+RecognitionFeatureSlideModel = require '../models/slides/recognition-feature-slide-model'
+RecognitionFeatureSlideController = require './slides/recognition-feature-slide-controller'
 
 # Work Slides
 WorkFeatureSlideModel = require '../models/slides/work-feature-slide-model'
@@ -109,19 +111,35 @@ class PageController
                 'model': @slide_m[id]
               })
         when LW.slide_types.HOME_FEATURE
-          @slide_m[id] = new HomeFeatureSlideModel({
-            'type': slide.slide_type,
-            '$el': $el,
-            'id': slide.id,
-            'subtitle': slide.browser_title,
-            'title': slide.title,
-            'picture_src': slide.picture_src,
-            'copy': slide.copy,
-            'lists': slide.lists
-          })
-          @slide_c[id] = new HomeFeatureSlideController({
-            'model': @slide_m[id]
-          })
+          if slide.id is 'recognition'
+            @slide_m[id] = new RecognitionFeatureSlideModel({
+              'type': slide.slide_type,
+              '$el': $el,
+              'id': slide.id,
+              'subtitle': slide.browser_title,
+              'title': slide.title,
+              'picture_src': slide.picture_src,
+              'copy': slide.copy,
+              'lists': slide.lists
+              'awards': slide.awards
+            })
+            @slide_c[id] = new RecognitionFeatureSlideController({
+              'model': @slide_m[id]
+            })
+          else
+            @slide_m[id] = new HomeFeatureSlideModel({
+              'type': slide.slide_type,
+              '$el': $el,
+              'id': slide.id,
+              'subtitle': slide.browser_title,
+              'title': slide.title,
+              'picture_src': slide.picture_src,
+              'copy': slide.copy,
+              'lists': slide.lists
+            })
+            @slide_c[id] = new HomeFeatureSlideController({
+              'model': @slide_m[id]
+            })
         when LW.slide_types.WORK_FEATURE
           @slide_m[id] = new WorkFeatureSlideModel({
             'type': slide.slide_type,
@@ -455,7 +473,7 @@ class PageController
     if e.which is 1 or LW.utils.is_mobile.any()
       @dragging = true
       @start_time = (new Date()).getTime()
-      @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+      @start_y = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageY else e.pageY
 
       LW.$doc
         .off(@mouseup)
@@ -471,7 +489,7 @@ class PageController
     if @dragging is true
       e.preventDefault()
 
-      @current_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+      @current_y = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageY else e.pageY
       @direction_y = @current_y - @start_y
       @current_range = if @start_y is 0 then 0 else Math.abs(@direction_y)
       @now = (new Date()).getTime()

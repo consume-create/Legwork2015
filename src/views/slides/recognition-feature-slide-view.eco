@@ -1,0 +1,18 @@
+<div class="slide-inner">
+	<!-- Picture zone -->
+	<div class="picture-zone" style="background-image: url('<%= @picture_src %>');"></div>
+
+	<!-- Info zone -->
+	<div class="info-zone">
+		<div class="info-holder">
+			<div class="content">
+				<span class="subtitle"><%- @subtitle %></span>
+				<h2><%- @title %></h2>
+				<%- @copy %>
+			</div>
+		</div>
+	</div>
+
+	<!-- Pile -->
+	<div id="recognition-pile"></div>
+</div>

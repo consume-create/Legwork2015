@@ -73,14 +73,14 @@ class SlideshowController
   *----------------------------------------###
   onMouseDown: (e) =>
     # Only start this if user is useing 'left click'
-    if e.which is 1 and @inmotion is false
+    if (e.which is 1 or LW.utils.is_mobile.any()) and @inmotion is false
       @dragging = true
       @slider_width = @$slider.width()
       @trans_x = -(@active_index * 100)
 
       @start_time = (new Date()).getTime()
-      @start_x = if Modernizr.touch then e.originalEvent.pageX else e.pageX
-      @start_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+      @start_x = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageX else e.pageX
+      @start_y = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageY else e.pageY
 
       LW.$doc.off(@mouseup)
         .one(@mouseup, @onMouseUp)
@@ -93,8 +93,8 @@ class SlideshowController
   *----------------------------------------###
   onMouseMove: (e) =>
     if @dragging is true and @y_axis is false
-      @current_x = if Modernizr.touch then e.originalEvent.pageX else e.pageX
-      @current_y = if Modernizr.touch then e.originalEvent.pageY else e.pageY
+      @current_x = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageX else e.pageX
+      @current_y = if LW.utils.is_mobile.any() then e.originalEvent.targetTouches[0].pageY else e.pageY
       @direction_x = @current_x - @start_x
       @current_range = if @start_x is 0 then 0 else Math.abs(@direction_x)
       current_range_y = if @start_y is 0 then 0 else Math.abs(@current_y - @start_y)

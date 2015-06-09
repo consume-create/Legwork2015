@@ -4,8 +4,9 @@ data = {
   "id": "recognition",
   "title": "Your mom would be<br>so proud.",
   "picture_src": "/images/about/accolades.png",
-  "copy": "<p>In our short time as a company, we've won a lot of awards. But, we don't let them dictate our approach. We'll find the balance between the latest trend and what's right for your project.</p>",
-  "lists": []
+  "copy": "<p>Our primary goal is to do compelling work. As a result, we've won a whole pile of awards. We'll find the balance between the latest trend and what's right for your project.</p>",
+  "lists": [],
+  "awards": {"test": "yep"}
 }
 
 module.exports = data
