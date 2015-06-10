@@ -41,7 +41,7 @@ class AnimationCoverSlideController extends BaseCoverSlideController
   *----------------------------------------###
   onAboutCTALoaded: (mc) =>
     @about_cta = mc
-    @about_cta.position = new PIXI.Point(1200, 700)
+    @about_cta.position = new PIXI.Point(100, 450)
     @about_cta.buttonMode = true
     @about_cta.interactive = true
     @stage.addChild(@about_cta)
