@@ -8,9 +8,12 @@
     position: absolute
     top: 50%
     width: 100%
-    max-width: 800px
-    margin-top: -19px
+    margin-top: -8px
     transform: translate(0, -50%)
+
+    @include respond-above($media_768)
+      @include respond-above-ht($media_ht_560)
+        margin-top: -15px
 
     .info-holder
       position: relative
@@ -36,8 +39,9 @@
           text-transform: uppercase
 
           @include respond-above($media_768)
-            font: normal normal normal 11px/11px $inconsolata_regular
-            margin-bottom: 20px
+            @include respond-above-ht($media_ht_560)
+              font: normal normal normal 11px/11px $inconsolata_regular
+              margin-bottom: 16px
 
         h2
           height: auto
@@ -46,15 +50,19 @@
           color: $black
 
           @include respond-above($media_768)
-            font: normal normal normal 32px/38px $avenir_bold
-            margin-bottom: 38px
+            @include respond-above-ht($media_ht_560)
+              font: normal normal normal 32px/38px $avenir_bold
+              margin-bottom: 38px
 
         p
+          max-width: 300px
           padding-right: 40px
           font: normal normal normal 11px/16px $avenir_regular
 
           @include respond-above($media_768)
-            font: normal normal normal 16px/25px $avenir_regular
+            @include respond-above-ht($media_ht_560)
+              max-width: 500px
+              font: normal normal normal 16px/25px $avenir_regular
 
           a
             position: relative
@@ -90,7 +98,8 @@
             margin: 0 10px 0 0
 
             @include respond-above($media_768)
-              font: normal normal normal 16px/25px $avenir_regular
+              @include respond-above-ht($media_ht_560)
+                font: normal normal normal 16px/25px $avenir_regular
 
             &:first-child
               font: normal normal normal 9px/9px $inconsolata_regular
@@ -99,8 +108,9 @@
               text-transform: uppercase
 
               @include respond-above($media_768)
-                font: normal normal normal 11px/11px $inconsolata_regular
-                margin-bottom: 20px
+                @include respond-above-ht($media_ht_560)
+                  font: normal normal normal 11px/11px $inconsolata_regular
+                  margin-bottom: 16px
 
             span.full
               display: none
@@ -128,18 +138,19 @@
           li
             font: normal normal normal 11px/16px $avenir_regular
 
-            @include respond-above($media_768)
-              font: normal normal normal 16px/25px $avenir_regular
-
             &:first-child
               font: normal normal normal 9px/9px $inconsolata_regular
               margin-bottom: 10px
               color: $black
               text-transform: uppercase
 
-              @include respond-above($media_768)
-                font: normal normal normal 11px/11px $inconsolata_regular
-                margin-bottom: 20px
+            @include respond-above($media_768)
+              @include respond-above-ht($media_ht_560)
+                font: normal normal normal 16px/25px $avenir_regular
+
+                &:first-child
+                  font: normal normal normal 11px/11px $inconsolata_regular
+                  margin-bottom: 16px
 
           &:nth-child(4)
             margin: 10px 0 0
