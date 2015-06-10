@@ -202,6 +202,37 @@ class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
+  | transitionIn:void (-)
+  |
+  | direction:string - top or bottom
+  |
+  | Transition in.
+  *----------------------------------------###
+  transitionIn: (direction) ->
+    @model.getV()
+      .removeClass('hide-cover')
+      .addClass('show-cover')
+
+  ###
+  *------------------------------------------*
+  | transitionOut:void (-)
+  |
+  | direction:string - top or bottom
+  | cb:function - callback
+  |
+  | Transition out.
+  *----------------------------------------###
+  transitionOut: (direction, cb) ->
+    @model.getV()
+      .removeClass('show-cover')
+      .addClass('hide-cover')
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        cb()
+      )
+
+  ###
+  *------------------------------------------*
   | activate:void (-)
   |
   | Activate.

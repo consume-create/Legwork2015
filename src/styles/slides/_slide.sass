@@ -19,6 +19,17 @@
       background-repeat: no-repeat
       background-position: 50% 50%
       background-size: 50px 50px
+      opacity: 0
+
+      &.show-cover
+        opacity: 1
+
+        transition: opacity $speed $ease_in
+
+      &.hide-cover
+        opacity: 0
+
+        transition: opacity $speed $ease_out
 
       // ---------------------------------------------
       // Shared styles: Cover
