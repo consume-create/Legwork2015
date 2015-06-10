@@ -16,36 +16,44 @@ data = {
       "count": 16
     },
     {
-      "texture": "/images/awards/one.png",
-      "count": 9
+      "texture": "/images/awards/oneshow.png",
+      "count": 6
     },
     {
-      "texture": "/images/awards/fwa.png", # TODO: Awwwards
+      "texture": "/images/awards/awwwards.png",
       "count": 16
     },
     {
-      "texture": "/images/awards/fwa.png", # TODO: Google
-      "count": 4
-    },
-    {
-      "texture": "/images/awards/fwa.png", # TODO: Vimeo
+      "texture": "/images/awards/sandbox.png",
       "count": 2
     },
     {
-      "texture": "/images/awards/fwa.png", # TODO: SXSW
+      "texture": "/images/awards/vimeo.png",
+      "count": 2
+    },
+    {
+      "texture": "/images/awards/sxsw.png",
       "count": 4
     },
     {
-      "texture": "/images/awards/fwa.png", # TODO: CommArts
-      "count": 7
+      "texture": "/images/awards/commarts.png",
+      "count": 8
     },
     {
-      "texture": "/images/awards/fwa.png", # TODO: ADC
+      "texture": "/images/awards/adc.png",
       "count": 5
     },
     {
-      "texture": "/images/awards/fwa.png", # TODO: VOTD
+      "texture": "/images/awards/votd.png",
       "count": 3
+    },
+    {
+      "texture": "/images/awards/pixel.png",
+      "count": 1
+    },
+    {
+      "texture": "/images/awards/adobe.png",
+      "count": 5
     }
   ]
 }
