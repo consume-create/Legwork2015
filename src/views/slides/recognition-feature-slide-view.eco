@@ -14,5 +14,5 @@
 	</div>
 
 	<!-- Pile -->
-	<div id="recognition-pile"></div>
+	<div id="recognition-pile" class="picture-zone"></div>
 </div>
