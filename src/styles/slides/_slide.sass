@@ -47,14 +47,16 @@
         background-position: 50% 50%
         background-size: contain
         transform: translate(-50%, -50%)
-        display: none
+        opacity: 0
+        transition: opacity $speed_metal linear
+
+        &.roll
+          opacity: 1
 
         canvas
           position: absolute
           top: 0px
           left: 50%
-          width: auto
-          height: 100%
 
           transform: translate(-50%, 0)
 
