@@ -1,13 +1,13 @@
 data = {
   "browser_title": "Ello Who's In Control",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["Who's", "In Control"],
+  "title": ["Ello", "Control"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
   ],
   "launch_url": null,
-  "watch_video_id": "33671603",
+  "watch_video_id": "127310102",
   "picture_src": "/images/work/ello-control/ello-control.png",
   "clients": [
     "icon-ello"
@@ -19,9 +19,10 @@ data = {
   ],
   "details": {
     "bg_src": "/images/work/ello-control/details/main.jpg",
-    "title": "Do You Even Know?",
-    "overview": "This is the coolest project ever.",
+    "title": "Who's In Control?",
+    "overview": "We created this conceptual video for Ello, and ad free social platform,  as a commentary on digital identity. The story opens by questioning who actually owns your data, and peaks at a pivotal moment where we literally show the user taking back control. The end result is a sci-fi inspired video that combines live action with projection mapping.",
     "services": [
+      "Services Provided",
       "Story Boards",
       "Design",
       "Mapping",
@@ -32,7 +33,7 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": null,
-        "video_id": "33671603"
+        "video_id": "127310102"
       },
       {
         "type": LW.media.IMAGE,
@@ -81,6 +82,11 @@ data = {
           "/images/work/ello-control/details/shoot-5.jpg"
         ]
       },
+      {
+        "type": LW.media.VIDEO,
+        "copy": null,
+        "video_id": "127310102"
+      }
     ]
   }
 }
