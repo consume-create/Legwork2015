@@ -37,17 +37,19 @@
 						<li><a id="social-github" href='https://github.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-github"></use></svg></a></li>
 					</ul>
 				<% else: %>
-					<% for list in @lists: %>
-						<ul class="lists cf">
-							<% for item in list.items: %>
-								<% if item.alt_name?: %>
-									<li><span class="full"><%- item.name %></span><span class="chop"><%- item.alt_name %></span></li>
-								<% else: %>
-									<li><%- item.name %></li>
+					<div class="list-pile cf">
+						<% for list in @lists: %>
+							<ul class="lists">
+								<% for item in list.items: %>
+									<% if item.alt_name?: %>
+										<li><span class="full"><%- item.name %></span><span class="chop"><%- item.alt_name %></span></li>
+									<% else: %>
+										<li><%- item.name %></li>
+									<% end %>
 								<% end %>
-							<% end %>
-						</ul>
-					<% end %>
+							</ul>
+						<% end %>
+					</div>
 				<% end %>
 			<% else: %>
 				<%- @copy %>
