@@ -14,10 +14,12 @@
 
     transform: translate(0,-50%)
 
+    @include respond-above($media_ht_360)
+      margin: 10px 0 0
+
     @include respond-above($media_480)
       left: 40px
       right: 40px
-      margin: 10px 0 0
 
     @include respond-above($media_768)
       left: 60px
@@ -28,8 +30,8 @@
       right: 100px
 
     @include respond-above($media_1024)
-      @include respond-above-ht($media_ht_666)
-        margin: 16px 0 0
+      @include respond-above-ht($media_ht_560)
+        margin: 18px 0 0
 
     .title-holder
       position: relative
@@ -115,7 +117,7 @@
           transform: translate3d(0,-40px,0)
 
       @include respond-above($media_1024)
-        @include respond-above-ht($media_ht_666)
+        @include respond-above-ht($media_ht_560)
           h2
             height: 66px
             padding: 0 0 27px
@@ -152,7 +154,7 @@
       overflow: hidden
 
       @include respond-above($media_1024)
-        @include respond-above-ht($media_ht_666)
+        @include respond-above-ht($media_ht_560)
           height: 76px
 
       .callout
@@ -169,7 +171,7 @@
             font-size: 14px
 
         @include respond-above($media_1024)
-          @include respond-above-ht($media_ht_666)
+          @include respond-above-ht($media_ht_560)
             line-height: 76px
 
         &:last-child
@@ -439,6 +441,19 @@
 
 .party-on
   .slide.work-feature
+    .title-zone
+      .callouts
+        .callout:hover
+          .icon
+            transform: translate3d(8px,0,0)
+
+      .title-holder:hover + .callouts
+        .callout
+          &.about,
+          &.reel
+            .icon
+              transform: translate3d(8px,0,0)
+
     .meta-zone
       ul.mediums
         li:hover
