@@ -139,7 +139,7 @@ class WorkDetailController
     @resetVideos()
     
     $t = $(e.currentTarget)
-    $v = "<iframe src='//player.vimeo.com/video/#{$t.attr('data-id')}?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;api=1&amp;player_id=player' id='player' width='720' height='405' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+    $v = "<iframe src='//player.vimeo.com/video/#{$t.attr('data-id')}?title=0&amp;byline=0&amp;badge=0&amp;portrait=0&amp;color=fff&amp;autoplay=1&amp;player_id=player' id='player' width='720' height='405' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
     
     $t[0].offsetHeight
     $t.parent('.video-holder').addClass('playing')

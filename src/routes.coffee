@@ -55,7 +55,9 @@ class Routes
     if e.which is 2 or e.metaKey is true then return true
 
     href = $(e.currentTarget).attr('href')
-    History.pushState(null, null, href)
+
+    if href isnt 'javascript:void(0);'
+      History.pushState(null, null, href)
 
   ###
   *------------------------------------------*
