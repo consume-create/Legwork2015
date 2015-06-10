@@ -21,7 +21,7 @@ alameda_new_leaf = require './work/animation/alameda-new-leaf'
 # Interactive
 interactive = require './work/interactive/landing'
 laika_the_boxtrolls = require './work/interactive/laika-the-boxtrolls'
-hakkasan_wet_republic = require './work/interactive/hakkasan-wet-republic'
+kentucky_fried_chicken = require './work/interactive/kentucky-fried-chicken'
 coke_building_of_memories = require './work/interactive/coke-building-of-memories'
 newton_run_better = require './work/interactive/newton-run-better'
 coke_ahh_effect = require './work/interactive/coke-ahh-effect'
@@ -69,7 +69,7 @@ data = {
       "slides": {
         "landing": interactive,
         "laika-the-boxtrolls": laika_the_boxtrolls,
-        "hakassan-wet-republic": hakkasan_wet_republic,
+        "kentucky-fried-chicken": kentucky_fried_chicken,
         "coke-building-of-memories": coke_building_of_memories,
         "newton-run-better": newton_run_better,
         "coke-ahh-effect": coke_ahh_effect,

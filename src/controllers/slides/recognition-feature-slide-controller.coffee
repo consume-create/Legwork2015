@@ -77,7 +77,7 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
     bodies = []
     for obj in @model.getAwards()
       for i in [0..obj.count]
-        bodies.push(Matter.Bodies.circle((Math.round(Math.random() * 300) + 1350), -(Math.round(Math.random() * 1960) + 80), 40, {
+        bodies.push(Matter.Bodies.circle((Math.round(Math.random() * 200) + 1400), -(Math.round(Math.random() * 4960) + 80), 40, {
           'render': {
             'sprite': {
               'texture': obj.texture
@@ -132,11 +132,11 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
       cancelAnimationFrame(@frame)
       @frame = requestAnimationFrame(@render)
 
-      # Pause renderer in 13 seconds
+      # Pause renderer in 15 seconds
       clearTimeout(@done_to)
       @done_to = setTimeout(=>
         cancelAnimationFrame(@frame)
-      , 13000)
+      , 15000)
 
   ###
   *------------------------------------------*
