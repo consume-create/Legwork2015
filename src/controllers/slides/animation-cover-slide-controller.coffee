@@ -27,7 +27,6 @@ class AnimationCoverSlideController extends BaseCoverSlideController
   *----------------------------------------###
   build: ->
     super()
-    @observe()
 
   ###
   *------------------------------------------*
@@ -36,6 +35,8 @@ class AnimationCoverSlideController extends BaseCoverSlideController
   | Observe.
   *----------------------------------------###
   observe: ->
+    super() 
+
     @model.getV().on('click', (e) =>
       History.pushState(null, null, @model.getWatchUrl())
     )
