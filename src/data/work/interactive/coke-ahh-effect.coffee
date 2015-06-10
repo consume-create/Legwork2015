@@ -21,7 +21,7 @@ data = {
   "details": {
     "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",
     "title": "Bitesized Brand Experiences",
-    "overview": "We were among a handful of digital studios selected by Wieden + Kennedy to contribute several games to the &ldquo;Ahh Effect&rdquo; for Coca-Cola. Their goal was to reach a younger audience through thier handheld devices. For us, it was all about experimenting with the latest features of iOS and Android in a real world setting.",
+    "overview": "When Wieden+Kennedy approached us about joining The Ahh Effect Team, we jumped at the chance. After all, it was Coke's first ever all digital campaign. The brief was a dream—make a collection of simple, focused interactions with a mobile-first mentality. Each Ahh is totally unique, calling for a variety of production techniques from sound design, illustration and motion graphics, to game development and sweeps integration.",
     "services": [
       "Services",
       "Design / UX",
