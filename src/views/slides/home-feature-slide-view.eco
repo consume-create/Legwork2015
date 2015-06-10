@@ -5,55 +5,53 @@
 	<!-- Info zone -->
 	<div class="info-zone">
 		<div class="info-holder">
-			<div class="content">
-				<span class="subtitle"><%- @subtitle %></span>
-				<h2><%- @title %></h2>
-				<% if @lists.length > 0: %>
-					<% if @id is 'summary': %>
-						<%- @copy %>
-						<ul class="callouts">
-							<% for list in @lists: %>
-								<li class="callout <%= list.type %>">
-									<div class="copy"><%- list.copy %></div>
-									<div class="icon">
-										<span class="rect"></span>
-										<span class="rect"></span>
-										<span class="tri"></span>
-									</div>
-								</li>
+			<span class="subtitle"><%- @subtitle %></span>
+			<h2><%- @title %></h2>
+			<% if @lists.length > 0: %>
+				<% if @id is 'summary': %>
+					<%- @copy %>
+					<ul class="callouts">
+						<% for list in @lists: %>
+							<li class="callout <%= list.type %>">
+								<div class="copy"><%- list.copy %></div>
+								<div class="icon">
+									<span class="rect"></span>
+									<span class="rect"></span>
+									<span class="tri"></span>
+								</div>
+							</li>
+						<% end %>
+					</ul>
+				<% else if @id is 'contact': %>
+					<% for list in @lists: %>
+						<ul class="stack">
+							<% for item in list.items: %>
+								<li><%- item %></li>
 							<% end %>
 						</ul>
-					<% else if @id is 'contact': %>
-						<% for list in @lists: %>
-							<ul class="stack">
-								<% for item in list.items: %>
-									<li><%- item %></li>
-								<% end %>
-							</ul>
-						<% end %>
-						<ul class="socials">
-							<li><a id="social-twitter" href='https://twitter.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-twitter"></use></svg></a></li>
-							<li><a id="social-facebook" href='https://facebook.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-facebook"></use></svg></a></li>
-							<li><a id="social-vimeo" href='https://vimeo.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-vimeo"></use></svg></a></li>
-							<li><a id="social-github" href='https://github.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-github"></use></svg></a></li>
-						</ul>
-					<% else: %>
-						<% for list in @lists: %>
-							<ul class="lists cf">
-								<% for item in list.items: %>
-									<% if item.alt_name?: %>
-										<li><span class="full"><%- item.name %></span><span class="chop"><%- item.alt_name %></span></li>
-									<% else: %>
-										<li><%- item.name %></li>
-									<% end %>
-								<% end %>
-							</ul>
-						<% end %>
 					<% end %>
+					<ul class="socials">
+						<li><a id="social-twitter" href='https://twitter.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-twitter"></use></svg></a></li>
+						<li><a id="social-facebook" href='https://facebook.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-facebook"></use></svg></a></li>
+						<li><a id="social-vimeo" href='https://vimeo.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-vimeo"></use></svg></a></li>
+						<li><a id="social-github" href='https://github.com/legworkstudio' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-github"></use></svg></a></li>
+					</ul>
 				<% else: %>
-					<%- @copy %>
+					<% for list in @lists: %>
+						<ul class="lists cf">
+							<% for item in list.items: %>
+								<% if item.alt_name?: %>
+									<li><span class="full"><%- item.name %></span><span class="chop"><%- item.alt_name %></span></li>
+								<% else: %>
+									<li><%- item.name %></li>
+								<% end %>
+							<% end %>
+						</ul>
+					<% end %>
 				<% end %>
-			</div>
+			<% else: %>
+				<%- @copy %>
+			<% end %>
 		</div>
 	</div>
 </div>

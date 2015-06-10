@@ -63,7 +63,7 @@ class WatchVideoController
       @$video_player.css('padding-bottom', r + '%')
     )
 
-    $v = "<iframe src='//player.vimeo.com/video/#{id}?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+    $v = "<iframe src='//player.vimeo.com/video/#{id}?title=0&amp;byline=0&amp;badge=0&amp;portrait=0&amp;color=fff&amp;autoplay=1&amp;player_id=player' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
     @$video_player.append($v).addClass('playing')
 
   ###

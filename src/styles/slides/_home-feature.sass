@@ -8,211 +8,215 @@
     position: absolute
     top: 50%
     width: 100%
-    max-width: 800px
-    margin-top: -19px
+    margin-top: -8px
     transform: translate(0, -50%)
+
+    @include respond-above($media_768)
+      @include respond-above-ht($media_ht_560)
+        margin-top: -15px
 
     .info-holder
       position: relative
-      display: inline-block
+      padding: 0 20px
+      opacity: 0
 
-      .content
-        padding: 0 20px
-        transform: translate3d(0px, 0px, 0px)
+      transform: translate3d(0,0px,0)
 
-        @include respond-above($media_480)
-          padding: 0 40px
+      @include respond-above($media_480)
+        padding: 0 40px
+
+      @include respond-above($media_768)
+        padding: 0 60px
+
+      @include respond-above($media_1180)
+        padding: 0 100px
+
+      .subtitle
+        display: block
+        font: normal normal normal 9px/9px $inconsolata_regular
+        margin-bottom: 10px
+        text-transform: uppercase
 
         @include respond-above($media_768)
-          padding: 0 60px
-
-        @include respond-above($media_1180)
-          padding: 0 100px
-
-        .subtitle
-          display: block
-          font: normal normal normal 9px/9px $inconsolata_regular
-          margin-bottom: 10px
-          text-transform: uppercase
-
-          @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
             font: normal normal normal 11px/11px $inconsolata_regular
-            margin-bottom: 20px
+            margin-bottom: 16px
 
-        h2
-          height: auto
-          margin-bottom: 24px
-          font: normal normal normal 20px/24px $avenir_bold
-          color: $black
+      h2
+        height: auto
+        margin-bottom: 24px
+        font: normal normal normal 20px/24px $avenir_bold
+        color: $black
 
-          @include respond-above($media_768)
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
             font: normal normal normal 32px/38px $avenir_bold
             margin-bottom: 38px
 
-        p
-          padding-right: 40px
-          font: normal normal normal 11px/16px $avenir_regular
+      p
+        max-width: 300px
+        padding-right: 40px
+        font: normal normal normal 11px/16px $avenir_regular
 
-          @include respond-above($media_768)
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
+            max-width: 500px
             font: normal normal normal 16px/25px $avenir_regular
 
-          a
-            position: relative
-            color: $black
-            display: inline-block
+        a
+          position: relative
+          color: $black
+          display: inline-block
 
-            &:after
-              content: ''
-              position: absolute
-              bottom: 0px
-              left: 0px
-              width: 100%
-              height: 2px
-              background-color: $white
+          &:after
+            content: ''
+            position: absolute
+            bottom: 0px
+            left: 0px
+            width: 100%
+            height: 2px
+            background-color: $white
 
-        p.job-list
-          margin-top: 12px
-          line-height: 18px
+      p.job-list
+        margin-top: 12px
+        line-height: 18px
+
+        @include respond-above($media_768)
+          line-height: 27px
+
+        a
+          &:after
+            bottom: 2px
+
+      ul.lists
+        float: left
+        width: 50%
+
+        li
+          font: normal normal normal 11px/16px $avenir_regular
+          margin: 0 10px 0 0
 
           @include respond-above($media_768)
-            line-height: 27px
+            @include respond-above-ht($media_ht_560)
+              font: normal normal normal 16px/25px $avenir_regular
+
+          &:first-child
+            font: normal normal normal 9px/9px $inconsolata_regular
+            margin-bottom: 10px
+            color: $black
+            text-transform: uppercase
+
+            @include respond-above($media_768)
+              @include respond-above-ht($media_ht_560)
+                font: normal normal normal 11px/11px $inconsolata_regular
+                margin-bottom: 16px
+
+          span.full
+            display: none
+          span.chop
+            display: block
+
+          @include respond-above($media_480)
+            span.full
+              display: block
+            span.chop
+              display: none
+
+        &:nth-child(5),
+        &:nth-child(6)
+          margin: 10px 0 0
+
+          @include respond-above-ht($media_ht_480)
+            margin: 38px 0 0
+
+        @include respond-above-ht($media_ht_560)
+          li
+            display: block
+
+      ul.stack
+        li
+          font: normal normal normal 11px/16px $avenir_regular
+
+          &:first-child
+            font: normal normal normal 9px/9px $inconsolata_regular
+            margin-bottom: 10px
+            color: $black
+            text-transform: uppercase
+
+          @include respond-above($media_768)
+            @include respond-above-ht($media_ht_560)
+              font: normal normal normal 16px/25px $avenir_regular
+
+              &:first-child
+                font: normal normal normal 11px/11px $inconsolata_regular
+                margin-bottom: 16px
+
+        &:nth-child(4)
+          margin: 10px 0 0
+
+          @include respond-above-ht($media_ht_480)
+            margin: 38px 0 0
+
+      ul.socials
+        margin-top: 10px
+        font-size: 0
+        line-height: 0
+
+        li
+          display: inline-block
+          height: 20px
 
           a
-            &:after
-              bottom: 2px
+            display: block
+            height: 100%
+            padding: 0 8px
 
-        ul.lists
-          float: left
-          width: 50%
-
-          li
-            font: normal normal normal 11px/16px $avenir_regular
-            margin: 0 10px 0 0
-
-            @include respond-above($media_768)
-              font: normal normal normal 16px/25px $avenir_regular
-
-            &:first-child
-              font: normal normal normal 9px/9px $inconsolata_regular
-              margin-bottom: 10px
-              color: $black
-              text-transform: uppercase
-
-              @include respond-above($media_768)
-                font: normal normal normal 11px/11px $inconsolata_regular
-                margin-bottom: 20px
-
-            span.full
-              display: none
-            span.chop
+            svg
               display: block
-
-            @include respond-above($media_480)
-              span.full
-                display: block
-              span.chop
-                display: none
-
-          &:nth-child(5),
-          &:nth-child(6)
-            margin: 10px 0 0
-
-            @include respond-above-ht($media_ht_480)
-              margin: 38px 0 0
-
-          @include respond-above-ht($media_ht_560)
-            li
-              display: block
-
-        ul.stack
-          li
-            font: normal normal normal 11px/16px $avenir_regular
-
-            @include respond-above($media_768)
-              font: normal normal normal 16px/25px $avenir_regular
-
-            &:first-child
-              font: normal normal normal 9px/9px $inconsolata_regular
-              margin-bottom: 10px
-              color: $black
-              text-transform: uppercase
-
-              @include respond-above($media_768)
-                font: normal normal normal 11px/11px $inconsolata_regular
-                margin-bottom: 20px
-
-          &:nth-child(4)
-            margin: 10px 0 0
-
-            @include respond-above-ht($media_ht_480)
-              margin: 38px 0 0
-
-        ul.socials
-          margin-top: 10px
-          font-size: 0
-          line-height: 0
-
-          li
-            display: inline-block
-            height: 20px
-
-            a
-              display: block
+              width: 100%
               height: 100%
-              padding: 0 8px
+              fill: $black
 
-              svg
-                display: block
-                width: 100%
-                height: 100%
-                fill: $black
+          a#social-twitter
+            width: 24px
 
-            a#social-twitter
-              width: 24px
+          a#social-facebook
+            width: 10px
 
-            a#social-facebook
-              width: 10px
+          a#social-vimeo
+            width: 23px
 
-            a#social-vimeo
-              width: 23px
+          a#social-github
+            width: 20px
 
-            a#social-github
-              width: 20px
+          &:first-child
+            a
+              padding-left: 0px
 
-            &:first-child
-              a
-                padding-left: 0px
-
-      &.top .content
+      &.top
         transform: translate3d(0,-24px,0)
 
-      &.bottom .content
+      &.bottom
         transform: translate3d(0,24px,0)
 
-      &.trans-in .content
+      &.trans-in
         opacity: 1
 
         transform: translate3d(0,0px,0)
         transition: transform $speed $ease_out, opacity $speed $ease_out
 
-      &.trans-out .content
+      &.trans-out
         opacity: 0
         
         transition: transform $speed $ease_in, opacity $speed $ease_in
 
-      &.trans-out.top .content
+      &.trans-out.top
         transform: translate3d(0,24px,0)
 
-      &.trans-out.bottom .content
+      &.trans-out.bottom
         transform: translate3d(0,-24px,0)
 
-  #recognition-pile
-    position: absolute
-    top: 0px
-    left: 0px
-    width: 100%
-    height: 100%
-
+  #recognition-pile.picture-zone
     canvas
       position: absolute
       top: 0px

@@ -46,28 +46,4 @@ class BaseFeatureSlideModel extends BaseSlideModel
     else
       throw 'ERROR: $trans does not exist'
 
-  ###
-  *------------------------------------------*
-  | getPhotoEl:jQuery (-)
-  |
-  | Get photo el.
-  *----------------------------------------###
-  get$photo: ->
-    return @_$photo
-
-  ###
-  *------------------------------------------*
-  | setPhotoEl:jQuery (-)
-  |
-  | $photo:jQuery - photo el
-  |
-  | Set photo el.
-  *----------------------------------------###
-  set$photo: ($photo) ->
-    if $photo.length > 0
-      @_$photo = $photo
-    else
-      throw 'ERROR: $photo does not exist'
-
-
 module.exports = BaseFeatureSlideModel

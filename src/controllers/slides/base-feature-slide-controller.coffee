@@ -27,7 +27,6 @@ class BaseFeatureSlideController extends BaseSlideController
   *----------------------------------------###
   build: ->
     @model.getE().append(@model.getV())
-    @model.set$photo($('.picture-zone', @model.getV()))
 
   ###
   *------------------------------------------*
@@ -46,9 +45,6 @@ class BaseFeatureSlideController extends BaseSlideController
       @model.get$trans()
         .addClass('trans-in')
         .removeClass(direction)
-
-      @model.get$photo()
-        .addClass('show')
     )
 
   ###
@@ -69,8 +65,5 @@ class BaseFeatureSlideController extends BaseSlideController
       .one(LW.utils.transition_end, =>
         cb()
       )
-
-    @model.get$photo()
-      .removeClass('show')
 
 module.exports = BaseFeatureSlideController

@@ -43,54 +43,74 @@ class BaseCoverSlideController extends BaseSlideController
     # Scene size
     @scene_size = {'w': 1920, 'h': 1080}
 
-    # PIXI Stage
-    @stage = new PIXI.Container()
-    @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': true})
-    @$vid_wrap.append(@renderer.view)
+    # PIXI for desktop, static for mobile
+    if LW.utils.is_mobile.any()
+      @$vid_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')').show()
+    else
+      # PIXI Stage
+      @stage = new PIXI.Container()
+      @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': true})
+      @$vid_wrap.append(@renderer.view)
 
-    # Base video layer / sprite
-    @layers[0] = new PIXI.Container()
-    @base_vid = if LW.utils.is_mobile.any() then PIXI.Texture.fromImage(@model.getFallbackPath()) else PIXI.Texture.fromVideo(@model.getBaseVideoPath())
-    @base_vid.baseTexture.source.loop = true
-    @base = new PIXI.Sprite(@base_vid)
-    @base.width = @renderer.width
-    @base.height = @renderer.height
+      # Base video layer / sprite
+      @layers[0] = new PIXI.Container()
+      @base_vid = PIXI.Texture.fromVideo(@model.getBaseVideoPath())
+      @base_vid.baseTexture.source.loop = true
+      @base = new PIXI.Sprite(@base_vid)
+      @base.width = @renderer.width
+      @base.height = @renderer.height
 
-    @layers[0].addChild(@base)
-    @stage.addChild(@layers[0])
+      @layers[0].addChild(@base)
+      @stage.addChild(@layers[0])
+      @observe()
 
-    $(@base_vid.baseTexture.source).one('playing', (e) =>
+  ###
+  *------------------------------------------*
+  | observe:void (-)
+  |
+  | Observe.
+  *----------------------------------------###
+  observe: ->
+    $(@base_vid.baseTexture.source).one('playing', @onBaseVideoPlay)
 
-      # Sample the color of the video
-      # and use it as the slide bg color
-      # to match the h264 color wash
-      c = document.createElement('canvas').getContext('2d')
-      c.drawImage(@base_vid.baseTexture.source, 10, 10, 20, 20, 0, 0, 20, 20)
-      p = c.getImageData(0, 0, 20, 20).data
-      l = p.length - 1
-      r = g = b = 0
+  ###
+  *------------------------------------------*
+  | onBaseVideoPlay:void (-)
+  |
+  | e:object - event object
+  |
+  | Handle base video play.
+  *----------------------------------------###
+  onBaseVideoPlay: (e) =>
+    # Sample the color of the video
+    # and use it as the slide bg color
+    # to match the h264 color wash
+    c = document.createElement('canvas').getContext('2d')
+    c.drawImage(@base_vid.baseTexture.source, 10, 10, 20, 20, 0, 0, 20, 20)
+    p = c.getImageData(0, 0, 20, 20).data
+    l = p.length - 1
+    r = g = b = 0
 
-      # Average color of 400 pixels
-      while l > 0
-        r += p[l - 3]
-        g += p[l - 2]
-        b += p[l - 1]
-        l -= 4
+    # Average color of 400 pixels
+    while l > 0
+      r += p[l - 3]
+      g += p[l - 2]
+      b += p[l - 1]
+      l -= 4
 
-      ar = Math.round(r / 400)
-      ag = Math.round(g / 400)
-      ab = Math.round(b / 400)
+    ar = Math.round(r / 400)
+    ag = Math.round(g / 400)
+    ab = Math.round(b / 400)
 
-      # Set it
-      @model.getE().attr('data-rgb', ar + ',' + ag + ',' + ab)
+    # Set it
+    @model.getE().attr('data-rgb', ar + ',' + ag + ',' + ab)
 
-      @$vid_wrap
-        .css('background-color', 'rgb(' + ar + ',' + ag + ',' + ab + ')')
-        .show()
+    @$vid_wrap
+      .css('background-color', 'rgb(' + ar + ',' + ag + ',' + ab + ')')
+      .show()
 
-      # PIXI autoplays the video, so ...
-      @resetBaseVideo()
-    )
+    # PIXI autoplays the video, so ...
+    @resetBaseVideo()
 
   ###
   *------------------------------------------*
@@ -144,14 +164,6 @@ class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
-  | observe:void (-)
-  |
-  | Observe.
-  *----------------------------------------###
-  observe: ->
-
-  ###
-  *------------------------------------------*
   | resetBaseVideo:void (=)
   |
   | Reset base video.
@@ -180,12 +192,13 @@ class BaseCoverSlideController extends BaseSlideController
   | Pause the renderer.
   *----------------------------------------###
   turnRenderer: (s) ->
-    cancelAnimationFrame(@frame)
-    @resetBaseVideo() if LW.utils.is_mobile.any() is false
+    if LW.utils.is_mobile.any() is false
+      cancelAnimationFrame(@frame)
+      @resetBaseVideo()
 
-    if s is 'on'
-      @base_vid.baseTexture.source.play() if LW.utils.is_mobile.any() is false
-      @frame = requestAnimationFrame(@render)
+      if s is 'on'
+        @base_vid.baseTexture.source.play()
+        @frame = requestAnimationFrame(@render)
 
   ###
   *------------------------------------------*

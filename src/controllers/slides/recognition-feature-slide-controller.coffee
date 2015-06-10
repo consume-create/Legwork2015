@@ -36,8 +36,15 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
 
     super()
     @model.set$trans($('.info-holder', @model.getV()))
+    @buildPile() if LW.utils.is_mobile.any() is false
 
-    # Award Pile
+  ###
+  *------------------------------------------*
+  | buildPile:void (-)
+  |
+  | Build the award pile.
+  *----------------------------------------###
+  buildPile: ->
     @$pile = $('#recognition-pile', @model.getV())
     @engine = Matter.Engine.create(@$pile.get(0), {
       'render': {
@@ -70,7 +77,7 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
     bodies = []
     for obj in @model.getAwards()
       for i in [0..obj.count]
-        bodies.push(Matter.Bodies.circle((Math.round(Math.random() * 300) + 1350), -(Math.round(Math.random() * 1960) + 80), 40, {
+        bodies.push(Matter.Bodies.circle((Math.round(Math.random() * 200) + 1400), -(Math.round(Math.random() * 4960) + 80), 40, {
           'render': {
             'sprite': {
               'texture': obj.texture
@@ -117,18 +124,19 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
     super()
 
     # Build award pile
-    Matter.World.clear(@engine.world, false)
-    @initPile()
+    if LW.utils.is_mobile.any() is false
+      Matter.World.clear(@engine.world, false)
+      @initPile()
 
-    # Start renderer
-    cancelAnimationFrame(@frame)
-    @frame = requestAnimationFrame(@render)
-
-    # Pause renderer in 10 seconds
-    clearTimeout(@done_to)
-    @done_to = setTimeout(=>
+      # Start renderer
       cancelAnimationFrame(@frame)
-    , 10000)
+      @frame = requestAnimationFrame(@render)
+
+      # Pause renderer in 15 seconds
+      clearTimeout(@done_to)
+      @done_to = setTimeout(=>
+        cancelAnimationFrame(@frame)
+      , 15000)
 
   ###
   *------------------------------------------*
@@ -140,8 +148,9 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
     super()
 
     # Destroy award pile
-    clearTimeout(@done_to)
-    cancelAnimationFrame(@frame)
-    Matter.World.clear(@engine.world, false)
+    if LW.utils.is_mobile.any() is false
+      clearTimeout(@done_to)
+      cancelAnimationFrame(@frame)
+      Matter.World.clear(@engine.world, false)
 
 module.exports = RecognitionFeatureSlideController
