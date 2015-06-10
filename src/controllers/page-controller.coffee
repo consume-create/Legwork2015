@@ -276,6 +276,10 @@ class PageController
     $new_slide = @slide_c[slide].model.getE()
     @active_index = $new_slide.index()
 
+    # Set active class
+    @$slide.removeClass('active')
+    $new_slide.addClass('active')
+
     # Page nav
     @page_nav_c.updatePageNav(slide) if @page_nav_c?
 
@@ -302,10 +306,6 @@ class PageController
         @active_c.turnRenderer('on') if @active_c.model.getType() in LW.covers
     else
       @hideSub()
-
-      # Go to slide
-      @$slide.removeClass('active')
-      $new_slide.addClass('active')
 
       direction = if @active_index >= @active_c.model.getE().index() then 'bottom' else 'top'
       @active_c.transitionOut(direction, =>
