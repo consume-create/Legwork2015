@@ -21,22 +21,25 @@ data = {
   "details": {
     "bg_src": "/images/work/leinenkugel-social-shandy/details/main.jpg",
     "title": "Summer in a bottle",
-    "overview": "Social media project, 6 different spots",
+    "overview": "Recently, Leinenkugal released it’s Summer Shandy beer nationally. However, if you aren’t a fan of craft beer, or from the midwest, you may not be familiar with the Shandy style. Fans of the beer describe it as \"summer in a bottle,\" which is exactly what we set out to create.",
     "services": [
       "Services",
-      "Production",
+      "Live Action",
       "Visual Effects",
-      "Sound Design",
-      "Art Direction"
+      "Sound Design"
     ],
-    "accolades": null,
+    "accolades": [
+      "Parnters",
+      "Social Deviant",
+      "Leninkugels"
+    ],
     "media": [
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "Master of Puppets",
+          "title": "Don’t Point Towards Face",
           "text": [
-            "See how we brought these fuzzy teens to life and our production process in this behind-the-scenes short."
+            "Watch below to get a peek behind the curtain and see how we jammed a bunch of fun into your bottle."
           ]
         },
         "video_id": "124881232"
@@ -44,9 +47,9 @@ data = {
       {
         "type": LW.media.SLIDESHOW,
         "copy": {
-          "title": "CG or not to CG",
+          "title": "Made By Humans",
           "text": [
-            "Exploring the ideas of using a CG umbrella vs the fidelity of a real one. Making a rig that would open an umbrella by itself to shot on a green screen."
+            "Since the final product would be used as social media content, our goal was to create the illusion that these videos were just like any video you might see on Instagram or Facebook. We achieved this by giving the footage an intentionally lo-fi aesthetic and created the majority of the effects practically."
           ]
         },
         "images": [
@@ -60,9 +63,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Clean plates!",
+          "title": "Simple Magic",
           "text": [
-            "Each project was shot with a person handing the prop from behind the bar up to the actor. In post production we would remove any unwanted fottage, create a clean plate and replace it with the illusion of pulling out the objects from the bottle. "
+            "During the live action shoot, we came up with numerous tricks to pass physical objects to the talent. In post production, we removed any unwanted footage through rotoscoping and layering to create clean plates that allowed us to composite."
           ]
         },
         "images": [
@@ -72,9 +75,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Final Output",
+          "title": "Clogging the feed",
           "text": [
-            "* Leinenkugel brewing company’s social media platforms. When filing we needed to keep in mind the final 1 to 1 crop for them to live in social media. We did 6 seperate pieces for them to roll out over the couse of a few months."
+            "We created 6 total videos which rolled out every other week over the course of a few months. The project was well received, with consumer feedback like \"That didn’t happen with my bottle.\" and \"I bet that was animated\""
           ]
         },
         "images": [
