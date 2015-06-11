@@ -30,7 +30,7 @@ class BaseCoverSlideController extends BaseSlideController
     super()
     @model.setV($(JST['cover-slide-view']({
       'id': @model.getId(),
-      'base_video_path': @model.getBaseVideoPath()
+      'watch_url': @model.getWatchUrl()
     })))
     @model.getE().append(@model.getV())
 

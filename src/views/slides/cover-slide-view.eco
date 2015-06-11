@@ -2,4 +2,8 @@
 	<div class="cover-wrap">
 		<div class="cnv-wrap"></div>
 	</div>
+
+	<% if @id isnt 'home': %>
+		<a href="<%= @watch_url %>" class="ajaxy"><%= @id %> reel</a>
+	<% end %>
 </div>
