@@ -22,7 +22,7 @@ data = {
     "title": "Painting frames for days",
     "overview": "Alameda&rsquo;s video for the track New Leaf has truly been a labor of love for us. We chipped away at it during our downtime and used it as a way to explore new animation techniques, specifically rotoscoping over 3D animation. The goal was to combine the hand-made feel of painting with the perfection of 3D camera movement and environments.",
     "services": [
-      "Services Provided",
+      "Services",
       "Story Boards",
       "Design",
       "Illustration",

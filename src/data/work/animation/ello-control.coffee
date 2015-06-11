@@ -22,7 +22,7 @@ data = {
     "title": "Who's In Control?",
     "overview": "We created this conceptual video for Ello, and ad free social platform,  as a commentary on digital identity. The story opens by questioning who actually owns your data, and peaks at a pivotal moment where we literally show the user taking back control. The end result is a sci-fi inspired video that combines live action with projection mapping.",
     "services": [
-      "Services Provided",
+      "Services",
       "Story Boards",
       "Design",
       "Mapping",
