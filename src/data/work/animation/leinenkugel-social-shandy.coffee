@@ -21,12 +21,13 @@ data = {
   "details": {
     "bg_src": "/images/work/leinenkugel-social-shandy/details/main.jpg",
     "title": "Summer in a bottle",
-    "overview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phase llus lobortis erat eleifend turpis sagittis facilisis. Cras posuere elit nec luctus vulputate. Mauris sed accumsan ligula. Vivamus ac est rutrum, lacinia arcu interdum, congue leo.",
+    "overview": "Social media project, 6 different spots",
     "services": [
-      "Story Boards",
-      "Design",
-      "Live Action Shoot",
-      "Animation"
+      "Services Provided",
+      "Production",
+      "Visual Effects",
+      "Sound Design",
+      "Art Direction"
     ],
     "accolades": null,
     "media": [
@@ -69,14 +70,16 @@ data = {
         ]
       },
       {
-        "type": LW.media.VIDEO,
+        "type": LW.media.IMAGE,
         "copy": {
-          "title": "BC4U The Feed",
+          "title": "Final Output",
           "text": [
-            "See the puppet teens in action below in the final animation."
+            "* Leinenkugel brewing company’s social media platforms. When filing we needed to keep in mind the final 1 to 1 crop for them to live in social media. We did 6 seperate pieces for them to roll out over the couse of a few months."
           ]
         },
-        "video_id": "118837949"
+        "images": [
+          "/images/work/leinenkugel-social-shandy/details/mobile.jpg"
+        ]
       }
     ]
   }
