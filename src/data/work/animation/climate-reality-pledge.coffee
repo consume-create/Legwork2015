@@ -18,23 +18,50 @@ data = {
   ],
   "details": {
     "bg_src": "/images/work/climate-reality/details/main.jpg",
-    "title": "24 hours of Climate Reality",
-    "overview": "\"24 Hours of Climate Reality\" is an event where experts and celebrities conduct Dirty Weather Reports from across the globe. During the event, viewers are asked to join the global movement and demand action from their governments. This piece is an anthemic and informational call-to-action. We employ a combination of smooth motion and textural cel animation to contrast and visualize the battle between good and evil.",
+    "title": "You’ve Got A Voice",
+    "overview": "Hosted by Al Gore, Climate Reality Project’s \"Dirty Weather Report\" featured news and insight from experts about the impacts of climate change on our lives. To drive the initiative, Climate Reality brought in Legwork to create an anthemic and informational video as their call-to-action.",
     "services": [
-      "Story Boards",
+      "Services",
       "Design",
       "Illustration",
       "Cel Animation",
-      "3D Animation"
+      "2D Animation"
     ],
-    "accolades": null,
+    "accolades": [
+      "Recognition",
+      "Al Gore watched it"
+    ],
     "media": [
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Initial Sketches",
+          "title": "Developing The Look",
           "text": [
-            "Some copy goes here."
+            "It was important to visualize the concept of good versus evil in this piece. To do so we explored multiple styles utilizing clean graphics contrasted by grungy illustration to find the perfect balance between light and dark."
+          ]
+        },
+        "images": [
+          "/images/work/climate-reality/details/look.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Getting Our Hands Dirty",
+          "text": [
+            "For the oil industry segments, we used hand drawn frame-by-frame cel animation in combination with layers of dust and charcoal to create an ominous and polluted look."
+          ]
+        },
+        "images": [
+          "/images/work/climate-reality/details/frames.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "No More Mens Room Characters",
+          "text": [
+            "Informational animations tend to lean towards overly simplified characters. We developed a main character style that added interest through shading and texure, while still keep the utilitarian aspects of an infographic icon."
           ]
         },
         "images": [
@@ -42,34 +69,12 @@ data = {
         ]
       },
       {
-        "type": LW.media.IMAGE,
-        "copy": {
-          "title": "Story Boards / Initial Design",
-          "text": [
-            "Some copy goes here."
-          ]
-        },
-        "images": [
-          "/images/work/climate-reality/details/narrowed.jpg"
-        ]
-      },
-      {
-        "type": LW.media.IMAGE,
-        "copy": {
-          "title": "Final Options",
-          "text": [
-            "Some copy goes here."
-          ]
-        },
-        "images": [
-          "/images/work/climate-reality/details/options.jpg"
-        ]
-      },
-      {
         "type": LW.media.VIDEO,
         "copy": {
           "title": "Final Spot",
-          "text": null
+          "text": [
+            "Climate change is not a myth! See the final piece below.",
+          ]
         },
         "video_id": "53487338"
       }

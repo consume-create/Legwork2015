@@ -24,14 +24,15 @@ data = {
     "services": [
       "Services",
       "Illustration",
+      "User Experience",
+      "Design",
       "Animation",
-      "Design / UX",
       "Development"
     ],
     "accolades": [
       "Recognition",
-      "Awwwards SOTD",
-      "FWA MOTD"
+      "Awwwards",
+      "FWA"
     ],
     "media": [
       {

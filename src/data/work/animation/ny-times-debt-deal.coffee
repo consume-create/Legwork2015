@@ -21,6 +21,7 @@ data = {
     "title": "Obama vs. Boehner",
     "overview": "The New York Times approached us to create a video that accompanied an article explaining the failed 2011 debt deal between President Obama and House Speaker John Boehner. We partnered with writers at The New York Times to create a piece that acts as a high-level recount of how the deal came to be - and how it ultimately unraveled.",
     "services": [
+      "Services",
       "Story Boards",
       "Design",
       "Mapping",

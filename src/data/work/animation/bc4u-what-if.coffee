@@ -23,12 +23,13 @@ data = {
     "title": "How different would life be with a baby?",
     "overview": "BC4U provides safe, anonymous birth control to teens, but it can be tough to get the word out. So, instead of more traditional outreach methods, they have focused their efforts on an online content series. This episode shows how disruptive it can be when you throw a baby into the mix. ",
     "services": [
-      "Services Provided",
+      "Services",
       "Art Direction",
       "Design",
       "Animation"
     ],
     "accolades": [
+      "Recognition",
       "Partners",
       "Sprocket Communications",
       "BC4U"
