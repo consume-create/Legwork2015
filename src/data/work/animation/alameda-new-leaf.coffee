@@ -1,7 +1,7 @@
 data = {
-  "browser_title": "New Leaf By Alameda",
+  "browser_title": "Alameda New Leaf",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["New Leaf", "By Alameda"],
+  "title": ["Alameda", "New Leaf"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
@@ -13,8 +13,8 @@ data = {
     "icon-alameda"
   ],
   "mediums": [
-    LW.mediums.ANIMATION,
     LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.ANIMATION,
     LW.mediums.ILLUSTRATION
   ],
   "details": {

@@ -1,7 +1,7 @@
 data = {
-  "browser_title": "BC4U What If I Had A Baby?",
+  "browser_title": "BC4U The Feed",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["What If I", "Had A Baby?"],
+  "title": ["BC4U", "The Feed"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
@@ -14,7 +14,6 @@ data = {
     "icon-sprocket"
   ],
   "mediums": [
-    LW.mediums.ANIMATION,
     LW.mediums.THREE_DIMENSIONAL,
     LW.mediums.ILLUSTRATION
   ],
@@ -29,7 +28,6 @@ data = {
       "Animation"
     ],
     "accolades": [
-      "Recognition",
       "Partners",
       "Sprocket Communications",
       "BC4U"

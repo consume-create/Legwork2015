@@ -7,16 +7,15 @@ data = {
     LW.callouts.WATCH
   ],
   "launch_url": null,
-  "watch_video_id": "123",
+  "watch_video_id": "124881232",
   "picture_src": "/images/work/leinenkugel-social-shandy/leinenkugel-social-shandy.png",
   "clients": [
     "icon-leinenkugel",
     "icon-social-deviant"
   ],
   "mediums": [
-    LW.mediums.LIVE_ACTION,
-    LW.mediums.ANIMATION,
-    LW.mediums.THREE_DIMENSIONAL
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.LIVE_ACTION
   ],
   "details": {
     "bg_src": "/images/work/leinenkugel-social-shandy/details/main.jpg",
