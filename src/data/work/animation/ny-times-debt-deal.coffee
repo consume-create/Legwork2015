@@ -31,7 +31,8 @@ data = {
       "Recognition",
       "Drawn",
       "Ventilate",
-      "ADCD"
+      "ADCD",
+      "Vimeo Staff Pick"
     ],
     "media": [
       {

@@ -30,7 +30,7 @@ data = {
     ],
     "accolades": [
       "Partners",
-      "TBWA\CHIAT\DAY",
+      "TBWA\\CHIAT\\DAY",
       "Nissan"
     ]
     "media": [

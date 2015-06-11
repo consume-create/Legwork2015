@@ -1,5 +1,5 @@
 data = {
-  "browser_title": "Interactive",
+  "browser_title": "Interactive Reel",
   "slide_type": LW.slide_types.INTERACTIVE_COVER,
   "id": "interactive",
   "base_video_path": "/video/interactive.mp4",

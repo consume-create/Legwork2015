@@ -1,5 +1,5 @@
 data = {
-  "browser_title": "Animation",
+  "browser_title": "Animation Reel",
   "slide_type": LW.slide_types.ANIMATION_COVER,
   "id": "animation",
   "base_video_path": "/video/animation.mp4",
