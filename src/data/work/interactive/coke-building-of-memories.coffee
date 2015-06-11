@@ -38,8 +38,10 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": null,
-          "text": null
+          "title": "The Building of The Building",
+          "text": [
+            "Interviews with the team and highlights on how this project came together."
+          ]
         },
         "video_id": "109858979"
       },

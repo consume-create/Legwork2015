@@ -26,7 +26,6 @@ coke_building_of_memories = require './work/interactive/coke-building-of-memorie
 newton_run_better = require './work/interactive/newton-run-better'
 coke_ahh_effect = require './work/interactive/coke-ahh-effect'
 google_roll_it = require './work/interactive/google-roll-it'
-chrysler_hands_on_ron_burgundy = require './work/interactive/chrysler-hands-on-ron-burgundy'
 
 # Error
 error = require './error'
