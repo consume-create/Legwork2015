@@ -44,7 +44,7 @@ data = {
         "copy": {
           "title": "It's a Sneaker Peeker",
           "text": [
-            "The shoes are the most important part of the site and the client wanted a very easy, unintrusive way to look at them. We came up with a simple hero area that showed different angles of the shoe when the user rolls into several horizontal sections. Other major brands copied this approach after we launched."
+            "The shoes are the most important part of the site and the client wanted a very easy, unintrusive way to look at them. We came up with a simple hero area that showed different angles of the shoe when the user rolls into several horizontal sections."
           ]
         },
         "images": [

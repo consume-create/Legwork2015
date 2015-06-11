@@ -41,7 +41,12 @@ data = {
     "media": [
       {
         "type": LW.media.VIDEO,
-        "copy": null,
+        "copy": {
+          "title": "Making The Boxtrolls",
+          "text": [
+            "Interviews with the team and highlights on how this project came together."
+          ]
+        },
         "video_id": "124862150"
       },
       {
