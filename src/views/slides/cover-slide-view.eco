@@ -4,7 +4,7 @@
 	</div>
 	<% if @id isnt 'home': %>
 		<a href="<%= @watch_url %>" class="ajaxy">
-      <div class="cool-shape">
+      <div class="play-btn">
         <span></span>
         <span></span>
       </div>
