@@ -30,7 +30,7 @@ class BaseCoverSlideController extends BaseSlideController
     super()
     @model.setV($(JST['cover-slide-view']({
       'id': @model.getId(),
-      'base_video_path': @model.getBaseVideoPath()
+      'watch_url': @model.getWatchUrl()
     })))
     @model.getE().append(@model.getV())
 
@@ -46,7 +46,9 @@ class BaseCoverSlideController extends BaseSlideController
 
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
-      @$cnv_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')').show()
+      @resize()
+      @$cnv_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')')
+      @$vid_wrap.addClass('roll')
     else
       # PIXI Stage
       @stage = new PIXI.Container()
