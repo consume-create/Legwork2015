@@ -233,6 +233,7 @@ class TransitionController
   *----------------------------------------###
   activate: ->
     @resize()
+    @suspendAllAnimations()
     @frame = requestAnimationFrame(@render)
     @model.getE().show()
 
