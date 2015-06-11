@@ -297,6 +297,7 @@ class PageController
       , 13)
     else if @slide_c[slide] is @active_c
       if sub_type isnt ''
+        console.log 'show sub'
         @showSub(sub_type)
       else
         @hideSub()
@@ -370,9 +371,11 @@ class PageController
     # transition
     if no_trans is true
       @$mask_wrapper.addClass('no-trans')
+    else
+      @$mask_wrapper.removeClass('no-trans')
 
     @$mask_wrapper[0].offsetHeight # clear CSS cache
-    _.defer(=> @$mask_wrapper.addClass('unmask'))
+    @$mask_wrapper.addClass('unmask')
 
   ###
   *------------------------------------------*
