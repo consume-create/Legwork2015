@@ -1,7 +1,7 @@
 data = {
   "browser_title": "Coke Ahh Effect",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["The Ahh", "Effect"],
+  "title": ["The Coca-Cola", "Ahh Effect"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.LAUNCH
@@ -21,7 +21,7 @@ data = {
   "details": {
     "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",
     "title": "Bitesized Brand Experiences",
-    "overview": "We were selected to contribute a series of games to the &ldquo;Ahh Effect&rdquo; for Coke. This collection of 64 games, quizzes, and content plays that all tie loosely tie back to the brand in unexpected and sometimes irreverent ways. While each experience is meant to stand on its own, its even more impressive when all of them are viewed as a collection.",
+    "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coke. This collection of 64 games, quizzes, and content plays that all tie loosely tie back to the brand in unexpected and sometimes irreverent ways. While each experience is meant to stand on its own, its even more impressive when all of them are viewed as a collection.",
     "services": [
       "Services",
       "User Experience",
