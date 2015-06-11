@@ -21,17 +21,20 @@ data = {
     "title": "Skeeball Over Sockets",
     "overview": "Roll It is a Chrome Experiment that reimagines a classic boardwalk game using only the browser on your phone and computer. The browser on your phone lets you aim and roll the ball with a flick of your wrist, while the browser on your computer renders the real time graphics of the Roll It alley with WebGL and Canvas. The two devices communicate via WebSockets. No apps. No downloads. No tokens. All you need is a modern browser.",
     "services": [
-      "Strategy",
-      "UX",
+      "Services",
+      "User Experience",
+      "Art Direction",
       "Design",
-      "Development",
+      "3D Modeling",
       "Animation"
     ],
     "accolades": [
-      "Accolades",
+      "Recognition",
+      "Webby Awards",
+      "Twitter Trend",
       "FWA",
-      "Awwwards",
-      "Communication Arts"
+      "AWWWARDS",
+      "Adobe Cutting Edge"
     ],
     "media": [
       {

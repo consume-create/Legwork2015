@@ -21,7 +21,7 @@ data = {
   "details": {
     "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",
     "title": "Bitesized Brand Experiences",
-    "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coke. This collection of 64 games, quizzes, and content plays that all tie loosely tie back to the brand in unexpected and sometimes irreverent ways. While each experience is meant to stand on its own, its even more impressive when all of them are viewed as a collection.",
+    "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coke, a collection of 64 games, quizzes, and content plays that all tie loosely back to the brand in unexpected and irreverent ways. Each experience can stand on its own, but its most impressive when viewed as a collection.",
     "services": [
       "Services",
       "User Experience",
@@ -32,9 +32,7 @@ data = {
     "accolades": [
       "Recognition",
       "Webby Awards",
-      "Pixel Awards",
-      "FWA",
-      "Awwwards"
+      "FWA"
     ],
     "media": [
       {
@@ -42,7 +40,7 @@ data = {
         "copy": {
           "title": "Maniac Kernels From Outer Space",
           "text": [
-            "Talk about levels, bonuses and most importantly using the gyroscope to control the ship. collision detection, projectiles and gyroscopic control.",
+            "Just your typical \"evil popcorn trying to take over the world and only you can defend humanity with an ice-cold Coca Cola powered rocket\" type video game.",
             "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
           ]
         },
@@ -54,10 +52,10 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Maniac Kernels From Outer Space",
+          "title": "Cupcake Unicorn",
           "text": [
-            "Talk about levels, bonuses and most importantly using the gyroscope to control the ship. collision detection, projectiles and gyroscopic control.",
-            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+            "A sip of Coca-Cola tastes like a cupcake filled with unicorns. Does that not sound delicious?",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhhhhhhhhhh.com' target='_new'>http://ahhhhhhhhhhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
           ]
         },
         "images": [
@@ -67,10 +65,10 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Maniac Kernels From Outer Space",
+          "title": "Ice Toss",
           "text": [
-            "Talk about levels, bonuses and most importantly using the gyroscope to control the ship. collision detection, projectiles and gyroscopic control.",
-            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+            "The perfect temperature to enjoy a Coke is 37 degrees. Too perfect, some might say. But that’s a risk some are willing to take.",
+            "<a class='launch-link' href='http://www.ahhhhhhhhhh.com' target='_new'>http://www.ahhhhhhhhhh.com<span class='icon'></span></a>"
           ]
         },
         "images": [

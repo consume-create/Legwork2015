@@ -26,16 +26,17 @@ data = {
     "services": [
       "Services",
       "Concepting",
-      "Design / UX",
+      "User Experience",
+      "Design",
       "Development",
       "Animation"
     ],
     "accolades": [
       "Recognition",
-      "Webby Honoree",
-      "FWA MOTD, SOTD, TCEA",
-      "Awwwards SOTD",
-      "Pixel Award Nominee"
+      "Webby Awards",
+      "AWWWARDS",
+      "FWA",
+      "Pixel Awards"
     ],
     "media": [
       {

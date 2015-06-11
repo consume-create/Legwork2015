@@ -23,7 +23,7 @@ data = {
     "title": "Summer in a bottle",
     "overview": "Social media project, 6 different spots",
     "services": [
-      "Services Provided",
+      "Services",
       "Production",
       "Visual Effects",
       "Sound Design",

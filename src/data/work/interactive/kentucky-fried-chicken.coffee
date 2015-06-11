@@ -23,14 +23,15 @@ data = {
     "title": "Finger Clickin’ Good",
     "overview": "The new KFC site is a key component of their larger brand redesign. We balanced a throwback aesthetic with a modern interface, resulting in an adaptive, app-like experience that seamlessly brings the key functions of the site into the forefront while remaining fully indexable by the search bots.",
     "services": [
-      "Services Provided",
+      "Services",
       "User Experience",
       "Design",
       "Development"
     ],
     "accolades": [
       "Recognition",
-      "2 Twitter Mentions"
+      "Designer News",
+      "Site Inspire"
     ],
     "media": [
       {

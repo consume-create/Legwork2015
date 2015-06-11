@@ -279,9 +279,9 @@ class WorkFeatureSlideModel extends BaseFeatureSlideModel
   setMediums: (mediums) ->
     passed = true
 
-    if _.isArray(mediums) is false or (mediums.length < 1 or mediums.length > 3)
+    if _.isArray(mediums) is false or (mediums.length < 1 or mediums.length > 7)
       passed = false
-      throw 'ERROR: mediums must be an array of at least 1, but no more than 3 of the defined LW.mediums listed in ./src/env.coffee'
+      throw 'ERROR: mediums must be an array of at least 1, but no more than 7 of the defined LW.mediums listed in ./src/env.coffee'
 
     for m in mediums
       if _.contains(_.values(LW.mediums), m) is false
