@@ -1,5 +1,5 @@
 data = {
-  "browser_title": "Wet Republic",
+  "browser_title": "Kentucky Fried Chicken",
   "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Kentucky", "Fried Chicken"],
   "callouts": [
@@ -19,77 +19,43 @@ data = {
     LW.mediums.ANIMATION
   ],
   "details": {
-    "bg_src": "/images/work/wet-republic/details/main.jpg",
-    "title": "It’s 10:00AM Somewhere",
-    "overview": "The premiere day party on the strip had a serious image issue. Their site was antiquated and in need of a face-lift. It didn’t even work on the phone. We worked directly with Hakkasan and the MGM to concept and execute a contemporary site that will serve as a solid platform for years to come.",
+    "bg_src": "/images/work/kentucky-fried-chicken/details/main.jpg",
+    "title": "Finger Clickin’ Good",
+    "overview": "The new KFC site is a key component of their larger brand redesign. We balanced a throwback aesthetic with a modern interface, resulting in an adaptive, app-like experience that seamlessly brings the key functions of the site into the forefront while remaining fully indexable by the search bots.",
     "services": [
-      "Services",
-      "Concepting",
-      "Design / UX",
-      "Development",
-      "Animation"
+      "Services Provided",
+      "User Experience",
+      "Design",
+      "Development"
     ],
     "accolades": [
       "Recognition",
-      "Awwwards SOTD",
-      "FWA MOTD"
+      "2 Twitter Mentions"
     ],
     "media": [
       {
-        "type": LW.media.IMAGE,
+        "type": LW.media.VIDEO,
         "copy": {
-          "title": "A Site for Everybody",
+          "title": "Simplifiying The Experience",
           "text": [
-            "Our client wanted something that felt both luxurious and unique. But, with an such an expansive target audience, we didn't want to reinvent responsive design. So, we struck the balance between straight-ahead features and several custom layouts."
+            "At project inception, we all knew the site should focus on the main few reasons someone would go to this site. So, we immediately began prototyping possible UX patterns."
           ]
         },
-        "images": [
-          "/images/work/wet-republic/details/desktop.jpg"
-        ]
-      },
-      {
-        "type": LW.media.SLIDESHOW,
-        "copy": {
-          "title": "A Complete Rebuild",
-          "text": [
-            "In concepting, we landed on an illustrative approach that would load fast but meet the requirement of promoting Wet Republic as a luxury brand. In the the UX phase, we not only created the site structure, but also identified content needs so Hakkasan and MGM had plenty of time to collect what was needed."
-          ]
-        },
-        "images": [
-          "/images/work/wet-republic/details/ux-1.jpg",
-          "/images/work/wet-republic/details/ux-2.jpg",
-          "/images/work/wet-republic/details/ux-3.jpg"
-        ]
+        "video_id": "130398129"
       },
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "12 Unique Templates and A Custom Icon Set",
+          "title": "Laying Out The Pages",
           "text": [
-            "Instead of going generic, we created 12 completely unique templates for the main pages of the site. Also, for this project we really wanted to experiment with SVG. We made a completely custom SVG icon set for the info boxes throughout the site and created custom SVG animations for the main menu."
+            "While Wieden+Kennedy was busy shooting pictures of chicken and writing content, we were laying out all of the pages and coming up with alternatives to a hamburger icon."
           ]
         },
         "images": [
-          "/images/work/wet-republic/details/templates.jpg"
-        ]
-      },
-      {
-        "type": LW.media.IMAGE,
-        "copy": null,
-        "images": [
-          "/images/work/wet-republic/details/icons.jpg"
-        ]
-      },
-      {
-        "type": LW.media.IMAGE,
-        "copy": {
-          "title": "Fully Responsive",
-          "text": [
-            "The site was built with a mobile first, progressive enhancement approach and is completely responsive from phone to desktop."
-          ]
-        },
-        "images": [
-          "/images/work/wet-republic/details/responsive.jpg"
+          "/images/work/kentucky-fried-chicken/details/layout-1.jpg",
+          "/images/work/kentucky-fried-chicken/details/layout-2.jpg",
+          "/images/work/kentucky-fried-chicken/details/layout-3.jpg",
+          "/images/work/kentucky-fried-chicken/details/layout-4.jpg"
         ]
       }
     ]
