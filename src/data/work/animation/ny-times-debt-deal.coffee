@@ -1,7 +1,7 @@
 data = {
-  "browser_title": "NY Times Debt Deal",
+  "browser_title": "New York Times Debt Deal",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["NY Times", "Debt Deal"],
+  "title": ["New York Times", "Debt Deal"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
@@ -19,22 +19,27 @@ data = {
   "details": {
     "bg_src": "/images/work/ny-times-debt-deal/details/main.jpg",
     "title": "Obama vs. Boehner",
-    "overview": "The New York Times approached us to create a video that accompanied an article explaining the failed 2011 debt deal between President Obama and House Speaker John Boehner. We partnered with writers at The New York Times to create a piece that acts as a high-level recount of how the deal came to be - and how it ultimately unraveled.",
+    "overview": "So what went wrong between President Obama and House Speaker John Boehner when the 2011 debt deal fell apart? We partnered with The New York Times to produce a high-level recount of how the deal came to be - and how it ultimately unraveled.",
     "services": [
       "Services",
-      "Story Boards",
       "Design",
-      "Mapping",
-      "Animation"
+      "Illustration",
+      "2D Animation",
+      "Cel Animation"
     ],
-    "accolades": null,
+    "accolades": [
+      "Recognition",
+      "Drawn",
+      "Ventilate",
+      "ADCD"
+    ],
     "media": [
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Clean plates!",
+          "title": "Digital Painting",
           "text": [
-            "Each project was shot with a person handing the prop from behind the bar up to the actor. In post production we would remove any unwanted fottage, create a clean plate and replace it with the illusion of pulling out the objects from the bottle. "
+            "To create the textured paint style of the spot, we created a set of custom Photoshop brush presets that were shared by the team to keep the look consistent."
           ]
         },
         "images": [
@@ -44,9 +49,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Clean plates!",
+          "title": "Photo To Illustration",
           "text": [
-            "Each project was shot with a person handing the prop from behind the bar up to the actor. In post production we would remove any unwanted fottage, create a clean plate and replace it with the illusion of pulling out the objects from the bottle. "
+            "The New York Times provided us with a large library of photographs from their archives. To stylize the images to fit our textured newspaper look we ran each one through a process of deconstructing and drawing additional layers on top."
           ]
         },
         "images": [
@@ -56,9 +61,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Clean plates!",
+          "title": "Eraser Head",
           "text": [
-            "Each project was shot with a person handing the prop from behind the bar up to the actor. In post production we would remove any unwanted fottage, create a clean plate and replace it with the illusion of pulling out the objects from the bottle. "
+            "A series of cel animated luma mattes were built to create the erasing transition effects. By using them on multiple layers at once in a single scene we were able to achieve a fluid and consistent paint style through the entire spot. "
           ]
         },
         "images": [
@@ -67,7 +72,12 @@ data = {
       },
       {
         "type": LW.media.VIDEO,
-        "copy": null,
+        "copy": {
+          "title": "Debt Deal",
+          "text": [
+            "See what happened in the final piece below, if you didn’t already know."
+          ]
+        },
         "video_id": "39365605"
       }
     ]

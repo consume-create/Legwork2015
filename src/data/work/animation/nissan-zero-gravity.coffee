@@ -14,8 +14,8 @@ data = {
     "icon-tbwa"
   ],
   "mediums": [
-    LW.mediums.ANIMATION,
-    LW.mediums.THREE_DIMENSIONAL
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.ANIMATION
   ],
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/main.jpg",

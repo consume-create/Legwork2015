@@ -6,7 +6,7 @@ data = {
     LW.callouts.ABOUT,
     LW.callouts.LAUNCH
   ],
-  "launch_url": "http://www.gifbin.com/bin/112009/1258398030_mini-dozer-faceplant.gif",
+  "launch_url": "http://www.kfc.com",
   "watch_video_id": null,
   "picture_src": "/images/work/kentucky-fried-chicken/kentucky-fried-chicken.png",
   "clients": [
@@ -14,9 +14,7 @@ data = {
     "icon-wieden"
   ],
   "mediums": [
-    LW.mediums.WEB,
-    LW.mediums.ILLUSTRATION,
-    LW.mediums.ANIMATION
+    LW.mediums.WEB
   ],
   "details": {
     "bg_src": "/images/work/kentucky-fried-chicken/details/main.jpg",
