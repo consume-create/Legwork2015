@@ -1,70 +1,184 @@
 .slide
-  .slide-inner
-    &.cover
-      background-image: url(../images/loading@2x.gif)
-      background-repeat: no-repeat
-      background-position: 50% 50%
-      background-size: 50px 50px
+  .slide-inner.cover
+    background-image: url(../images/loading@2x.gif)
+    background-repeat: no-repeat
+    background-position: 50% 50%
+    background-size: 50px 50px
+    opacity: 0
+
+    &.show-cover
+      opacity: 1
+
+      transition: opacity $speed $ease_in
+
+    &.hide-cover
       opacity: 0
 
-      &.show-cover
+      transition: opacity $speed $ease_out
+
+    .cover-wrap
+      position: absolute
+      top: 0px
+      left: 0px
+      width: 100%
+      height: 100%
+      opacity: 0
+      transition: opacity $speed_metal linear
+
+      &.roll
         opacity: 1
 
-        transition: opacity $speed $ease_in
-
-      &.hide-cover
-        opacity: 0
-
-        transition: opacity $speed $ease_out
-
-      .cover-wrap
+      .cnv-wrap
         position: absolute
         top: 0px
-        left: 0px
-        width: 100%
-        height: 100%
-        opacity: 0
-        transition: opacity $speed_metal linear
+        left: 50%
+        background-repeat: no-repeat
+        background-position: 50% 50%
+        background-size: contain
+        transform: translate(-50%, 0)
 
-        &.roll
-          opacity: 1
-
-        .cnv-wrap
+        &.blend:before,
+        &.blend:after
+          content: ""
+          display: block
           position: absolute
           top: 0px
-          left: 50%
-          background-repeat: no-repeat
-          background-position: 50% 50%
-          background-size: contain
-          transform: translate(-50%, 0)
+          width: 200px
+          height: 100%
+          background-repeat: repeat-y
+          background-position: top left
 
-          &.blend:before,
-          &.blend:after
-            content: ""
-            display: block
-            position: absolute
-            top: 0px
-            width: 200px
-            height: 100%
-            background-repeat: repeat-y
-            background-position: top left
+        &.blend:before
+          left: 0px
 
-          &.blend:before
-            left: 0px
+        &.blend:after
+          right: 0px
+          transform: rotate(180deg)
 
-          &.blend:after
-            right: 0px
-            transform: rotate(180deg)
+        canvas
+          width: 100%
+          height: 100%
 
-          canvas
-            width: 100%
-            height: 100%
-
+  // Plain Jane
+  &.animation-cover
+    .slide-inner.cover
       a
         position: absolute
-        top: 100px
+        top: 50%
         left: 100px
-        text-transform: capitalize
+        width: 76px
+        padding: 0 0 8px
+        text-align: center
+        font: normal normal normal 12px/12px $avenir_bold
+        white-space: nowrap
+
+        transform: translate(0,-50%)
+
+        &:after
+          content: ''
+          position: absolute
+          bottom: 0px
+          left: 0px
+          width: 100%
+          height: 3px
+          background-color: $black
+          opacity: 0.2
+
+          transition: opacity $speed $ease_out
+
+        .cool-shape
+          position: relative
+          width: 74px
+          height: 74px
+
+          span:first-child
+            position: absolute
+            top: 10px
+            left: 10px
+            right: 10px
+            bottom: 10px
+            border: 3px solid $black
+            border-radius: 50%
+
+          span:last-child
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 0
+            height: 0
+            margin: 0
+            border-top: 8px solid transparent
+            border-bottom: 8px solid transparent
+            border-left: 13px solid $black
+
+            transform: translate(-4px,-8px)
+
+        &:hover
+          &:after
+            opacity: 1
+
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
+            font: normal normal normal 15px/15px $avenir_bold
+
+  // Buzzsaw Vibrations
+  &.interactive-cover
+    .slide-inner.cover
+      a
+        position: absolute
+        top: 50%
+        left: 100px
+        height: 54px
+        padding-left: 64px
+        white-space: nowrap
+        font: normal normal normal 12px/60px $avenir_bold
+
+        transform: translate(0,-50%)
+
+        .cool-shape
+          position: absolute
+          top: 0px
+          left: 0px
+          width: 54px
+          height: 100%
+
+          span:first-child
+            position: absolute
+            top: 0px
+            left: 0px
+            width: 100%
+            height: 100%
+            background-image: url('/images/play-reel-icon.png')
+            background-repeat: no-repeat
+            background-position: center center
+            background-size: cover
+
+          span:last-child
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 0
+            height: 0
+            margin: 0
+            border-top: 8px solid transparent
+            border-bottom: 8px solid transparent
+            border-left: 13px solid $black
+
+            transform: translate(-4px,-8px)
+
+        &:hover
+          animation: shake 100ms linear infinite
+
+          .cool-shape
+            span:first-child
+              animation: shake 50ms linear infinite
+
+            span:last-child
+              animation: shake 5s linear infinite
+
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
+            font: normal normal normal 15px/60px $avenir_bold
 
 // Blends for Safari color shift w/ video
 .slide#home-landing
