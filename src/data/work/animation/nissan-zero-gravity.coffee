@@ -20,27 +20,36 @@ data = {
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/main.jpg",
     "title": "Seats from space",
-    "overview": "When TBWA\CHIAT\DAY\LA approached us about a video to demonstrate the technology behind the new Nissan Zero Gravity seats, we decided to focus on the human aspects of the story. Our journey starts on a stylized drive through the country and quickly takes the viewer on a brief journey into outer space to explore the engineering principles behind the ride. Taking cues from sci-fi films and graphic novels, the visual design came to life through a combination of full 3D animation and 2D styling. With limited assets provided, Legwork took the lead on creating photo-real 3D models of the Zero Gravity Seat, in addition to all of the stylized 3D elements in the spot.",
+    "overview": "What makes Zero Gravity seats so special? To visualize the answer, our story starts on a drive through the country and quickly takes the viewer on a brief journey into outer space to explore the engineering principles behind the ride. The piece balances technical information with driver benefits in a way that demystifies the science without getting bogged down in the details. ",
     "services": [
       "Services",
-      "Story Boards",
       "Design",
+      "Illustration",
       "Modeling",
-      "Animation"
+      "3D Animation"
     ],
-    "accolades": null,
+    "accolades": [
+      "Partners",
+      "TBWA\CHIAT\DAY",
+      "Nissan"
+    ]
     "media": [
       {
         "type": LW.media.VIDEO,
-        "copy": null
+        "copy": {
+          "title": "Countdown To Ignition",
+          "text": [
+            "A short look into how we brought the Nissan Zero Gravity Seats to the screen."
+          ]
+        },
         "video_id": "106336461"
       },
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "Modeling The World",
           "text": [
-            "Some copy goes here."
+            "With limited assets provided, Legwork took the lead on creating all of the stylized 3D elements in the spot, including the Nissan Altima and the photo-real model of the Zero Gravity Seat."
           ]
         },
         "images": [
@@ -50,9 +59,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "The Future Is Now",
           "text": [
-            "Some copy goes here."
+            "The spot needed a compelling way to visualize graphics and communicate the technical information. To do this we created a package of animated interface graphics and screens that take cues from sci-fi films and graphics novels."
           ]
         },
         "images": [
@@ -62,9 +71,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Some Title",
+          "title": "Branding The Space Station",
           "text": [
-            "Some copy goes here."
+            "A selection of marks and icons that can be found in and around the space station and on the astronaut."
           ]
         },
         "images": [
@@ -74,9 +83,9 @@ data = {
       {
         "type": LW.media.SLIDESHOW,
         "copy": {
-          "title": "Some Title",
+          "title": "Exploring Time",
           "text": [
-            "Some copy goes here."
+            "The concept of the spot is based on the idea of comparing something on earth to something in space. So knowing that there was going to be an environment shift, we explored the look of different hours of the day on earth to get a sense of how it contrasted the space scenes."
           ]
         },
         "images": [
@@ -88,9 +97,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Earth to Zero G",
+          "title": "The Visual Style",
           "text": [
-            "Some copy goes here."
+            "To tell a story that contains nearly two minutes of real technical information you need to elaborate and stylize. To balance the fact with the fiction we used a stylized 3D look for the overall piece, with a few spots of photo-real style to keep it all grounded."
           ]
         },
         "images": [
@@ -100,8 +109,10 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "Final Spot",
-          "text": null
+          "title": "Nissan Zero Gravity Seats",
+          "text": [
+            "Check out the finished spot below.",
+          ]
         },
         "video_id": "105804907"
       }
