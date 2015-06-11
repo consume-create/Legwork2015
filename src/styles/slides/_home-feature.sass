@@ -48,12 +48,15 @@
         font: normal normal normal 18px/18px $avenir_bold
         color: $black
 
+        @include respond-above($media_ht_360)
+          font: normal normal normal 20px/24px $avenir_bold
+
+        @include respond-above($media_480)
+          margin-bottom: 24px
+
         @include respond-above-ht($media_ht_360)
           margin-bottom: 24px
           font: normal normal normal 18px/22px $avenir_bold
-
-        @include respond-above($media_ht_360)
-          font: normal normal normal 20px/24px $avenir_bold
 
         @include respond-above($media_768)
           @include respond-above-ht($media_ht_560)
@@ -192,15 +195,19 @@
             display: block
 
       ul.socials
-        margin-top: 10px
+        margin-top: 12px
         font-size: 0
         line-height: 0
 
-        @include respond-above-ht($media_ht_360)
-          margin-top: 20px
-
         @include respond-above($media_480)
-          margin-top: 20px
+          margin-top: 24px
+
+        @include respond-above-ht($media_ht_360)
+          margin-top: 24px
+
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
+            margin-top: 38px
 
         li
           display: inline-block
