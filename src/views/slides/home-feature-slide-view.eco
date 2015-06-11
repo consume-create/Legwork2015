@@ -23,13 +23,15 @@
 						<% end %>
 					</ul>
 				<% else if @id is 'contact': %>
-					<% for list in @lists: %>
-						<ul class="stack">
-							<% for item in list.items: %>
-								<li><%- item %></li>
-							<% end %>
-						</ul>
-					<% end %>
+					<div class="list-pile cf">
+						<% for list in @lists: %>
+							<ul class="lists">
+								<% for item in list.items: %>
+									<li><%- item %></li>
+								<% end %>
+							</ul>
+						<% end %>
+					</div>
 					<ul class="socials">
 						<li><a id="social-twitter" href='https://twitter.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-twitter"></use></svg></a></li>
 						<li><a id="social-facebook" href='https://facebook.com/legwork' target='_new'><svg><use xlink:href="/svg/svgdefs.svg#icon-facebook"></use></svg></a></li>
