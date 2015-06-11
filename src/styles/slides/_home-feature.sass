@@ -104,15 +104,15 @@
 
       .list-pile
         width: 100%
-        max-width: 320px
+        max-width: 360px
 
         @include respond-above($media_768)
           @include respond-above-ht($media_ht_560)
-            max-width: 616px
+            max-width: 540px
 
       ul.lists
         float: left
-        width: 40%
+        width: 50%
         margin-bottom: 10px
 
         &:nth-child(3),
@@ -199,6 +199,9 @@
         @include respond-above-ht($media_ht_360)
           margin-top: 20px
 
+        @include respond-above($media_480)
+          margin-top: 20px
+
         li
           display: inline-block
           height: 20px
@@ -272,9 +275,13 @@
           &:nth-child(2)
             margin-bottom: 0px
 
-          @include respond-above($media_768)
-            @include respond-above-ht($media_ht_560)
-              margin-bottom: 20px
+          @include respond-above($media_480)
+            width: 50%
+            margin: 0
+
+          // @include respond-above($media_768)
+          //   @include respond-above-ht($media_ht_560)
+          //     margin-bottom: 20px
 
 
 // ---------------------------------------------
