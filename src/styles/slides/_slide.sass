@@ -34,6 +34,11 @@
 
       transition: opacity $speed $ease_in
 
+      @media all and (max-aspect-ratio: 1/1)
+        background-position: 72% bottom
+        background-size: cover
+        opacity: 0.1
+
     // ---------------------------------------------
     // Shared styles: Meta zone
     // ---------------------------------------------
@@ -78,6 +83,4 @@
         transition: opacity $speed $ease_out
 
         @media all and (max-aspect-ratio: 1/1)
-          background-position: 72% bottom
-          background-size: cover
           opacity: 0.1
