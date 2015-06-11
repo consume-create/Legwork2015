@@ -36,6 +36,7 @@ class BaseCoverSlideController extends BaseSlideController
 
     # Class vars
     @$vid_wrap = $('.cover-wrap', @model.getV())
+    @$cnv_wrap = $('.cnv-wrap', @model.getV())
     @loader = new PIXI.loaders.Loader('/animations/', 1)
     @layers = []
     @mcs = {}
@@ -45,12 +46,12 @@ class BaseCoverSlideController extends BaseSlideController
 
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
-      @$vid_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')').show()
+      @$cnv_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')').show()
     else
       # PIXI Stage
       @stage = new PIXI.Container()
       @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': true})
-      @$vid_wrap.append(@renderer.view)
+      @$cnv_wrap.append(@renderer.view)
 
       @$cnv = $(@renderer.view)
 
@@ -82,7 +83,7 @@ class BaseCoverSlideController extends BaseSlideController
   | Resize.
   *----------------------------------------###
   resize: ->
-    @$cnv.css({
+    @$cnv_wrap.css({
       'width': (LW.size.app[1] * (@scene_size.w / @scene_size.h)) + 'px'
       'height': LW.size.app[1] + 'px'
     })
@@ -123,6 +124,9 @@ class BaseCoverSlideController extends BaseSlideController
       @$vid_wrap
         .css('background-color', 'rgb(' + ar + ',' + ag + ',' + ab + ')')
         .addClass('roll')
+
+      # Safari has issues even when we match the color ...
+      @$cnv_wrap.addClass('blend') if !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
 
       # PIXI autoplays the video, so ...
       @resetBaseVideo()

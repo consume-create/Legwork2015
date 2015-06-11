@@ -307,7 +307,10 @@
             background-color: $black
             overflow: hidden
             user-select: none
-            cursor: ew-resize
+            cursor: grab
+
+            &:active
+              cursor: grabbing
 
             .slider
               position: absolute

@@ -40,6 +40,7 @@ class Application
     LW.$body = $('body')
     LW.$wrapper = $('#wrapper')
     LW.$app = $('#wrapper-inner')
+    LW.$follower = $('#follower')
 
     LW.data = require './data/index'
     # LW.error = require './data/error'
