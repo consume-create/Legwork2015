@@ -60,12 +60,12 @@
 
         @include respond-above($media_768)
           @include respond-above-ht($media_ht_560)
-            max-width: 500px
+            max-width: 440px
             font: normal normal normal 16px/25px $avenir_regular
 
         a
           position: relative
-          color: $black
+          color: $white
           display: inline-block
 
           &:after
@@ -75,7 +75,11 @@
             left: 0px
             width: 100%
             height: 2px
-            background-color: $white
+            background-color: $black
+            opacity: 0.2
+
+        a:hover:after
+          opacity: 1
 
       p.job-list
         margin-top: 12px
@@ -98,7 +102,7 @@
 
       ul.lists
         float: left
-        width: 50%
+        width: 40%
         margin-bottom: 10px
 
         &:nth-child(3),
@@ -131,6 +135,24 @@
               @include respond-above-ht($media_ht_560)
                 font: normal normal normal 11px/11px $inconsolata_regular
                 margin-bottom: 20px
+
+          a
+            position: relative
+            color: $white
+            display: inline-block
+
+            &:after
+              content: ''
+              position: absolute
+              bottom: 0px
+              left: 0px
+              width: 100%
+              height: 2px
+              background-color: $black
+              opacity: 0.2
+
+          a:hover:after
+            opacity: 1
 
           span.full
             display: none

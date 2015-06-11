@@ -9,16 +9,17 @@ data = {
     {
       "items": [
         "New Business",
-        "Reach out to Matt FaJohn at",
+        "Reach out to Matt FaJohn",
+        "(720) 907-3833",
         "<a href='mailto:hotleads@legworkstudio.com' target='_new'>hotleads@legworkstudio.com</a>"
       ]
     },
     {
       "items": [
         "General Inquiries",
-        "<a href='mailto:hello@legworkstudio.com' target='_new'>hello@legworkstudio.com</a>",
         "77 West 9th Ave",
-        "Denver Colorado 80204"
+        "Denver Colorado 80204",
+        "<a href='mailto:hello@legworkstudio.com' target='_new'>hello@legworkstudio.com</a>"
       ]
     }
   ]

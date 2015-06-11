@@ -5,7 +5,11 @@
 				<li>
 					<a class="ajaxy" href="<%= link.url %>" data-id="<%= link.id %>">
 						<span class="black-bar"></span>
-						<h4><%= ('0' + (parseInt(i) + 1)).slice(-2) %></h4>
+						<% if parseInt(i) is 0: %>
+							<h4><svg><use xlink:href="/svg/svgdefs.svg#all-seeing-eye"></use></svg></h4>
+						<% else: %>
+							<h4><%= ('0' + parseInt(i)).slice(-2) %></h4>
+						<% end %>
 						<h4><%= link.title %></h4>
 					</a>
 				</li>

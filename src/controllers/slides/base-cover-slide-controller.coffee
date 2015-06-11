@@ -97,7 +97,7 @@ class BaseCoverSlideController extends BaseSlideController
   | Handle base video play.
   *----------------------------------------###
   onBaseVideoPlay: (e) =>
-    _.delay(=> # IE needs a minute
+    _.delay(=>
       # Sample the color of the video
       # and use it as the slide bg color
       # to match the h264 color wash
@@ -130,7 +130,7 @@ class BaseCoverSlideController extends BaseSlideController
 
       # PIXI autoplays the video, so ...
       @resetBaseVideo()
-    , 500)
+    , 500) # IE needs a minute
 
   ###
   *------------------------------------------*
