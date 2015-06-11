@@ -28,8 +28,9 @@ class AnimationCoverSlideController extends BaseCoverSlideController
   build: ->
     super()
 
+    # TODO: keep this for later ...
     # Load cover specific animations
-    @loadAnimation('about-cta.json', @onAboutCTALoaded)
+    #@loadAnimation('about-cta.json', @onAboutCTALoaded)
 
   ###
   *------------------------------------------*
@@ -39,18 +40,7 @@ class AnimationCoverSlideController extends BaseCoverSlideController
   |
   | About CTA has loaded.
   *----------------------------------------###
-  onAboutCTALoaded: (mc) =>
-    @about_cta = mc
-    @about_cta.position = new PIXI.Point(1200, 700)
-    @about_cta.buttonMode = true
-    @about_cta.interactive = true
-    @stage.addChild(@about_cta)
-    @about_cta.gotoAndStop(0)
-
-    # Events
-    @about_cta.on('mouseover', (e) => @about_cta.gotoAndPlay(0))
-    @about_cta.on('mouseout', (e) => @about_cta.gotoAndStop(0))
-    @about_cta.on('mousedown', (e) => History.pushState(null, null, @model.getWatchUrl()))
-    @about_cta.on('touchstart', (e) => History.pushState(null, null, @model.getWatchUrl()))
+  # onAboutCTALoaded: (mc) =>
+  #   @about_cta = mc
 
 module.exports = AnimationCoverSlideController

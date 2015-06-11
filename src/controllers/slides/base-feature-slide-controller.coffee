@@ -26,6 +26,7 @@ class BaseFeatureSlideController extends BaseSlideController
   | Build.
   *----------------------------------------###
   build: ->
+    super()
     @model.getE().append(@model.getV())
 
   ###

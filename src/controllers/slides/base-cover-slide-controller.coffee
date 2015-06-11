@@ -36,6 +36,7 @@ class BaseCoverSlideController extends BaseSlideController
 
     # Class vars
     @$vid_wrap = $('.cover-wrap', @model.getV())
+    @$cnv_wrap = $('.cnv-wrap', @model.getV())
     @loader = new PIXI.loaders.Loader('/animations/', 1)
     @layers = []
     @mcs = {}
@@ -45,12 +46,14 @@ class BaseCoverSlideController extends BaseSlideController
 
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
-      @$vid_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')').show()
+      @$cnv_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')').show()
     else
       # PIXI Stage
       @stage = new PIXI.Container()
       @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': true})
-      @$vid_wrap.append(@renderer.view)
+      @$cnv_wrap.append(@renderer.view)
+
+      @$cnv = $(@renderer.view)
 
       # Base video layer / sprite
       @layers[0] = new PIXI.Container()
@@ -75,6 +78,18 @@ class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
+  | resize:void (-)
+  |
+  | Resize.
+  *----------------------------------------###
+  resize: ->
+    @$cnv_wrap.css({
+      'width': (LW.size.app[1] * (@scene_size.w / @scene_size.h)) + 'px'
+      'height': LW.size.app[1] + 'px'
+    })
+
+  ###
+  *------------------------------------------*
   | onBaseVideoPlay:void (-)
   |
   | e:object - event object
@@ -82,35 +97,40 @@ class BaseCoverSlideController extends BaseSlideController
   | Handle base video play.
   *----------------------------------------###
   onBaseVideoPlay: (e) =>
-    # Sample the color of the video
-    # and use it as the slide bg color
-    # to match the h264 color wash
-    c = document.createElement('canvas').getContext('2d')
-    c.drawImage(@base_vid.baseTexture.source, 10, 10, 20, 20, 0, 0, 20, 20)
-    p = c.getImageData(0, 0, 20, 20).data
-    l = p.length - 1
-    r = g = b = 0
+    _.delay(=> # IE needs a minute
+      # Sample the color of the video
+      # and use it as the slide bg color
+      # to match the h264 color wash
+      c = document.createElement('canvas').getContext('2d')
+      c.drawImage(@base_vid.baseTexture.source, 10, 10, 20, 20, 0, 0, 20, 20)
+      p = c.getImageData(0, 0, 20, 20).data
+      l = p.length - 1
+      r = g = b = 0
 
-    # Average color of 400 pixels
-    while l > 0
-      r += p[l - 3]
-      g += p[l - 2]
-      b += p[l - 1]
-      l -= 4
+      # Average color of 400 pixels
+      while l > 0
+        r += p[l - 3]
+        g += p[l - 2]
+        b += p[l - 1]
+        l -= 4
 
-    ar = Math.round(r / 400)
-    ag = Math.round(g / 400)
-    ab = Math.round(b / 400)
+      ar = Math.round(r / 400)
+      ag = Math.round(g / 400)
+      ab = Math.round(b / 400)
 
-    # Set it
-    @model.getE().attr('data-rgb', ar + ',' + ag + ',' + ab)
+      # Set it
+      @model.getE().attr('data-rgb', ar + ',' + ag + ',' + ab)
 
-    @$vid_wrap
-      .css('background-color', 'rgb(' + ar + ',' + ag + ',' + ab + ')')
-      .show()
+      @$vid_wrap
+        .css('background-color', 'rgb(' + ar + ',' + ag + ',' + ab + ')')
+        .addClass('roll')
 
-    # PIXI autoplays the video, so ...
-    @resetBaseVideo()
+      # Safari has issues even when we match the color ...
+      @$cnv_wrap.addClass('blend') if !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
+
+      # PIXI autoplays the video, so ...
+      @resetBaseVideo()
+    , 500)
 
   ###
   *------------------------------------------*
@@ -202,12 +222,44 @@ class BaseCoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
+  | transitionIn:void (-)
+  |
+  | direction:string - top or bottom
+  |
+  | Transition in.
+  *----------------------------------------###
+  transitionIn: (direction) ->
+    @model.getV()
+      .removeClass('hide-cover')
+      .addClass('show-cover')
+
+  ###
+  *------------------------------------------*
+  | transitionOut:void (-)
+  |
+  | direction:string - top or bottom
+  | cb:function - callback
+  |
+  | Transition out.
+  *----------------------------------------###
+  transitionOut: (direction, cb) ->
+    @model.getV()
+      .removeClass('show-cover')
+      .addClass('hide-cover')
+      .off(LW.utils.transition_end)
+      .one(LW.utils.transition_end, =>
+        cb()
+      )
+
+  ###
+  *------------------------------------------*
   | activate:void (-)
   |
   | Activate.
   *----------------------------------------###
   activate: ->
     super()
+    @resize() if LW.utils.is_mobile.any() is false
     @turnRenderer('on')
 
   ###

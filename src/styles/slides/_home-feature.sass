@@ -40,7 +40,7 @@
         @include respond-above($media_768)
           @include respond-above-ht($media_ht_560)
             font: normal normal normal 11px/11px $inconsolata_regular
-            margin-bottom: 16px
+            margin-bottom: 20px
 
       h2
         height: auto
@@ -88,9 +88,30 @@
           &:after
             bottom: 2px
 
+      .list-pile
+        width: 100%
+        max-width: 320px
+
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
+            max-width: 616px
+
       ul.lists
         float: left
         width: 50%
+        margin-bottom: 10px
+
+        &:nth-child(3),
+        &:nth-child(4)
+          margin-bottom: 0px
+
+        @include respond-above($media_768)
+          @include respond-above-ht($media_ht_560)
+            margin-bottom: 20px
+
+            &:nth-child(3),
+            &:nth-child(4)
+              margin-bottom: 0px
 
         li
           font: normal normal normal 11px/16px $avenir_regular
@@ -109,7 +130,7 @@
             @include respond-above($media_768)
               @include respond-above-ht($media_ht_560)
                 font: normal normal normal 11px/11px $inconsolata_regular
-                margin-bottom: 16px
+                margin-bottom: 20px
 
           span.full
             display: none
@@ -149,7 +170,7 @@
 
               &:first-child
                 font: normal normal normal 11px/11px $inconsolata_regular
-                margin-bottom: 16px
+                margin-bottom: 20px
 
         &:nth-child(4)
           margin: 10px 0 0
@@ -221,8 +242,6 @@
       position: absolute
       top: 0px
       left: 50%
-      height: 100%
-      width: auto
       transform: translate(-50%, 0)
 
       @include respond-above($media_768)

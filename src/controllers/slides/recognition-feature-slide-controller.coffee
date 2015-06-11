@@ -67,6 +67,8 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
     @engine.world.bounds.max.x = Infinity
     @engine.world.bounds.max.y = Infinity
 
+    @$cnv = @$pile.find('canvas')
+
   ###
   *------------------------------------------*
   | initPile:void (-)
@@ -105,6 +107,18 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
 
   ###
   *------------------------------------------*
+  | resize:void (-)
+  |
+  | Resize.
+  *----------------------------------------###
+  resize: ->
+    @$cnv.css({
+      'width': (LW.size.app[1] * (2800 / 1280)) + 'px'
+      'height': LW.size.app[1] + 'px'
+    })
+
+  ###
+  *------------------------------------------*
   | render:void (=)
   |
   | Render.
@@ -123,8 +137,10 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
   activate: =>
     super()
 
-    # Build award pile
     if LW.utils.is_mobile.any() is false
+      @resize()
+
+      # Build award pile
       Matter.World.clear(@engine.world, false)
       @initPile()
 
