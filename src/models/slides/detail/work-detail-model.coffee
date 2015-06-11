@@ -132,9 +132,9 @@ class WorkDetailModel extends BaseModel
   setServices: (services) ->
     passed = true
     
-    if _.isArray(services) is false or (services.length < 1 or services.length > 5)
+    if _.isArray(services) is false or (services.length < 1 or services.length > 8)
       passed = false
-      throw 'ERROR: services must be an array of at least 1 string, but no more than 5'
+      throw 'ERROR: services must be an array of at least 1 string, but no more than 8.'
     
     for s in services
       if _.isString(s) is false
@@ -166,9 +166,9 @@ class WorkDetailModel extends BaseModel
     passed = true
     
     if accolades isnt null
-      if _.isArray(accolades) is false or (accolades.length < 1 or accolades.length > 5)
+      if _.isArray(accolades) is false or (accolades.length < 1 or accolades.length > 8)
         passed = false
-        throw 'ERROR: accolades must be an array of at least 1 string, but no more than 5'
+        throw 'ERROR: accolades must be an array of at least 1 string, but no more than 8.'
     
       for s in accolades
         if _.isString(s) is false
