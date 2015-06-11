@@ -1,7 +1,7 @@
 data = {
   "browser_title": "Coke's Building Of Memories",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["Coke's Building", "Of Memories"],
+  "title": ["Building", "Of Memories"],
   "callouts": [
     LW.callouts.ABOUT
   ],
