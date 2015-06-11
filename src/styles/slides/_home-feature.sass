@@ -45,12 +45,15 @@
       h2
         height: auto
         margin-bottom: 12px
-        font: normal normal normal 19px/19px $avenir_bold
+        font: normal normal normal 18px/18px $avenir_bold
         color: $black
 
         @include respond-above-ht($media_ht_360)
           margin-bottom: 24px
-          font: normal normal normal 19px/23px $avenir_bold
+          font: normal normal normal 18px/22px $avenir_bold
+
+        @include respond-above($media_ht_360)
+          font: normal normal normal 20px/24px $avenir_bold
 
         @include respond-above($media_768)
           @include respond-above-ht($media_ht_560)
