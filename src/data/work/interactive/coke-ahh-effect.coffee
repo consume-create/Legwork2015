@@ -21,85 +21,63 @@ data = {
   "details": {
     "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",
     "title": "Bitesized Brand Experiences",
-    "overview": "When Wieden+Kennedy approached us about joining The Ahh Effect Team, we jumped at the chance. After all, it was Coke's first ever all digital campaign. The brief was a dream—make a collection of simple, focused interactions with a mobile-first mentality. Each Ahh is totally unique, calling for a variety of production techniques from sound design, illustration and motion graphics, to game development and sweeps integration.",
+    "overview": "We were selected to contribute a series of games to the &ldquo;Ahh Effect&rdquo; for Coke. This collection of 64 games, quizzes, and content plays that all tie loosely tie back to the brand in unexpected and sometimes irreverent ways. While each experience is meant to stand on its own, its even more impressive when all of them are viewed as a collection.",
     "services": [
       "Services",
-      "Design / UX",
-      "Illustration",
-      "Animation",
+      "User Experience",
+      "Art Direction",
+      "Design",
       "Development"
     ],
     "accolades": [
       "Recognition",
-      "Webby Awards Winner",
-      "FWA SOTD, MOTD",
-      "Awwards SOTD"
+      "Webby Awards",
+      "Pixel Awards",
+      "FWA",
+      "Awwwards"
     ],
     "media": [
-      # {
-      #   "type": LW.media.IMAGE,
-      #   "copy": {
-      #     "title": "Maniac Kernels From Outer Space",
-      #     "text": [
-      #       "A new take on an old classic. On the creative side, we did all of the sound design, character design and illustration. On the tech side, we worked with batch sprite rendering, collision detection, projectiles and gyroscopic control.",
-      #       "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
-      #     ]
-      #   },
-      #   "images": [
-      #     "/images/work/coke-ahh-effect/details/maniac-kernels-1.jpg"
-      #   ]
-      # },
-      # {
-      #   "type": LW.media.IMAGE,
-      #   "copy": {
-      #     "title": "Ice Toss",
-      #     "text": [
-      #       "Catapult ice into a moving Coke to cool it off. ",
-      #       "<a class='launch-link' href='http://www.ahhhhhhhhhh.com/' target='_new'>ahhhhhhhhhh.com<span class='icon'></span></a>"
-      #     ]
-      #   },
-      #   "images": [
-      #     "/images/work/coke-ahh-effect/details/ice-toss-1.jpg"
-      #   ]
-      # },
-      # {
-      #   "type": LW.media.IMAGE,
-      #   "copy": {
-      #     "title": "Guide The Bubble",
-      #     "text": [
-      #       "Talk about straw sucking and using the gyroscope to control the bubble.",
-      #       "<a class='launch-link' href='http://www.ahhhhhhhhh.com/' target='_new'>ahhhhhhhhh.com<span class='icon'></span></a>"
-      #     ]
-      #   },
-      #   "images": [
-      #     "/images/work/coke-ahh-effect/details/guide-the-bubble-1.jpg"
-      #   ]
-      # },
-      # {
-      #   "type": LW.media.IMAGE,
-      #   "copy": {
-      #     "title": "Cupcake Unicorn",
-      #     "text": [
-      #       "???",
-      #       "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
-      #     ]
-      #   },
-      #   "images": [
-      #     "/images/work/coke-ahh-effect/details/cupcake-unicorn-1.jpg"
-      #   ]
-      # },
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "TODO: show screen caps comps, etc.",
+          "title": "Maniac Kernels From Outer Space",
           "text": [
-            "Let's talk about concepting, animation, illustration, gameplay, controls, etc in general terms."
+            "Talk about levels, bonuses and most importantly using the gyroscope to control the ship. collision detection, projectiles and gyroscopic control.",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
           ]
         },
         "images": [
-          "/images/work/coke-ahh-effect/details/more-ahhs-1.jpg"
+          "/images/work/coke-ahh-effect/details/game-1.jpg",
+          "/images/work/coke-ahh-effect/details/game-2.jpg"
         ]
-      }
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Maniac Kernels From Outer Space",
+          "text": [
+            "Talk about levels, bonuses and most importantly using the gyroscope to control the ship. collision detection, projectiles and gyroscopic control.",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+          ]
+        },
+        "images": [
+          "/images/work/coke-ahh-effect/details/cupcake-unicorn-1.jpg"
+        ]
+      },
+      {
+        "type": LW.media.IMAGE,
+        "copy": {
+          "title": "Maniac Kernels From Outer Space",
+          "text": [
+            "Talk about levels, bonuses and most importantly using the gyroscope to control the ship. collision detection, projectiles and gyroscopic control.",
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+          ]
+        },
+        "images": [
+          "/images/work/coke-ahh-effect/details/mobile-1.jpg",
+          "/images/work/coke-ahh-effect/details/mobile-2.jpg"
+        ]
+      },
     ]
   }
 }
