@@ -44,9 +44,16 @@
 
       h2
         height: auto
-        margin-bottom: 24px
-        font: normal normal normal 20px/24px $avenir_bold
+        margin-bottom: 12px
+        font: normal normal normal 18px/18px $avenir_bold
         color: $black
+
+        @include respond-above-ht($media_ht_360)
+          margin-bottom: 24px
+          font: normal normal normal 18px/22px $avenir_bold
+
+        @include respond-above($media_ht_360)
+          font: normal normal normal 20px/24px $avenir_bold
 
         @include respond-above($media_768)
           @include respond-above-ht($media_ht_560)
@@ -56,7 +63,10 @@
       p
         max-width: 300px
         padding-right: 40px
-        font: normal normal normal 11px/16px $avenir_regular
+        font: normal normal normal 11px/14px $avenir_regular
+
+        @include respond-above-ht($media_ht_360)
+          font: normal normal normal 11px/16px $avenir_regular
 
         @include respond-above($media_768)
           @include respond-above-ht($media_ht_560)
@@ -109,17 +119,19 @@
         &:nth-child(4)
           margin-bottom: 0px
 
-        @include respond-above($media_768)
-          @include respond-above-ht($media_ht_560)
-            margin-bottom: 20px
+        @include respond-above-ht($media_ht_360)
+          margin-bottom: 20px
 
-            &:nth-child(3),
-            &:nth-child(4)
-              margin-bottom: 0px
+          &:nth-child(3),
+          &:nth-child(4)
+            margin-bottom: 0px
 
         li
-          font: normal normal normal 11px/16px $avenir_regular
+          font: normal normal normal 11px/14px $avenir_regular
           margin: 0 10px 0 0
+
+          @include respond-above-ht($media_ht_360)
+            font: normal normal normal 11px/16px $avenir_regular
 
           @include respond-above($media_768)
             @include respond-above-ht($media_ht_560)
@@ -127,9 +139,12 @@
 
           &:first-child
             font: normal normal normal 9px/9px $inconsolata_regular
-            margin-bottom: 10px
+            margin-bottom: 4px
             color: $black
             text-transform: uppercase
+
+            @include respond-above-ht($media_ht_360)
+              margin-bottom: 10px
 
             @include respond-above($media_768)
               @include respond-above-ht($media_ht_560)
@@ -176,34 +191,13 @@
           li
             display: block
 
-      ul.stack
-        li
-          font: normal normal normal 11px/16px $avenir_regular
-
-          &:first-child
-            font: normal normal normal 9px/9px $inconsolata_regular
-            margin-bottom: 10px
-            color: $black
-            text-transform: uppercase
-
-          @include respond-above($media_768)
-            @include respond-above-ht($media_ht_560)
-              font: normal normal normal 16px/25px $avenir_regular
-
-              &:first-child
-                font: normal normal normal 11px/11px $inconsolata_regular
-                margin-bottom: 20px
-
-        &:nth-child(4)
-          margin: 10px 0 0
-
-          @include respond-above-ht($media_ht_480)
-            margin: 38px 0 0
-
       ul.socials
         margin-top: 10px
         font-size: 0
         line-height: 0
+
+        @include respond-above-ht($media_ht_360)
+          margin-top: 20px
 
         li
           display: inline-block
@@ -268,6 +262,20 @@
 
       @include respond-above($media_768)
         left: 25%
+
+  &#home-contact
+    .info-zone
+      .info-holder
+        ul.lists
+          width: 100%
+
+          &:nth-child(2)
+            margin-bottom: 0px
+
+          @include respond-above($media_768)
+            @include respond-above-ht($media_ht_560)
+              margin-bottom: 20px
+
 
 // ---------------------------------------------
 // Party mode
