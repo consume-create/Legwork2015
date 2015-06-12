@@ -21,7 +21,7 @@ data = {
   "details": {
     "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",
     "title": "Bitesized Brand Experiences",
-    "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coke, a collection of 64 games, quizzes, and content plays that all tie loosely back to the brand in unexpected and irreverent ways. Each experience can stand on its own, but its most impressive when viewed as a collection.",
+    "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coke, a collection of 64 games, quizzes, and content plays that all tie loosely back to the brand in unexpected and irreverent ways. Each experience can stand on its own, but the project is most impressive when viewed as a complete collection.",
     "services": [
       "Services",
       "User Experience",

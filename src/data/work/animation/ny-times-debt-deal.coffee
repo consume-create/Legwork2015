@@ -52,7 +52,7 @@ data = {
         "copy": {
           "title": "Photo To Illustration",
           "text": [
-            "The New York Times provided us with a large library of photographs from their archives. To stylize the images to fit our textured newspaper look we ran each one through a process of deconstructing and drawing additional layers on top."
+            "The New York Times provided us with a large library of photographs from their archives. To stylize the images to fit our textured newspaper look we ran each one through a process of deconstructing and drawing layers on top."
           ]
         },
         "images": [

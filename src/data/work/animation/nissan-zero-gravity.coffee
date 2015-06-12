@@ -19,7 +19,7 @@ data = {
   ],
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/main.jpg",
-    "title": "Seats from space",
+    "title": "Seats From Space",
     "overview": "What makes Zero Gravity seats so special? To visualize the answer, our story starts on a drive through the country and quickly takes the viewer on a brief journey into outer space to explore the engineering principles behind the ride. The piece balances technical information with driver benefits in a way that demystifies the science without getting bogged down in the details. ",
     "services": [
       "Services",
@@ -30,7 +30,7 @@ data = {
     ],
     "accolades": [
       "Partners",
-      "TBWA\\CHIAT\\DAY",
+      "TBWA CHIAT DAY",
       "Nissan"
     ]
     "media": [

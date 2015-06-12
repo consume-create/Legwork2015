@@ -34,7 +34,7 @@ data = {
           "name": "Websites"
         },
         {
-          "name": "Brand Platforms"
+          "name": "Kiosk"
         },
         {
           "name": "Games"
