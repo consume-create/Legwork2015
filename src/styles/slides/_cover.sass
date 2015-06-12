@@ -22,7 +22,11 @@
       left: 0px
       width: 100%
       height: 100%
+      background-repeat: no-repeat
+      background-position: 50% 50%
+      background-size: cover
       opacity: 0
+
       transition: opacity $speed_metal linear
 
       &.roll
@@ -32,9 +36,6 @@
         position: absolute
         top: 0px
         left: 50%
-        background-repeat: no-repeat
-        background-position: 50% 50%
-        background-size: contain
         transform: translate(-50%, 0)
 
         &.blend:before,
@@ -107,6 +108,7 @@
 
           transform: translate(-4px,-8px)
 
+// Desktop override play reel btn position
 body.party-on
   .slide
     .slide-inner.cover
@@ -159,11 +161,6 @@ body.party-on
 
         @include respond-above($media_1180)
           left: 100px
-
-        // @media all and (max-aspect-ratio: 1/1)
-        //   left: 50%
-
-        //   transform: translate(-50%,-50%)
 
 // Blends for Safari color shift w/ video
 .slide#home-landing

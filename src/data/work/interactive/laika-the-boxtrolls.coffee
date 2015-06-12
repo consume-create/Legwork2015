@@ -70,7 +70,7 @@ data = {
         "copy": {
           "title": "An Attempt To Mimic True Craft",
           "text": [
-            "Each of the interface elements were hand crafted in Illustrator / Photoshop. Where it was possible, we recreated actual elements from the movie."
+            "Each of the interface elements were hand crafted in Illustrator and Photoshop. Where it was possible, we recreated actual elements from the movie."
           ]
         },
         "images": [

@@ -19,7 +19,7 @@ data = {
   ],
   "details": {
     "bg_src": "/images/work/nissan-zero-gravity/details/main.jpg",
-    "title": "Seats from space",
+    "title": "Seats From Space",
     "overview": "To explore the engineering principles behind the new Nissan Zero Gravity seats we take a journey from earth to outer space. The piece balances technical information with driver benefits in a way that demystifies the science without getting bogged down in the details.",
     "services": [
       "Services",
@@ -30,7 +30,7 @@ data = {
     ],
     "accolades": [
       "Partners",
-      "TBWA\\CHIAT\\DAY",
+      "TBWA CHIAT DAY",
       "Nissan"
     ]
     "media": [

@@ -19,7 +19,7 @@ data = {
   ],
   "details": {
     "bg_src": "/images/work/leinenkugel-social-shandy/details/main.jpg",
-    "title": "Summer in a bottle",
+    "title": "Summer In A Bottle",
     "overview": "Recently, Leinenkugal released it’s Summer Shandy beer nationally. However, if you aren’t a fan of craft beer, or from the midwest, you may not be familiar with the Shandy style. Fans of the beer describe it as \"summer in a bottle,\" which is exactly what we set out to create.",
     "services": [
       "Services",
