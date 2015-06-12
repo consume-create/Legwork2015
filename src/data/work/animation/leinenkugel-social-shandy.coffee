@@ -16,6 +16,7 @@ data = {
   "mediums": [
     LW.mediums.THREE_DIMENSIONAL,
     LW.mediums.LIVE_ACTION,
+    LW.mediums.SOUND
   ],
   "details": {
     "bg_src": "/images/work/leinenkugel-social-shandy/details/main.jpg",

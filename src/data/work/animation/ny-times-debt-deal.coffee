@@ -40,7 +40,7 @@ data = {
         "copy": {
           "title": "Digital Painting",
           "text": [
-            "To create the textured paint style of the spot, we created a set of custom Photoshop brush presets that were shared by the team to keep the look consistent."
+            "To create the paint style, we designed a set of custom Photoshop brush presets that were shared with the team to keep a consistent look."
           ]
         },
         "images": [
@@ -52,7 +52,7 @@ data = {
         "copy": {
           "title": "Photo To Illustration",
           "text": [
-            "The New York Times provided us with a large library of photographs from their archives. To stylize the images to fit our textured newspaper look we ran each one through a process of deconstructing and drawing layers on top."
+            "The New York Times provided us with a large library of photos from their archives. To give the images a textured newspaper look we ran each one through a process of erasing then drawing additional layers on top."
           ]
         },
         "images": [
@@ -64,7 +64,7 @@ data = {
         "copy": {
           "title": "Eraser Head",
           "text": [
-            "A series of cel animated luma mattes were built to create the erasing transition effects. By using them on multiple layers at once in a single scene we were able to achieve a fluid and consistent paint style through the entire spot. "
+            "A series of cel animated luma mattes were built to create the erasing transition effects. By using them on multiple layers at once in a single scene we were able to achieve the fluid motion used throughout the spot."
           ]
         },
         "images": [
@@ -74,9 +74,9 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "Debt Deal",
+          "title": "Debt Deal Obama vs. Boehner",
           "text": [
-            "See what happened in the final piece below, if you didn’t already know."
+            "See what happened in the final piece below."
           ]
         },
         "video_id": "39365605"
