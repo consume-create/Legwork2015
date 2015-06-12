@@ -14,7 +14,6 @@ data = {
   ],
   "mediums": [
     LW.mediums.THREE_DIMENSIONAL,
-    LW.mediums.ANIMATION,
     LW.mediums.ILLUSTRATION
   ],
   "details": {
@@ -23,9 +22,9 @@ data = {
     "overview": "Alameda&rsquo;s video for the track New Leaf has truly been a labor of love for us. We chipped away at it during our downtime and used it as a way to explore new animation techniques, specifically rotoscoping over 3D animation. The goal was to combine the hand-made feel of painting with the perfection of 3D camera movement and environments.",
     "services": [
       "Services",
-      "Story Boards",
       "Design",
       "Illustration",
+      "3D Animation",
       "Cel Animation"
     ],
     "accolades": [
@@ -77,9 +76,9 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "The Final Video",
+          "title": "Alameda New Leaf",
           "text": [
-            "See the finished piece below."
+            "See the finished video below."
           ]
         },
         "video_id": "81630401"

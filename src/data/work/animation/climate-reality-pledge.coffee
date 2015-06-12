@@ -37,7 +37,7 @@ data = {
         "copy": {
           "title": "Developing The Look",
           "text": [
-            "It was important to visualize the concept of good versus evil in this piece. To do so we explored multiple styles utilizing clean graphics contrasted by grungy illustration to find the perfect balance between light and dark."
+            "It was important to visualize the concept of good versus evil in this piece. To do so we explored multiple styles utilizing clean graphics contrasted by grungy illustration."
           ]
         },
         "images": [
@@ -61,7 +61,7 @@ data = {
         "copy": {
           "title": "No More Mens Room Characters",
           "text": [
-            "Informational animations tend to lean towards overly simplified characters. We developed a main character style that added interest through shading and texure, while still keep the utilitarian aspects of an infographic icon."
+            "Informational animations tend to lean towards overly simplified characters. We developed a main character style that added interest through shading and texure, while still keeping the utilitarian aspects of an infographic icon."
           ]
         },
         "images": [
@@ -71,9 +71,9 @@ data = {
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "Final Spot",
+          "title": "The Climate Reality Pledge",
           "text": [
-            "Climate change is not a myth! See the final piece below.",
+            "See the final piece below.",
           ]
         },
         "video_id": "53487338"
