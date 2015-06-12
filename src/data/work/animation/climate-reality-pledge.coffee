@@ -37,7 +37,7 @@ data = {
         "copy": {
           "title": "Developing The Look",
           "text": [
-            "It was important to visualize the concept of good versus evil in this piece. To do so we explored multiple styles utilizing clean graphics contrasted by grungy illustration."
+            "It was important to visualize the concept of good versus evil in this piece. To do so, we explored multiple styles utilizing clean graphics contrasted by grungy illustration."
           ]
         },
         "images": [
@@ -61,7 +61,7 @@ data = {
         "copy": {
           "title": "No More Mens Room Characters",
           "text": [
-            "Informational animations tend to lean towards overly simplified characters. We developed a main character style that added interest through shading and texure, while still keeping the utilitarian aspects of an infographic icon."
+            "Informational animations often feature oversimplified characters so we developed a main character style that added interest through shading and texture, while keeping the utilitarian aspects of an infographic icon."
           ]
         },
         "images": [
