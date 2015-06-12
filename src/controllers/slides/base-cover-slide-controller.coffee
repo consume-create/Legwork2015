@@ -46,9 +46,9 @@ class BaseCoverSlideController extends BaseSlideController
 
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
-      @resize()
-      @$cnv_wrap.css('background-image', 'url(' + @model.getFallbackPath() + ')')
-      @$vid_wrap.addClass('roll')
+      @$vid_wrap
+        .css('background-image', 'url(' + @model.getFallbackPath() + ')')
+        .addClass('roll')
     else
       # PIXI Stage
       @stage = new PIXI.Container()
@@ -231,9 +231,9 @@ class BaseCoverSlideController extends BaseSlideController
   | Transition in.
   *----------------------------------------###
   transitionIn: (direction) ->
-    @model.getV()
-      .removeClass('hide-cover')
-      .addClass('show-cover')
+    @model.getV().removeClass('hide-cover')
+    @model.getV()[0].offsetHeight
+    @model.getV().addClass('show-cover')
 
   ###
   *------------------------------------------*
