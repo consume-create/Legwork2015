@@ -99,7 +99,7 @@ data = {
         "copy": {
           "title": "The Visual Style",
           "text": [
-            "It can be a challenge maintaining a viewer's attention when communicating a lot of technical information. So, we created a stylized look rooted in graphic novels, as opposed to relying only on infographics."
+            "It can be a challenge maintaining a viewers attention when communicating a lot of technical information. So, we created a stylized look rooted in graphic novels, as opposed to relying only on infographics."
           ]
         },
         "images": [
