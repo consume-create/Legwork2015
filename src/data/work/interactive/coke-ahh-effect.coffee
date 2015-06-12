@@ -41,7 +41,7 @@ data = {
           "title": "Maniac Kernels From Outer Space",
           "text": [
             "Just your typical \"evil popcorn trying to take over the world and only you can defend humanity with an ice-cold Coca Cola powered rocket\" type video game.",
-            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>ahhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>Play Game<span class='icon'></span></a>"
           ]
         },
         "images": [
@@ -55,7 +55,7 @@ data = {
           "title": "Cupcake Unicorn",
           "text": [
             "A sip of Coca-Cola tastes like a cupcake filled with unicorns. Does that not sound delicious?",
-            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhhhhhhhhhh.com' target='_new'>http://ahhhhhhhhhhhhhhhhhhhhhhhhhh.com<span class='icon'></span></a>"
+            "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhhhhhhhhhh.com' target='_new'>Play Game<span class='icon'></span></a>"
           ]
         },
         "images": [
@@ -68,7 +68,7 @@ data = {
           "title": "Ice Toss",
           "text": [
             "The perfect temperature to enjoy a Coke is 37 degrees. Too perfect, some might say. But that’s a risk some are willing to take.",
-            "<a class='launch-link' href='http://www.ahhhhhhhhhh.com' target='_new'>http://www.ahhhhhhhhhh.com<span class='icon'></span></a>"
+            "<a class='launch-link' href='http://www.ahhhhhhhhhh.com' target='_new'>Play Game<span class='icon'></span></a>"
           ]
         },
         "images": [
