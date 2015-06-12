@@ -19,8 +19,8 @@ data = {
   ],
   "details": {
     "bg_src": "/images/work/bc4u-what-if/details/main.jpg",
-    "title": "How different would life be with a baby?",
-    "overview": "BC4U provides safe, anonymous birth control to teens, but it can be tough to get the word out. So, instead of more traditional outreach methods, they have focused their efforts on an online content series. This episode shows how disruptive it can be when you throw a baby into the mix. ",
+    "title": "How different is life with a baby?",
+    "overview": "BC4U provides safe, anonymous birth control to teens. To get the word out they’ve focused their efforts on a web content series. In this episode we created a puppet world where life plays out on a social media feed. By splitting the screen, we see the same experiences with and without a baby.",
     "services": [
       "Services",
       "Art Direction",
@@ -28,17 +28,17 @@ data = {
       "Animation"
     ],
     "accolades": [
-      "Partners",
-      "Sprocket Communications",
-      "BC4U"
+      "Recognition",
+      "It’s Art Mag",
+      "Digital Canvas"
     ],
     "media": [
       {
         "type": LW.media.VIDEO,
         "copy": {
-          "title": "Master of Puppets",
+          "title": "Master Of Puppets",
           "text": [
-            "See how we brought these fuzzy teens to life and our production process in this behind-the-scenes short."
+            "See how we brought these fuzzy teens to life with a look into our production process in this behind-the-scenes-short."
           ]
         },
         "video_id": "124883924"
@@ -46,9 +46,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Character Development",
+          "title": "Character Development:",
           "text": [
-            "The character design phase starts with a series of sketches that allow us to explore colors and style, as well as providing a pre-viz reference to guide us in the 3D build."
+            "The character design phase starts with a series of sketches that allow us to explore colors and style, as well as providing a \<br/>\ pre-viz reference to guide us in the 3D build."
           ]
         },
         "images": [
@@ -60,7 +60,7 @@ data = {
         "copy": {
           "title": "The Feed Interface",
           "text": [
-            "To give the illusion of physical materials, we built everything in 3D as if we were making it from hand. The interface itself was created from layered paper, tape, thread, pins and felt to give it a tactile feeling."
+            "To give the illusion of physical objects and materials, we built everything in 3D the same way as if we were building by hand."
           ]
         },
         "images": [
@@ -70,9 +70,9 @@ data = {
       {
         "type": LW.media.SLIDESHOW,
         "copy": {
-          "title": "It&rsquo;s The Small Things",
+          "title": "Attention To Detail",
           "text": [
-            "With our action being deligated to only two rooms, we got creative with ways to make our world feel rich and detailed. Each piece of content shared in the feed is a meticulously crafted 3D scene. Additionally, the teen’s rooms are packed with subtle details from the posters on the walls to the objects on the dressers, each hinting at a different lifestyle. "
+            "Each piece of content shared in the feed is a meticulously crafted 3D scene. Additionally, the environments are packed with small details that subtly hint at our characters backstories.",
           ]
         },
         "images": [
@@ -96,7 +96,7 @@ data = {
         "copy": {
           "title": "BC4U The Feed",
           "text": [
-            "See the puppet teens in action below in the final animation."
+            "View the final piece below."
           ]
         },
         "video_id": "118837949"

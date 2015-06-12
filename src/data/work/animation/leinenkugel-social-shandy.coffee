@@ -15,7 +15,7 @@ data = {
   ],
   "mediums": [
     LW.mediums.THREE_DIMENSIONAL,
-    LW.mediums.LIVE_ACTION
+    LW.mediums.LIVE_ACTION,
   ],
   "details": {
     "bg_src": "/images/work/leinenkugel-social-shandy/details/main.jpg",
@@ -28,7 +28,7 @@ data = {
       "Sound Design"
     ],
     "accolades": [
-      "Parnters",
+      "Partners",
       "Social Deviant",
       "Leninkugels"
     ],
@@ -48,7 +48,7 @@ data = {
         "copy": {
           "title": "Made By Humans",
           "text": [
-            "Since the final product would be used as social media content, our goal was to create the illusion that these videos were just like any video you might see on Instagram or Facebook. We achieved this by giving the footage an intentionally lo-fi aesthetic and created the majority of the effects practically."
+            "Since the final deliverables would be used as social media content, we wanted them to feel like other images or videos a user would see in their feed. To do this, we gave the footage an intentionally lo-fi aesthetic and created most of the effects practically."
           ]
         },
         "images": [
@@ -64,7 +64,7 @@ data = {
         "copy": {
           "title": "Simple Magic",
           "text": [
-            "During the live action shoot, we came up with numerous tricks to pass physical objects to the talent. In post production, we removed any unwanted footage through rotoscoping and layering to create clean plates that allowed us to composite."
+            "During the live action shoot, we came up with numerous tricks to pass physical objects to the talent. In post production we rotoscoped and layered footage to create clean plates for compositing."
           ]
         },
         "images": [
@@ -74,9 +74,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Clogging the feed",
+          "title": "Clogging The Feed",
           "text": [
-            "We created 6 total videos which rolled out every other week over the course of a few months. The project was well received, with consumer feedback like \"That didn’t happen with my bottle.\" and \"I bet that was animated\""
+            "We created a total of 6 videos which rolled out over the course of a few months. The project was well received, with consumer feedback like \"That didn’t happen with my bottle” and “I bet that was animated\"."
           ]
         },
         "images": [
