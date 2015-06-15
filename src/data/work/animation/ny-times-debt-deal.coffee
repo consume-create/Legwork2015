@@ -13,7 +13,7 @@ data = {
     "icon-ny-times"
   ],
   "mediums": [
-    LW.mediums.ANIMATION,
+    LW.mediums.TWO_DIMENSIONAL,
     LW.mediums.ILLUSTRATION
   ],
   "details": {

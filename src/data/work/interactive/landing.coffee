@@ -1,6 +1,6 @@
 data = {
   "browser_title": "Interactive Reel",
-  "slide_type": LW.slide_types.INTERACTIVE_COVER,
+  "slide_type": LW.slide_types.COVER,
   "id": "interactive",
   "base_video_path": "/video/interactive.mp4",
   "fallback_path": "/images/interactive-fallback@2x.jpg",

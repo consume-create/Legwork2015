@@ -15,6 +15,7 @@ data = {
   "mediums": [
     LW.mediums.WEB,
     LW.mediums.ILLUSTRATION,
+    LW.mediums.TWO_DIMENSIONAL,
     LW.mediums.ANIMATION
   ],
   "details": {

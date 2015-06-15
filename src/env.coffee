@@ -19,12 +19,8 @@ LW.LANDING_SLIDE = 'landing'
 LW.slide_types = {}
 
 # Home Slides
-LW.slide_types.HOME_COVER = 'home-cover'
+LW.slide_types.COVER = 'cover'
 LW.slide_types.HOME_FEATURE = 'home-feature'
-
-# Work Slides
-LW.slide_types.ANIMATION_COVER = 'animation-cover'
-LW.slide_types.INTERACTIVE_COVER = 'interactive-cover'
 LW.slide_types.WORK_FEATURE = 'work-feature'
 
 # Medium constants
@@ -35,7 +31,9 @@ LW.slide_types.WORK_FEATURE = 'work-feature'
 LW.mediums = []
 LW.mediums.WEB = "web"
 LW.mediums.ANIMATION = "animation"
+LW.mediums.TWO_DIMENSIONAL = "two-dimensional"
 LW.mediums.THREE_DIMENSIONAL = "three-dimensional"
+LW.mediums.CEL = "cel"
 LW.mediums.EXPERIENTIAL = "experiential"
 LW.mediums.ILLUSTRATION = "illustration"
 LW.mediums.GAME = "game"

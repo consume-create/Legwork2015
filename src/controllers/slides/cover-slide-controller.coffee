@@ -6,7 +6,7 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 BaseSlideController = require './base-slide-controller'
 
-class BaseCoverSlideController extends BaseSlideController
+class CoverSlideController extends BaseSlideController
 
   ###
   *------------------------------------------*
@@ -30,6 +30,7 @@ class BaseCoverSlideController extends BaseSlideController
     super()
     @model.setV($(JST['cover-slide-view']({
       'id': @model.getId(),
+      'base_video_path': @model.getBaseVideoPath(),
       'watch_url': @model.getWatchUrl()
     })))
     @model.getE().append(@model.getV())
@@ -37,12 +38,10 @@ class BaseCoverSlideController extends BaseSlideController
     # Class vars
     @$vid_wrap = $('.cover-wrap', @model.getV())
     @$cnv_wrap = $('.cnv-wrap', @model.getV())
-    @loader = new PIXI.loaders.Loader('/animations/', 1)
-    @layers = []
-    @mcs = {}
+    @$video = $('video', @$cnv_wrap)
 
     # Scene size
-    @scene_size = {'w': 1920, 'h': 1080}
+    @scene_size = {'w': 1600, 'h': 900}
 
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
@@ -50,23 +49,6 @@ class BaseCoverSlideController extends BaseSlideController
         .css('background-image', 'url(' + @model.getFallbackPath() + ')')
         .addClass('roll')
     else
-      # PIXI Stage
-      @stage = new PIXI.Container()
-      @renderer = PIXI.autoDetectRenderer(1920, 1080, {'resolution': 1, 'transparent': true})
-      @$cnv_wrap.append(@renderer.view)
-
-      @$cnv = $(@renderer.view)
-
-      # Base video layer / sprite
-      @layers[0] = new PIXI.Container()
-      @base_vid = PIXI.Texture.fromVideo(@model.getBaseVideoPath())
-      @base_vid.baseTexture.source.loop = true
-      @base = new PIXI.Sprite(@base_vid)
-      @base.width = @renderer.width
-      @base.height = @renderer.height
-
-      @layers[0].addChild(@base)
-      @stage.addChild(@layers[0])
       @observe()
 
   ###
@@ -76,7 +58,7 @@ class BaseCoverSlideController extends BaseSlideController
   | Observe.
   *----------------------------------------###
   observe: ->
-    $(@base_vid.baseTexture.source).one('playing', @onBaseVideoPlay)
+    @$video.show().one('playing', @onBaseVideoPlay)
 
   ###
   *------------------------------------------*
@@ -104,7 +86,7 @@ class BaseCoverSlideController extends BaseSlideController
       # and use it as the slide bg color
       # to match the h264 color wash
       c = document.createElement('canvas').getContext('2d')
-      c.drawImage(@base_vid.baseTexture.source, 10, 10, 20, 20, 0, 0, 20, 20)
+      c.drawImage(@$video.get(0), 10, 10, 20, 20, 0, 0, 20, 20)
       p = c.getImageData(0, 0, 20, 20).data
       l = p.length - 1
       r = g = b = 0
@@ -129,60 +111,7 @@ class BaseCoverSlideController extends BaseSlideController
 
       # Safari has issues even when we match the color ...
       @$cnv_wrap.addClass('blend') if !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
-
-      # PIXI autoplays the video, so ...
-      @resetBaseVideo()
     , 500) # IE needs a minute
-
-  ###
-  *------------------------------------------*
-  | loadAnimation:void (-)
-  |
-  | item:string - item to load
-  | cb:function - callback
-  |
-  | Load an animation.
-  *----------------------------------------###
-  loadAnimation: (item, cb) ->
-    @loader
-      .add(item)
-      .on('load', (loader, resource) =>
-        if resource.isJson
-          resource.on('afterMiddleware', (r) =>
-            frames = r.data.frames
-            name = _.keys(frames)[0]
-            texture_id = name.substr(0, (name.length - 6))
-            texture_ln = (_.size(frames) - 1)
-
-            mc = new PIXI.extras.MovieClip(@mapTextures(texture_id, texture_ln, true))
-            mc.animationSpeed = 28 / 60
-            mc.gotoAndStop(0)
-
-            cb(mc)
-          )
-      )
-      .load()
-
-  ###
-  *------------------------------------------*
-  | mapTextures:void (-)
-  |
-  | id:string - texture id
-  | n:number - number of frames
-  | leading_zero:boolean - leading zero?
-  |
-  | Map texures for a movie clip.
-  *----------------------------------------###
-  mapTextures: (id, n, leading_zero = false) ->
-    textures = []
-
-    for i in [0..n]
-      if leading_zero is true and i < 10
-        i = '0' + i
-
-      textures.push(PIXI.Texture.fromFrame(id + i + '.png'))
-
-    return textures
 
   ###
   *------------------------------------------*
@@ -192,18 +121,11 @@ class BaseCoverSlideController extends BaseSlideController
   *----------------------------------------###
   resetBaseVideo: =>
     if @model.getE().is(':visible') is false
-      @base_vid.baseTexture.source.pause()
-      @base_vid.currentTime = 0
+      @$video.get(0).pause()
 
-  ###
-  *------------------------------------------*
-  | render:void (=)
-  |
-  | Render.
-  *----------------------------------------###
-  render: =>
-    @renderer.render(@stage)
-    @frame = requestAnimationFrame(@render)
+      _.defer(=>
+        @$video.currentTime = 0
+      )
 
   ###
   *------------------------------------------*
@@ -215,12 +137,10 @@ class BaseCoverSlideController extends BaseSlideController
   *----------------------------------------###
   turnRenderer: (s) ->
     if LW.utils.is_mobile.any() is false
-      cancelAnimationFrame(@frame)
       @resetBaseVideo()
 
       if s is 'on'
-        @base_vid.baseTexture.source.play()
-        @frame = requestAnimationFrame(@render)
+        @$video.get(0).play()
 
   ###
   *------------------------------------------*
@@ -275,4 +195,4 @@ class BaseCoverSlideController extends BaseSlideController
     @turnRenderer('off')
 
 
-module.exports = BaseCoverSlideController
+module.exports = CoverSlideController

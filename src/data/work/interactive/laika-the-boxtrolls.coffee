@@ -17,8 +17,8 @@ data = {
   "mediums": [
     LW.mediums.WEB,
     LW.mediums.GAME,
-    LW.mediums.ANIMATION,
-    LW.mediums.THREE_DIMENSIONAL
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.ANIMATION
   ],
   "details": {
     "bg_src": "/images/work/boxtrolls/details/main.jpg",

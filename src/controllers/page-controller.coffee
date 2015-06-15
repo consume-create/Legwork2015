@@ -6,9 +6,7 @@ Copyright (c) 2014 Legwork Studio. All Rights Reserved. Your wife is still hot.
 
 # Covers
 CoverSlideModel = require '../models/slides/cover-slide-model'
-HomeCoverSlideController = require './slides/home-cover-slide-controller'
-AnimationCoverSlideController = require './slides/animation-cover-slide-controller'
-InteractiveCoverSlideController = require './slides/interactive-cover-slide-controller'
+CoverSlideController = require './slides/cover-slide-controller'
 
 # Home Slides
 HomeFeatureSlideModel = require '../models/slides/home-feature-slide-model'
@@ -86,7 +84,7 @@ class PageController
       $el = $('#' + @model.getId() + '-' + id)
 
       switch slide.slide_type
-        when LW.slide_types.HOME_COVER, LW.slide_types.ANIMATION_COVER, LW.slide_types.INTERACTIVE_COVER
+        when LW.slide_types.COVER
           @slide_m[id] = new CoverSlideModel({
             'type': slide.slide_type,
             '$el': $el,
@@ -97,19 +95,9 @@ class PageController
             'watch_url': if slide.reel_video_id? then '/' + @model.getId() + '/reel' else ''
           })
 
-          switch slide.slide_type
-            when LW.slide_types.HOME_COVER
-              @slide_c[id] = new HomeCoverSlideController({
-                'model': @slide_m[id]
-              })
-            when LW.slide_types.ANIMATION_COVER
-              @slide_c[id] = new AnimationCoverSlideController({
-                'model': @slide_m[id]
-              })
-            when LW.slide_types.INTERACTIVE_COVER
-              @slide_c[id] = new InteractiveCoverSlideController({
-                'model': @slide_m[id]
-              })
+          @slide_c[id] = new CoverSlideController({
+            'model': @slide_m[id]
+          })
         when LW.slide_types.HOME_FEATURE
           if slide.id is 'recognition'
             @slide_m[id] = new RecognitionFeatureSlideModel({

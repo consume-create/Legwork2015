@@ -34,7 +34,7 @@ data = {
           "name": "Websites"
         },
         {
-          "name": "Kiosk"
+          "name": "Kiosks"
         },
         {
           "name": "Games"
@@ -71,7 +71,7 @@ data = {
           "alt_name": "App Design &amp; Dev"
         },
         {
-          "name": "E-commerce"
+          "name": "E-Commerce"
         },
         {
           "name": "Explainer Videos"
