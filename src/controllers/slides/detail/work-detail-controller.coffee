@@ -22,8 +22,7 @@ class WorkDetailController
     @model = init.model
     @slideshow_m = null
     @slideshow_c = null
-
-    @build()
+    @built = false
 
   ###
   *------------------------------------------*
@@ -76,6 +75,8 @@ class WorkDetailController
     @videos_exist = false
     if @$video_holder.length > 0
       @videos_exist = true
+
+    @built = true
 
   ###
   *------------------------------------------*
@@ -200,6 +201,8 @@ class WorkDetailController
   | Activate.
   *----------------------------------------###
   activate: ->
+    @build() if @built is false
+
     @model.getE().addClass('active')
     @loadDetailTransition()
     @turnDetailHandlers('on')

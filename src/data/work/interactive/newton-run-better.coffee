@@ -24,7 +24,7 @@ data = {
     "overview": "The team at Newton are on to something big. They solve common running problems with features that are unique to their shoes. To share this with the world, our idea was to build a site that would stand up with the big, global brands that dominate the space. Not only did we achieve that goal, the bigger brands took note and imitated our approach.",
     "services": [
       "Services"
-      "Concepting",
+      "Concept Development",
       "Creative Direction",
       "User Experience",
       "Design",

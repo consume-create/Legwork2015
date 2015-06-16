@@ -41,7 +41,7 @@ data = {
         "copy": {
           "title": "The Building of The Building",
           "text": [
-            "Interviews with the team and highlights on how this project came together."
+            "Highlights on how this project came together."
           ]
         },
         "video_id": "109858979"
@@ -65,7 +65,7 @@ data = {
         "copy": {
           "title": "Carefully Crafted",
           "text": [
-            "We made a custom illustration of the building for the experience, using the orignal television spot as guide. Our animation team built a set of animated elements to match, that we used throughout the experience to provide engaging visuals as you flew up the building."
+            "We made a custom illustration of the building for the experience using the orignal television spot as guide. Our animation team built a set of animated elements to match that we used throughout the experience to provide engaging visuals as you flew up the building."
           ]
         },
         "images": [

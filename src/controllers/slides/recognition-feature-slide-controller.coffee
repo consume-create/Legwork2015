@@ -141,18 +141,15 @@ class RecognitionFeatureSlideController extends BaseFeatureSlideController
       @resize()
 
       # Build award pile
-      Matter.World.clear(@engine.world, false)
       @initPile()
 
       # Start renderer
-      cancelAnimationFrame(@frame)
       @frame = requestAnimationFrame(@render)
 
-      # Pause renderer in 15 seconds
-      clearTimeout(@done_to)
+      # Pause renderer in 20 seconds
       @done_to = setTimeout(=>
         cancelAnimationFrame(@frame)
-      , 15000)
+      , 20000)
 
   ###
   *------------------------------------------*

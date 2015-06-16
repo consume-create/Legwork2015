@@ -12,10 +12,10 @@ data = {
           "name": "Animation"
         },
         {
-          "name": "2D Animation"
+          "name": "2D"
         },
         {
-          "name": "3D/CG Animation"
+          "name": "3D/CG"
         },
         {
           "name": "Stop Motion"

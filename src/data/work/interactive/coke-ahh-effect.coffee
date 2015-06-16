@@ -21,7 +21,7 @@ data = {
   "details": {
     "bg_src": "/images/work/coke-ahh-effect/details/main.jpg",
     "title": "Bitesized Brand Experiences",
-    "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coke, a collection of 64 games, quizzes, and content plays that all tie loosely back to the brand in unexpected and irreverent ways. Each experience can stand on its own, but the project is most impressive when viewed as a complete collection.",
+    "overview": "We were selected to contribute a series of games to the \"Ahh Effect\" for Coca-Cola, a collection of 64 games, quizzes, and content plays that all tie loosely back to the brand in unexpected and irreverent ways. Each experience can stand on its own, but the project is most impressive when viewed as a complete collection.",
     "services": [
       "Services",
       "User Experience",
@@ -40,7 +40,7 @@ data = {
         "copy": {
           "title": "Maniac Kernels From Outer Space",
           "text": [
-            "Just your typical \"evil popcorn trying to take over the world and only you can defend humanity with an ice-cold Coca Cola powered rocket\" type video game.",
+            "Just your typical \"evil popcorn trying to take over the world and only you can defend humanity with an ice-cold Coca-Cola powered rocket\" type video game.",
             "<a class='launch-link' href='http://ahhhhhhhhhhhhhhhhhh.com' target='_new'>Play Game<span class='icon'></span></a>"
           ]
         },
@@ -67,7 +67,7 @@ data = {
         "copy": {
           "title": "Ice Toss",
           "text": [
-            "The perfect temperature to enjoy a Coke is 37 degrees. Too perfect, some might say. But that’s a risk some are willing to take.",
+            "The perfect temperature to enjoy a Coca-Cola is 37 degrees. Too perfect, some might say. But that’s a risk some are willing to take.",
             "<a class='launch-link' href='http://www.ahhhhhhhhhh.com' target='_new'>Play Game<span class='icon'></span></a>"
           ]
         },

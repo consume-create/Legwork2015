@@ -1,7 +1,7 @@
 data = {
-  "browser_title": "Leinenkugel Social Shandy",
+  "browser_title": "Leinenkugel's Social Shandy",
   "slide_type": LW.slide_types.WORK_FEATURE,
-  "title": ["Leinenkugel", "Social Shandy"],
+  "title": ["Leinenkugel's", "Social Shandy"],
   "callouts": [
     LW.callouts.ABOUT,
     LW.callouts.WATCH
@@ -21,7 +21,7 @@ data = {
   "details": {
     "bg_src": "/images/work/leinenkugel-social-shandy/details/main.jpg",
     "title": "Summer In A Bottle",
-    "overview": "Recently, Leinenkugal released it’s Summer Shandy beer nationally. However, if you aren’t a fan of craft beer, or from the midwest, you may not be familiar with the Shandy style. Fans of the beer describe it as \"summer in a bottle,\" which is exactly what we set out to create.",
+    "overview": "Recently, Leinenkugel's released it’s Summer Shandy beer nationally. However, if you aren’t a fan of craft beer or from the midwest, you may not be familiar with the Shandy style. Fans of the beer describe it as \"summer in a bottle,\" which is exactly what we set out to create.",
     "services": [
       "Services",
       "Live Action",
@@ -31,7 +31,7 @@ data = {
     "accolades": [
       "Partners",
       "Social Deviant",
-      "Leninkugels"
+      "Leinenkugel's"
     ],
     "media": [
       {

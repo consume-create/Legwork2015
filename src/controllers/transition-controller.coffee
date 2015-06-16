@@ -66,8 +66,7 @@ class TransitionController
       .add([
         'transition-1.json',
         'transition-2.json',
-        'transition-3.json',
-        'transition-4.json'
+        'transition-3.json'
       ])
       .on('load', @animationQueueProgress)
       .load()

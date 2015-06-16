@@ -19,7 +19,7 @@ data = {
   "details": {
     "bg_src": "/images/work/kentucky-fried-chicken/details/main.jpg",
     "title": "Finger Clickin’ Good",
-    "overview": "The new KFC site is a key component of their larger brand redesign. We balanced a throwback aesthetic with a modern interface, resulting in an adaptive, app-like experience that seamlessly brings the key functions of the site into the forefront while remaining fully indexable by the search bots.",
+    "overview": "The new KFC site is a key component of their larger brand redesign. We balanced a throwback aesthetic with a modern interface, resulting in an adaptive, app-like experience. As a result, the key functions of the site stand out while remaining fully indexable by the search bots.",
     "services": [
       "Services",
       "User Experience",
@@ -37,7 +37,7 @@ data = {
         "copy": {
           "title": "Simplifiying The Experience",
           "text": [
-            "At project inception, we all knew the site should focus on the main few reasons someone would go to this site. So, we immediately began prototyping possible UX patterns."
+            "At project inception, it was important to nail down the main use cases of why someone would use a fast food website. So, we immediately began prototyping possible UX patterns. This was our first pass on the experience."
           ]
         },
         "video_id": "130398129"

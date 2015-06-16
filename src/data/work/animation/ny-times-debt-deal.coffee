@@ -14,12 +14,13 @@ data = {
   ],
   "mediums": [
     LW.mediums.TWO_DIMENSIONAL,
+    LW.mediums.CEL,
     LW.mediums.ILLUSTRATION
   ],
   "details": {
     "bg_src": "/images/work/ny-times-debt-deal/details/main.jpg",
     "title": "Obama vs. Boehner",
-    "overview": "So what went wrong between President Obama and House Speaker John Boehner when the 2011 debt deal fell apart? We partnered with The New York Times to produce a high-level recount of how the deal came to be - and how it ultimately unraveled.",
+    "overview": "What went wrong between President Obama and House Speaker John Boehner when the 2011 debt deal fell apart? We partnered with The New York Times to produce a high-level recount of how the deal came to be, and how it ultimately unraveled.",
     "services": [
       "Services",
       "Design",
@@ -52,7 +53,7 @@ data = {
         "copy": {
           "title": "Photo To Illustration",
           "text": [
-            "The New York Times provided us with a large library of photos from their archives. To give the images a textured newspaper look we ran each one through a process of erasing then drawing additional layers on top."
+            "The New York Times provided us with a large library of photos from their archives. To give the images a textured newspaper look, we ran each one through a process of erasing then drawing additional layers on top."
           ]
         },
         "images": [

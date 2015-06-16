@@ -285,7 +285,6 @@ class PageController
       , 13)
     else if @slide_c[slide] is @active_c
       if sub_type isnt ''
-        console.log 'show sub'
         @showSub(sub_type)
       else
         @hideSub()
@@ -450,7 +449,7 @@ class PageController
 
         setTimeout =>
           @threshold_hit = false
-        , 666
+        , 1000
 
   ###
   *------------------------------------------*

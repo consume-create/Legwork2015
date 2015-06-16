@@ -14,6 +14,7 @@ data = {
   ],
   "mediums": [
     LW.mediums.TWO_DIMENSIONAL,
+    LW.mediums.CEL,
     LW.mediums.ILLUSTRATION
   ],
   "details": {
@@ -59,7 +60,7 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "No More Mens Room Characters",
+          "title": "No More Men's Room Characters",
           "text": [
             "Informational animations often feature oversimplified characters so we developed a main character style that added interest through shading and texture, while keeping the utilitarian aspects of an infographic icon."
           ]

@@ -20,7 +20,7 @@ data = {
   "details": {
     "bg_src": "/images/work/bc4u-what-if/details/main.jpg",
     "title": "How different is life with a baby?",
-    "overview": "BC4U provides safe, anonymous birth control to teens. To get the word out they’ve focused their efforts on a web content series. In this episode we created a puppet world where life plays out on a social media feed. By splitting the screen, we see the same experiences with and without a baby.",
+    "overview": "BC4U provides safe, anonymous birth control to teens. To get the word out, they’ve focused their efforts on a web content series. In this episode we created a puppet world where life plays out on a social media feed. By splitting the screen, we see the same experiences with and without a baby.",
     "services": [
       "Services",
       "Art Direction",
@@ -38,7 +38,7 @@ data = {
         "copy": {
           "title": "Master Of Puppets",
           "text": [
-            "See how we brought these fuzzy teens to life with a look into our production process in this behind-the-scenes-short."
+            "See how we brought these fuzzy teens to life with a look into our production process in this behind-the-scenes short."
           ]
         },
         "video_id": "124883924"
@@ -48,7 +48,7 @@ data = {
         "copy": {
           "title": "Character Development:",
           "text": [
-            "The character design phase starts with a series of sketches that allow us to explore colors and style, as well as providing a \<br/>\ pre-viz reference to guide us in the 3D build."
+            "The character design phase started with a series of sketches that allowed us to explore colors and style. These sketches also provided a pre-viz reference to guide us in the 3D build."
           ]
         },
         "images": [
@@ -72,7 +72,7 @@ data = {
         "copy": {
           "title": "Attention To Detail",
           "text": [
-            "Each piece of content shared in the feed is a meticulously crafted 3D scene. Additionally, the environments are packed with small details that subtly hint at our characters backstories.",
+            "Each piece of content shared in the feed is a meticulously crafted 3D scene. Additionally, the environments are packed with small details that subtly hint at our character's backstories.",
           ]
         },
         "images": [
