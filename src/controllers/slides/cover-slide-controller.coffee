@@ -40,14 +40,25 @@ class CoverSlideController extends BaseSlideController
     @$cnv_wrap = $('.cnv-wrap', @model.getV())
     @$video = $('video', @$cnv_wrap)
 
+    LW.utils.is_mobile.any = ->
+      return true
+
     # Scene size
     @scene_size = {'w': 1600, 'h': 900}
 
+    LW.utils.is_mobile.any = =>
+      return true
+
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
-      @$vid_wrap
-        .css('background-image', 'url(' + @model.getFallbackPath() + ')')
-        .addClass('roll')
+      _.delay(=>
+        @$vid_wrap
+          .css({
+            'background-color': 'rgba(' + @model.getE().data('rgb') + ', 1)',
+            'background-image': 'url(' + @model.getFallbackPath() + ')'
+          })
+          .addClass('roll')
+      , 333)
     else
       @observe()
 
