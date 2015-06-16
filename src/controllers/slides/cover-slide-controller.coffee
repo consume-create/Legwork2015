@@ -40,14 +40,8 @@ class CoverSlideController extends BaseSlideController
     @$cnv_wrap = $('.cnv-wrap', @model.getV())
     @$video = $('video', @$cnv_wrap)
 
-    LW.utils.is_mobile.any = ->
-      return true
-
     # Scene size
     @scene_size = {'w': 1600, 'h': 900}
-
-    LW.utils.is_mobile.any = =>
-      return true
 
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
