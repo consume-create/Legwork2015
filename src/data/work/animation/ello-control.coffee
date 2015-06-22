@@ -1,5 +1,5 @@
 data = {
-  "browser_title": "Ello Who's In Control",
+  "browser_title": "Ello Control",
   "slide_type": LW.slide_types.WORK_FEATURE,
   "title": ["Ello", "Control"],
   "callouts": [
@@ -15,7 +15,8 @@ data = {
   "mediums": [
     LW.mediums.LIVE_ACTION,
     LW.mediums.EXPERIENTIAL,
-    LW.mediums.ILLUSTRATION
+    LW.mediums.ILLUSTRATION,
+    LW.mediums.THREE_DIMENSIONAL
   ],
   "details": {
     "bg_src": "/images/work/ello-control/details/main.jpg",
@@ -23,24 +24,29 @@ data = {
     "overview": "We created this conceptual video for Ello, and ad free social platform,  as a commentary on digital identity. The story opens by questioning who actually owns your data, and peaks at a pivotal moment where we literally show the user taking back control. The end result is a sci-fi inspired video that combines live action with projection mapping.",
     "services": [
       "Services",
-      "Story Boards",
+      "Live Action",
       "Design",
-      "Mapping",
+      "Projection Mapping",
       "Animation"
     ],
     "accolades": null,
     "media": [
       {
         "type": LW.media.VIDEO,
-        "copy": null,
-        "video_id": "127310102"
+        "copy": {
+          "title": "Against The Grain",
+          "text": [
+            "An overview of our concept and production techniques."
+          ]
+        },
+        "video_id": "131445043"
       },
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Concept Art",
+          "title": "Taking Control",
           "text": [
-            "Blurb about the concept art."
+            "Rather than doing an animated interface, We decided to fabricate a physical console. We collected vintage electronics, designed a layout, wired custom lighting, then reassembled it into a custom sheet metal box."
           ]
         },
         "images": [
@@ -62,9 +68,9 @@ data = {
       {
         "type": LW.media.IMAGE,
         "copy": {
-          "title": "Concept Art",
+          "title": "Projecting The World",
           "text": [
-            "Blurb about the concept art."
+            "We stitched two projectors together to fill the set, and using Resolume we were able to do live masking that allowed us to separate the background projection from the talent projection."
           ]
         },
         "images": [
@@ -84,7 +90,12 @@ data = {
       },
       {
         "type": LW.media.VIDEO,
-        "copy": null,
+        "copy": {
+          "title": "Ello Control",
+          "text": [
+            "See the finished spot below."
+          ]
+        },
         "video_id": "127310102"
       }
     ]
