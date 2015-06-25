@@ -7,7 +7,7 @@ data = {
     LW.callouts.WATCH
   ],
   "launch_url": null,
-  "watch_video_id": "127310102",
+  "watch_video_id": "128509112",
   "picture_src": "/images/work/ello-control/ello-control.png",
   "clients": [
     "icon-ello"
