@@ -10,7 +10,7 @@ careers = require './home/careers'
 
 # Animation
 animation = require './work/animation/landing'
-# ello_control = require './work/animation/ello-control'
+ello_control = require './work/animation/ello-control'
 nissan_zero_gravity = require './work/animation/nissan-zero-gravity'
 bc4u_what_if = require './work/animation/bc4u-what-if'
 leinenkugel_social_shandy = require './work/animation/leinenkugel-social-shandy'
@@ -54,7 +54,7 @@ data = {
     "animation": {
       "slides": {
         "landing": animation,
-        # "ello-control": ello_control,
+        "ello-control": ello_control,
         "nissan-zero-gravity": nissan_zero_gravity,
         "bc4u-what-if": bc4u_what_if,
         "leinenkugel-social-shandy": leinenkugel_social_shandy,
