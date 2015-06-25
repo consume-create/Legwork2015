@@ -21,7 +21,7 @@ data = {
     },
     {
       "texture": "/images/awards/awwwards.png",
-      "count": 16
+      "count": 18
     },
     {
       "texture": "/images/awards/sandbox.png",

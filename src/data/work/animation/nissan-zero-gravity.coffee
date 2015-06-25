@@ -14,6 +14,7 @@ data = {
     "icon-tbwa"
   ],
   "mediums": [
+    LW.mediums.TWO_DIMENSIONAL,
     LW.mediums.THREE_DIMENSIONAL,
     LW.mediums.ILLUSTRATION
   ],

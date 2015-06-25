@@ -28,6 +28,7 @@ data = {
     ],
     "accolades": [
       "Recognition",
+      "AWWWARDS",
       "Designer News",
       "Site Inspire"
     ],
