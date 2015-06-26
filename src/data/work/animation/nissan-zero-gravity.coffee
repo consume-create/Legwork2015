@@ -30,9 +30,9 @@ data = {
       "3D Animation"
     ],
     "accolades": [
-      "Partners",
-      "TBWA CHIAT DAY",
-      "Nissan"
+      "Recognition",
+      "VOTD",
+      "Digital Canvas"
     ]
     "media": [
       {

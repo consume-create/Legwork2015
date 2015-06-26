@@ -15,8 +15,8 @@ data = {
   "mediums": [
     LW.mediums.LIVE_ACTION,
     LW.mediums.EXPERIENTIAL,
-    LW.mediums.ILLUSTRATION,
-    LW.mediums.THREE_DIMENSIONAL
+    LW.mediums.THREE_DIMENSIONAL,
+    LW.mediums.TWO_DIMENSIONAL
   ],
   "details": {
     "bg_src": "/images/work/ello-control/details/main.jpg",
