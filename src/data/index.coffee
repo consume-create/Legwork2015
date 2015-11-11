@@ -20,6 +20,7 @@ alameda_new_leaf = require './work/animation/alameda-new-leaf'
 
 # Interactive
 interactive = require './work/interactive/landing'
+fotl_the_tuck_effect = require './work/interactive/fotl-the-tuck-effect'
 laika_the_boxtrolls = require './work/interactive/laika-the-boxtrolls'
 kentucky_fried_chicken = require './work/interactive/kentucky-fried-chicken'
 coke_building_of_memories = require './work/interactive/coke-building-of-memories'
@@ -67,6 +68,7 @@ data = {
     "interactive": {
       "slides": {
         "landing": interactive,
+        # "fotl-the-tuck-effect": fotl_the_tuck_effect,
         "laika-the-boxtrolls": laika_the_boxtrolls,
         "kentucky-fried-chicken": kentucky_fried_chicken,
         "coke-building-of-memories": coke_building_of_memories,
