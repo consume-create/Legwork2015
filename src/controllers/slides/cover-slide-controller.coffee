@@ -41,7 +41,7 @@ class CoverSlideController extends BaseSlideController
     @$video = $('video', @$cnv_wrap)
 
     # Scene size
-    @scene_size = {'w': 1600, 'h': 900}
+    @scene_size = {'w': 2000, 'h': 900}
 
     # PIXI for desktop, static for mobile
     if LW.utils.is_mobile.any()
