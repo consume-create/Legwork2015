@@ -5,7 +5,6 @@ This is the source code for our 2015 (because we will not finish it before this 
 
 Thanks!
 
-
 ##Cheat Sheet:
 
 - Download ZIP of this project
@@ -28,3 +27,6 @@ Cd into the root of your new project:
 - Build minifed and concatenated poduction ready application `gulp dist`
 
 - Clean the tmp folder and start over `gulp clean`
+
+##Deployment
+git push live master
