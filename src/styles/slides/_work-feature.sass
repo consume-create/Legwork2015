@@ -76,7 +76,7 @@
 
       &.trans-out h2
         opacity: 0
-        
+
         transition: transform $speed $ease_in, opacity $speed $ease_in
 
       &.trans-out.top h2
@@ -264,116 +264,90 @@
         width: 308px
 
         li
+          position: relative
           width: 20px
           overflow: hidden
 
           svg
+            position: absolute
+            left: 50%
             width: 80px
             height: 20px
             fill: $black
             display: block
+            transform: translate(-50%, 0%)
 
+          // since SVG doesn't scale auto,
+          // width = ((20 / 128) * actual width (should be noted in SVG defs))
           &.icon-laika
             width: 38px
-            svg
-              margin-left: -21px
 
           &.icon-nike
             width: 56px
-            svg
-              margin-left: -12px
 
           &.icon-wieden
             width: 46px
-            svg
-              margin-left: -17px
 
           &.icon-nissan
             width: 30px
-            svg
-              margin-left: -25px
 
           &.icon-coke
             width: 62px
-            svg
-              margin-left: -9px
 
           &.icon-google
             width: 56px
-            svg
-              margin-left: -12px
 
           &.icon-ifd
             width: 78px
-            svg
-              margin-left: -1px
 
           &.icon-alameda
             width: 78px
-            svg
-              margin-left: -1px
 
           &.icon-ny-times
             width: 16px
-            svg
-              margin-left: -32px
 
           &.icon-tbwa
             width: 20px
-            svg
-              margin-left: -30px
 
           &.icon-newton
             width: 78px
-            svg
-              margin-left: -1px
 
           &.icon-leinenkugel
             width: 38px
-            svg
-              margin-left: -21px
 
           &.icon-social-deviant
             width: 18px
-            svg
-              margin-left: -31px
 
           &.icon-clyfford-still
             width: 78px
-            svg
-              margin-left: -1px
 
           &.icon-climate-reality
             width: 76px
-            svg
-              margin-left: -2px
 
           &.icon-bc4u
             width: 46px
-            svg
-              margin-left: -17px
 
           &.icon-sprocket
             width: 20px
-            svg
-              margin-left: -30px
 
           &.icon-ello
             width: 20px
-            svg
-              margin-left: -30px
 
           &.icon-kfc
             width: 15px
-            svg
-              margin-left: -32px
+
+          &.icon-allstate
+            width: 76px
+
+          &.icon-leo
+            width: 80px
 
       &.mediums
         width: auto
 
         &:before
           content: 'Medium(s)'
-        
+
         li
           cursor: default
 

@@ -9,7 +9,7 @@ data = {
   "awards": [
     {
       "texture": "/images/awards/fwa.png",
-      "count": 36
+      "count": 37
     },
     {
       "texture": "/images/awards/webby.png",
@@ -21,7 +21,7 @@ data = {
     },
     {
       "texture": "/images/awards/awwwards.png",
-      "count": 18
+      "count": 24
     },
     {
       "texture": "/images/awards/sandbox.png",

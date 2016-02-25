@@ -10,16 +10,19 @@ careers = require './home/careers'
 
 # Animation
 animation = require './work/animation/landing'
+allstate_survival_guide = require './work/animation/allstate-survival-guide'
+#nike_us_open = require './work/animation/nike-us-open'
 ello_control = require './work/animation/ello-control'
 nissan_zero_gravity = require './work/animation/nissan-zero-gravity'
 bc4u_what_if = require './work/animation/bc4u-what-if'
-leinenkugel_social_shandy = require './work/animation/leinenkugel-social-shandy'
+#leinenkugel_social_shandy = require './work/animation/leinenkugel-social-shandy'
 ny_times_debt_deal = require './work/animation/ny-times-debt-deal'
 climate_reality_pledge = require './work/animation/climate-reality-pledge'
 alameda_new_leaf = require './work/animation/alameda-new-leaf'
 
 # Interactive
 interactive = require './work/interactive/landing'
+hike_nike_nyc = require './work/interactive/hike-nike-nyc'
 fotl_the_tuck_effect = require './work/interactive/fotl-the-tuck-effect'
 laika_the_boxtrolls = require './work/interactive/laika-the-boxtrolls'
 kentucky_fried_chicken = require './work/interactive/kentucky-fried-chicken'
@@ -55,10 +58,12 @@ data = {
     "animation": {
       "slides": {
         "landing": animation,
+        "allstate-survival-guide": allstate_survival_guide,
+        # "nike-us-open": nike_us_open,
         "ello-control": ello_control,
         "nissan-zero-gravity": nissan_zero_gravity,
         "bc4u-what-if": bc4u_what_if,
-        "leinenkugel-social-shandy": leinenkugel_social_shandy,
+        # "leinenkugel-social-shandy": leinenkugel_social_shandy,
         "ny-times-debt-deal": ny_times_debt_deal,
         "climate-reality-pledge": climate_reality_pledge,
         "alameda-new-leaf": alameda_new_leaf
@@ -68,6 +73,7 @@ data = {
     "interactive": {
       "slides": {
         "landing": interactive,
+        "hike-nike-nyc": hike_nike_nyc,
         # "fotl-the-tuck-effect": fotl_the_tuck_effect,
         "laika-the-boxtrolls": laika_the_boxtrolls,
         "kentucky-fried-chicken": kentucky_fried_chicken,
