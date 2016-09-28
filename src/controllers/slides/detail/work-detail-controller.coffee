@@ -122,11 +122,15 @@ class WorkDetailController
       $t = $(el)
       $poster = $('.video-poster', $t)
       id = $poster.attr('data-id')
+      url = "https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/#{id}"
 
-      $.getJSON("https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/#{id}", (data) =>
+      $.getJSON(url, (data) =>
         r = (data.height / data.width) * 100
+        # Hack our way up to getting a 1280px wide thumbnail...
+        src = data.thumbnail_url.replace(/\_(.*)/ig, '_1280.jpg')
+
         $t.css('padding-bottom', r + '%')
-        $poster.attr('style', "background-image: url('#{data.thumbnail_url}');")
+        $poster.attr('style', "background-image: url('#{src}');")
       )
     )
 
@@ -138,10 +142,10 @@ class WorkDetailController
   *----------------------------------------###
   onClickPoster: (e) =>
     @resetVideos()
-    
+
     $t = $(e.currentTarget)
     $v = "<iframe src='//player.vimeo.com/video/#{$t.attr('data-id')}?title=0&amp;byline=0&amp;badge=0&amp;portrait=0&amp;color=fff&amp;autoplay=1&amp;player_id=player' id='player' width='720' height='405' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
-    
+
     $t[0].offsetHeight
     $t.parent('.video-holder').addClass('playing')
     $t.siblings('.video-player').append($v)
