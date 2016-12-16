@@ -11,7 +11,7 @@ careers = require './home/careers'
 # Animation
 animation = require './work/animation/landing'
 allstate_survival_guide = require './work/animation/allstate-survival-guide'
-#nike_us_open = require './work/animation/nike-us-open'
+nike_us_open = require './work/animation/nike-us-open'
 ello_control = require './work/animation/ello-control'
 nissan_zero_gravity = require './work/animation/nissan-zero-gravity'
 bc4u_what_if = require './work/animation/bc4u-what-if'
@@ -19,6 +19,7 @@ bc4u_what_if = require './work/animation/bc4u-what-if'
 ny_times_debt_deal = require './work/animation/ny-times-debt-deal'
 climate_reality_pledge = require './work/animation/climate-reality-pledge'
 alameda_new_leaf = require './work/animation/alameda-new-leaf'
+einstein_bros_twist_dip = require './work/animation/einstein-bros-twist-dip'
 
 # Interactive
 interactive = require './work/interactive/landing'
@@ -58,14 +59,16 @@ data = {
     "animation": {
       "slides": {
         "landing": animation,
+        "einstein-bros-twist-dip": einstein_bros_twist_dip,
+        "nike-us-open": nike_us_open,
         "allstate-survival-guide": allstate_survival_guide,
-        # "nike-us-open": nike_us_open,
+        
         "ello-control": ello_control,
         "nissan-zero-gravity": nissan_zero_gravity,
-        "bc4u-what-if": bc4u_what_if,
+        # "bc4u-what-if": bc4u_what_if,
         # "leinenkugel-social-shandy": leinenkugel_social_shandy,
         "ny-times-debt-deal": ny_times_debt_deal,
-        "climate-reality-pledge": climate_reality_pledge,
+        # "climate-reality-pledge": climate_reality_pledge,
         "alameda-new-leaf": alameda_new_leaf
       },
       "color_index": 1
@@ -78,7 +81,7 @@ data = {
         "laika-the-boxtrolls": laika_the_boxtrolls,
         "kentucky-fried-chicken": kentucky_fried_chicken,
         "coke-building-of-memories": coke_building_of_memories,
-        "newton-run-better": newton_run_better,
+        # "newton-run-better": newton_run_better,
         "coke-ahh-effect": coke_ahh_effect,
         "google-roll-it": google_roll_it
       },
