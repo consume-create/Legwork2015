@@ -10,8 +10,8 @@ data = {
   "watch_video_id": "165361233",
   "picture_src": "/images/work/einstein-bros/einstein-bros-twist-dip.png",
   "clients": [
-    "icon-fear-not",
-    "icon-einstein"
+    "icon-einstein-bros",
+    "icon-fear-not"
   ],
   "mediums": [
     LW.mediums.THREE_DIMENSIONAL,
