@@ -14,7 +14,6 @@ data = {
   ],
   "mediums": [
     LW.mediums.TWO_DIMENSIONAL,
-    LW.mediums.CEL,
     LW.mediums.ILLUSTRATION
   ],
   "details": {
