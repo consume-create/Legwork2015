@@ -9,7 +9,7 @@ data = {
   "awards": [
     {
       "texture": "/images/awards/fwa.png",
-      "count": 37
+      "count": 42
     },
     {
       "texture": "/images/awards/webby.png",

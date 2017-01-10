@@ -67,7 +67,7 @@ class Application
     }
 
     @cling_to = -1
-    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'I want to show you something.', 'What about the boat times?', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'Love games?']
+    @clinger_titles = ['Do you love me?', 'Could you learn to love me?', 'I want to show you something.', 'What about the boat times?', 'Want to see my watercolors?', 'Don\'t lie to me, boy.', 'Love games?', 'I know what you\'re thinkin\'.', 'I got Baileys.']
     @$fallback = $('#fallback')
     @active_c = null
 
