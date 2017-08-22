@@ -20,7 +20,6 @@
     "underscore": null,
     "jquery-easing": null,
     "history.js": null,
-    "sass-meyer-reset": null,
     "greensock": null,
     "pixi": "~3.0",
     "froogaloop": "~0.1.0",
