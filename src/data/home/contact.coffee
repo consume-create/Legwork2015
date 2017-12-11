@@ -9,8 +9,8 @@ data = {
     {
       "items": [
         "New Business",
-        "Reach out to Matt FaJohn",
-        "(720) 907-3833",
+        "Send us a brief description",
+        "of your idea or an RFP to:"
         "<a href='mailto:hotleads@legworkstudio.com' target='_new'>hotleads@legworkstudio.com</a>"
       ]
     },

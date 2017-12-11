@@ -41,7 +41,7 @@ data = {
     },
     {
       "texture": "/images/awards/adc.png",
-      "count": 5
+      "count": 9
     },
     {
       "texture": "/images/awards/votd.png",
