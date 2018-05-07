@@ -1,7 +1,7 @@
 <div class="slide-inner cover">
 	<div class="cover-wrap">
 		<div class="cnv-wrap">
-			<video id="<%= @id %>-player" width="1600" height="900" preload="auto" loop="true">
+			<video id="<%= @id %>-player" width="1600" height="900" preload="auto" loop="true" muted>
 				<source src="<%= @base_video_path %>" type="video/mp4">
 			</video>
 		</div>
