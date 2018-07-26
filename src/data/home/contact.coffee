@@ -17,8 +17,8 @@ data = {
     {
       "items": [
         "General Inquiries",
-        "77 West 9th Ave",
-        "Denver, CO 80204",
+        "2854 Larimer St",
+        "Denver, CO 80205",
         "<a href='mailto:hello@legworkstudio.com' target='_new'>hello@legworkstudio.com</a>"
       ]
     }

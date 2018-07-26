@@ -8,6 +8,6 @@
 	</nav>
 	<nav id="secondary-nav">
 		<a href="mailto:hello@legworkstudio.com"><svg><use xlink:href="/svg/svgdefs.svg#icon-contact"></use></svg></a>
-		<a href="http://goo.gl/2uCNuD" target="_new"><svg><use xlink:href="/svg/svgdefs.svg#icon-locate"></use></svg></a>
+		<a href="https://www.google.com/maps/place/Legwork+Studio/@39.7610051,-104.9840254,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x753d67d7fbbb651b!8m2!3d39.7610051!4d-104.9818367?hl=en" target="_new"><svg><use xlink:href="/svg/svgdefs.svg#icon-locate"></use></svg></a>
 	</nav>
 </div>
